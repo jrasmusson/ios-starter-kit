@@ -2,7 +2,7 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
-- What are Optionals and how do they work
+- The basics 
 
 ## Basic iOS Controls
 
