@@ -2,7 +2,7 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
-- The basics 
+* [Optionals](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Optionals.md)  
 
 ## Basic iOS Controls
 
