@@ -40,13 +40,13 @@ let y = Optional<String>.Some("Hi there")
 
 So that's what Optionals are. But before we can use in Options internal value, we first need to unwrap it.
 
-# Unwrapping Optionals
+# How do they work?
 There are three way to unwrap an Optional
  - Forced Unwrapping
  - Optional Binding
  - Implicit Unwrapping
 
-## Forced Unwrapping
+### Forced Unwrapping
 Forced unwrapping is the brute force way to get an an underlying Optional. You basically take your Optional, end it with an “!”, and you get direct access to the internal contents of the Optional.
 
 ```swift
@@ -54,7 +54,7 @@ let optionalInt: Int? = 5
 let unwrappedInt: Int = optionalInt! // OK because Int? has a value
 ```
 
-This works so long as your Optional has an underlying value. The downside to force unwrapping is your program will crash if the Optional doesn’t have an underlying value. That’s what forced unwrapping is generally discouraged.
+This works so long as your Optional has an underlying value. The downside to force unwrapping is your program will crash if the Optional doesn’t have an underlying value. 
 
 If your force unwrap and your Optional doesn’t have a value, and exception is raised
 
@@ -65,20 +65,9 @@ switch b {
     case .None: //raise an exception
 }
 ```
+For this reason **forced unwrapping is strongly discouraged**. The Swift way to access an Optionals internal values is through Optional Binding.
 
-Of course you can always check an Optional for nil before force unwrapping.
-
-```swift
-let optionalInt: Int? = 5
-
-if optionalInt != nil {
-    print("optionalInt has an integer value of \(optionalInt!).")
-}
-```
-
-But this defeats the purpose of the Optional in the first place (to avoid all those null checks).  A more elegant Swiftier way to unwrap Optionals is through Optional Binding
-
-## Optionally Binding
+### Optionally Binding
 Optional binding takes your Optional, extracts it’s underlying value, and returns it to you all in one single action.
 
 ```swift
@@ -113,7 +102,7 @@ guard let url = URL(string: string) else {
 // url in scope out here
 ```
 
-## Implicit unwrapping
+### Implicit unwrapping
 If you don’t like all this Optional stuff, and you just want to use a variable out of the box like we used to do in the old days, you can. It’s called Implicit unwrapping. 
 
 ```swift
@@ -128,18 +117,9 @@ Just be careful. An implicitly unwrapped variable that is set to nil will crash 
 
 Here are some other cool Optional things to be aware of.
 
-# Nil coalescing
+## Nil coalescing
 
-Sometimes we want to use a default value when the optional is nil. We could use a ternary operator.
-
-```swift
-let optionalInt: Int? = nil
-let result = optionalInt != nil ? optionalInt! : 0
-print("The result is \(result)")
-// prints "The result is 0"
-```
-
-But even better is the nil coalescing.
+To set a default value for an Optional that's nil use the double question mark '??' syntax for Nil Coalescing.
 
 ```swift
 let result = optionalInt ?? 0
@@ -147,7 +127,7 @@ let result = optionalInt ?? 0
 
 This just means if the Optional is nil, use this default value.
 
-# Optional Chaining
+## Optional Chaining
 Optional chaining is a feature that allows you to call properties and methods on an optional that might currently be nil. Unlike force wrapping however which would result in a runtime error, optional chaining fails gracefully when the optional is nil.
 
 ```swift
@@ -169,3 +149,7 @@ if let currentBalance = person.bankAccount?.balance {
 
 // prints "Person has no bank account"
 ```
+### Links that help
+
+[Optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
+[Swift Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
