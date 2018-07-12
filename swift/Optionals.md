@@ -1,3 +1,6 @@
+# Optionals
+A short summary of things to know about Optionals when programming in Swift.
+
 # What are Optionals?
 
 Optionals are Swifts way of dealing with null and nils. Instead of polluting your code with if null checks, Swift Optionals are a more elegant way to check if an objects value hasn’t been set, and letting you deal with gracefully.
@@ -146,8 +149,9 @@ if let currentBalance = person.bankAccount?.balance {
 
 // prints "Person has no bank account"
 ```
-
 ### Links that help
 
-[Optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
-[Swift Lanaguage Guide - Optionals](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330)
+* [Optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
+* [Swift Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
+
+

@@ -13,6 +13,8 @@ The (404, "Not Found") tuple groups together an Int and a String to give the HTT
 
 You can create tuples from any permutation of types, and they can contain as many different types as you like. There’s nothing stopping you from having a tuple of type (Int, Int, Int), or (String, Bool), or indeed any other permutation you require.
 
+# How do they work?
+
 You can decompose a tuple’s contents into separate constants or variables, which you then access as usual:
 
 ```swift
