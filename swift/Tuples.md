@@ -72,5 +72,5 @@ For more information, see [Functions with Multiple Return Values](https://docs.s
 
 ### Links that help
 
-[Swift Lanaguage Guide - Tuples](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID329)
+[Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
 
