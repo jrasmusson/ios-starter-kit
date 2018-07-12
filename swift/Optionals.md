@@ -146,7 +146,8 @@ if let currentBalance = person.bankAccount?.balance {
 
 // prints "Person has no bank account"
 ```
+
 ### Links that help
 
 [Optionals explained simply](https://hackernoon.com/swift-optionals-explained-simply-e109a4297298)
-[Swift Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
+[Swift Lanaguage Guide - Optionals](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330)
