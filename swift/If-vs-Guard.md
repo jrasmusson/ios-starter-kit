@@ -58,6 +58,10 @@ One thing to be wary of is how guards function in loops. When a guard clause eva
 
 This example demonstrates this.
 
+![Example of looping with guard break](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/images/guard-break.png)
+
+![Example of looping with guard continue](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/images/guard-continue.png)
+
 
 
 # Guard clause in action
