@@ -101,9 +101,5 @@ func validateFieldsAndContinueRegistration() {
 }
 ```
 
-Links that help
+### Links that help
 * [if-let vs guard-let](https://medium.com/@mimicatcodes/unwrapping-optional-values-in-swift-3-0-guard-let-vs-if-let-40a0b05f9e69)
-
-
-
-
