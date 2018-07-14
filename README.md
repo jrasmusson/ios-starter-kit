@@ -6,7 +6,7 @@ A starter kit for those interested in iOS programming
 * [Numbers](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Numbers.md)  
 * [Tuples](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Tuples.md)  
 * [If vs Guard Clauses](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/If-vs-Guard.md)  
-* [Error handling](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Error-handling.md
+* [Error handling](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Error-handling.md)
 
 ## Basic iOS Controls
 
