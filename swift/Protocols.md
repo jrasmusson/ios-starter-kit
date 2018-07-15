@@ -313,7 +313,7 @@ fan.rotates
 > Note: A conforming type implementation will override that in the protocol.
 
 Links that help
-https://medium.com/@abhimuralidharan/all-about-protocols-in-swift-11a72d6ea354
-https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
+* https://medium.com/@abhimuralidharan/all-about-protocols-in-swift-11a72d6ea354
+* https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
 
 
