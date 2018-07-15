@@ -8,6 +8,7 @@ A starter kit for those interested in iOS programming
 * [If vs Guard Clauses](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/If-vs-Guard.md)  
 * [Error handling](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Error-handling.md)
 * [Structs-vs-Clases](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Structs-vs-Classes.md)
+* [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
 
 ## Basic iOS Controls
 
