@@ -9,6 +9,9 @@ A starter kit for those interested in iOS programming
 * [Error handling](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Error-handling.md)
 * [Structs-vs-Clases](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Structs-vs-Classes.md)
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
+* [API Design](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/API-Design.md)
+* [Markdown](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Markdown.md)
+
 
 ## Basic iOS Controls
 
