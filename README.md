@@ -11,7 +11,7 @@ A starter kit for those interested in iOS programming
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
 * [API Design](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/API-Design.md)
 * [Markdown](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Markdown.md)
-
+* [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 
 ## Basic iOS Controls
 
