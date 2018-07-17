@@ -35,6 +35,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 ## The Long
 
 Add a TableView to your UIViewController.
+
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/blank-vc.png)
 
 
@@ -49,16 +50,19 @@ Select the cell and give it an identifier (e.g. ‘myCell’)
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/set-identifier.png)
 
 Create an outlet for the TableView in your VC by control dragging
+
 ```swift
 @IBOutlet var myTableView: UITableView!
 ```
 
 Create some fake data
+
 ```swift
 let cities = ["New York", "London", "San Francisco"]
 ```
 
 Create an extension to implement the UITableView delegates and connect the data
+
 ```swift
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -76,6 +80,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 ```
 
 Make yourself the delegate for the table
+
 ```swift
         myTableView.delegate = self
         myTableView.dataSource = self
