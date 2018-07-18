@@ -1,4 +1,4 @@
-# Custom UITableViewCell
+UITableViewCell
 
 ## The Short
 
