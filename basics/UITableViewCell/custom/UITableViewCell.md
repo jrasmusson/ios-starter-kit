@@ -69,7 +69,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return 77
     }
 }
-```
+```
+
 ## The Long
 
 * Create a new UITableViewCell class with xib
@@ -129,5 +130,3 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 
 
 Voila!
-
-
