@@ -1,6 +1,6 @@
 # What's a tuple?
 
-A tuple is way of grouping multiple values into a single compound value. 
+Tuples in Swift occupy the space between dictionaries and structures: they hold very specific types of data (like a struct) but can be create on the fly (like dictionaries). They are commonly used to return multiple values from a function call.
 
 For example, say we wanted to represent an HTTP status code Interger, and it's description as a String. Instead of creating a Dictionary and storing those values in there, we can create a just-in-time data structure on the fly, or a tuple.
 
