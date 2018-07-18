@@ -20,18 +20,14 @@ You can decompose a tuple’s contents into separate constants or variables, whi
 ```swift
 let (statusCode, statusMessage) = http404Error
 print("The status code is \(statusCode)")
-// Prints "The status code is 404"
 print("The status message is \(statusMessage)")
-// Prints "The status message is Not Found"
 ```
 
 Alternatively, access the individual element values in a tuple using index numbers starting at zero:
 
 ```swift
 print("The status code is \(http404Error.0)")
-// Prints "The status code is 404"
 print("The status message is \(http404Error.1)")
-// Prints "The status message is Not Found"
 ```
 
 You can name the individual elements in a tuple when the tuple is defined:
@@ -44,9 +40,7 @@ If you name the elements in a tuple, you can use the element names to access the
 
 ```swift
 print("The status code is \(http200Status.statusCode)")
-// Prints "The status code is 200"
 print("The status message is \(http200Status.description)")
-// Prints "The status message is OK"
 ```
 
 Tuples are particularly useful as the return values of functions. A function that tries to retrieve a web page might return the (Int, String) tuple type to describe the success or failure of the page retrieval. By returning a tuple with two distinct values, each of a different type, the function provides more useful information about its outcome than if it could only return a single value of a single type. 
@@ -68,7 +62,45 @@ func minMax(array: [Int]) -> (min: Int, max: Int) {
 }
 ```
 
-For more information, see [Functions with Multiple Return Values](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID164).
+## An example
+
+
+```swift
+func display(authError: Error?) {
+
+        guard let code = AuthErrorCode(rawValue: (authError?._code)!) else {
+            return
+        }
+        
+        // tuple
+        var error = (title: "", message: "")
+        
+        switch code {
+            case .invalidEmail:
+                print("Invalid email")
+                error.title = "Invalid email"
+                error.message = "Your email address was invalid"
+            case .userNotFound:
+                print("User not found")
+                error.title = "User not found"
+                error.message = "Your email address was entered was not found in the system"
+            default:
+                print("Internal error")
+                error.title = "Internal error"
+                error.message = "Something went wrong on our end"
+        }
+        
+        let alert = UIAlertController(title: error.title, message: error.message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+            // nop
+        }
+        
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+```
 
 ### Links that help
 
