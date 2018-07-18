@@ -89,3 +89,7 @@ Make yourself the delegate for the table
 Voila!
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/voila.png)
+
+### Links that help
+* [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
+* [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)

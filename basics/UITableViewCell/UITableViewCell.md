@@ -121,3 +121,7 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 Voila!
 
 ![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/voila.png)
+
+### Links that help
+* [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableviewcell)
+* [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
