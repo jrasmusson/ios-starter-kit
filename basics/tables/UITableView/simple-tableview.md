@@ -36,18 +36,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 Add a TableView to your UIViewController.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/blank-vc.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/tables/UITableView/blank-vc.png)
 
 
 Add a Table View Cell to the table.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/tableviewcell.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/tables/UITableView/tableviewcell.png)
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/blank-tableviewcell.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/tables/UITableView/blank-tableviewcell.png)
 
 Select the cell and give it an identifier (e.g. ‘myCell’)
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/set-identifier.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/tables/UITableView/set-identifier.png)
 
 Create an outlet for the TableView in your VC by control dragging
 
@@ -88,4 +88,4 @@ Make yourself the delegate for the table
 
 Voila!
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howto/uitableview/simple/voila.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/tables/UITableView/voila.png)
