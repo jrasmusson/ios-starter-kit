@@ -76,16 +76,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 New Cocoa Touch Class
 
-![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/basics/UITableViewCell/custom/newclass.png)
+![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/newclass.png)
 
 * Give it an identifier
 
-![Identifier](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/basics/UITableViewCell/custom/identifier.png)
+![Identifier](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/identifier.png)
 
 
 * Design your cell
 
-![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/basics/UITableViewCell/custom/identifier.png)
+![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/identifier.png)
 
 * Add the IBOutlets
 
@@ -125,7 +125,8 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
     }
 ```
 
-![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/basics/UITableViewCell/custom/volia.png)
+![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/volia.png)
+
 
 Voila!
 
