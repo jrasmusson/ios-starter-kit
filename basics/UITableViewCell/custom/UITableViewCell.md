@@ -2,14 +2,6 @@
 
 ## The Short
 
-* Create a new `UITableViewCell` class with xib
-* Give it an identifier
-* Design your cell
-* Add the `IBOutlets`
-* Load xib in `ViewController`
-* Load cell in `cellForRowAt`
-* Set the height
-
 **CustomCell.swift**
 
 ```swift
@@ -75,8 +67,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 * Create a new UITableViewCell class with xib
 
-New Cocoa Touch Class
-
 ![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/newclass.png)
 
 * Give it an identifier
@@ -88,7 +78,7 @@ New Cocoa Touch Class
 
 ![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/design.png)
 
-* Add the IBOutlets
+* Create your cell and add the IBOutlets
 
 ```swift
 import UIKit
@@ -128,7 +118,6 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
     }
 ```
 
-![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/voila.png)
-
-
 Voila!
+
+![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/voila.png)
