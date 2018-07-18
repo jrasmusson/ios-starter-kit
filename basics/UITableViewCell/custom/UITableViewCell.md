@@ -118,9 +118,11 @@ class CustomCell: UITableViewCell {
 
 ```swift
 let cell = tableView.dequeueReusableCell(withIdentifier: "customCellIdentifier", for: indexPath) as! CustomCell
+```
 
-Set the height
+* Set the height
 
+```swift
 func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 77
     }
