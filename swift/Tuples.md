@@ -104,5 +104,5 @@ func display(authError: Error?) {
 
 ### Links that help
 
-[Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
+* [Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
 
