@@ -67,16 +67,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 * Create a new UITableViewCell class with xib
 
-![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/newclass.png)
+![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/newclass.png)
 
 * Give it an identifier
 
-![Identifier](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/identifier.png)
+![Identifier](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/identifier.png)
 
 
 * Design your cell
 
-![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/design.png)
+![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/design.png)
 
 * Create your cell and add the IBOutlets
 
@@ -120,4 +120,4 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 
 Voila!
 
-![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/voila.png)
+![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/voila.png)

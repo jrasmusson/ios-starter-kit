@@ -15,6 +15,7 @@ A starter kit for those interested in iOS programming
 
 ## Basics
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
+* [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
 
 
 ## Advanced iOS Controls
