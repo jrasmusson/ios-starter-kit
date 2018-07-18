@@ -85,7 +85,7 @@ New Cocoa Touch Class
 
 * Design your cell
 
-![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/identifier.png)
+![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/design.png)
 
 * Add the IBOutlets
 
@@ -125,7 +125,7 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
     }
 ```
 
-![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/volia.png)
+![Voila](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/custom/images/voila.png)
 
 
 Voila!
