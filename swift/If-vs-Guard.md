@@ -3,7 +3,7 @@ Swift if-let and guard statements are two tools we have for safely wrapping  Opt
 If-let takes the current variable, and by assigning it to self, unwraps the Optional and makes it available within the scope of the if.
 
 ```swift
-if let x = x {
+if let x = someOptional {
     // use unwrapped x
 } else {
     // x is nil
@@ -13,17 +13,17 @@ if let x = x {
 Guard on the other hand does the same thing only when the variable is wrapped, it is available for use outside the guard clause.
 
 ```swift
-guard let x = x {
+guard let x = someOptional {
     // leave scope
 }
 // use unwrapped x
 ```
 
-# When to use if
-Do be honest, I don’t have many good examples of when one would use if-let over guard. One way I try to rationalize it is like this. Use if-let for the case where the Optional could be an acceptable or OK value. Think of if-let as: “If I have a real value here for this Optional, do this. Else do this.
+# When to use if-let
+Think of if-let as: “If I have a real value here for this Optional, do this. Else do this.
 
 ```swift
-If let x = x {
+If let x = someOptional {
  // use unwrapped x
 } else {
  // set x to some default value
@@ -31,9 +31,21 @@ If let x = x {
 }
 ```
 
-While this may be find for variables that have a very limited life-span, I find this quite useless. Why would I have to work with a variable only in the scope of the if statement? For me the much better construct is the guard.
+The other way to think about if-let is as an if statement, but not for the variable you are unwrapping. Say for example you have a variable, and it could be set to one or two values depending on the existance of another. For this you could also use an if-let.
 
-# When to use guard
+```swift
+let x: Int? = nil
+var name: String?
+
+if let x = x {
+    name = "namex"
+} else {
+    name = "namey"
+}
+```
+
+
+# When to use guard-let
 
 I use guard all the time because it reads so much better. It’s like a soft assert. “If this variable isn’t here and doesn’t have a value, through an assert and let me know that my program is about to crash because some variable isn’t in a state that it needs to be.
 
