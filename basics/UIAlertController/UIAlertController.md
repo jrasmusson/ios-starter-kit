@@ -1,14 +1,6 @@
 # UIAlertController
 
 ```swift
-//
-//  ViewController.swift
-//  UIAlert
-//
-//  Created by Jonathan Rasmusson Work Pro on 2018-07-18.
-//  Copyright © 2018 Rasmusson Software Consulting. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
