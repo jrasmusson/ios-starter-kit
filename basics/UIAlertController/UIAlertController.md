@@ -35,6 +35,9 @@ class ViewController: UIViewController {
         alert.addAction(destructiveAction)
         alert.addAction(cancelAction)
         
+        // Note: You can optional choose which alert bold by making it preferred
+        // alert.preferredAction = destructiveAction
+        
         present(alert, animated: true, completion: nil)
     }
     
