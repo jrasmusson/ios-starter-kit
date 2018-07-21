@@ -26,6 +26,6 @@ A starter kit for those interested in iOS programming
 
 ## Tips and Tricks
 
-* [How to turn on single touch for recording gifs from simulator](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
+* [How enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
 
 
