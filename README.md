@@ -24,5 +24,8 @@ A starter kit for those interested in iOS programming
 
 ## Autolayout
 
-## Misc
+## Tips and Tricks
+
+* [How to turn on single touch for recording gifs from simulator](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
+
 

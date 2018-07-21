@@ -48,9 +48,6 @@ class ViewController: UIViewController {
 ```
 
 
-
-
-
 ### Links that help
 * [Apple docs](https://developer.apple.com/documentation/uikit/uitextfield?changes=_5)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/controls/text-fields/)
