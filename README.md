@@ -14,6 +14,7 @@ A starter kit for those interested in iOS programming
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 
 ## Basics
+* [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
 * [UIAlertController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/UIAlertController.md)
