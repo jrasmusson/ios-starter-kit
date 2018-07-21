@@ -4,11 +4,7 @@
 
 ![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
 
-With the `UITextField` you get the keyboard for free by tapping on it. Two ways to dismiss the keyboard are by calling `resignFirstResponder` directly on the `UITextField`. Or you can create a tap gesture, tap anywhere in the view, and give up the first responder from there.
-
-The most direct way to give up the keyboard is to call `textField.resignFirstResponder()`. But if you don't have a reference to the `UITextField` and you are somewhere else in your view, you can also call `view.endEditing(true)` which will scan the entire view hierarchy until it finds a firstResponder and then dismiss it from there.
-
-Here is a simple example showing both techniques.
+`UITextField` gives you a give board for free. Two dismiss the keyboard when the user is done with it, call `resignFirstResponder` directly on the `UITextField` as shown below in func `buttonPressed`.
 
 ```swift
 //
@@ -47,6 +43,13 @@ class ViewController: UIViewController {
 }
 ```
 
+## endEditting vs resignFirstResponder
+
+Another way to dismiss the keyboard is to call `endEditting` on a `UIView` containing a `UITextField`. Which is better?
+
+resignFirstResponder() is good when you know which text field has the keyboard. It’s direct. It’s efficient. Use it when you have the `UITextField` causing the keyboard to appear and you want to give it up.
+
+`endEditing` is actually a method on the `UIView`. Use this when you don’t know who caused the keyboard to appear or you don’t have reference to the `UITextField` currenty in focus. It searches all the subviews in the view hierarchy until it finds the one holding the first responder status and then asks it to give it up. Not as efficient. But it works too (just more broadly).
 
 ### Links that help
 * [Apple docs](https://developer.apple.com/documentation/uikit/uitextfield?changes=_5)
