@@ -2,11 +2,11 @@
 
 **ViewController.swift**
 
-![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismiss-keyboard.gif)
+![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
 
 With the `UITextField` you get the keyboard for free by tapping on it. Two ways to dismiss the keyboard are by calling `resignFirstResponder` directly on the `UITextField`. Or you can create a tap gesture, tap anywhere in the view, and give up the first responder from there.
 
-The most direct way to give up the keyboard is to call `textField.resignFirstResponder()` directly. But if you don't have a reference to the `UITextField` and you are somewhere else in your app, you can also call `view.endEditing(true)` which will scan the entire view hierarchy until it finds a firstResponder and then dismiss it from there.
+The most direct way to give up the keyboard is to call `textField.resignFirstResponder()`. But if you don't have a reference to the `UITextField` and you are somewhere else in your view, you can also call `view.endEditing(true)` which will scan the entire view hierarchy until it finds a firstResponder and then dismiss it from there.
 
 Here is a simple example showing both techniques.
 
