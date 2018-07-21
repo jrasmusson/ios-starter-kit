@@ -8,4 +8,6 @@ Open a terminal and type:
 defaults write com.apple.iphonesimulator ShowSingleTouches -bool YES
 ```
 
+Note: You may need to restart Xcode and the iOS simuator before your will see this change take effect.
+
 ![Design Cell](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/images/demo.gif)
