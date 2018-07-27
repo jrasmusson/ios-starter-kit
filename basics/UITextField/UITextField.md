@@ -45,6 +45,14 @@ class ViewController: UIViewController {
 }
 ```
 
+## endEditting vs resignFirstResponder
+
+Another way to dismiss the keyboard is to call `endEditting` on a `UIView` containing a `UITextField`. Which is better?
+
+resignFirstResponder() is good when you know which text field has the keyboard. It’s direct. It’s efficient. Use it when you have the `UITextField` causing the keyboard to appear and you want to give it up.
+
+`endEditing` is actually a method on the `UIView`. Use this when you don’t know who caused the keyboard to appear or you don’t have reference to the `UITextField` currenty in focus. It searches all the subviews in the view hierarchy until it finds the one holding the first responder status and then asks it to give it up. Not as efficient. But it works too (just more broadly).
+
 ## Different keyboards 
 
 iOS lets you choose from a vareity of keyboards when accepting user input. Simply change the `keyboardType` on `UITextField` set display various kinds.
@@ -75,13 +83,76 @@ iOS lets you choose from a vareity of keyboards when accepting user input. Simpl
 //        case emailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
 ```
 
-## endEditting vs resignFirstResponder
+## How to adjust view when keyboard present
 
-Another way to dismiss the keyboard is to call `endEditting` on a `UIView` containing a `UITextField`. Which is better?
+When the keyboard appears, you may need to adjust your current view layout  to prevent certain elements from being obstructed.
 
-resignFirstResponder() is good when you know which text field has the keyboard. It’s direct. It’s efficient. Use it when you have the `UITextField` causing the keyboard to appear and you want to give it up.
+![keyboard disappear](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/keyboard-disappear.png)
 
-`endEditing` is actually a method on the `UIView`. Use this when you don’t know who caused the keyboard to appear or you don’t have reference to the `UITextField` currenty in focus. It searches all the subviews in the view hierarchy until it finds the one holding the first responder status and then asks it to give it up. Not as efficient. But it works too (just more broadly).
+
+One way to handle this is to
+
+* create a default height constraint 
+* calculate the size of the keyboard
+* and then update that constraint to include the original height + the keyboard height
+
+The example below shows you how to do this.
+
+```swift
+//
+//  ViewController.swift
+//  keyboardHeight
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2018-07-27.
+//  Copyright © 2018 Jonathan Rasmusson (Contractor). All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet var textField: UITextField!
+    @IBOutlet var heightConstraint: NSLayoutConstraint!
+
+    let defaultHeight = CGFloat(20)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(gesture:))))
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func adjustForKeyboard(notification: Notification) {
+
+        let userInfo = notification.userInfo!
+
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardHeight = keyboardViewEndFrame.height
+
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            heightConstraint.constant = defaultHeight
+        } else {
+            heightConstraint.constant = defaultHeight + keyboardHeight
+        }
+
+    }
+
+    @objc func dismissKeyboard(gesture: UIGestureRecognizer) {
+        textField?.resignFirstResponder()
+    }
+}
+```
 
 ### Links that help
 * [Apple docs](https://developer.apple.com/documentation/uikit/uitextfield?changes=_5)
