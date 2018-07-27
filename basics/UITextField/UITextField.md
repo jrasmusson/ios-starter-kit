@@ -4,10 +4,6 @@
 
 ![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
 
-**ViewController.swift**
-
-
-
 ```swift
 //
 //  ViewController.swift
@@ -87,7 +83,7 @@ iOS lets you choose from a vareity of keyboards when accepting user input. Simpl
 
 When the keyboard appears, you may need to adjust your current view layout  to prevent certain elements from being obstructed.
 
-![keyboard disappear](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/keyboard-disappear.png)
+![keyboard disappear](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/keyboard-disappear.gif)
 
 
 One way to handle this is to
