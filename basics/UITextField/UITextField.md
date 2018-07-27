@@ -1,10 +1,12 @@
 # UITextField
 
-**ViewController.swift**
+`UITextField` it a basic `UIKit` control for entering text. When the user taps, a keyboard appears. Too dismiss the keyboard, call `resignFirstResponder` directly on the `UITextField`.
 
 ![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
 
-`UITextField` gives you a give board for free. Two dismiss the keyboard when the user is done with it, call `resignFirstResponder` directly on the `UITextField` as shown below in func `buttonPressed`.
+**ViewController.swift**
+
+
 
 ```swift
 //
@@ -41,6 +43,36 @@ class ViewController: UIViewController {
     // Note: `view.endEditing(true)` scans entire view until if finds first responder to resign
     //       `textField.resignFirstResponder()` is a more direct call to the textfield itself
 }
+```
+
+## Different keyboards 
+
+iOS lets you choose from a vareity of keyboards when accepting user input. Simply change the `keyboardType` on `UITextField` set display various kinds.
+
+![Numbers and URL](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/numbersAndPunctuation-URL.png)
+
+![NumberPad and PhonePad](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/numberPad-phonePad.png)
+
+![NamePhonePad and Email address](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/namePhonePad-emailAddress.png)
+
+```
+        textField.keyboardType = UIKeyboardType.emailAddress
+
+//        case `default` // Default type for the current input method.
+//
+//        case asciiCapable // Displays a keyboard which can enter ASCII characters
+//
+//        case numbersAndPunctuation // Numbers and assorted punctuation.
+//
+//        case URL // A type optimized for URL entry (shows . / .com prominently).
+//
+//        case numberPad // A number pad with locale-appropriate digits (0-9, ۰-۹, ०-९, etc.). Suitable for PIN entry.
+//
+//        case phonePad // A phone pad (1-9, *, 0, #, with letters under the numbers).
+//
+//        case namePhonePad // A type optimized for entering a person's name or phone number.
+//
+//        case emailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
 ```
 
 ## endEditting vs resignFirstResponder
