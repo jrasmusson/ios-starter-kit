@@ -2,7 +2,11 @@
 
 MVVM is a variation of MVC where we pull presentation and business logic out of of `ViewController` and stick it in something called a `ViewModel`
 
+MVVC
+
 ![mvc](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/mvc.png)
+
+MVVM
 
 ![mvvm](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/mvvm.png)
 
