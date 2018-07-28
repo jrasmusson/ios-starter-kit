@@ -2,6 +2,7 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
+* [Structs, Enums, and Classes](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/EnumsStructsClasses.md)  
 * [Optionals](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Optionals.md)  
 * [Numbers](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Numbers.md)  
 * [Tuples](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Tuples.md)  
