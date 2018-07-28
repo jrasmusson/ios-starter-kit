@@ -21,12 +21,11 @@ A starter kit for those interested in iOS programming
 * [UIAlertController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/UIAlertController.md)
 
 
-## Advanced iOS Controls
-
-## Autolayout
-
 ## Tips and Tricks
 
 * [How enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
 
+## Cocoapods
+
+* [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
 
