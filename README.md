@@ -14,6 +14,7 @@ A starter kit for those interested in iOS programming
 * [API Design](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/API-Design.md)
 * [Markdown](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Markdown.md)
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
+* [Automatic Reference Counting](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
 
 ## Basics
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
