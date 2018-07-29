@@ -159,7 +159,7 @@ class CreditCard {
 
 Practically that means `Customer` must work with an _Optional_ `CreditCard` (can be nil), but `CreditCard` gets to work with an unwrapped `Customer` (can't be nil, has to be there). But allowing one to be nil, but not the other, we break the cycle and both instances can be tracked by ARC.
 
-Links that help
+### Links that help
 
 * https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html
 * https://stackoverflow.com/questions/24011575/what-is-the-difference-between-a-weak-reference-and-an-unowned-reference
