@@ -32,37 +32,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var label1: UILabel!
-    @IBOutlet var label2: UILabel!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var button: UIButton!
+    @IBOutlet var onOffSwitch: UISwitch!
+    
+    var viewModel: PersonViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let person1 = Person(salutation: "Mr", firstName: "Jonathan", lastName: "Smith")
-        let person2 = Person(salutation: "", firstName: "Tom", lastName: "Jones")
-        
-        let viewModel1 = PersonViewModel(person: person1)
-        let viewModel2 = PersonViewModel(person: person2)
-        
-        label1.text = viewModel1.nameText
-        label2.text = viewModel2.nameText
-    }
-    
-    // By moving this method into our `PersonViewModel` things get a lot easier.
-    //  - easier to test
-    //  - smaller `ViewController`
-    
-    /*
-    func nameText(for person:Person) {
-    
-        if person.salutation.count > 0 {
-            return person.salutation + " " + person.firstName + " " + person.lastName
-        }
-        
-        return person.firstName + " " + person.lastName
-    }
-    */
+        let person = Person(salutation: "Mr", firstName: "Jonathan", lastName: "Smith")
+        viewModel = PersonViewModel(person: person, button: button, onOffSwitch: onOffSwitch)
 
+        // Extract business logic like this
+        label.text = viewModel.nameText
+    }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        
+        // And presentation logic like this
+        viewModel.registerPerson()
+    }
 }
 ```
 
@@ -94,10 +84,14 @@ struct Person {
 //
 
 import Foundation
+import UIKit
 
 struct PersonViewModel {
-    var person: Person
     
+    var person: Person
+    var button: UIButton
+    var onOffSwitch: UISwitch
+
     // Business logic that would normally be in our `ViewController`
     var nameText: String {
         
@@ -106,6 +100,11 @@ struct PersonViewModel {
         }
         
         return person.firstName + " " + person.lastName
+    }
+    
+    // Presentation logic that would normally be in our `ViewController`
+    func registerPerson() {
+        onOffSwitch.isOn = !onOffSwitch.isOn
     }
 }
 ```
@@ -127,19 +126,31 @@ import XCTest
 @testable import MVVM_Basic
 
 class MVVM_BasicTests: XCTestCase {
+
+    var button: UIButton!
+    var onOffSwitch: UISwitch!
+
+    var viewModel: PersonViewModel!
+    var person: Person!
     
-    func testSaluationNameText() {
-        let person = Person(salutation: "Mr", firstName: "Jonathan", lastName: "Smith")
-        let viewModel = PersonViewModel(person: person)
+    override func setUp() {
+        super.setUp()
         
+        button = UIButton()
+        onOffSwitch = UISwitch()
+        
+        person = Person(salutation: "Mr", firstName: "Jonathan", lastName: "Smith")
+        viewModel = PersonViewModel(person: person, button: button, onOffSwitch: onOffSwitch)
+    }
+
+    func testBusinessLogic() {
         XCTAssertEqual("Mr Jonathan Smith", viewModel.nameText)
     }
 
-    func testNoSaluationNameText() {
-        let person = Person(salutation: "", firstName: "Jonathan", lastName: "Smith")
-        let viewModel = PersonViewModel(person: person)
-        
-        XCTAssertEqual("Jonathan Smith", viewModel.nameText)
+    func testPresentationLogic() {
+        onOffSwitch.isOn = false
+        viewModel.registerPerson()
+        XCTAssertTrue(onOffSwitch.isOn)
     }
 
 }
@@ -147,7 +158,7 @@ class MVVM_BasicTests: XCTestCase {
 
 
 
-![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/demo.png)
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/demo.gif)
 
 ### Links that help
 * None yet
