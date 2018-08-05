@@ -6,8 +6,6 @@ Say for example you have an document viewer app that looks like this
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/images/app.png" alt="demo" width="500px"/>
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/images/app.png =500x)
-
 And the you want to test that loads the document looks like this
 
 ```swift
