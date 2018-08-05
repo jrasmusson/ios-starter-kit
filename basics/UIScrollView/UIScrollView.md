@@ -80,9 +80,7 @@ class ViewController: UIViewController {
 
 ``` 
 
-
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/images/alert.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
 
 
 ### Links that help
