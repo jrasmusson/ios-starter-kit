@@ -4,7 +4,7 @@ This is a useful technique for when you have objects that are hard to testing at
 
 Say for example you have an document viewer app that looks like this
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/testings/protocols/images/app.png)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/images/app.png)
 
 And the you want to test that loads the document looks like this
 
