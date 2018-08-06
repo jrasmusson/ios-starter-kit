@@ -74,7 +74,6 @@ class DocumentOpener {
     }
   }
 }  
-}
 ```
 
 And now we can start stubbing out our unit test like this
