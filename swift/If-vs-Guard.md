@@ -20,18 +20,33 @@ guard let x = someOptional {
 ```
 
 # When to use if-let
-Think of if-let as: “If I have a real value here for this Optional, do this. Else do this.
+
+Use `if-let` when you want to check an unsafe operation for safety, before assigning it's output to a variable. For example here we want to make sure we only assign `NSUserDefaults` to our array if they already exist.
 
 ```swift
-If let x = someOptional {
- // use unwrapped x
-} else {
- // set x to some default value
- return “foo”
+var array: [String]?
+let defaults = UserDefaults.standard
+    
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    if let items = defaults.array(forKey: "Array") as? [String] {
+        array = items
+    }
+```
+
+
+The mechanics here are to create a new temp variable first, and then assign it to the old on success.
+
+```swift
+var array: [String]?
+    
+if let temp = someOptional
+    array = temp
 }
 ```
 
-The other way to think about if-let is as an if statement, but not for the variable you are unwrapping. Say for example you have a variable, and it could be set to one or two values depending on the existance of another. For this you could also use an if-let.
+They other way to use `if-let` is to let a variable safely unwrap itself, then use it for some other assignment.
 
 ```swift
 let x: Int? = nil

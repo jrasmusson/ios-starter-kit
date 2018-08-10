@@ -22,6 +22,7 @@ A starter kit for those interested in iOS programming
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
 * [UIAlertController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/UIAlertController.md)
 * [UIScrollView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/UIScrollView.md)
+* [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 
 ## Testing
