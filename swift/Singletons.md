@@ -7,7 +7,15 @@ let defaults = UserDefaults.standard
 let sharedURLSession = URLSession.shared
 ```
 
-You can create a Singleton in Swift like this
+A Singleton is Swift is implemented with the static key word
+
+```swift
+class Singleton {
+    static let sharedInstance = Singleton()
+}
+```
+
+But you can create also create thsm like this with a private constructor
 
 ```swift
 class NetworkManager {
@@ -23,8 +31,24 @@ class NetworkManager {
 }
 ```
 
+Or more simply with a closure like this
+
+```swift
+class Singleton {
+    static let sharedInstance: Singleton = {
+        let instance = Singleton()
+        // setup code
+        return instance
+    }()
+}
+```
+
+The advantage of the private constructor is no one can accidentally create a non-shared instance.
 
 ### Links that help
 
-* [Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
+* [Apple Docs](https://developer.apple.com/documentation/swift/cocoa_design_patterns/managing_a_shared_resource_using_a_singleton)
+* [Example](https://cocoacasts.com/what-is-a-singleton-and-how-to-create-one-in-swift)
+
+
 
