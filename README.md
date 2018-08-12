@@ -17,7 +17,7 @@ A starter kit for those interested in iOS programming
 * [Singletons](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Singletons.md)
 * [Automatic Reference Counting](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
 
-## Basic Controls
+## Basics
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
@@ -25,6 +25,9 @@ A starter kit for those interested in iOS programming
 * [UIScrollView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/UIScrollView.md)
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
+
+## Advanced
+* [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/BasicAnimation/BasicAnimation.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
