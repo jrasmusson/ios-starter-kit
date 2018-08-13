@@ -1,5 +1,7 @@
 # Chained Animations
 
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/images/demo.gif)
+
 
 ```swift
 //
@@ -71,9 +73,6 @@ class ViewController: UIViewController {
 }
 
 ```
-
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/images/demo.gif)
-
 
 ### Links that help
 * [Tutorial](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
