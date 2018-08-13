@@ -27,8 +27,9 @@ A starter kit for those interested in iOS programming
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 
-## Advanced
-* [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/BasicAnimation/BasicAnimation.md)
+## Animations
+* [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/animations/BasicAnimation/BasicAnimation.md)
+* [Chained Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/animations/BasicAnimation/BasicAnimation.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
