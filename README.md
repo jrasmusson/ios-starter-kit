@@ -29,7 +29,7 @@ A starter kit for those interested in iOS programming
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
-* [Chained Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
+* [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)

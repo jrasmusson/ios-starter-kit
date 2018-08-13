@@ -1,5 +1,6 @@
 # Basic Animation
 
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/images/demo.gif)
 
 ```swift
 //
@@ -61,7 +62,6 @@ class ViewController: UIViewController {
 }
 ```
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/images/demo.gif)
 
 
 ### Links that help
