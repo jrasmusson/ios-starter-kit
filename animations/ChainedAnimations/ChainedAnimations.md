@@ -75,4 +75,4 @@ class ViewController: UIViewController {
 ```
 
 ### Links that help
-* [Tutorial](https://www.raywenderlich.com/363-ios-animation-tutorial-getting-started)
+* [LetsBuildThatApp](https://www.youtube.com/watch?v=xWNv-j75OQ8)
