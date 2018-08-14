@@ -34,11 +34,12 @@ A starter kit for those interested in iOS programming
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
 
-## Tips and Tricks
+## How tos
 
 * [How enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
 * [How to setup Charles](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-charles.md)
 * [How to see device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-devicelogs.md)
+* [How to delete provisioning files](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-delete-provisioning-profiles.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)

@@ -16,6 +16,6 @@ Here are some trouble shooting things to try when you are having app installatio
 - reboot computer
 - [clear derived data](https://agilewarrior.wordpress.com/2017/02/23/how-to-quickly-clear-derived-data/)
 - [check device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-devicelogs.md)
-- delete provisioning profiles
+- [delete provisioning profiles](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-delete-provisioning-profiles.md)
 
 
