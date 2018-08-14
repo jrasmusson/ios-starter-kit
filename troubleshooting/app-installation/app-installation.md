@@ -4,9 +4,7 @@ Sometimes Xcode just doesn't want to behave and when you go to install your appl
 
 ![Could not write to device](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/could-not-write-to-device.png)
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png" alt="demo" width="250px"/>
-
-![Provisioning profile not found](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png)
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png" alt="demo" width="400px"/>
 
 ![Unknown error](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/unknown-error.png)
 
