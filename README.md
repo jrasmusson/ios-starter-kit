@@ -40,6 +40,9 @@ A starter kit for those interested in iOS programming
 * [How to setup Charles](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-charles.md)
 * [How to see device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-devicelogs.md)
 
+## Trouble Shooting
+* [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation.md)
+
 ## Cocoapods
 
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
