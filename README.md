@@ -37,6 +37,7 @@ A starter kit for those interested in iOS programming
 ## Tips and Tricks
 
 * [How enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/SingleTouchSimulator/SingleTouchSimulator.md)
+* [How to setup Charles](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-charles.md)
 
 ## Cocoapods
 
