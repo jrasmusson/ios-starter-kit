@@ -41,7 +41,7 @@ A starter kit for those interested in iOS programming
 * [How to see device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-devicelogs.md)
 
 ## Trouble Shooting
-* [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation.md)
+* [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
 
 ## Cocoapods
 
