@@ -6,7 +6,7 @@ Charles is a proxy service that let's you intercept and see traffic on your mobi
 
 Download/Install/Run Charles
 
-![Downlaod](https://www.charlesproxy.com/download/latest-release)
+[Downlaod](https://www.charlesproxy.com/download/latest-release)
 
 
 Turn off macOS proxying
@@ -38,5 +38,5 @@ Enable Proxy for this host
 
 ### Links
 
-- ![Ray Wenderlich Tutorial](https://www.raywenderlich.com/641-charles-proxy-tutorial-for-ios)
-- ![StackOverflow](https://stackoverflow.com/questions/15768143/ios-app-ssl-handshake-failed)
+- [Ray Wenderlich Tutorial](https://www.raywenderlich.com/641-charles-proxy-tutorial-for-ios)
+- [StackOverflow](https://stackoverflow.com/questions/15768143/ios-app-ssl-handshake-failed)
