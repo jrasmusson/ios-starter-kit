@@ -2,11 +2,13 @@
 
 Sometimes Xcode just doesn't want to behave and when you go to install your appliction on a physical device, you get cryptic error messages like this.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/could-not-write-to-device.png)
+![Could not write to device](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/could-not-write-to-device.png)
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png)
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png" alt="demo" width="250px"/>
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/unknown-error.png)
+![Provisioning profile not found](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/provisioning-profile-not-found.png)
+
+![Unknown error](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/images/unknown-error.png)
 
 Here are some trouble shooting things to try when you are having app installation challenges.
 
