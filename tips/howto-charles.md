@@ -4,10 +4,7 @@ Charles is a proxy service that let's you intercept and see traffic on your mobi
 
 ## Setup Charles
 
-Download/Install/Run Charles
-
-[Download](https://www.charlesproxy.com/download/latest-release)
-
+[Download](https://www.charlesproxy.com/download/latest-release)/Install/Run Charles
 
 Turn off macOS proxying
 
