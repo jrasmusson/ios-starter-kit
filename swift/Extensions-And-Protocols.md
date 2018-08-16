@@ -163,6 +163,6 @@ So think of extension as a way of adding new functionality, conforming to some p
 
 ### Links that help
 
-https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
-https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID521
+- https://docs.swift.org/swift-book/LanguageGuide/Extensions.html
+- https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID521
 
