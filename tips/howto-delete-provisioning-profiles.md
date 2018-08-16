@@ -3,7 +3,7 @@
 Sometimes you just gotta delete those provisioning profiles. Here's how.
 
 ```bash
-cd cd ~/Library/MobileDevice/Provisioning\ Profiles/
+cd ~/Library/MobileDevice/Provisioning\ Profiles/
 open .
 ```
 
