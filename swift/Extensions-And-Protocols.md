@@ -3,14 +3,14 @@
 Extensions are Swift’s way to add new functionality to an existing class, structure, enumeration, or protocol type. Instead of extending a class, or implementing a protocol directly (like we did in Objective-C), in Swift you can implement protocols and add new functionality via an extension. LIke this.
 
 ```swift
-    extension TweetsViewController: UITableViewDataSource {
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 0
-        }
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TweetCell return cell
-        }
+extension TweetsViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TweetCell return cell
+    }
+}
 ```
 
 ## How to use
