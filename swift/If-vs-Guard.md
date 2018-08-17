@@ -131,6 +131,11 @@ func validateFieldsAndContinueRegistration() {
 guard !decodedData.results.isEmpty else {
     return postError(.appStoreDataRetrievalEmptyResults)
 }
+
+guard Bundle.bundleID() != nil else {
+    printMessage("Please make sure that you have set a `Bundle Identifier` in your project.")
+    return
+}
 ```
 
 ### Links that help
