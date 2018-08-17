@@ -91,11 +91,26 @@ This example demonstrates this.
 
 
 
-# Guard clause in action
-
-Here is an example of how a guard clause does does validation on all the required fields for signing up a new user. If any of the guard clauses fail, the text field is given focus (becomeFirstResponder) and the method simply returns control to the user to fill in the missing information.
+# Guard clause examples
 
 ```swift
+
+// if this is true... continue with program
+guard possibleError == nil else {
+    // else come in here and do this
+    return
+}
+ 
+// if is empty (double negative)
+guard !decodedData.results.isEmpty else {
+    return postError(.appStoreDataRetrievalEmptyResults)
+}
+
+guard Bundle.bundleID() != nil else {
+    printMessage("Please make sure that you have set a `Bundle Identifier` in your project.")
+    return
+}
+            
 func validateFieldsAndContinueRegistration() {
     
     guard let firstNameString = firstName.text where firstNameString.characters.count > 0 else {
@@ -127,15 +142,6 @@ func validateFieldsAndContinueRegistration() {
     APIHandler.sharedInstance.registerUser(accountModel)
 }
 
-// if is empty (double negative)
-guard !decodedData.results.isEmpty else {
-    return postError(.appStoreDataRetrievalEmptyResults)
-}
-
-guard Bundle.bundleID() != nil else {
-    printMessage("Please make sure that you have set a `Bundle Identifier` in your project.")
-    return
-}
 ```
 
 ### Links that help
