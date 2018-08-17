@@ -110,6 +110,13 @@ guard Bundle.bundleID() != nil else {
     printMessage("Please make sure that you have set a `Bundle Identifier` in your project.")
     return
 }
+
+// this is hard to read - would have used regular if
+guard isAppStoreVersionNewer() else {
+     delegate?.sirenLatestVersionInstalled()
+     postError(.noUpdateAvailable)
+     return
+}
             
 func validateFieldsAndContinueRegistration() {
     
