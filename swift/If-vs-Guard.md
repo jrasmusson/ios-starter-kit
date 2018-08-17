@@ -126,6 +126,11 @@ func validateFieldsAndContinueRegistration() {
     accountModel.password = passwordString
     APIHandler.sharedInstance.registerUser(accountModel)
 }
+
+// if is empty (double negative)
+guard !decodedData.results.isEmpty else {
+    return postError(.appStoreDataRetrievalEmptyResults)
+}
 ```
 
 ### Links that help
