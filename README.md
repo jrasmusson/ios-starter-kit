@@ -18,6 +18,7 @@ A starter kit for those interested in iOS programming
 * [Defer](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Defer.md)
 * [Singletons](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Singletons.md)
 * [Automatic Reference Counting](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
+* [Access Control](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Access-Control.md)
 
 ## Basics
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
