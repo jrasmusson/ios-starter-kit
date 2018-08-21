@@ -29,6 +29,9 @@ A starter kit for those interested in iOS programming
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 
+## Recipes
+* [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModel/HyperlinkModel.md)
+
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
