@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
         // You must set the formatting of the link manually
         let linkAttributes: [NSAttributedStringKey: Any] = [
-            .link: NSURL(string: "Terms & Conditions")!,
+            .link: NSURL(string: "https://www.apple.com")!,
             .foregroundColor: UIColor.blue
         ]
 
