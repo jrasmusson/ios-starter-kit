@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
         // You must set the formatting of the link manually
         let linkAttributes: [NSAttributedStringKey: Any] = [
-            .link: NSURL(string: "Terms & Conditions")!,
+            .link: NSURL(string: "https://www.apple.com")!,
             .foregroundColor: UIColor.blue
         ]
 
@@ -33,10 +33,10 @@ class ViewController: UIViewController {
         // Set the 'click here' substring to be the link
         attributedString.setAttributes(linkAttributes, range: NSMakeRange(5, 10))
 
-        self.textView.delegate = self
-        self.textView.attributedText = attributedString
-        self.textView.isUserInteractionEnabled = true
-        self.textView.isEditable = false
+        textView.delegate = self
+        textView.attributedText = attributedString
+        textView.isUserInteractionEnabled = true
+        textView.isEditable = false
     }
 
 }
