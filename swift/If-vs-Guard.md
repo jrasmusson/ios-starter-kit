@@ -95,6 +95,9 @@ This example demonstrates this.
 
 ```swift
 
+// assert this is true - else don't continue
+guard !bankAccountRadioButton.isOn else { return }
+
 // if this is true... continue with program
 guard possibleError == nil else {
     // else come in here and do this
@@ -124,29 +127,12 @@ func validateFieldsAndContinueRegistration() {
         firstName.becomeFirstResponder()
         return
     }
-
-    guard let lastNameString = lastName.text where lastNameString.characters.count > 0 else {
-        lastName.becomeFirstResponder()
-        return
-    }
-
-    guard let emailNameString = emailName.text where emailNameString.characters.count > 3 else {
-        emailName.becomeFirstResponder()
-        return
-    }
-
-    guard let passwordString = password.text where passwordString.characters.count > 7 else {
-        password.becomeFirstResponder()
-        return
-    }
     
     // all text fields have valid text
     let accountModel = AccountModel()
     accountModel.firstName = firstNameString
-    accountModel.lastName = lastNameString
-    accountModel.email = emailString
-    accountModel.password = passwordString
-    APIHandler.sharedInstance.registerUser(accountModel)
+
+   APIHandler.sharedInstance.registerUser(accountModel)
 }
 
 ```
