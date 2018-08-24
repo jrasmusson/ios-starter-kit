@@ -143,4 +143,4 @@ a.fadeFrom(red: b, green: c, blue: d)
 
 Links that help
 * https://swift.org/documentation/api-design-guidelines/
-* https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html
+* [Cocoa naming guidelines](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingMethods.html)
