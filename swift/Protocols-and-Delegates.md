@@ -48,7 +48,23 @@ class FileImporter {
 }
 ```
 
-Which every way you go, remember to make your protocol reference `weak` in your delegate class. This will avoid any cyclmatic references in your code.
+And some, like `UITableView` use a combination of each. Naming convention is `ClassDelegate` or `ClassDataSource`.
+
+```swift
+protocol UITableViewDataSource : NSObjectProtocol {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+
+    func numberOfSections(in tableView: UITableView) -> Int // Default is 1 if not implemented
+
+}
+
+class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
+	weak open var dataSource: UITableViewDataSource?
+}
+```
+
+Which every way you go, remember to make your protocol reference `weak` in your delegate class. This will avoid any cyclomatic references and retains cycles in your code.
 
 
 
