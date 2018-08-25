@@ -1,3 +1,113 @@
+# Assert, Precondition and Fatal Error in Swift
+
+Sometimes it is better to crash than leave your app in an inconsistent state. Here are the five ways to fail (other than `exit()` and `abort()`).
+
+* assert()
+* assertFailure()
+* precondition()
+* preconditionFailure()
+* fatalError()
+
+But first...
+
+## Swift Optimization Levels
+
+To build your app faster, there are certain optimization levels you can set:
+
+* -Onone (default for debug builds)
+* -O (default for release builds)
+* -Ounchecked
+
+All of the five ways above will stop you code at runtime, but the `assert` only do it during debug. While the `preconditions` and `fatal` will do it in a release build too. That's the difference. One is for debugging (`asserts`) while the other is for stopping during a release (`preconditions` + `fatal`).
+
+Don't worry about `-Ounchecked`. You should never be using it. But it you do it basically optimizes your checks out so they may never be run.
+
+Here is how each of the checks works.
+
+### assert()
+
+assert() is a function that takes in four parameters. Condition and the message are the ones you’ll be using. You probably won’t need file and line number (the last two parameters). With the assert() function you evaluate a condition, and if it evaluates to false, your app will stop executing. The condition will only be evaluated for -Onone builds. In other words, it will only work for debug builds. If assertion is true it will stop your program.
+
+```swift
+func printAge(_ age: Int) {
+    assert(age >= 0, "Age can't be a negative value")
+    
+    print("Age is: ", age)
+}
+
+printAge(-1) // prints: assertion failed: Age can't be a negative value: file Assertions.playground, line 6
+```
+
+### assertionFailure()
+
+If you don’t have a condition to evaluate, or don’t need to evaluate one, you can use assertionFailure(). It will take a string as an argument to print as the failure message. Like the assert, the function is called only for -Onone builds.
+
+```swift
+func printAge(_ age: Int) {
+    guard age >= 0 else {
+        assertionFailure("Age can't be a negative value")
+        return
+    }
+    print("Age is: ", age)
+}
+
+printAge(-1) // prints: fatal error: Age can't be a negative value
+```
+
+### precondition()
+
+precondition() takes the same parameters as assert() and is pretty much doing the same thing. The only difference is that precondition works for -Onone and -O builds. In other words, for default debug and release configurations. This will stop your program in debug and release builds.
+
+```swift
+func printAge(_ age: Int) {
+    precondition(age >= 0, "Age can't be a negative value")
+    
+    print("Age is: ", age)
+}
+
+printAge(-1) // prints: precondition failed: Age can't be a negative value
+```
+
+### preconditionFailure()
+
+You can see where this is going, right 🙂 preconditionFailure() works the same as assertionFailure(). With the same difference as above, it works for -Onone and -O builds.
+
+```swift
+func printAge(_ age: Int) {
+    guard age >= 0 else {
+        preconditionFailure("Age can't be a negative value")
+    }
+    print("Age is: ", age)
+}
+
+printAge(-1) // prints: fatal error: Age can't be a negative value
+```
+
+If you look a bit closely at the method signature for this function, you’ll see that it has a return type:
+
+```swift
+public func preconditionFailure(... file: StaticString = #file, line: UInt = #line) -> Never
+```
+
+Return type ‘Never’ indicates that this function will never return. It will stop the execution of the app. That’s why Xcode won’t complain about the guard statement falling through because of the missing return statement.
+
+### fatalError()
+
+fatalError(), like assertionFailure() and preconditionFailure(), takes a string as an argument that will be printed in the console before the app terminates. It works for all optimisation levels in all build configurations. You use it just like the other two:
+
+```swift
+func printAge(_ age: Int) {
+    guard age >= 0 else {
+        fatalError("Age can't be a negative value")
+    }
+    print("Age is: ", age)
+}
+
+printAge(-1) // prints: fatal error: Age can't be a negative value
+```
+
+And just like the preconditionFailure() it has a return type of ‘Never’.
+
 # Representing Errors
 
 Errors in Swift are modeled using a type that conforms to the Error protocol. It is an empty protocol so there are no properties or methods to implement. It’s a marker interface that indicates that a type can be used for error handling.
@@ -73,20 +183,16 @@ These are programmer errors. Errors in logic, carelessness, or things we just di
 
 What's the difference between a precondition() and a fatalError()? It's subtle, but fatal is executed under all conditions of release, while precondition will not be included if you deploy your app in a special unchecked Swift optimization. See [here](https://blog.krzyzanowskim.com/2015/03/09/swift-asserts-the-missing-manual/) for a deeper explaination.
 
-|         Error mode                   | debug           | release  | release  |
-| -------------------------- |:----------:| -----:| -----:|
-| Optimizaiton mode          | -Onone        | -O |  -Ounchecked |
-| assert()                   | YES        | NO |  NO |
-| assertFailure()            | YES        | NO |  NO** |
-| precondition()             | YES | NO |  NO |
-| preconditionFailure()      | YES | NO |  NO** |
-| fatalError()*              | YES | NO |  NO |
+|         Error mode                   | debug           | release  |
+| -------------------------- |:----------:| -----:|
+| Optimization mode          | -Onone        | -O |
+| assert()                   | YES        | NO | 
+| assertFailure()            | YES        | NO | 
+| precondition()             | YES | YES | 
+| preconditionFailure()      | YES | YES | 
+| fatalError()*              | YES | YES | 
 
 YES - is for termination, NO - no termination.
-
-*not really assertion, it is designed to terminate code execution always, no matter what.
-
-** the optimizer _may assume_ that this function will never be called.
 
 ### Examples of Recoverable Errors
 When dealing with an asynchronous tasks, returning nil or an error enum case is probably the best choice
@@ -220,7 +326,14 @@ try? throwerWithDefer(shouldThrow: true)
 ```
 
 ### Links that help
+* https://agostini.tech/2017/10/01/assert-precondition-and-fatal-error-in-swift/
 * https://khawerkhaliq.com/blog/swift-error-handling/
 * https://www.swiftbysundell.com/posts/picking-the-right-way-of-failing-in-swift
 * https://blog.krzyzanowskim.com/2015/03/09/swift-asserts-the-missing-manual/
+* https://developer.apple.com/documentation/swift/1541112-assert
+* https://developer.apple.com/documentation/swift/1539616-assertionfailure
+* https://developer.apple.com/documentation/swift/1540960-precondition
+* https://developer.apple.com/documentation/swift/1539374-preconditionfailure
+* https://developer.apple.com/documentation/swift/1538698-fatalerror
+
 
