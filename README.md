@@ -12,6 +12,8 @@ A starter kit for those interested in iOS programming
 * [Structs-vs-Clases](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Structs-vs-Classes.md)
 * [Extensions & Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Extensions-And-Protocols.md)
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
+* [Protocols & Delegates](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Delegates.md)
+
 * [API Design](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/API-Design.md)
 * [Markdown](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Markdown.md)
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
