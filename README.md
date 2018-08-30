@@ -31,7 +31,8 @@ A starter kit for those interested in iOS programming
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 
 ## Autolayout
-* [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
+* [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
+* [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-tos.md)
 
 ## Recipes
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
