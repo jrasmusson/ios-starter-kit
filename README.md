@@ -32,7 +32,7 @@ A starter kit for those interested in iOS programming
 
 ## Autolayout
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
-* 
+
 ## Recipes
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
 
