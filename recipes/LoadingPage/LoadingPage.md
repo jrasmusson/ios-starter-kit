@@ -75,5 +75,5 @@ private extension UIImage {
 
 ### Links that help
 
-* [Source Code](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/LoadingPage)
+* [Source Code](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/LoadingPage/LoadingPage)
 
