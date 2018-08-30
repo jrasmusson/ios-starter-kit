@@ -1,5 +1,9 @@
 # Basic Animation
 
+```
+stackView.translatesAutoresizingMaskIntoConstraints = false // #1 rule always set this on every UIView
+```
+
 This examples show basic autolayout apis using a two `UIStackViews` stacked on top of the other.
 
 ![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/images/basics.gif)
