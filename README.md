@@ -32,7 +32,7 @@ A starter kit for those interested in iOS programming
 
 ## Autolayout
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
-* [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-tos.md)
+* [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
 
 ## Recipes
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
