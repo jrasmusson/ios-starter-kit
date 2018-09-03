@@ -30,6 +30,10 @@ A starter kit for those interested in iOS programming
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 
+## Autolayout
+* [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
+* [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
+
 ## Recipes
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
 
@@ -46,6 +50,7 @@ A starter kit for those interested in iOS programming
 * [Setup Charles proxy](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-charles.md)
 * [See device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-devicelogs.md)
 * [Delete provisioning files](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-delete-provisioning-profiles.md)
+* [Hex RGB Conversion](https://www.rapidtables.com/convert/color/hex-to-rgb.html)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
