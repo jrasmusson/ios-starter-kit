@@ -68,7 +68,8 @@ func setupViews() {
 }
 ```
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/images/demo.gif)
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/imageView.png)
+
 
 Step 3: Give the imageView height and width.
 
