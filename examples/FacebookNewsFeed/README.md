@@ -91,6 +91,9 @@ Here we need to turn off the bottom contstraint when we give the imageView heigh
     nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 ```
 
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/height-and-width.png)
+
+
 Step 4: Give is some spacing (8pts border).
 
 By giving the imageView some padding, we also either need to give the same padding on the label constraint, else remove it all together as it will conflict and or be redundant.
@@ -112,6 +115,8 @@ By giving the imageView some padding, we also either need to give the same paddi
     nameLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     nameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 ```
+
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/labels.png)
 
 ## How to two line string varying font and color
 
