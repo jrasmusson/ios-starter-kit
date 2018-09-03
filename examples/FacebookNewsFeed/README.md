@@ -150,11 +150,14 @@ You could do this with two `UILabel`s and an `UImageView` but another way is to 
     }()
 ```
 
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/two-line-label.png)
+
 ## Adding the UIImageView and Status message
 
 To add the big image at the bottom, we first need to make the cell larger (i.e. 200). But when we run that we see we need to adjust our name label cell to be more flush with the top.
 
-// about-to-add-image
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/about-to-add-image.png)
+
 
 We can do this by getting rid of the `bottomAnchor` on the name label and adding 8 constant to the `topAnchor`.
 
@@ -165,7 +168,8 @@ We can do this by getting rid of the `bottomAnchor` on the name label and adding
     nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
 ```
 
-// no bottom anchor
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/no-bottom-anchor.png)
+
 
 Now, to add the status message, we can put it 4pts below the profile image view, and pad it 8pts just like the others. Note: We need a height constraints on the status view because `UITextView` does not have an intrinsic height. So we specifiy it - else ambiguous layout.
 
@@ -177,6 +181,8 @@ Now, to add the status message, we can put it 4pts below the profile image view,
 	 statusTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 ```
 
-// bottom anchor status view
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/bottom-anchor-status-view.png)
+
+
 ### Links that help
 * [Build that App](https://www.youtube.com/watch?v=NJxb7EKXF3U)
