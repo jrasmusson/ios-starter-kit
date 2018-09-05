@@ -20,6 +20,10 @@ OK not bad. But what we need are some attributes on our stack views.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/attributes.png" alt="drawing" width="600"/>
 
+If we add those we get this
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/attributes-added.png" alt="drawing" width="400"/>
+
 
 ### Links that help
 
