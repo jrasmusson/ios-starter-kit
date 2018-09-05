@@ -24,6 +24,13 @@ If we add those we get this
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/attributes-added.png" alt="drawing" width="400"/>
 
+Now, if we want to add more label and text fields, and make it so everything is aligned, the trick is to make the widths of the various text fields the same. 
+
+If we add more stack views, and don't make the text field widths the same we get this.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/no-weight.png" alt="drawing" width="400"/>
+
+When we add those, and apply these new constraints we get.
 
 ### Links that help
 
