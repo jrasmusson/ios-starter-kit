@@ -3,6 +3,8 @@
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/dimensions.png)
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/dimensions.png" alt="drawing" width="200"/>
+
 ## Scaling the view
 
 ### .scaleToFill
