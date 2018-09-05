@@ -68,7 +68,7 @@ public class StarView: UIView {
 
 ### .scaleAspectFit
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFilt.png" alt="drawing" width="200"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFit.png" alt="drawing" width="200"/>
 
 
 ### .clipToBounds
