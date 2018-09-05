@@ -1,12 +1,49 @@
 # UIImageView
 
-`UIImageView` has several `contentMode`s you can use to describe how the image will fill the available space assigned to it.
+`UIImageView` has three `contentMode`s and eight positions you can use to fill space and position your `UIImageView`.
 
-For example, say we create a green background view like this, and place into it a star with the following dimensions.
+Scaling
+
+- .scaleToFill
+- .scaleAspectFill
+- .scaleAspectFit
+- .clipToBounds
+
+
+Positioning
+
+- .top
+- .bottom
+- .left
+- .right
+- .topLeft
+- .topRight
+- .bottomLeft
+- .bottomRight
+
+
+
+## Scaling the view
+
+For example, say we have a 100x100 star and place it within a 200x350 viewable area where is it stretched to fill the available space.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/dimensions.png" alt="drawing" width="200"/>
 
-By adding the star to the greenbackGround, and expanding it to fill the full 200x350 frame, here are three ways we can scale this image.
+There are three ways we can scale this image.
+
+### .scaleToFill
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="400"/>
+
+
+### .scaleAspectFill
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFill.png" alt="drawing" width="400"/>
+
+### .scaleAspectFit
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFit.png" alt="drawing" width="400"/>
+
 
 ```swift
 //
@@ -55,21 +92,6 @@ public class StarView: UIView {
 }
 ```
 
-## Scaling the view
-
-### .scaleToFill
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="400"/>
-
-
-### .scaleAspectFill
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFill.png" alt="drawing" width="400"/>
-
-### .scaleAspectFit
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFit.png" alt="drawing" width="400"/>
-
 
 ### .clipToBounds
 
@@ -77,7 +99,7 @@ public class StarView: UIView {
 
 If the image spills over the allowable view area, and we don't want to see it, we can set `clipToBounds` on the super view and it will cut the extra image off.
 
-Here we set the allowable view area to 50x50 and insert the star 100x100 thereby overflowing the allowable view area.
+To do that we need to set the allowable view area to 50x50 and insert the star 100x100 thereby overflowing the allowable view area.
 
 ```swift
 //
