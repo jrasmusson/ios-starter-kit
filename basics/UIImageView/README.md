@@ -95,11 +95,13 @@ public class StarView: UIView {
 
 ### .clipToBounds
 
+Notice how in `.scaleAspectFill` our star overflowed its boundaries? If we don't want that to happen we can clip it by setting `clipToBounds` on the superview.
+
+```        myView.clipsToBounds = true```
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/clipToBounds.png" alt="drawing" width="400"/>
 
-If the image spills over the allowable view area, and we don't want to see it, we can set `clipToBounds` on the super view and it will cut the extra image off.
-
-To do that we need to set the allowable view area to 50x50 and insert the star 100x100 thereby overflowing the allowable view area.
+To see that we need to set the allowable view area to 50x50 and insert the star 100x100 thereby overflowing the allowable view area.
 
 ```swift
 //
@@ -151,16 +153,14 @@ public class StarView: UIView {
 
 ## Positioning the view
 
-- .top
-- .bottom
-- .left
-- .right
+The `contentMode` can also be used to position the `UIImageView` into various places within the containing super view. 
+
+> Note: When you do this, the contents of the view are not stretched or scaled in anyway.
 
 
-- .topLeft
-- .topRight
-- .bottomLeft
-- .bottomRight
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/top.png)
+
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/left.png)
 
 
 ### Links that help
