@@ -59,21 +59,21 @@ public class StarView: UIView {
 
 ### .scaleToFill
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="200"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="400"/>
 
 
 ### .scaleAspectFill
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFill.png" alt="drawing" width="200"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFill.png" alt="drawing" width="400"/>
 
 ### .scaleAspectFit
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFit.png" alt="drawing" width="200"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleAspectFit.png" alt="drawing" width="400"/>
 
 
 ### .clipToBounds
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/clipToBounds.png)
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/clipToBounds.png" alt="drawing" width="400"/>
 
 If the image spills over the allowable view area, and we don't want to see it, we can set `clipToBounds` on the super view and it will cut the extra image off.
 
