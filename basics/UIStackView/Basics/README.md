@@ -30,7 +30,9 @@ If we add more stack views, and don't make the text field widths the same we get
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/no-weight.png" alt="drawing" width="400"/>
 
-When we add those, and apply these new constraints we get.
+When we add the weighting constraints (#6, #7) from diagram at top, we get this.
+
+
 
 ### Links that help
 
