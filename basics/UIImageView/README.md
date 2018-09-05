@@ -166,5 +166,5 @@ The `contentMode` can also be used to position the `UIImageView` into various pl
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/uiimageview)
 * [Use your loaf](https://useyourloaf.com/blog/stretching-redrawing-and-positioning-with-contentmode/)
-* [Use your loaf repos](https://github.com/kharrison/CodeExamples)
+* [Examples](https://github.com/kharrison/CodeExamples)
 
