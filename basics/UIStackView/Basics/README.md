@@ -10,7 +10,7 @@ We can start off with a `UILabel` and `UITextField` side-by-side.
 
 But what we are missing is the hugging and compression necessary to tell autolayout which control to expand, and which not to.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/chart.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/chart.png" alt="drawing" width="600"/>
 
 Usually in this situation we want the label to hold it's intrinsic width, and have the text field expand. So we **increase** the `UILabel` horizontal and vertical **hugging**, while **decreasing** the `UITextField` hugging and horizontal resistance.
 
@@ -18,7 +18,7 @@ Usually in this situation we want the label to hold it's intrinsic width, and ha
 
 OK not bad. But what we need are some attributes on our stack views.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/attributes.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/attributes.png" alt="drawing" width="600"/>
 
 
 ### Links that help
