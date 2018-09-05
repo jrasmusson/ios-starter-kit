@@ -157,10 +157,9 @@ The `contentMode` can also be used to position the `UIImageView` into various pl
 
 > Note: When you do this, the contents of the view are not stretched or scaled in anyway.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/top.png" alt="drawing" width="400"/>
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/top.png)
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/left.png)
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/left.png" alt="drawing" width="400"/>
 
 
 ### Links that help
@@ -169,5 +168,3 @@ The `contentMode` can also be used to position the `UIImageView` into various pl
 * [Use your loaf](https://useyourloaf.com/blog/stretching-redrawing-and-positioning-with-contentmode/)
 * [Use your loaf repos](https://github.com/kharrison/CodeExamples)
 
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/dimensions.png)
