@@ -22,6 +22,8 @@ A starter kit for those interested in iOS programming
 * [Access Control](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Access-Control.md)
 
 ## Basics
+* [UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/README.md)
+* [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
