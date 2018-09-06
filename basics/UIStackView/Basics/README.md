@@ -146,6 +146,39 @@ class ViewController: UIViewController {
 }
 ```
 
+### What if you are working with images?
+
+Images in stack views have there own instrinsic views. So their height and width may not align. 
+
+In this case you can get your images to align by changing you stack view alignment to `center`.
+
+```swift
+func makeNameStackView() -> UIStackView {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .center // gets them aligned
+        stack.spacing = 8.0
+
+        return stack
+    }
+```
+
+And then making the images themselves `scaleAspectFit`
+
+```swift
+// first name
+let firstNameStack = makeNameStackView()
+let chat = UIImageView(image: UIImage(named: "chat"))
+chat.contentMode = .scaleAspectFit // so they don't stretch
+```
+
+If you do that, everything should line up nicely like this.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/images.png" alt="drawing" width="400"/>
+
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/uistackview)
