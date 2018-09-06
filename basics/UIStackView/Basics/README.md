@@ -32,7 +32,7 @@ If we add more stack views, and don't make the text field widths the same we get
 
 When we add the weighting constraints (#6, #7) from diagram at top, we get this.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/no-weight.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/equal-weight.png" alt="drawing" width="400"/>
 
 > Note: Order here matters. You can only add a constraint between two separate elements like this in different stack views after they have been added to the common parent. Else you will get a 'not common ancestor' error.
 
