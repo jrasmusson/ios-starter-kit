@@ -160,6 +160,8 @@ class ViewController: UIViewController {
 }
 ```
 
+I believe the recommended approach now from Apple is to do everything via `view.directionalLayoutMargins`. So don't even use or refer to `view.layoutMargins`. Just set and work padding via the directional way on your view, and go from there.
+
 ### Links that help
 
 * [Apple layout margins](https://developer.apple.com/documentation/uikit/uiview/1622566-layoutmargins)
