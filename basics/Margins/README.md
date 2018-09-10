@@ -66,7 +66,7 @@ In iOS 11 and later, use the `directionalLayoutMargins` (top, bottom, leading, t
 You can change the layout margin like this
 
 ```swift
-	view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margin.png" alt="drawing" width="400"/>
@@ -74,7 +74,7 @@ You can change the layout margin like this
 Or the directional layout margin like this
 
 ```swift
-	view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
@@ -111,49 +111,6 @@ In iOS11 Apple deprecated the top and bottom layout guides and replaced them wit
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/safe.png" alt="drawing" width="400"/>
-
-
-## How to set margins
-
-`layoutMargins` and `directionalLayoutMargins` are set via their respective `UIEdgeInsets` guides. `NSDirectionalEdgeInsets`.
-
-```swift
-var layoutMargins: UIEdgeInsets { get set }
-```
-
-```swift
-var directionalLayoutMargins: UIEdgeInsets { get set }
-```
-
-NSDirectionalEdgeInsets
-
-```swift
-init(top: CGFloat, leading: CGFloat, bottom: CGFloat, trailing: CGFloat)
-```
-
-So to change the `layoutMargins` you would do this
-
-```swift
-        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
-        let margins = view.layoutMarginsGuide
-        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-```
-
-To change the `directionalLayoutMargins` you would do this
-
-```swift
-        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 40, leading: 50, bottom: 60, trailing: 50)
-        let margins = view.layoutMarginsGuide
-        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-```
-
-
 
 
 ### Links that help
