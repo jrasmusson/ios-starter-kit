@@ -63,13 +63,38 @@ In iOS 11 and later, use the `directionalLayoutMargins` (top, bottom, leading, t
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/margins.png" alt="drawing" width="400"/>
 
-Change the margins size like this
+You can change the layout margin like this
 
 ```swift
-        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+	view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margins.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margin.png" alt="drawing" width="400"/>
+
+POr the directional layout margin like this
+
+```swift
+	view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
+
+If you try and set both...
+
+```swift
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+        
+        let margins = view.layoutMarginsGuide
+        
+        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+```
+
+The layout margin appears to win.
+
 
 
 ## safeAreaLayoutGuide
@@ -84,7 +109,7 @@ In iOS11 Apple deprecated the top and bottom layout guides and replaced them wit
         stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/safe-area.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/both.png" alt="drawing" width="400"/>
 
 
 ## How to set margins
