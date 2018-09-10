@@ -71,7 +71,7 @@ You can change the layout margin like this
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margin.png" alt="drawing" width="400"/>
 
-POr the directional layout margin like this
+Or the directional layout margin like this
 
 ```swift
 	view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
@@ -95,6 +95,7 @@ If you try and set both...
 
 The layout margin appears to win.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/both.png" alt="drawing" width="400"/>
 
 
 ## safeAreaLayoutGuide
@@ -109,7 +110,7 @@ In iOS11 Apple deprecated the top and bottom layout guides and replaced them wit
         stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/both.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/safe.png" alt="drawing" width="400"/>
 
 
 ## How to set margins
