@@ -145,10 +145,10 @@ class ViewController: UIViewController {
 
         view.addSubview(stack)
 
-//        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
-//        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
 
-//        let margins = view.layoutMarginsGuide
+        let margins = view.layoutMarginsGuide
         let margins = view.safeAreaLayoutGuide
 
         stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
