@@ -31,7 +31,7 @@ A starter kit for those interested in iOS programming
 * [UIScrollView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/UIScrollView.md)
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
-* [Margins](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md
+* [Margins](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
 
 ## Autolayout
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
