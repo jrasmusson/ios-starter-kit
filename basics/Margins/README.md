@@ -2,7 +2,7 @@
 
 ## No Margins
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/Basics/images/no-margins.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/no-margins.png" alt="drawing" width="400"/>
 
 ```swift
 //
