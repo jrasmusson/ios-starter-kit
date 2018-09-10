@@ -31,9 +31,9 @@ Here, the value of the constant three is used to create a new value of type Doub
 
 Floating-point to integer conversion must also be made explicit. An integer type can be initialized with a Double or Float value:
 
+```swift
 let integerPi = Int(pi)
 // integerPi equals 3, and is inferred to be of type Int
-
 ```
 
 ### Links that help
