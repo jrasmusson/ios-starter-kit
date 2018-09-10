@@ -63,6 +63,15 @@ In iOS 11 and later, use the `directionalLayoutMargins` (top, bottom, leading, t
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/margins.png" alt="drawing" width="400"/>
 
+Change the margins size like this
+
+```swift
+        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margins.png" alt="drawing" width="400"/>
+
+
 ## safeAreaLayoutGuide
 
 In iOS11 Apple deprecated the top and bottom layout guides and replaced them with the Safe Area layout guides.
