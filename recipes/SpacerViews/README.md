@@ -2,6 +2,10 @@
 
 This receipe shows you how to use the `UILayoutGuide` to create spacer views between UI elements. This is better than creating dummy views as it it more performant.
 
+The red dotted lines are empty spacer views that are there purely for spacing the other UI elements. 
+
+Note also that there is an extension at the bottom that enables the red dotted spacers to show up.
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacerViews/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
