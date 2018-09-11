@@ -65,11 +65,11 @@ class ViewController: UIViewController {
         firstNameStack.addArrangedSubview(firstNameLabel)
         firstNameStack.addArrangedSubview(firstNameTextField)
 
-        firstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .vertical);
-        firstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal);
+        firstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .vertical)
+        firstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
 
-        firstNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal);
-        firstNameTextField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal);
+        firstNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal)
+        firstNameTextField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal)
 
         // middle name
         let middleNameStack = makeNameStackView()
@@ -79,11 +79,11 @@ class ViewController: UIViewController {
         middleNameStack.addArrangedSubview(middleNameLabel)
         middleNameStack.addArrangedSubview(middleNameTextField)
 
-        middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .vertical);
-        middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal);
+        middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .vertical)
+        middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
 
         middleNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal);
-        middleNameTextField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal);
+        middleNameTextField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .horizontal)
 
         // Name rows stack
         let nameRowsStack = makeRowStackView()
