@@ -40,7 +40,7 @@ A starter kit for those interested in iOS programming
 ## Recipes
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
 * [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/LoadingPage/LoadingPage.md)
-* [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacersViews/SpacerViews.md)
+* [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacersViews/README.md)
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
