@@ -2,6 +2,7 @@
 
 ```
 stackView.translatesAutoresizingMaskIntoConstraints = false // #1 rule always set this on every UIView
+chatLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true // #2 check constraint is active
 ```
 
 This examples show basic autolayout apis using a two `UIStackViews` stacked on top of the other.
