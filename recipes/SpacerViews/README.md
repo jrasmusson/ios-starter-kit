@@ -2,7 +2,7 @@
 
 This receipe shows you how to use the `UILayoutGuide` to create spacer views between UI elements. This is better than creating dummy views as it it more performant.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/receipes/SpacerViews/images/demo.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacerViews/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
