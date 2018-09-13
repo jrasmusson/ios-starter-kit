@@ -33,6 +33,7 @@ A starter kit for those interested in iOS programming
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 * [Margins](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
 * [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/README.md)
+* [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
 
 ## Autolayout
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
