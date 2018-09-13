@@ -1,6 +1,6 @@
 # UICollectionViews
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViews/images/demo.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
