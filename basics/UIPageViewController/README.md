@@ -2,7 +2,7 @@
 
 `UIPageViewController` consists of a main content page, followed by a series of `UIViewController`s you stick inside it.
 
-[Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo.gif)
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo.gif)
 
 ```swift
 //
@@ -243,4 +243,4 @@ There are two types of transitions files. `.pageCurl` was you saw at the top. Th
 window?.rootViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
 ```
 
-[Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/scroll.gif)
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/scroll.gif)
