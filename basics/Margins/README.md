@@ -107,7 +107,7 @@ class ViewController: UIViewController {
 
         view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8) // iOS 11
 
-        let margins = view.layoutMarginsGuide
+        let margins = view.safeAreaLayoutGuide
 
         stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
