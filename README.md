@@ -56,6 +56,7 @@ A starter kit for those interested in iOS programming
 * [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/LoadingPage/LoadingPage.md)
 * [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/README.md)
 * [LinkConditioner](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/link-conditioner.md)
+* [Project witout storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
