@@ -95,8 +95,8 @@ class SomeClass {
 }
 ```
 
-Links that help
+### Links that help
 
-* https://docs.swift.org/swift-book/LanguageGuide/Properties.html
+* [Apple docs](https://docs.swift.org/swift-book/LanguageGuide/Properties.html)
 
 

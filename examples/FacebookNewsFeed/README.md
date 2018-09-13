@@ -178,11 +178,34 @@ Now, to add the status message, we can put it 4pts below the profile image view,
     statusTextView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 4).isActive = true
     statusTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
     statusTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8).isActive = true
-	 statusTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    statusTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
 ```
 
 ![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/bottom-anchor-status-view.png)
 
+## Buttons
+
+Buttons can contain text and images. Like this.
+
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/examples/FacebookNewsFeed/images/like.png)
+
+The way you get the proper spacing between the text and the image is to play with the `UIInset`s. Like this.
+
+```swift
+let likeButton: UIButton = {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle("Like", for: .normal)
+    button.setTitleColor(UIColor.rgb(red: 143, green: 150, blue: 163), for: .normal)
+    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+    
+    button.setImage(UIImage(named: "like"), for: .normal)
+    
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0)
+
+    return button
+}()
+```
 
 ### Links that help
 * [Build that App](https://www.youtube.com/watch?v=NJxb7EKXF3U)
