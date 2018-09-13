@@ -177,12 +177,11 @@ So do everything via `topAnchor`, `leadingAnchor`, `trailingAnchor`, `bottomAnch
 Also remember to protect yourself against non iOS 11 versions.
 
 ```swift
-        if #available(iOS 11, *) {
-            toolbarStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        }
-        else {
-            toolbarStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+	if #available(iOS 11, *) {
+	    imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+	} else {
+	    imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+	}
 ```
 
 ### Links that help
