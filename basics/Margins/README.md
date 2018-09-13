@@ -174,6 +174,17 @@ So do everything via `topAnchor`, `leadingAnchor`, `trailingAnchor`, `bottomAnch
         stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
 ```
 
+Also remember to protect yourself against non iOS 11 versions.
+
+```swift
+        if #available(iOS 11, *) {
+            toolbarStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
+        else {
+            toolbarStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+```
+
 ### Links that help
 
 * [Apple layout margins](https://developer.apple.com/documentation/uikit/uiview/1622566-layoutmargins)
