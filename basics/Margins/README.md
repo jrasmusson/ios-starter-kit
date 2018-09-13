@@ -108,12 +108,53 @@ I believe the recommended approach now from Apple is to do everything via `view.
 
 ## Layout & Directional margins
 
-The `layoutMargins` property is deprecated on iOS 11, it was replaced by the `directionalLayoutMargins` on `UIView` taking into account the current language direction.
+The `layoutMargins` property was deprecated on iOS 11 and replaced with `directionalLayoutMargins` to take into account the current language direction. We still use `layoutMarginsGuide` when styling, but we set it via `directionalLayoutMargins` which translates the `CGFloats` into the proper anchors under the hood.
 
-You can set the margins on the directionalLayout like this.
+So if you need to set specific insets on a view do it like this.
 
 ```swift
-view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+//
+//  ViewController.swift
+//  LayoutMargins
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2018-09-10.
+//  Copyright © 2018 Jonathan Rasmusson (Contractor). All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupViews()
+    }
+
+    func setupViews() {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hello"
+        label.backgroundColor = .green
+
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.addArrangedSubview(label)
+
+        view.addSubview(stack)
+
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8) // iOS 11
+
+        let margins = view.layoutMarginsGuide
+
+        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+    }
+
+}
+
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
