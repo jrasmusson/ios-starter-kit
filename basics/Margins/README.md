@@ -49,6 +49,8 @@ class ViewController: UIViewController {
 
 The `layoutMargins` property is deprecated on iOS 11, it was replaced by the `directionalLayoutMargins` on `UIView` taking into account the current language direction.
 
+You can set the margins on the directionalLayout like this.
+
 ```swift
 view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
 ```
