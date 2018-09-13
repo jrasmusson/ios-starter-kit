@@ -37,11 +37,6 @@ A starter kit for those interested in iOS programming
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
 
-## Recipes
-* [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/HyperlinkModal/HyperlinkModal.md)
-* [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/LoadingPage/LoadingPage.md)
-* [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacerViews/README.md)
-
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
@@ -57,6 +52,9 @@ A starter kit for those interested in iOS programming
 * [Delete provisioning files](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-delete-provisioning-profiles.md)
 * [Hex RGB Conversion](https://www.rapidtables.com/convert/color/hex-to-rgb.html)
 * [Refactor computed properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/computed-properties.md)
+* [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/HyperlinkModal/HyperlinkModal.md)
+* [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/LoadingPage/LoadingPage.md)
+* [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/README.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
