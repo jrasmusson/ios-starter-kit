@@ -35,7 +35,7 @@ class ViewController: UIViewController {
 
         view.addSubview(stack)
 
-	     // constraints
+	// constraints
         stack.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo:view.leadingAnchor).isActive = true
         stack.trailingAnchor.constraint(equalTo:view.trailingAnchor).isActive = true
@@ -47,55 +47,13 @@ class ViewController: UIViewController {
 
 ## Layout & Directional margins
 
-The layout margin is he default spacing qw use when laying out content in the view.
-
-In iOS 11 and later, use the `directionalLayoutMargins` (top, bottom, leading, trailing) property to specify layout margins instead of this property. The leading and trailing edge insets in the directionalLayoutMargins property are synchronized with the left and right insets in this property. For example, setting the leading directional edge inset to 20 points causes the left inset of this property to be set to 20 points on a system with a left-to-right language.
-
-```swift
-
-    let margins = view.layoutMarginsGuide
-    stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-    stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-    stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-    stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-
-```
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/margins.png" alt="drawing" width="400"/>
-
-You can change the layout margin like this
-
-```swift
-view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
-```
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/custom-margin.png" alt="drawing" width="400"/>
-
-Or the directional layout margin like this
+The `layoutMargins` property is deprecated on iOS 11, it was replaced by the `directionalLayoutMargins` on `UIView` taking into account the current language direction.
 
 ```swift
 view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
-
-But if you try both
-
-```swift
-        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
-        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
-        
-        let margins = view.layoutMarginsGuide
-        
-        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-```
-
-The layout margin appears to win. So pick one (probably directional) and set via it.
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/both.png" alt="drawing" width="400"/>
 
 
 ## safeAreaLayoutGuide
@@ -145,11 +103,9 @@ class ViewController: UIViewController {
 
         view.addSubview(stack)
 
-        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
-        view.layoutMargins = UIEdgeInsets(top: 32, left: 64, bottom: 32, right: 64)
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8) // iOS 11
 
         let margins = view.layoutMarginsGuide
-        let margins = view.safeAreaLayoutGuide
 
         stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
