@@ -105,7 +105,7 @@ class ViewController1: UIViewController {
 }
 ```
 
-```
+```swift
 //
 //  ViewController.swift
 //  UIPageViewContoller
