@@ -44,20 +44,6 @@ class ViewController: UIViewController {
 
 }
 ```
-
-## Layout & Directional margins
-
-The `layoutMargins` property is deprecated on iOS 11, it was replaced by the `directionalLayoutMargins` on `UIView` taking into account the current language direction.
-
-You can set the margins on the directionalLayout like this.
-
-```swift
-view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
-```
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
-
-
 ## safeAreaLayoutGuide
 
 In iOS11 Apple deprecated the top and bottom layout guides and replaced them with the Safe Area layout guides.
@@ -119,6 +105,21 @@ class ViewController: UIViewController {
 ```
 
 I believe the recommended approach now from Apple is to do everything via `view.directionalLayoutMargins`. So don't even use or refer to `view.layoutMargins`. Just set and work padding via the directional way on your view, and go from there.
+
+## Layout & Directional margins
+
+The `layoutMargins` property is deprecated on iOS 11, it was replaced by the `directionalLayoutMargins` on `UIView` taking into account the current language direction.
+
+You can set the margins on the directionalLayout like this.
+
+```swift
+view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8)
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
+
+
+
 
 ### Links that help
 
