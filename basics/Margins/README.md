@@ -108,6 +108,8 @@ I believe the recommended approach now from Apple is to do everything via `view.
 
 ## Layout & Directional margins
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
+
 The `layoutMargins` property was deprecated on iOS 11 and replaced with `directionalLayoutMargins` to take into account the current language direction. We still use `layoutMarginsGuide` when styling, but we set it via `directionalLayoutMargins` which translates the `CGFloats` into the proper anchors under the hood.
 
 So if you need to set specific insets on a view do it like this.
@@ -157,7 +159,6 @@ class ViewController: UIViewController {
 
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/directional-margin.png" alt="drawing" width="400"/>
 
 
 
