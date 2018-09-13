@@ -58,8 +58,6 @@ In iOS11 Apple deprecated the top and bottom layout guides and replaced them wit
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/images/safe.png" alt="drawing" width="400"/>
 
-Full code
-
 ```swift
 //
 //  ViewController.swift
@@ -159,9 +157,22 @@ class ViewController: UIViewController {
 
 ```
 
+## Summary
 
+So do everything via `topAnchor`, `leadingAnchor`, `trailingAnchor`, `bottomAnchor`. Just vary the layout guide you are using (`layoutMarginsGuide` or `safeAreaLayoutGuide` and adjust via `directionalLayoutMargins`.
 
+```swift
 
+        view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 100, leading: 8, bottom: 100, trailing: 8) // iOS 11
+	
+	let margins = view.safeAreaLayoutGuide
+        let margins = view.layoutMarginsGuide
+
+        stack.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        stack.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        stack.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+```
 
 ### Links that help
 
