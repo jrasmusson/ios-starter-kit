@@ -68,7 +68,8 @@ A starter kit for those interested in iOS programming
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
 
-## Cocoapods
+## Cocoapods / Libraries
 
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
+* [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
 
