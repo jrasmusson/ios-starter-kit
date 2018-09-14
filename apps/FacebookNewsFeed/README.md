@@ -1,6 +1,6 @@
 # Facebook Newsfeed
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsfeed/images/demo.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
