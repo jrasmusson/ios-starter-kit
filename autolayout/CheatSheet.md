@@ -28,3 +28,9 @@ stackView.translatesAutoresizingMaskIntoConstraints = false
 ```swift
 chatLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
 ```
+
+### Add your subviews to the the view
+
+```swift
+addSubview(thumbnailImageView)
+```
