@@ -43,8 +43,8 @@ A starter kit for those interested in iOS programming
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 
-## Testing
-* [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
+## Apps
+* [Facebook](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/Facebook/README.md)
 
 ## How tos
 
@@ -60,6 +60,9 @@ A starter kit for those interested in iOS programming
 * [LinkConditioner](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/link-conditioner.md)
 * [Project witout storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 * [iOS11 version](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/ios11version.md)
+
+## Testing
+* [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
