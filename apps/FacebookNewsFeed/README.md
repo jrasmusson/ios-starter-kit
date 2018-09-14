@@ -249,7 +249,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Links that help
 
-* [Apple layout margins](https://developer.apple.com/documentation/uikit/uiview/1622566-layoutmargins)
+* [Based on this example](https://www.youtube.com/watch?v=NJxb7EKXF3U)
 
 
 
