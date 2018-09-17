@@ -9,6 +9,9 @@ pod init
 vi Podfile
 pod install
 ```
+Close project.
+Reopen with workspace file.
+Use.
 
 ### Links
 
