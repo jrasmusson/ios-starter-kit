@@ -10,6 +10,7 @@ sudo gem install cocoapods
 cd <project>
 pod init
 vi Podfile
+- pod 'lottie-ios'
 pod install
 ```
 Close Xcode. Reopen project file.
