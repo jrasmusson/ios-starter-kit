@@ -1,6 +1,7 @@
 # Lottie
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/cocoapods/Lottie/images/demo.gif)
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/cocoapods/lottie/images/demo.gif)
+
 
 ## Setup
 
