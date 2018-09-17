@@ -1,5 +1,6 @@
 # How to style common elements
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/CommonLayout/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
