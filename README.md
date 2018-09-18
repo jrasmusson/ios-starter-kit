@@ -76,4 +76,5 @@ A starter kit for those interested in iOS programming
 
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
 * [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
+* [Lottie animations](https://github.com/jrasmusson/ios-starter-kit/tree/master/cocoapods/lottie/README.md)
 
