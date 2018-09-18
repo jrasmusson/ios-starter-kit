@@ -47,6 +47,9 @@ A starter kit for those interested in iOS programming
 ## Apps
 * [Facebook Newsfeed](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/README.md)
 
+## Common layouts
+* [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/README.md)
+
 ## How tos
 
 * [Enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SingleTouchSimulator/SingleTouchSimulator.md)

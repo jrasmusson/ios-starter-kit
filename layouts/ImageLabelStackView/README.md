@@ -1,6 +1,6 @@
 # UIStackView with Image and multiline
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/CommonLayout/images/demo.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
