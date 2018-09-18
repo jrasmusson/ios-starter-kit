@@ -189,7 +189,6 @@ class ViewController1: UIViewController {
         return stack
     }
 
-
 }
 ```
 
