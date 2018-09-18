@@ -1,4 +1,4 @@
-# UIStackView with Image and multiline
+# Image label in a stackview
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/images/demo.png" alt="drawing" width="400"/>
 
