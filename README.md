@@ -43,6 +43,7 @@ A starter kit for those interested in iOS programming
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
+* [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
 
 ## Apps
 * [Facebook Newsfeed](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/README.md)
