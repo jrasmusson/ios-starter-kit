@@ -249,7 +249,7 @@ window?.rootViewController = PageViewController(transitionStyle: .scroll, naviga
 
 ## Adding animations
 
-![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo2.gif)
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/animated.gif)
 
 To add animations to `UIPageViewController`s there are three things you need to look up for
 
