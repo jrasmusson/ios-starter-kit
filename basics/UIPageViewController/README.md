@@ -265,6 +265,11 @@ view.layoutIfNeeded() // forces pending layouts to complete before starting this
 
 If you leave this out, the animation will combine with the `UIPageViewController` and animate strangely from the upper left and corner of the screen.
 
+Also the `UIViewController` life cycle is important here.
+
+- `viewDidLoad` is where you want to setup your views first, along with an offset of where to animate from
+- `viewWillAppear` is they where you do your actual animation 
+
 ```swift
 //
 //  ViewController.swift
