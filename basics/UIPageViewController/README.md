@@ -352,28 +352,6 @@ class ViewController1: UIViewController {
 
     }
 
-    func makeLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
-
-        return label
-    }
-
-    func makeContainerStackView() -> UIStackView {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.spacing = 16.0
-
-        return stack
-    }
-
     func animate() {
 
         view.layoutIfNeeded() // forces pending layouts to complete before starting this animation
