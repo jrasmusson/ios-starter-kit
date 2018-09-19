@@ -246,3 +246,143 @@ window?.rootViewController = PageViewController(transitionStyle: .scroll, naviga
 ```
 
 ![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/scroll.gif)
+
+## Adding animations
+
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo2.gif)
+
+If you want to add animations to a `UIPageViewController` you can do it like this.
+
+- create a constraint //1
+- assign it //2
+- then change its value in an animation //3
+
+Note: This line is very important 
+
+```swift
+view.layoutIfNeeded() // forces pending layouts to complete before starting this animation
+```
+
+If you leave this out, the animation will combine with the `UIPageViewController` and animate strangely from the upper left and corner of the screen.
+
+```swift
+//
+//  ViewController.swift
+//  UIPageViewContoller
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2018-09-13.
+//  Copyright © 2018 Jonathan Rasmusson (Contractor). All rights reserved.
+//
+
+import UIKit
+
+class ViewController1: UIViewController {
+
+    var titleLabelTopConstraint : NSLayoutConstraint? // 1
+    var bodyLabelTopConstraint : NSLayoutConstraint?
+
+    let billImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .red
+
+        return imageView
+    }()
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Title1"
+        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.textAlignment = .center
+        label.textColor = UIColor(red:0.2, green:0.26, blue:0.31, alpha:1)
+
+        return label
+    }()
+
+    let bodyLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet placerat elit. Fusce dictum arcu in velit rutrum maximus at nec sapien. Maecenas a enim nisl."
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.gray
+        label.textAlignment = .center
+
+        return label
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupViews()
+        view.backgroundColor = UIColor.white
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
+    }
+
+    func setupViews() {
+        view.addSubview(billImageView)
+        view.addSubview(titleLabel)
+        view.addSubview(bodyLabel)
+
+        billImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
+        billImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        billImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        billImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+
+        titleLabelTopConstraint = titleLabel.topAnchor.constraint(equalTo: billImageView.bottomAnchor, constant: 120) // 2
+        titleLabelTopConstraint?.isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        bodyLabelTopConstraint = bodyLabel.topAnchor.constraint(equalTo: billImageView.bottomAnchor, constant: 120)
+        bodyLabelTopConstraint?.isActive = true
+        bodyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bodyLabel.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        bodyLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+
+    }
+
+    func makeLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+
+        return label
+    }
+
+    func makeContainerStackView() -> UIStackView {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = 16.0
+
+        return stack
+    }
+
+    func animate() {
+
+        view.layoutIfNeeded() // forces pending layouts to complete before starting this animation
+
+        UIView.animate(withDuration: 3) {
+            self.titleLabelTopConstraint?.constant = 20 // 3
+            self.view.layoutIfNeeded()
+        }
+
+        UIView.animate(withDuration: 3) {
+            self.bodyLabelTopConstraint?.constant = -20
+            self.view.layoutIfNeeded()
+        }
+    }
+}
+```
+
