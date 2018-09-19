@@ -251,19 +251,23 @@ window?.rootViewController = PageViewController(transitionStyle: .scroll, naviga
 
 ![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo2.gif)
 
-If you want to add animations to a `UIPageViewController` you can do it like this.
+To add animations to `UIPageViewController`s there are three things you need to look up for
 
-- create a constraint //1
-- assign it //2
-- then change its value in an animation //3
+- `UIViewController` lifecycle
+- setting and reusing constraints
+- manually calling for autolayout needs layout
 
-Note: This line is very important 
+Basically you need to break your setting up of constraints into three stages
 
-```swift
-view.layoutIfNeeded() // forces pending layouts to complete before starting this animation
-```
+- static
+- preAnimate
+- animate
 
-If you leave this out, the animation will combine with the `UIPageViewController` and animate strangely from the upper left and corner of the screen.
+Otherwise you will get conflicting constraints and the animation and static constraints try to clobber each other.
+
+Secondly, for constraints you want to animate, you want to create them once and then reuse them. Simply change the constant to the pre and post animate values and let the animation do it's thing.
+
+Thridly, and this is big, you need to call `layoutIfNeeded` at the right time to get the animation to render on top of the static views correctly. This one is confusing because without `UIPageViewController` you may not need to do this. But with it you do.
 
 ```swift
 //
@@ -316,16 +320,24 @@ class ViewController1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupViews()
-        view.backgroundColor = UIColor.white
+        setupStaticConstraints()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        prepForAnimation()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         animate()
     }
 
-    func setupViews() {
+    func setupStaticConstraints() {
+        view.backgroundColor = .white
+
         view.addSubview(billImageView)
         view.addSubview(titleLabel)
         view.addSubview(bodyLabel)
@@ -347,26 +359,12 @@ class ViewController1: UIViewController {
 
     }
 
-    func makeLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+    func prepForAnimation() {
+        self.titleLabelTopConstraint?.constant = 60
+        titleLabel.alpha = 0.0
 
-        return label
-    }
-
-    func makeContainerStackView() -> UIStackView {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.spacing = 16.0
-
-        return stack
+        self.bodyLabelTopConstraint?.constant = 80
+        bodyLabel.alpha = 0.0
     }
 
     func animate() {
@@ -375,11 +373,13 @@ class ViewController1: UIViewController {
 
         UIView.animate(withDuration: 3) {
             self.titleLabelTopConstraint?.constant = 20 // 3
+            self.titleLabel.alpha = 1
             self.view.layoutIfNeeded()
         }
 
         UIView.animate(withDuration: 3) {
             self.bodyLabelTopConstraint?.constant = -20
+            self.bodyLabel.alpha = 1
             self.view.layoutIfNeeded()
         }
     }
