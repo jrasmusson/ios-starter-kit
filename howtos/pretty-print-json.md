@@ -14,3 +14,5 @@ ppj <filename> | pbcopy
 ```
 
 Then paste where ever your want.
+
+Thanks to Dan Drzimotta for this tip!
