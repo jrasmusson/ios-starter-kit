@@ -67,6 +67,7 @@ A starter kit for those interested in iOS programming
 * [iOS11 version](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/ios11version.md)
 * [Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Pretty print json](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/pretty-print-json.md)
+* [Get back on the main thread](https://github.com/jrasmusson/ios-starter-kit/blob/master/get-back-on-the-main-thread.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
