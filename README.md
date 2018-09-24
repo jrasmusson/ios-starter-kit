@@ -34,6 +34,7 @@ A starter kit for those interested in iOS programming
 * [Margins](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
 * [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/README.md)
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
+* [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
