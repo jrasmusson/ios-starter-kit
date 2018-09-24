@@ -13,7 +13,7 @@
         return button
     }()
 
-	view.addSubview(gotItButton)
+    view.addSubview(gotItButton)
 	
     gotItButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
     gotItButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
