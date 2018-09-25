@@ -14,6 +14,10 @@ class OnboardingViewController : UIViewController {
         return label
     }()
     
+    convenience init() {
+        self.init(titleText: "Some title")
+    }
+    
     init(titleText: String) {
         self.titleLabel.text = titleText
         super.init(nibName: nil, bundle: nil)
