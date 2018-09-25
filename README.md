@@ -69,7 +69,7 @@ A starter kit for those interested in iOS programming
 * [Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Pretty print json](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/pretty-print-json.md)
 * [Get back on the main thread](https://github.com/jrasmusson/ios-starter-kit/blob/master/get-back-on-the-main-thread.md)
-* [Create init constructor](https://github.com/jrasmusson/ios-starter-kit/blob/master/how-to-initializer.md)
+* [Create init constructor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-initializer.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
