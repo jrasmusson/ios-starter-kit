@@ -6,7 +6,6 @@ class OnboardingViewController : UIViewController {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Your bill, your way"
         label.textAlignment = .center
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 28)
