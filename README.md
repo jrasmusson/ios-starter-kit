@@ -72,6 +72,7 @@ A starter kit for those interested in iOS programming
 * [Get back on the main thread](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/get-back-on-main-thread.md)
 * [Create init constructor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-initializer.md)
 * [How to change Xcode simulator runtime](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/change-xcode-simulator-runtime.md)
+* [Clear derived data](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/clear-derived-data.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
