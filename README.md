@@ -54,6 +54,7 @@ A starter kit for those interested in iOS programming
 
 ## How tos
 
+* [Commonly used code](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/common-code)
 * [Enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SingleTouchSimulator/SingleTouchSimulator.md)
 * [Setup Charles proxy](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-charles.md)
 * [See device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-devicelogs.md)
