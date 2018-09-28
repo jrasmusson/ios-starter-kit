@@ -6,10 +6,7 @@ someView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = t
 someView.widthAnchor.constraint(equalToConstant: 44).isActive = true
 someView.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
-stackView.topAnchor.constraint(equalTo: dividerLineView.bottomAnchor, constant: 8).isActive = true
-stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12).isActive = true
-stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12).isActive = true
-stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
 
 middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
 middleNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal);
