@@ -59,7 +59,7 @@ A starter kit for those interested in iOS programming
 * [Setup Charles proxy](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-charles.md)
 * [See device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-devicelogs.md)
 * [Delete provisioning files](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-delete-provisioning-profiles.md)
-* [Hex RGB Conversion](https://www.rapidtables.com/convert/color/hex-to-rgb.html)
+* [Hex RGB Conversion](http://uicolor.xyz/#/rgb-to-ui)
 * [Refactor computed properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/computed-properties.md)
 * [Hyperlink text opening a modal ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/HyperlinkModal/HyperlinkModal.md)
 * [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/LoadingPage/LoadingPage.md)
