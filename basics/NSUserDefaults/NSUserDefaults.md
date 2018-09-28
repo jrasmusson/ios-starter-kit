@@ -2,6 +2,10 @@
 
 `NSUserDefaults` are temporary local storage you can use for storing data on the user's device.
 
+```swift
+UserDefaults.standard.bool(forKey: "OnboardingHasBeenViewed")
+UserDefaults.standard.set(true, forKey: "OnboardingHasBeenViewed")
+```
 
 ```swift
 //
