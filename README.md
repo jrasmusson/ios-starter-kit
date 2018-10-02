@@ -87,3 +87,5 @@ A starter kit for those interested in iOS programming
 * [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
 * [Lottie animations](https://github.com/jrasmusson/ios-starter-kit/tree/master/cocoapods/lottie/README.md)
 
+## Handy links
+* [OSStatus](https://osstatus.com)
