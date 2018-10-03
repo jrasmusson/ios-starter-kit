@@ -10,6 +10,15 @@ textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActiv
 
 middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
 middleNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal);
+
+// for when you want a multiplier on a view - this view will be 0.8 of the bottom view
+NSLayoutConstraint(item: animationView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: view,
+                           attribute: .bottom,
+                           multiplier: 0.8,
+                           constant: 0.0).isActive = true
 ```
 
 ## Things to remember
