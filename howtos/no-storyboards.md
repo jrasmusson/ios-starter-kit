@@ -15,9 +15,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.makeKeyAndVisible()
-    
-    let navigatorController = UINavigationController(rootViewController: ViewController())
-    window?.rootViewController = navigatorController
+    window?.rootViewController = ViewController()
     
     return true
 }
