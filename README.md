@@ -74,6 +74,7 @@ A starter kit for those interested in iOS programming
 * [How to change Xcode simulator runtime](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/change-xcode-simulator-runtime.md)
 * [Clear derived data](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/clear-derived-data.md)
 * [Make font fit within label](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/font-fit-label.md)
+* [How to view crash logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/view-crash-logs.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
