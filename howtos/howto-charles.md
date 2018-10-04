@@ -19,6 +19,9 @@ Get your local IP Address
 Enter local IP address
 
  - Settings > Wifi > (i) information > HTTP Proxy > Manual
+ - server / port (8888)
+ 
+ * Note: Your device must be on the same network as your computer!!!
 
 Install Charles Proxy Certificate on Phone by browsing to
 
