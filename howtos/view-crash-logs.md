@@ -1,9 +1,15 @@
-# How to view app crash logs
+# How to view user app crash logs from production
 
-Follow these steps to to view crash logs of your iOS App.
+This is really cool. You can actually see how your app is crashing for people in production through the app store. Go
 
 ```swift
 Xcode > Organizer > Crashes 
-
-App > Release > Open in Project
 ```
+
+Then click
+
+```swift
+iOS App > Release > Open in Project
+```
+
+
