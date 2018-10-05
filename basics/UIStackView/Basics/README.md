@@ -178,6 +178,13 @@ If you do that, everything should line up nicely like this.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/images.png" alt="drawing" width="400"/>
 
+## Misc
+
+### How to set insets
+
+```swift
+stackView.layoutMargins = UIEdgeInsets(top: Spacing.marginTop, left: Spacing.margin, bottom: Spacing.margin, right: 0)
+```
 
 ### Links that help
 
