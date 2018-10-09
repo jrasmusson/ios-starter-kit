@@ -1,6 +1,6 @@
 # Private typed class
 
-Here is a nice way to create a private typed class.
+Here is a nice way to create a private typed class or struct.
 
 ```swift
 struct LoginCredential {
