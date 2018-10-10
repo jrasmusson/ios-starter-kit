@@ -66,7 +66,7 @@ A starter kit for those interested in iOS programming
 * [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/LoadingPage/LoadingPage.md)
 * [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/README.md)
 * [LinkConditioner](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/link-conditioner.md)
-* [Project witout storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
+* [Project without storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 * [iOS11 version](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/ios11version.md)
 * [Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Pretty print json](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/pretty-print-json.md)
