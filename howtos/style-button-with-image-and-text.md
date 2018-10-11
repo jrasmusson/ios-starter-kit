@@ -22,6 +22,5 @@
     }()
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacerViews/images/demo.png" alt="drawing" width="400"/>
-
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/style-button-image-and-text.png" alt="drawing" width="400"/>
 
