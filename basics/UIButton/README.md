@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         button.backgroundColor = .green
         button.setTitle("GOT IT", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
 
         return button
     }()
@@ -25,6 +26,10 @@ class ViewController: UIViewController {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
+    @objc func buttonPressed(sender: UIButton!) {
+        print("Button tapped")
+    }
+    
 }
 ```
 
