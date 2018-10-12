@@ -2,27 +2,30 @@
 
 
 ```swift
-    let gotItButton: UIButton = {
+import UIKit
+
+class ViewController: UIViewController {
+
+    let button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .green
         button.setTitle("GOT IT", for: .normal)
-        button.addTarget(self, action: #selector(gotItButtonPressed), for: .touchUpInside)
         button.setTitleColor(.black, for: .normal)
 
         return button
     }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    view.addSubview(gotItButton)
-	
-    gotItButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-    gotItButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    gotItButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-    gotItButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 8).isActive = true
+        view.backgroundColor = .white
+        view.addSubview(button)
 
-    @objc func gotItButtonPressed(sender: UIButton!) {
-        print("Button tapped")
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+
+}
 ```
 
 
