@@ -54,7 +54,7 @@ A starter kit for those interested in iOS programming
 * [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/README.md)
 
 ## How tos
-
+* [Project without storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 * [Commonly used code](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/common-code.md)
 * [Enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SingleTouchSimulator/SingleTouchSimulator.md)
 * [Setup Charles proxy](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-charles.md)
@@ -66,7 +66,6 @@ A starter kit for those interested in iOS programming
 * [Loading Page](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/LoadingPage/LoadingPage.md)
 * [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/README.md)
 * [LinkConditioner](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/link-conditioner.md)
-* [Project without storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 * [iOS11 version](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/ios11version.md)
 * [Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Pretty print json](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/pretty-print-json.md)
