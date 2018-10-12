@@ -41,4 +41,6 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/deployment-info.png" alt="drawing" width="800"/>
+![](images/only-text.png)
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/increase-tappable-area-button/images/only-text.png" alt="drawing" width="800"/>
