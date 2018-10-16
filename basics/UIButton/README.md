@@ -35,6 +35,8 @@ class ViewController: UIViewController {
 
 ## Buttons on UINavigationBar
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="400"/>
+
 ```swift
 import UIKit
 
