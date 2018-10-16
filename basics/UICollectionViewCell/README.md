@@ -1,6 +1,6 @@
 # UICOllectionViewCell
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/scaleToFill.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViewCell/images/cell.png" alt="drawing" width="400"/>
 
 ```swift
 //
