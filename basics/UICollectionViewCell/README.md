@@ -154,5 +154,8 @@ class UserCell: UICollectionViewCell {
 
 ```
 
+## Links that help
+
+- [BuildTheApp Twitter NavBar](https://www.youtube.com/watch?v=zS-CCd4xmRY&list=PL0dzCUj1L5JE1wErjzEyVqlvx92VN3DL5&index=7)
 
 
