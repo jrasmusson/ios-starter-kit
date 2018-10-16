@@ -1,4 +1,4 @@
-# UICOllectionViewCell
+# UICollectionViewCell
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViewCell/images/cell.png" alt="drawing" width="400"/>
 
