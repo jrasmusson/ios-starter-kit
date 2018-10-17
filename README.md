@@ -85,7 +85,7 @@ A starter kit for those interested in iOS programming
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
 
 ## Cocoapods / Libraries
-* sHow to Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
+* [How to Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
 * [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
 * [Lottie animations](https://github.com/jrasmusson/ios-starter-kit/tree/master/cocoapods/lottie/README.md)
