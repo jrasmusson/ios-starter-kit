@@ -68,7 +68,6 @@ A starter kit for those interested in iOS programming
 * [Spacer Views](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/README.md)
 * [LinkConditioner](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/link-conditioner.md)
 * [iOS11 version](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/ios11version.md)
-* [Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Pretty print json](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/pretty-print-json.md)
 * [Get back on the main thread](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/get-back-on-main-thread.md)
 * [Create init constructor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-initializer.md)
@@ -86,7 +85,7 @@ A starter kit for those interested in iOS programming
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
 
 ## Cocoapods / Libraries
-
+* sHow to Setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
 * [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
 * [Lottie animations](https://github.com/jrasmusson/ios-starter-kit/tree/master/cocoapods/lottie/README.md)
