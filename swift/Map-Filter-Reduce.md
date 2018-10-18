@@ -7,17 +7,16 @@
 Instead of 
 
 ```swift
-	var users = [User]()
+var users = [User]()
 
-	for userJson in usersJsonArray! {
-	let user = User(json: userJson)
-
-	users.append(user)
-	}
+for userJson in usersJsonArray! {
+  let user = User(json: userJson)
+  users.append(user)
+}
 ```
 Go
 ```swift
-	let users = usersJsonArray!.map { User(json: $0) }
+let users = usersJsonArray!.map { User(json: $0) }
 ```
 
 Map takes each element in the collection, and lets you do something to it in the brackets. Think of it as taking the for loop, scrunching the brackets onto one line, and letting you do your magic there.
@@ -60,17 +59,17 @@ struct Tweet {
 Refactor your for loop down to this
 
 ```swift
-            var tweets = [Tweet]()
+    var tweets = [Tweet]()
 
-            for tweetJson in tweetsJsonArray! {
-                let tweet = Tweet(json: tweetJson)
-                tweets.append(tweet)
-            }
+    for tweetJson in tweetsJsonArray! {
+	let tweet = Tweet(json: tweetJson)
+	tweets.append(tweet)
+    }
 ```
 
 Then apply the same map again
 
 ```swift
-	let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
+    let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
 ```
 
