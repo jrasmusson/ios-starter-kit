@@ -73,3 +73,24 @@ Then apply the same map again
 let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
 ```
 
+Final refactoring looks beautiful :)
+
+```swift
+    func fetchHomeFeed(completion: @escaping ([User], [Tweet]) -> () ) {
+
+        Alamofire.request("https://api.letsbuildthatapp.com/twitter/home").responseJSON { response in
+
+            guard let data = response.result.value else { return }
+
+            let json = JSON(data)
+            
+            let usersJsonArray = json["users"].array
+            let users = usersJsonArray!.map { User(json: $0) }
+
+            let tweetsJsonArray = json["tweets"].array
+            let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
+
+            completion(users, tweets)
+        }
+    }
+    ```
