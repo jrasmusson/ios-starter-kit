@@ -35,6 +35,16 @@ class HomeController: UICollectionViewController {
 }
 ```
 
+## How to handle change in orientation
+
+```swift
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        // tell collection view to lay itself out again
+        collectionViewLayout.invalidateLayout()
+    }
+```
+
+
 
 
 
