@@ -20,14 +20,13 @@ Then call like
         Service.sharedInstance.fetchHomeFeed(completion: {
 
         })
-```
-
-or
-
-```swift
+        
+        // or
+        
         Service.sharedInstance.fetchHomeFeed {
 
         }
+
 ```
 
 Now simply add the parameters you want to pass back in the block
