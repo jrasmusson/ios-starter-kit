@@ -6,6 +6,7 @@
 
 Instead of 
 
+```swift
             var users = [User]()
 
             for userJson in usersJsonArray! {
@@ -13,10 +14,10 @@ Instead of
 
                 users.append(user)
             }
-
+```
 Go
-
+```swift
 	    let users = usersJsonArray!.map { User(json: $0) }
-
+```
 
 Map takes each element in the collection, and lets you do something to it in the brackets. Think of it as taking the for loop, scrunching the brackets onto one line, and letting you do your magic there.
