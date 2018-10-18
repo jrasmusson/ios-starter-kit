@@ -24,18 +24,18 @@ Map takes each element in the collection, and lets you do something to it in the
 Here is a slightly more complicated example. The trick is to create `init` methods as constructors.
 
 ```swift
-    let tweetsJsonArray = json["tweets"].array
-    var tweets = [Tweet]()
+let tweetsJsonArray = json["tweets"].array
+var tweets = [Tweet]()
 
-    for tweetJson in tweetsJsonArray! {
-	let userJson = tweetJson["user"]
+for tweetJson in tweetsJsonArray! {
+  let userJson = tweetJson["user"]
 
-	let user = User(json: userJson)
-	let message = tweetJson["message"].stringValue
-	let tweet = Tweet(user: user, message: message)
+  let user = User(json: userJson)
+  let message = tweetJson["message"].stringValue
+  let tweet = Tweet(user: user, message: message)
 
-	tweets.append(tweet)
-    }
+  tweets.append(tweet)
+}
 ```
 
 Create a constructor taking only json
@@ -59,17 +59,17 @@ struct Tweet {
 Refactor your for loop down to this
 
 ```swift
-    var tweets = [Tweet]()
+var tweets = [Tweet]()
 
-    for tweetJson in tweetsJsonArray! {
-	let tweet = Tweet(json: tweetJson)
-	tweets.append(tweet)
-    }
+for tweetJson in tweetsJsonArray! {
+  let tweet = Tweet(json: tweetJson)
+  tweets.append(tweet)
+}
 ```
 
 Then apply the same map again
 
 ```swift
-    let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
+let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
 ```
 
