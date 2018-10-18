@@ -12,6 +12,7 @@ Do
 
 ```swift
     	func fetchHomeFeed(completion: () -> () ) {
+```
 
 Then call like
 
