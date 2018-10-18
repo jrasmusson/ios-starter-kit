@@ -2,6 +2,7 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
+* [Completion Blocks](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Completion%20Blocks.md)
 * [Structs, Enums, and Classes](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/EnumsStructsClasses.md)  
 * [Properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Properties.md)  
 * [Optionals](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Optionals.md)  
