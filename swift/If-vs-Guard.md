@@ -156,7 +156,7 @@ guard let usersJsonArray = json["users"].array else {
   throw NSError(domain: "com.rsc.org", code: 1, userInfo: [NSLocalizedDescriptionKey: "'users' not valid in JSON"])
 }
 
-let users = usersJsonArray.map { User(json: $0) } // no !
+let users = usersJsonArray.map { User(json: $0) } // no bang required!
 ```
 
 ### Links that help
