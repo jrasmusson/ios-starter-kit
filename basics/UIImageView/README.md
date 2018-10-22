@@ -14,7 +14,7 @@
     }()
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/rounded.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/rounded.png" alt="drawing" width="600"/>
 
 
 ## Basics
