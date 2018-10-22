@@ -14,6 +14,9 @@
     }()
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/rounded.png" alt="drawing" width="400"/>
+
+
 ## Basics
 
 `UIImageView` has three `contentMode`s and eight positions you can use to fill space and position your `UIImageView`.
