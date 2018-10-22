@@ -6,17 +6,91 @@
 
 Instead of 
 
-            var users = [User]()
+```swift
+var users = [User]()
 
-            for userJson in usersJsonArray! {
-                let user = User(json: userJson)
-
-                users.append(user)
-            }
-
+for userJson in usersJsonArray! {
+  let user = User(json: userJson)
+  users.append(user)
+}
+```
 Go
-
-	    let users = usersJsonArray!.map { User(json: $0) }
-
+```swift
+let users = usersJsonArray!.map { User(json: $0) }
+```
 
 Map takes each element in the collection, and lets you do something to it in the brackets. Think of it as taking the for loop, scrunching the brackets onto one line, and letting you do your magic there.
+
+Here is a slightly more complicated example. The trick is to create `init` methods as constructors.
+
+```swift
+let tweetsJsonArray = json["tweets"].array
+var tweets = [Tweet]()
+
+for tweetJson in tweetsJsonArray! {
+  let userJson = tweetJson["user"]
+
+  let user = User(json: userJson)
+  let message = tweetJson["message"].stringValue
+  let tweet = Tweet(user: user, message: message)
+
+  tweets.append(tweet)
+}
+```
+
+Create a constructor taking only json
+
+```swift
+import SwiftyJSON
+
+struct Tweet {
+    let user: User
+    let message: String
+
+    init(json: JSON) {
+        let userJson = json["user"]
+
+        self.user = User(json: userJson)
+        self.message = json["message"].stringValue
+    }
+}
+```
+
+Refactor your for loop down to this
+
+```swift
+var tweets = [Tweet]()
+
+for tweetJson in tweetsJsonArray! {
+  let tweet = Tweet(json: tweetJson)
+  tweets.append(tweet)
+}
+```
+
+Then apply the same map again
+
+```swift
+let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
+```
+
+Final refactoring looks beautiful :)
+
+```swift
+    func fetchHomeFeed(completion: @escaping ([User], [Tweet]) -> () ) {
+
+        Alamofire.request("https://api.letsbuildthatapp.com/twitter/home").responseJSON { response in
+
+            guard let data = response.result.value else { return }
+
+            let json = JSON(data)
+            
+            let usersJsonArray = json["users"].array
+            let users = usersJsonArray!.map { User(json: $0) }
+
+            let tweetsJsonArray = json["tweets"].array
+            let tweets = tweetsJsonArray!.map { Tweet(json: $0) }
+
+            completion(users, tweets)
+        }
+    }
+ ```

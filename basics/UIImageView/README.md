@@ -1,5 +1,21 @@
 # UIImageView
 
+## Rounded corners
+```swift
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "zuckprofile")
+        imageView.layer.cornerRadius = 34
+        imageView.layer.masksToBounds = true
+
+        return imageView
+    }()
+```
+
+## Basics
+
 `UIImageView` has three `contentMode`s and eight positions you can use to fill space and position your `UIImageView`.
 
 Scaling

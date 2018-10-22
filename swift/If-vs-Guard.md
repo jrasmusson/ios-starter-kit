@@ -137,5 +137,27 @@ func validateFieldsAndContinueRegistration() {
 
 ```
 
+# Examples
+
+## Parsing JSON
+
+Say you've got some code that blows up on JSON parsing
+
+
+```swift
+let usersJsonArray = json["users"].array
+let users = usersJsonArray!.map { User(json: $0) }
+```
+
+Convert to a guard clause like so
+
+```swift
+guard let usersJsonArray = json["users"].array else {
+  throw NSError(domain: "com.rsc.org", code: 1, userInfo: [NSLocalizedDescriptionKey: "'users' not valid in JSON"])
+}
+
+let users = usersJsonArray.map { User(json: $0) } // no bang required!
+```
+
 ### Links that help
 * [if-let vs guard-let](https://medium.com/@mimicatcodes/unwrapping-optional-values-in-swift-3-0-guard-let-vs-if-let-40a0b05f9e69)
