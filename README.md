@@ -89,7 +89,7 @@ A starter kit for those interested in iOS programming
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
 
 ## Cocoapods / Libraries
-* [How to setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
+* [Setup](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
 * [AlamoFire](https://github.com/Alamofire/Alamofire)
 * [SwiftJSON](https://github.com/SwiftyJSON/SwiftyJSON)
