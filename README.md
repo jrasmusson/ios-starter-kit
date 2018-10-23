@@ -91,7 +91,9 @@ A starter kit for those interested in iOS programming
 ## Cocoapods / Libraries
 * [How to setup Cocoapods](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/setup-cocoapods.md)
 * [Chameleon](https://cocoapods.org/pods/ChameleonFramework)
-* [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding)
+* [AlamoFire](https://github.com/Alamofire/Alamofire)
+* [SwiftJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+* [SDWebImage](https://github.com/rs/SDWebImage)
 * [Lottie animations](https://github.com/jrasmusson/ios-starter-kit/tree/master/cocoapods/lottie/README.md)
 
 ## Handy links
