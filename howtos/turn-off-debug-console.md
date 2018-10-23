@@ -6,4 +6,4 @@ Xcode Preferences > Behavior
 
 And uncheck this
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/style-button-image-and-text.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
