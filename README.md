@@ -80,6 +80,7 @@ A starter kit for those interested in iOS programming
 * [Round corners on an UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/round-corners-imageView.md)
 * [Style button with image and text](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/style-button-with-image-and-text.md)
 * [Alamofire SwiftyJSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/alamofire-swiftyjson.md)
+* [How to adjust view when keyboard present](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md#how-to-adjust-view-when-keyboard-present)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
