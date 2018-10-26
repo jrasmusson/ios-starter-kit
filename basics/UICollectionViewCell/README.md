@@ -8,9 +8,13 @@ class MessageCell: BaseCell {
     override var isHighlighted: Bool {
         didSet {
             backgroundColor = isHighlighted ? .cyan : .white
+            nameLabel.textColor = isHighlighted ? .white : .black
+            timeLabel.textColor = isHighlighted ? .white : .black
+            messageLabel.textColor = isHighlighted ? .white : .black
         }
     }
 ```
+Turn the cell and the text different colors when highlighted.
 
 ## Example
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViewCell/images/cell.png" alt="drawing" width="400"/>
