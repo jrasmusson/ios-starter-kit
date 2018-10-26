@@ -1,5 +1,18 @@
 # UICollectionViewCell
 
+## How to highlight cell when pressed
+
+```swift
+class MessageCell: BaseCell {
+
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? .cyan : .white
+        }
+    }
+```
+
+## Example
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViewCell/images/cell.png" alt="drawing" width="400"/>
 
 ```swift
