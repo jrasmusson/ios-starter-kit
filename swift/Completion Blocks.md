@@ -63,7 +63,6 @@ struct Service {
     func fetchHomeFeed(completion: @escaping ([User]?, [Tweet]?, Error?) -> () ) {
 
         Alamofire.request("https://api.letsbuildthatapp.com/twitter/home").responseJSON { response in
-//        Alamofire.request("https://api.letsbuildthatapp.com/twitter/home_with_error").responseJSON { response in
 
             if let error = response.error {
                 completion (nil, nil, error)
@@ -120,3 +119,41 @@ ViewController.swift
         }
     }
 ```
+
+## Block debugging technique
+
+If you suspect you have some buggy code, but you want to see if the callback works as expected, you can pull out the code in a completion block into a variable, and then by pass the buggy code completely.
+
+```swift
+        // buggy code
+        _ = session.payBill(for: account, completion: { (possibleCode, possibleError) in
+
+        })
+```
+
+First create a variable for the block you want to run by double click on the '{' in the completion block defintion and pull the contents of the block into a variable like this:
+
+```swift
+        let completion: (String?, Error?) -> Void = { (possibleCode, possibleError) in
+             // buggy code
+        }
+```
+
+(Note you will have to figure out the return types of the elements in the block...)
+
+And then pass that variable into where the block used to be.
+
+```swift
+    _ = session.payBill(using: strategy, amount: paymentAmount, for: account, completion: completion)
+```
+
+Now if you want to by pass that call above. Simply create the test scenario/error you want, comment out the call to the buggy code, and invoke the callback directly like this.
+
+```swift
+        let error: Error = NSError(domain: "foo", code: 99, userInfo:nil)
+
+        completion("Boom", error)
+        return
+```
+
+Now you can test that the callback code works without having to go through the expensive network calls before.
