@@ -33,6 +33,6 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/images/example.png" alt="drawing"/>
 
 
