@@ -16,14 +16,49 @@ CocoaPods:
 Code
 
 ```swift
+//
+//  ViewController.swift
+//  ShawISED
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2018-11-07.
+//  Copyright © 2018 Jonathan Rasmusson (Contractor). All rights reserved.
+//
+
 import Alamofire
 import SwiftyJSON
 
-class HomeController: UICollectionViewController {
+struct User {
 
-	let tweets: [Tweet] = {
-		return []
-	}()
+    let name: String
+    let username: String
+    let bioText: String
+    let profileImageUrl: String
+
+    init(json: JSON) {
+        self.name = json["name"].stringValue
+        self.username = json["username"].stringValue
+        self.bioText = json["bio"].stringValue
+        self.profileImageUrl = json["profileImageUrl"].stringValue
+    }
+}
+
+struct Tweet {
+    let user: User
+    let message: String
+
+    init(json: JSON) {
+        let userJson = json["user"]
+
+        self.user = User(json: userJson)
+        self.message = json["message"].stringValue
+    }
+}
+
+class ViewController: UIViewController {
+
+    let tweets: [Tweet] = {
+        return []
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,4 +78,6 @@ class HomeController: UICollectionViewController {
             }
         }
     }
+}
+
 ```
