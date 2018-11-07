@@ -3,9 +3,14 @@
 CocoaPods:
 
 ```swift
+
+  > pod init
+  
   # Pods for Twitter
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  
+  > pod update
 ```
 
 Code
