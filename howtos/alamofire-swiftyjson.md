@@ -20,8 +20,8 @@ Code
 //  ViewController.swift
 //  ShawISED
 //
-//  Created by Jonathan Rasmusson (Contractor) on 2018-11-07.
-//  Copyright © 2018 Jonathan Rasmusson (Contractor). All rights reserved.
+//  Created by Jonathan Rasmusson on 2018-11-07.
+//  Copyright © 2018 Jonathan Rasmusson. All rights reserved.
 //
 
 import Alamofire
