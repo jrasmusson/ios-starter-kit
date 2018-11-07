@@ -47,7 +47,15 @@ And call it like this
         }
 ```
 
-See the BuildThatApp Twitter example. Here the example in full.
+What this means is that we are going to populate and pass back `jsonUsers` to you via the completion block. Not you passing variables to the method (those would just be regular parameters). This is us saying we are going to pass things back.
+
+So when you see this
+
+```swift
+func fetchHomeFeed(completion: @escaping ([User]?, [Tweet]?, Error?) -> () ) {
+```
+
+know if means I am going to populate and pass these things back for you to use. Here's the full example.
 
 Service.swift
 ```swift
