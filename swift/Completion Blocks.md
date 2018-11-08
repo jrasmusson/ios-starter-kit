@@ -168,6 +168,6 @@ Now you can test that the callback code works without having to go through the e
 
 ## Example of how to convert method to closure
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/images/closures1.png" alt="drawing" width="800"/>
 
 
