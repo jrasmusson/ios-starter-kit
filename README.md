@@ -2,7 +2,9 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
+* [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 * [Completion Blocks](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Completion%20Blocks.md)
+* [Extensions & Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Extensions-And-Protocols.md)
 * [Structs, Enums, and Classes](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/EnumsStructsClasses.md)  
 * [Properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Properties.md)  
 * [Optionals](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Optionals.md)  
@@ -11,12 +13,10 @@ A starter kit for those interested in iOS programming
 * [If vs Guard Clauses](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/If-vs-Guard.md)  
 * [Error handling](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Error-handling.md)
 * [Structs-vs-Clases](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Structs-vs-Classes.md)
-* [Extensions & Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Extensions-And-Protocols.md)
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
 * [Protocols & Delegates](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Delegates.md)
 * [API Design](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/API-Design.md)
 * [Markdown](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Markdown.md)
-* [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 * [Defer](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Defer.md)
 * [Singletons](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Singletons.md)
 * [Automatic Reference Counting](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
