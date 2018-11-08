@@ -59,6 +59,7 @@ A starter kit for those interested in iOS programming
 * [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/README.md)
 
 ## How tos
+* [Key Value Observe](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
 * [Project without storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
 * [Commonly used code](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/common-code.md)
 * [Enable single touch in Xcode simulator for recording animated gifs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SingleTouchSimulator/SingleTouchSimulator.md)
