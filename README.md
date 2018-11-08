@@ -40,6 +40,7 @@ A starter kit for those interested in iOS programming
 * [UICollectionViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionViewCell/README.md)
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
+* [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
