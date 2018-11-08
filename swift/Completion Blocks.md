@@ -157,3 +157,9 @@ Now if you want to by pass that call above. Simply create the test scenario/erro
 ```
 
 Now you can test that the callback code works without having to go through the expensive network calls before.
+
+## Example of how to convert method to closure
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
+
+

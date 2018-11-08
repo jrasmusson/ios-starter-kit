@@ -17,6 +17,7 @@ var reversedNames = names.sorted(by: backward)
 ```
 
 We need only
+
 * Remove the word `func` and `method name` (e.g. backward)
 * Move the opening function bracket `{` to the begining
 * And then add the word `in` to where the opening bracket `{` used to be
