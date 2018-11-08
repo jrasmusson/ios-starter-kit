@@ -39,23 +39,23 @@ Now simply add the parameters you want to pass back in the block like this
         }
 ```
 
-And call it like this
+The key to understanding closures is to understand that when you define a closure, you are defining a method signature and treating it like a variable.
 
-```swift
-        Service.sharedInstance.fetchHomeFeed { (jsonUsers) in
-            self.users = jsonUsers
-        }
-```
+```completion: ([User]) -> ()```
 
-What this means is that we are going to populate and pass back `jsonUsers` to you via the completion block. Not you passing variables to the method (those would just be regular parameters). This is us saying we are going to pass things back.
+This method signature is the signature of a method that at some point in the future is going to be called. Assigned to a variable called `commpletion`. It is not the method signature of the method you are currently calling. That is something completely different. This is just a method signature assigned to a variable called `completion` that at some point in the completion block you are going to call.
 
-So when you see this
+And whenever you are ready, you call it like this.
+
+```completion(users)```
+
+So the way to read a method signature like this is
 
 ```swift
 func fetchHomeFeed(completion: @escaping ([User]?, [Tweet]?, Error?) -> () ) {
 ```
 
-know if means I am going to populate and pass these things back for you to use. Here's the full example.
+I am calling a method called `fetchHomeFeed` that is going to probably do some network call, and when it gets the results it is going to execute *my* completion block with the variables `[User], [Tweet], [Error]` which itself happens to return nothing. But this is the way `fetchHomeFeed` is going to *callback* to my and pass me the data I need so that I can populate my views.
 
 Service.swift
 ```swift
