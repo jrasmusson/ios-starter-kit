@@ -6,48 +6,27 @@ Instead of
 
 ```swift
     	func fetchHomeFeed() -> [User] {
+    		let users = usersJsonArray.map { User(json: $0) }
+          return users
+    	}
 ```
 
 Do
 
 ```swift
-    	func fetchHomeFeed(completion: () -> () ) {
+    	func fetchHomeFeed(completion: ([User]) -> () ) {
+    	    let users = usersJsonArray.map { User(json: $0) }
+           completion(users)
+    	}
 ```
 
-Then call like
+What we are saying here is instead of calling a method and returning some data. We are going to define a method as a closure, and have you return data by calling that.
 
-```swift
-        Service.sharedInstance.fetchHomeFeed(completion: {
+The key to understanding closures is this line here
 
-        })
-        
-        // or
-        
-        Service.sharedInstance.fetchHomeFeed {
+```completion: ([User]) -> ())```
 
-        }
-
-```
-
-Now simply add the parameters you want to pass back in the block like this
-
-```swift
-        func fetchHomeFeed(completion: @escaping ([User]) -> () ) {
-
-            let users = usersJsonArray.map { User(json: $0) }
-            completion(users)
-        }
-```
-
-The key to understanding closures is to understand that when you define a closure, you are defining a method signature and treating it like a variable.
-
-```completion: ([User]) -> ()```
-
-This method signature is the signature of a method that at some point in the future is going to be called. Assigned to a variable called `commpletion`. It is not the method signature of the method you are currently calling. That is something completely different. This is just a method signature assigned to a variable called `completion` that at some point in the completion block you are going to call.
-
-And whenever you are ready, you call it like this.
-
-```completion(users)```
+This defines the input parameters to our closure (`[User]`(
 
 So the way to read a method signature like this is
 
