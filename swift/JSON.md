@@ -6,15 +6,32 @@ Define a `struct`. Make it `Decodable`.
 ```swift
 import UIKit
 
-struct User: Decodable {
+struct User: Codable {
     let firstName: String
+    let lastName: String
     let age: Int
+    let job: JobType
+
+    enum CodingKeys : String, CodingKey {
+        case firstName
+        case lastName = "last_name"
+        case age
+        case job
+    }
+}
+
+enum JobType : String, Codable {
+    case developer
+    case qa
+    case manager
 }
 
 let jsonString = """
 {
-    "firstName": "Jesus",
+    "firstName": "Jonathan",
+    "last_name": "Rasmusson",
     "age": 34,
+    "job": "developer",
 }
 """
 let jsonData = jsonString.data(using: .utf8)!
