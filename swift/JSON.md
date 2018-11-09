@@ -28,8 +28,8 @@ enum JobType : String, Codable {
 
 let jsonString = """
 {
-    "firstName": "Jonathan",
-    "last_name": "Rasmusson",
+    "firstName": "Joe",
+    "last_name": "Smith",
     "age": 34,
     "job": "developer",
 }
