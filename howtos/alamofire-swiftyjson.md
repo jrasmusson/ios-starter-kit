@@ -1,4 +1,4 @@
-# How Alamofire SwiftyJson
+# How to Alamofire JSON Parsing
 
 CocoaPods:
 
@@ -8,76 +8,90 @@ CocoaPods:
   
   # Pods for Twitter
   pod 'Alamofire'
-  pod 'SwiftyJSON'
   
   > pod update
 ```
 
-Code
+Service.swift
 
 ```swift
-//
-//  ViewController.swift
-//  ShawISED
-//
-//  Created by Jonathan Rasmusson on 2018-11-07.
-//  Copyright © 2018 Jonathan Rasmusson. All rights reserved.
-//
-
+import Foundation
 import Alamofire
-import SwiftyJSON
 
-struct User {
-
-    let name: String
-    let username: String
-    let bioText: String
-    let profileImageUrl: String
-
-    init(json: JSON) {
-        self.name = json["name"].stringValue
-        self.username = json["username"].stringValue
-        self.bioText = json["bio"].stringValue
-        self.profileImageUrl = json["profileImageUrl"].stringValue
-    }
+enum ServiceError: Error {
+    case noData
+    case parsingJSON
 }
 
-struct Tweet {
-    let user: User
+struct Tweet: Codable {
     let message: String
-
-    init(json: JSON) {
-        let userJson = json["user"]
-
-        self.user = User(json: userJson)
-        self.message = json["message"].stringValue
-    }
+    let user: User
 }
 
-class ViewController: UIViewController {
+struct Tweets: Codable {
+    let tweets: [Tweet]
+}
 
-    let tweets: [Tweet] = {
-        return []
-    }()
+struct User: Codable {
+    let name: String
+    let bio: String
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Alamofire.request("https://api.letsbuildthatapp.com/twitter/home").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
+struct Service {
 
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+    static let sharedInstance = Service()
 
-                let swiftyJsonVar = JSON(response.result.value!)
+    func fetchTweets(completion: @escaping (Tweets?, Error?) -> () ) {
 
-                if let tweetsLocal = swiftyJsonVar["tweets"].arrayObject {
-                    print("tweets: \(tweetsLocal)")
+        Alamofire.request("https://api.letsbuildthatapp.com/twitter/home").responseData { response in
+
+            switch response.result {
+            case .success:
+
+                guard let jsonData = response.result.value else {
+                    completion(nil, ServiceError.noData)
+                    return
                 }
+
+                self.parseTweets(jsonData: jsonData, completion: completion)
+
+            case .failure(let error):
+                completion(nil, error)
             }
         }
     }
-}
 
+    private func parseTweets(jsonData: Data, completion: (Tweets?, Error?) -> ()) {
+        let decoder = JSONDecoder()
+        do {
+            let tweets = try decoder.decode(Tweets.self, from: jsonData)
+            completion(tweets, nil)
+        } catch {
+            completion(nil, ServiceError.parsingJSON)
+        }
+    }
+
+}
+```
+
+ViewController.swift
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchTweets()
+    }
+
+    // MARK: Network
+    func fetchTweets() {
+        Service.sharedInstance.fetchTweets { (tweets, error) in
+            print("Tweets: \(String(describing: tweets))")
+        }
+    }
+
+}
 ```
