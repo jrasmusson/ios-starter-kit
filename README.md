@@ -27,6 +27,7 @@ A starter kit for those interested in iOS programming
 * [Map, filter, reduce](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Map-Filter-Reduce.md)
 
 ## Basics
+* [UILabel](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UILabel/README.md)
 * [UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/README.md)
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
