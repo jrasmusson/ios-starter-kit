@@ -9,6 +9,7 @@
         label.textAlignment = .center
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 13)
+        label.numberOfLines = 0
 
         return label
     }()
