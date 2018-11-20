@@ -84,7 +84,7 @@ A starter kit for those interested in iOS programming
 * [How to view crash logs for devices in production](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/view-crash-logs.md)
 * [Round corners on an UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/round-corners-imageView.md)
 * [Style button with image and text](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/style-button-with-image-and-text.md)
-* [Alamofire JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/alamofire-swiftyjson.md)
+* [Alamofire JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/alamofire-json.md)
 * [How to adjust view when keyboard present](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md#how-to-adjust-view-when-keyboard-present)
 * [How to turn off debug console](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/turn-off-debug-console.md)
 
