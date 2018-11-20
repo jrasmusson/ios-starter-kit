@@ -12,7 +12,7 @@ ViewController
    func fetchData() {
         Service.shared.fetchCourses { (courses, err) in
 
-            self.tableView.reloadData() // make sure on main thread!
+            self.tableView.reloadData() // want to make sure on main thread!
         }
     }
 ```
@@ -27,7 +27,7 @@ class Service: NSObject {
     
 	func fetchCourses(completion: @escaping ([Course]?, Error?) -> ()) {
 	
-		// network call... parsing ...
+	    // network call... parsing ...
 	    DispatchQueue.main.async {
 	        completion(courses, nil)
 	    }
