@@ -87,6 +87,7 @@ A starter kit for those interested in iOS programming
 * [Alamofire JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/alamofire-json.md)
 * [How to adjust view when keyboard present](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md#how-to-adjust-view-when-keyboard-present)
 * [How to turn off debug console](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/turn-off-debug-console.md)
+* [How to dispatch main queue](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/dispatch-main-queue.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
