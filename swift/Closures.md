@@ -149,7 +149,7 @@ alsoIncrementByTen()
 
 ## Escaping Closures
 
-A closure is said to escape a funcion when the closure is passed as an argument to the function, but is called after the function returns. Escaping closures are used in asynchronous completion hanlders.
+A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. Escaping closures are used in asynchronous completion hanlders.
 
 For example, here is an array of `completionHandlers` and an `@escaping` closure that will be executed _after_ the method in which is is called.
 
