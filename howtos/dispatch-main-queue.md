@@ -36,3 +36,7 @@ class Service: NSObject {
 ```
 
 You can do it here, or in the ViewController. Doesn't really matter. So long as you do it.
+
+## Links that help
+
+- (Building Concurrent Interfaces in UI - WWDC 2012)(https://developer.apple.com/videos/play/wwdc2012/211/)
