@@ -5,6 +5,7 @@ A starter kit for those interested in iOS programming
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 * [Completion Blocks](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Completion%20Blocks.md)
 * [JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/JSON.md)
+* [Generics](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Generics.md)
 * [Extensions & Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Extensions-And-Protocols.md)
 * [Structs, Enums, and Classes](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/EnumsStructsClasses.md)  
 * [Properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Properties.md)  
