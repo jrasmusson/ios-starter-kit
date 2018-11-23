@@ -57,6 +57,7 @@ A starter kit for those interested in iOS programming
 
 ## Apps
 * [Facebook Newsfeed](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/README.md)
+* [Vapor Setup](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/vapor.md)
 
 ## Common layouts
 * [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/README.md)
