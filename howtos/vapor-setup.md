@@ -30,7 +30,14 @@ Export it from git to a temp dir
 
 `git checkout-index -a -f --prefix=/Users/jrasmusson/Downloads/temp/`
 
-Goto that git directory and run the following commands
+Goto that git directory and commit the files you exported there. This is bare bones vapor with no libraries (I think this is why they do that, else your project would be huge by committing all the libs).
+
+```
+git add .
+git commit -m "Adding vapor"
+```
+
+Now build and test run the project. After that you can create an xcode project to debug from. Note everything you add here should be ignored via the vapor `.gitignore` file.
 
 ```bash
 vapor build
