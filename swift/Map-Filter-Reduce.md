@@ -1,5 +1,13 @@
 # Map, Filter, Reduce
 
+## Filter
+
+```swift
+let digits = [1,4,10,15]
+let even = digits.filter { $0 % 2 == 0 }
+// [4, 10]
+```
+
 ## Map
 
 ### How to map instead of for loop
@@ -94,3 +102,6 @@ Final refactoring looks beautiful :)
         }
     }
  ```
+
+### Links that help
+[Use your loaf - Map Filter Reduce](https://useyourloaf.com/blog/swift-guide-to-map-filter-reduce)
