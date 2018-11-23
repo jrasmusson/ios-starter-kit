@@ -92,6 +92,7 @@ A starter kit for those interested in iOS programming
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
+* [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
