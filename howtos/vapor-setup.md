@@ -60,6 +60,7 @@ then
 ### Links that help
 
 * [Vapor models](https://docs.vapor.codes/3.0/fluent/models/)
+* [Content](https://docs.vapor.codes/3.0/getting-started/content/)
 
 
 
