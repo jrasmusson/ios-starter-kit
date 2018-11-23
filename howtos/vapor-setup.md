@@ -47,6 +47,16 @@ vapor xcode
 
 You will now have a running setup instance of your vapor project with xcode. Feel free to version control everything from there.
 
+### App crashing - port taken
+
+Sometimes the port is taken. Find and kill the process by going
+
+`sudo lsof -iTCP -sTCP:LISTEN -n -P`
+
+then
+
+`kill -9 PID`
+
 
 
 
