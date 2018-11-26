@@ -35,5 +35,5 @@ Alamofire.request("http://localhost:3000/devices.json", method: .get, encoding: 
 
 ### Links that help
 
-* [Rails authentication token](http://www.joshqn.com/rails-api-token-authentication/)
+* [Rails authentication token](https://www.joshqn.com/consuming-a-rails-api-using-alamofire/)
 * [Turn off CSRF Verification](https://teamtreehouse.com/library/build-a-rails-api/coding-the-api/rails-api-csrf-verification)
