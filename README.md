@@ -90,6 +90,7 @@ A starter kit for those interested in iOS programming
 * [How to turn off debug console](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/turn-off-debug-console.md)
 * [How to dispatch main queue](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/dispatch-main-queue.md)
 * [How to setup Vapor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/vapor-setup.md)
+* [How to Rails iOS](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/rails-ios.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
