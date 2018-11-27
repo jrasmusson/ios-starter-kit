@@ -26,6 +26,7 @@ A starter kit for those interested in iOS programming
 * [Private typed Class](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Private-Typed-Class.md)
 * [Initializers](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Initializers.md)
 * [Map, filter, reduce](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Map-Filter-Reduce.md)
+* [ARC](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
 
 ## Basics
 * [UILabel](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UILabel/README.md)
