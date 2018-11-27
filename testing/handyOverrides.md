@@ -7,5 +7,9 @@ extension XCTestCase {
         XCTAssertEqual(expected, actual)
     }
 }
+
+func assertTrue(_ expression: @escaping @autoclosure () -> Bool) {
+    XCTAssertTrue(expression())
+}
 ```
 
