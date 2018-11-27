@@ -111,7 +111,7 @@ Swift provides two ways to resolves these strong cycles between classes
 * weak
 * unowned
 
-Both `weak` and `unowned` do not create strong holds on objects when used (i.e. they don't increate the retain count in order to prevent ARC from deallocating the referred object).
+Both `weak` and `unowned` do not create strong holds on objects when used (i.e. they don't increment the retain count in order to prevent ARC from deallocating the referred object).
 
 A `weak` refence allows the possibility of it to become `nil` (this happens automatically when the reference object is deallocated), therefore the type of your property must be _Optional_ - so you, as a programmer, are obliged to check it before you use it (compiler will force you to).
 
