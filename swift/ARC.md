@@ -38,7 +38,7 @@ reference3 = reference1
 
 And we now have _three_ strong references to this single `Person` instance.
 
-If we brak two of these strong references (including the original), a single strong reference remains, and the `Person` instance is not deallocated:
+If we break two of these strong references (including the original), a single strong reference remains, and the `Person` instance is not deallocated:
 
 ```swift
 reference1 = nil
