@@ -1,6 +1,4 @@
-# Autolayout How tos
-
-### How to set identifier on view
+# How to set identifier or tag on view
 
 This is can be useful for debugging purposes.
 
