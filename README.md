@@ -92,6 +92,7 @@ A starter kit for those interested in iOS programming
 * [How to dispatch main queue](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/dispatch-main-queue.md)
 * [How to setup Vapor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/vapor-setup.md)
 * [How to Rails iOS](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/rails-ios.md)
+* [How to add identifer to tag or view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-identifier-tag-to-view.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
