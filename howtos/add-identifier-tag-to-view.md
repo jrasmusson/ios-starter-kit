@@ -1,4 +1,4 @@
-# How to set identifier or tag on view
+# How to add identifier or tag to view
 
 This is can be useful for debugging purposes.
 
