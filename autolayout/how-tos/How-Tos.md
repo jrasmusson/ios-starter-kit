@@ -2,7 +2,7 @@
 
 This is can be useful for debugging purposes.
 
-```
+```swift
 NSLayoutConstraint.activate([
 
 let constraint = advanceDetailsTappableTextView.topAnchor.constraint(equalTo: stackView.bottomAnchor);
