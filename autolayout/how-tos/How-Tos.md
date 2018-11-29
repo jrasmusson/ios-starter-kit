@@ -15,4 +15,8 @@ constraint.identifier = "something"; return constraint }(),
             advanceDetailsTappableTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
 ])
 ```
+To do this on a generic `UIView` set the view's tag
 
+```swift
+stackView.tag = 99
+```
