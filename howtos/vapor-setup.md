@@ -16,7 +16,7 @@ vapor xcode
 
 You need to allow unsecure requests from your application making the request to Vapor server. Add the following to your info.plist file.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/localhose-plist.png" alt="drawing" width="409"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/localhost-plist.png" alt="drawing" width="409"/>
 
 ### Exporting
 
