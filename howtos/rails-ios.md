@@ -25,7 +25,7 @@ end
 
 ## Enable localhost calls
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/localhose-plist.png" alt="drawing" width="409"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/localhost-plist.png" alt="drawing" width="409"/>
 
 ## Make network calls
 
