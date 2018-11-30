@@ -1,25 +1,33 @@
 # How to Rails iOS
 
-Install Rails
-Build Rails App
+
+## Rails
 
 ```swift
 rails new app
-git checkout-index -a -f --prefix=/Users/jrasmusson/Downloads/temp/
-
-// Copy into real directory
-
+cd app
 rails g scaffold Device status:string
 rake db:migrate
+
+// when ready to export
+git checkout-index -a -f --prefix=/Users/jrasmusson/Downloads/temp/
 ```
 
-Turn off CSRF verification
+## Turn off CSRF verification
 
 ```swift
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
 end
 ```
+
+## iOS
+
+## Enable localhost calls
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/localhose-plist.png" alt="drawing" width="409"/>
+
+## Make network calls
 
 Call like this
 
