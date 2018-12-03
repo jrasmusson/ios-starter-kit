@@ -44,5 +44,8 @@ which then needs to be dismissed
     }
 ```
 
-
 ![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
+
+### Links that help
+
+[Programmatic UINavigation Controller](https://medium.com/whoknows-swift/swift-the-hierarchy-of-uinavigationcontroller-programmatically-91631990f495)
