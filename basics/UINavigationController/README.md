@@ -26,7 +26,7 @@ Since we are already in a `UINavigationController` in our mainVC, we can either 
     }
 ```
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+![Push](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/push.gif)
 
 Or we can present modally .
 
@@ -45,4 +45,4 @@ which then needs to be dismissed
 ```
 
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
