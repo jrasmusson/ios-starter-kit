@@ -44,6 +44,44 @@ Or we can present modally and manually dismiss ourselves in the presented viewco
 
 ![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
 
+## BarButton Items
+
+We can add `UIBarButtonItem`s to our navigation bar.
+
+```swift
+    let leftBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Left Item", style: .plain, target: self, action: nil)
+        barButtonItem.tintColor = UIColor.red
+        return barButtonItem
+    }()
+
+    let rightBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Right Item", style: .plain, target: self, action: nil)
+        barButtonItem.tintColor = UIColor.blue
+        return barButtonItem
+    }()
+    
+    ...
+    
+    func setupNavigationBar() {
+        self.title = "Login"
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+
+```
+
+Just remember that because we are on the stack, we need to pop ourselves off to return to root.
+
+```swift
+    @objc func dismissPressed(sender: UIButton!) {
+        self.navigationController?.popViewController(animated: true)
+    }
+```
+
+![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/pop.gif)
+
+
 ### Links that help
 
 [Programmatic UINavigation Controller](https://medium.com/whoknows-swift/swift-the-hierarchy-of-uinavigationcontroller-programmatically-91631990f495)
