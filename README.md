@@ -47,6 +47,9 @@ A starter kit for those interested in iOS programming
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 * [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVP/README.md)
 
+## Advanced
+* [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
+
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
