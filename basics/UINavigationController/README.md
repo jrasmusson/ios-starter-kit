@@ -18,7 +18,7 @@ AppDelegate
     }
 ```
 
-Since we are already in a `UINavigationController` in our mainVC, we can either `push` a new `UIViewController`.
+Since we are already in a `UINavigationController` in our mainVC, we can either `push` a new `UIViewController` and get a free back button.
 
 ```swift
    @objc func nextPressed(sender: UIButton!) {
@@ -28,15 +28,13 @@ Since we are already in a `UINavigationController` in our mainVC, we can either 
 
 ![Push](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/push.gif)
 
-Or we can present modally .
+Or we can present modally and manually dismiss ourselves in the presented viewcontroller.
 
 ```swift
     @objc func nextPressed(sender: UIButton!) {
         self.navigationController?.present(Page1ViewController(), animated: true)
     }
 ```
-
-which then needs to be dismissed
 
 ```swift
     @objc func dismissPressed(sender: UIButton!) {
