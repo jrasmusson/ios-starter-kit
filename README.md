@@ -47,6 +47,7 @@ A starter kit for those interested in iOS programming
 * [Margins & Layout Guides](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
 * [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVP/README.md)
+* [Factory UI Methods](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FactoryMethodsUIElements.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
