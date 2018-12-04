@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         button.backgroundColor = .green
         button.setTitle("GOT IT", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
 
         return button
