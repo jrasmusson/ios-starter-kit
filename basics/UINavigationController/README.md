@@ -1,6 +1,6 @@
 # UINavigationController
 
-## Basic
+## Basics
 
 Here is a simple example of how to embed your whole application in a `UINavigationController` and have it present a single screen.
 
@@ -42,9 +42,17 @@ Or we can present modally and manually dismiss ourselves in the presented viewco
     }
 ```
 
+Just remember that because we are on the stack, we need to pop ourselves off to return to root.
+
+```swift
+    @objc func dismissPressed(sender: UIButton!) {
+        self.navigationController?.popViewController(animated: true)
+    }
+```
+
 ![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
 
-## BarButton Items
+## Custom BarButton Items
 
 We can add `UIBarButtonItem`s to our navigation bar.
 
@@ -71,11 +79,13 @@ We can add `UIBarButtonItem`s to our navigation bar.
 
 ```
 
-Just remember that because we are on the stack, we need to pop ourselves off to return to root.
+## How to change the color of the built in back button
 
 ```swift
-    @objc func dismissPressed(sender: UIButton!) {
-        self.navigationController?.popViewController(animated: true)
+    @objc func buttonPressed(sender: UIButton!) {
+        let navigationController = UINavigationController(rootViewController: Page1ViewController())
+        navigationController.navigationBar.tintColor = shawBlue()
+        present(navigationController, animated: true)
     }
 ```
 
