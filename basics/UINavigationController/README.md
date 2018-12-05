@@ -58,13 +58,13 @@ We can add `UIBarButtonItem`s to our navigation bar.
 
 ```swift
     let leftBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Left Item", style: .plain, target: self, action: nil)
+        let barButtonItem = UIBarButtonItem(title: "Left Item", style: .plain, target: self, action: #selector(leftTapped))
         barButtonItem.tintColor = UIColor.red
         return barButtonItem
     }()
 
     let rightBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Right Item", style: .plain, target: self, action: nil)
+        let barButtonItem = UIBarButtonItem(title: "Right Item", style: .plain, target: self, action: #selector(rightTapped))
         barButtonItem.tintColor = UIColor.blue
         return barButtonItem
     }()
