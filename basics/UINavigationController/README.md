@@ -102,6 +102,40 @@ That bottom pixel border you see on the navigation bar is a shadow image. You ca
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
 
+## How to add an action to a UIBarButtonItem
+
+If you create a `UIBarButtonItem` like this
+
+```swift
+    let rightBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "X", style: .plain, target: self, action: nil)
+        barButtonItem.tintColor = shawBlue()
+
+        return barButtonItem
+    }()
+```
+
+Beware that you need to add an `target` and `action` to it like this
+
+```swift
+    func setupNavigationBar() {
+        rightBarButtonItem.target = self
+        rightBarButtonItem.action = #selector(Page1ViewController.dismissPressed(sender: ))
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func dismissPressed(sender: Any?) {
+        print("dismissPressed")
+        dismiss(animated: true, completion: nil)
+    }
+```
+
+That's because when the computed property is created, self is not yet set into a state that can respond to that target in the responder chain. So it never gets fired. But I am not really sure why. Maybe someone can confirm. 
+
+Self pull me out of the responder chain, but nil passes it on.
+
+Cocoa Core Competencies - responder chain, delegate. Read about it.
+
 ### Links that help
 
 * [Programmatic UINavigation Controller](https://medium.com/whoknows-swift/swift-the-hierarchy-of-uinavigationcontroller-programmatically-91631990f495)
