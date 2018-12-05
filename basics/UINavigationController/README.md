@@ -89,7 +89,16 @@ We can add `UIBarButtonItem`s to our navigation bar.
     }
 ```
 
-![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/pop.gif)
+## How to hide the bottom pixel on navigation bar
+
+That bottom pixel border you see on the navigation bar is a shadow image. You can make it go away by doing this.
+
+```swift
+        let img = UIImage()
+        self.navigationController?.navigationBar.shadowImage = img
+        self.navigationController?.navigationBar.setBackgroundImage(img, for: .default)
+        self.navigationController?.navigationBar.isTranslucent = false
+```
 
 ### Source Code
 
