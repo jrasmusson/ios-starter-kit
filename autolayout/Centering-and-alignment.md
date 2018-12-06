@@ -77,23 +77,3 @@ Here is a good technique for centering and aligning.
         gettingStartedbutton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
 }
 ```
-
-## Things to remember
-
-#### Set translatesAutoresizingMaskIntoConstraints = false on every view
-
-```swift
-stackView.translatesAutoresizingMaskIntoConstraints = false
-```
-
-### Ensure all constraints are active
-
-```swift
-chatLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
-```
-
-### Add your subviews to the the view
-
-```swift
-addSubview(thumbnailImageView)
-```
