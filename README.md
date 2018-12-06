@@ -45,12 +45,12 @@ A starter kit for those interested in iOS programming
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 * [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
 * [Margins & Layout Guides](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
-* [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/MVVM.md)
-* [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVP/README.md)
 * [Factory UI Methods](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FactoryMethodsUIElements.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
+* [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/MVVM.md)
+* [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVP/README.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
