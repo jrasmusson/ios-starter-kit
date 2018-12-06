@@ -2,7 +2,7 @@
 
 Here is a good technique for centering and aligning.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/centering-and-aligning.png" width="800"  alt="drawing" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/centering-and-aligning.png" width="400"  alt="drawing" />
 
 
 ```swift
