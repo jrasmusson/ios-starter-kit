@@ -1,6 +1,7 @@
 # UIImageView
 
-## Rounded corners
+## How to round corner and draw circle around image
+
 ```swift
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
