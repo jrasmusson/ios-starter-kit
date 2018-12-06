@@ -2,7 +2,7 @@
 
 You could get your artist to cut the image so that is has an image around it, but you can also draw your own circle around an image. You just need to set the constraints on the image inside the subimage, and obviously the circle itself.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/circle-around-image.png" />
 
 
 ```swift
