@@ -64,9 +64,7 @@ A starter kit for those interested in iOS programming
 
 ## Apps
 * [Facebook Newsfeed](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/README.md)
-
-## Common layouts
-* [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/layouts/ImageLabelStackView/README.md)
+* [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/stackview/ImageLabelStackView/README.md)
 
 ## How tos
 * [Key Value Observe](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
