@@ -4,11 +4,11 @@ MVVM is a variation of MVC where we pull presentation and business logic out of 
 
 MVVC
 
-![mvc](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/mvc.png)
+![mvc](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/images/mvc.png)
 
 MVVM
 
-![mvvm](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/mvvm.png)
+![mvvm](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/images/mvvm.png)
 
 The advantage of doing this is
 
@@ -158,7 +158,7 @@ class MVVM_BasicTests: XCTestCase {
 
 
 
-![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/MVVM/images/demo.gif)
+![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/images/demo.gif)
 
 ### Links that help
 * None yet
