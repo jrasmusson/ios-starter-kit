@@ -3,7 +3,7 @@
 You can use pdfs instead of pngs with working with images in Xcode. Simply add your pdf as an asset.
 
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/add-pdf.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/add-pdf.png" alt="drawing" width="400"/>
 
 Select the Preserve Vector Data
 
