@@ -56,15 +56,12 @@ A starter kit for those interested in iOS programming
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
+* [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/stackview/ImageLabelStackView/README.md)
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
-
-## Apps
-* [Facebook Newsfeed](https://github.com/jrasmusson/ios-starter-kit/blob/master/apps/FacebookNewsFeed/README.md)
-* [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/stackview/ImageLabelStackView/README.md)
 
 ## How tos
 * [Key Value Observe](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
