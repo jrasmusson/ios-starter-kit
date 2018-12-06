@@ -57,6 +57,7 @@ A starter kit for those interested in iOS programming
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
 * [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/stackview/ImageLabelStackView/README.md)
+* [Centering and alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/Centering-and-alignment.md)
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
