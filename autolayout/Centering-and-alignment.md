@@ -1,6 +1,6 @@
 # Centerng and aligning
 
-Here is a good technique for centering and aligning.
+Here is a good technique for centering and aligning. Hang everything off the activate image and label. The trick with this layout is to pick a base, and then align everything relative to it. You could try this with `UIStackView` but you would have a lot of stackViews. And this way you have full control over everything.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/centering-and-aligning.png" width="400"  alt="drawing" />
 
