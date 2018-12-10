@@ -38,10 +38,10 @@ heroImageView.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActiv
 Then make the container expand to the top, left, right, and bottom elements.
 
 ```swift
-        containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        containerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8).isActive = true
-        containerView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -8).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: heroLabel.topAnchor, constant: 8).isActive = true
+containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+containerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8).isActive = true
+containerView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -8).isActive = true
+containerView.bottomAnchor.constraint(equalTo: heroLabel.topAnchor, constant: 8).isActive = true
 ```
 
 
