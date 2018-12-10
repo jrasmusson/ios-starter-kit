@@ -84,7 +84,7 @@ We can add `UIBarButtonItem`s to our navigation bar.
 ```swift
     @objc func buttonPressed(sender: UIButton!) {
         let navigationController = UINavigationController(rootViewController: Page1ViewController())
-        navigationController.navigationBar.tintColor = shawBlue()
+        navigationController.navigationBar.tintColor = customBlue()
         present(navigationController, animated: true)
     }
 ```
