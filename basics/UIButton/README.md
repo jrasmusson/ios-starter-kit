@@ -1,5 +1,18 @@
 # UIButton
 
+## How to set image on button
+
+```swift
+    let progressButton: UIButton = {
+        let button = makeButton(title: "")
+
+        let imageView = UIImageView()
+        let image = UIImage(named: "loading_dots_large_white1")
+        button.setImage(image, for: .normal)
+
+        return button
+    }()
+```
 
 ```swift
 import UIKit
