@@ -6,7 +6,7 @@ To do layout of different device sizes do the following:
 
 1. Start your layout pinned to the bottom.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/how-to-layout-different-device-sizes/pin-to-bottom.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/how-to-layout-different-device-sizes/pin-to-bottom-a.png" />
 
 2. The create a container container the hero image you want displayed in the middle of the layout.
 
