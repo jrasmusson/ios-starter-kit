@@ -102,6 +102,20 @@ That bottom pixel border you see on the navigation bar is a shadow image. You ca
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
 
+## How to change the title of back button
+
+The title of the back button belongs to the viewController that pushed the current VC onto the stack. Not the viewController you are currently on. So to set the back button title, you need to do it before you push on the previous viewController.
+
+```swift
+    @objc func gettingStartedPressed(sender: UIButton!) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Foo"
+        navigationItem.backBarButtonItem = backItem
+
+        self.navigationController?.pushViewController(Page2ViewController(), animated: true)
+    }
+ ```
+ 
 ## How to add an action to a UIBarButtonItem
 
 If you create a `UIBarButtonItem` like this
