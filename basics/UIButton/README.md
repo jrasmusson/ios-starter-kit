@@ -13,6 +13,10 @@
         return button
     }()
 ```
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/image-on-button.png"/>
+
+
+
 
 ```swift
 import UIKit
