@@ -61,7 +61,7 @@ heroImageView.setContentCompressionResistancePriority(UILayoutPriority(rawValue:
 
 If you follow this link [here](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/LayoutUsingStackViews.html), you will see this explaination of how this works from a stackView example.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/how-to-layout-different-device-sizes/pin-to-bottom-a.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/how-to-layout-different-device-sizes/compression-apple-docs.png" />
 
 
 ### Links that help
