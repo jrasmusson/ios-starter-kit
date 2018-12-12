@@ -3,7 +3,7 @@
 Sometimes it is better to crash than leave your app in an inconsistent state. Here are the five ways to fail (other than `exit()` and `abort()`).
 
 * assert()
-* assertFailure()
+* assertionFailure()
 * precondition()
 * preconditionFailure()
 * fatalError()
