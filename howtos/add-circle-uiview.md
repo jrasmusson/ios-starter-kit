@@ -14,6 +14,7 @@ func makeOrangeDot() -> UIView {
     return view
 }
 ```
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/orange-circle.png" />
 
 ## Circle with image
 
