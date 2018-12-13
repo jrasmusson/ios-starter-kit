@@ -1,4 +1,21 @@
-# How to add a circle to a UIView
+# How to circles
+
+## Solid circle
+
+```swift
+func makeOrangeDot() -> UIView {
+    let view = UIView.init(frame: CGRect(x: 0, y: 0, width: radius*2, height: radius*2))
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.layer.borderColor = UIColor.orange.cgColor
+    view.layer.backgroundColor = UIColor.orange.cgColor
+    view.layer.cornerRadius = radius
+    view.layer.borderWidth = 0.5
+
+    return view
+}
+```
+
+## Circle with image
 
 You could get your artist to cut the image so that is has an image around it, but you can also draw your own circle around an image. You just need to set the constraints on the image inside the subimage, and obviously the circle itself.
 
@@ -32,3 +49,5 @@ You could get your artist to cut the image so that is has an image around it, bu
     }
 
 ```
+
+
