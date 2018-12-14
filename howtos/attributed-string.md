@@ -22,3 +22,6 @@ func makeReadyToActivateLabel() -> UILabel {
     return label
 }
 ```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/kerning.png"/>
+
