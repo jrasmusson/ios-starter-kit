@@ -52,6 +52,7 @@ A starter kit for those interested in iOS programming
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/MVVM.md)
 * [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVP/README.md)
+* [Guiding Principles](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Guiding-Principles.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
@@ -65,7 +66,6 @@ A starter kit for those interested in iOS programming
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
-* [Guiding Principles](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Guiding-Principles.md)
 
 ## How tos
 * [Key Value Observe](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
