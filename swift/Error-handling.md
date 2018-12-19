@@ -8,25 +8,9 @@ Sometimes it is better to crash than leave your app in an inconsistent state. He
 * preconditionFailure()
 * fatalError()
 
-But first...
-
-## Swift Optimization Levels
-
-To build your app faster, there are certain optimization levels you can set:
-
-* -Onone (default for debug builds)
-* -O (default for release builds)
-* -Ounchecked
-
-All of the five ways above will stop you code at runtime, but the `assert` only do it during debug. While the `preconditions` and `fatal` will do it in a release build too. That's the difference. One is for debugging (`asserts`) while the other is for stopping during a release (`preconditions` + `fatal`).
-
-Don't worry about `-Ounchecked`. You should never be using it. But it you do it basically optimizes your checks out so they may never be run.
-
-Here is how each of the checks works.
-
 ### assert()
 
-assert() is a function that takes in four parameters. Condition and the message are the ones you’ll be using. You probably won’t need file and line number (the last two parameters). With the assert() function you evaluate a condition, and if it evaluates to false, your app will stop executing. The condition will only be evaluated for -Onone builds. In other words, it will only work for debug builds. If assertion is true it will stop your program.
+Use asserts for programmer errors.
 
 ```swift
 func printAge(_ age: Int) {
@@ -34,13 +18,9 @@ func printAge(_ age: Int) {
     
     print("Age is: ", age)
 }
-
-printAge(-1) // prints: assertion failed: Age can't be a negative value: file Assertions.playground, line 6
 ```
 
 ### assertionFailure()
-
-If you don’t have a condition to evaluate, or don’t need to evaluate one, you can use assertionFailure(). It will take a string as an argument to print as the failure message. Like the assert, the function is called only for -Onone builds.
 
 ```swift
 func printAge(_ age: Int) {
@@ -50,13 +30,11 @@ func printAge(_ age: Int) {
     }
     print("Age is: ", age)
 }
-
-printAge(-1) // prints: fatal error: Age can't be a negative value
 ```
 
 ### precondition()
 
-precondition() takes the same parameters as assert() and is pretty much doing the same thing. The only difference is that precondition works for -Onone and -O builds. In other words, for default debug and release configurations. This will stop your program in debug and release builds.
+A harder form of assertm, precondition will stop your program in debug and release builds.
 
 ```swift
 func printAge(_ age: Int) {
@@ -70,7 +48,7 @@ printAge(-1) // prints: precondition failed: Age can't be a negative value
 
 ### preconditionFailure()
 
-You can see where this is going, right 🙂 preconditionFailure() works the same as assertionFailure(). With the same difference as above, it works for -Onone and -O builds.
+Same as above.
 
 ```swift
 func printAge(_ age: Int) {
