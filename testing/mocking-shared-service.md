@@ -142,5 +142,6 @@ class OrderDetailsServiceStub: OrderDetailsService {
 
 ### Links that help
 
+* [Big Nerd Ranch Mocking](https://www.bignerdranch.com/blog/mocking-with-protocols-in-swift/)
 * [Testing Tips & Tricks - WWDC 2018](https://developer.apple.com/videos/play/wwdc2018/417/?time=761)
 
