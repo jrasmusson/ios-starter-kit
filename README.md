@@ -28,6 +28,7 @@ A starter kit for those interested in iOS programming
 * [Map, filter, reduce](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Map-Filter-Reduce.md)
 * [ARC](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/ARC.md)
 * [Protocol based inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
+* [Inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Inheritance.md)
 
 ## Basics
 * [UILabel](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UILabel/README.md)
