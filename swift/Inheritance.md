@@ -35,9 +35,8 @@ class ActivationService {
     }
 ```
 
-	Note: You can't override a stored property with another stored property. Swift doesn't let you do that. What you can do however is switch from a stored property to a computed property. In otherwords just provide a different getter implementation. It's a subtle but important point. 
+*Note: You can't override a stored property with another stored property. Swift doesn't let you do that. What you can do however is switch from a stored property to a computed property. In otherwords just provide a different getter implementation. It's a subtle but important point.*
 
-What i
 
 ### Links that help
 
