@@ -116,6 +116,16 @@ The title of the back button belongs to the viewController that pushed the curre
     }
  ```
  
+ If you want to blank out the text on the back button just set the above title to "".
+ 
+ ## How to hide the back button
+ 
+ This will hide the back button on the `ViewController` you are currently on.
+ 
+ ```swift
+ navigationItem.hidesBackButton = true
+ ```
+ 
 ## How to add an action to a UIBarButtonItem
 
 If you create a `UIBarButtonItem` like this
@@ -146,9 +156,9 @@ Beware that you need to add an `target` and `action` to it like this
 
 That's because when the computed property is created, self is not yet set into a state that can respond to that target in the responder chain. So it never gets fired. But I am not really sure why. Maybe someone can confirm. 
 
-Self pull me out of the responder chain, but nil passes it on.
+`target: self` pulls you out of the responder chain, but nil passes it on. 
 
-Cocoa Core Competencies - responder chain, delegate. Read about it.
+Todo: Google Cocoa Core Competencies - and read about responder chain and delegate.
 
 ### Links that help
 
