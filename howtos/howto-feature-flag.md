@@ -14,7 +14,7 @@ var url: String = {
         }
 
         return "https://prod/orderDetails"
-    }()
+}()
 ```
 
 Now you can change behavior in your application by changing the setting of the flag during deploy.
