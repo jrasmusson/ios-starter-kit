@@ -1,4 +1,6 @@
-# How to mock a shared service
+## Mocking
+
+## How to mock a shared service
 
 Say you have a singleton shared service
 
@@ -139,6 +141,51 @@ class OrderDetailsServiceStub: OrderDetailsService {
     }
 }
 ```
+
+## How to create and extend with protocols
+
+Overriding an implementation works, but sometimes it can be risky. Some SDK classes can not be overriden. And it's easy to forget which methods to override.
+
+The way to handle this is to create a new protocol, and add it as an extension to the class you want to mock.
+
+For example, say we want to mock or override the `CLLocationManager`.
+
+```swift
+class CurrentLocationProvider: NSObject {
+    let locationManager = CLLocationManager()
+    override init() {
+        super.init()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        self.locationManager.delegate = self
+} }
+```
+
+Create a new protocol and make the extend the `CLLocationManager` with it.
+
+```swift
+ 
+protocol LocationFetcher {
+    var delegate: CLLocationManagerDelegate? { get set }
+    var desiredAccuracy: CLLocationAccuracy { get set }
+    func requestLocation()
+}
+extension CLLocationManager: LocationFetcher {}
+```
+
+Now you can use that mockable protcol in your real code and override it with a default in the initializer.
+
+```swift
+class CurrentLocationProvider: NSObject {
+    var locationFetcher: LocationFetcher
+    init(locationFetcher: LocationFetcher = CLLocationManager()) {
+        self.locationFetcher = locationFetcher
+        super.init()
+        self.locationFetcher.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        self.locationFetcher.delegate = self
+} }
+```
+
+
 
 ### Links that help
 
