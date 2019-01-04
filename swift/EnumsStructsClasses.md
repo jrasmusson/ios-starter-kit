@@ -37,6 +37,34 @@ default:
 
 > Note: Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when created. Instead each enumeration case is a fully fledged value in it's own right, with an explicitly defined type.
 
+## Enums as strings
+
+You can define enums as strings like this
+
+```swift
+enum SegueIdentifier: String {
+    case Login = "Login"
+    case Main = "Main"
+    case Options = "Options"
+}
+```
+
+And then use like this
+
+```swift
+override func prepareForSegue(...) {
+    if let identifier = segue.identifier ... {
+        switch segueIdentifier {
+        case .Login:
+            ...
+        case .Main:
+            ...
+        case .Options:
+            ...
+        }
+    }
+}
+```
 # Structures
 
 Structures are general purpose constructs that form a key building block of your programs. `structs` in Swift are first class citizens - meaning they can contain functions, data, and pretty much anything else.
