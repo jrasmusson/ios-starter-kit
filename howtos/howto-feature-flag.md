@@ -2,7 +2,7 @@
 
 One way to setup a feature flag or toggle is to create an environment variable
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/environment-variable.png" />
 
 And then call it like this
 
