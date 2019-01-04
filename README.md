@@ -102,6 +102,7 @@ A starter kit for those interested in iOS programming
 * [How to add identifer to tag or view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-identifier-tag-to-view.md)
 * [How to work with pdfs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/work-with-pdfs.md)
 * [How to add a circle to a UIView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-circle-uiview.md)
+* [How to setup a feature flag via environment variable](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-feature-flag.md)
 
 ## Testing
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
