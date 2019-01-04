@@ -142,6 +142,8 @@ class OrderDetailsServiceStub: OrderDetailsService {
 }
 ```
 
+Note: You need ` self.waitForExpectations(timeout: 10)` in your test to give the unit test time to wait for the processing to occur. Else your test will fail when in fact it is really passing.
+
 ## How to create and extend with protocols
 
 Overriding an implementation works, but sometimes it can be risky. Some SDK classes can not be overriden. And it's easy to forget which methods to override.
