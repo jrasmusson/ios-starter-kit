@@ -187,7 +187,19 @@ class CurrentLocationProvider: NSObject {
 } }
 ```
 
+## Trouble shooting
 
+### API violation - multiple calls made to -[XCTestExpectation fulfill]
+
+This occurs when you are writing tests with a lot of expecations and you get a concurrency type error. Fix by setting expectation to `nil` after fullfilling.
+
+```swift
+override func fetchActivationStatus(completion: @escaping (ActivateStatus?, Error?) -> () ) {
+    completion(nil, ActivationServiceError.noData)
+    expectation?.fulfill()
+    expectation = nil
+}
+```
 
 ### Links that help
 
