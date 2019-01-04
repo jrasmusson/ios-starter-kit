@@ -66,6 +66,15 @@ class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
 
 Which every way you go, remember to make your protocol reference `weak` in your delegate class. This will avoid any cyclomatic references and retains cycles in your code.
 
+## Class only protocol in Swift 4
+
+You used to use the keyword `class` but now the preferred way to do class based protocols is with `AnyObject`.
+
+```swift
+protocol DetailViewControllerDelegate: AnyObject {
+  func didFinishTask(sender: DetailViewController)
+}
+```
 
 
 ## Links that help
