@@ -1,4 +1,4 @@
-## Mocking
+# Mocking
 
 ## How to mock a shared service
 
