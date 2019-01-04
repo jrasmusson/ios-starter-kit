@@ -64,6 +64,12 @@ A starter kit for those interested in iOS programming
 * [Centering and alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/Centering-and-alignment.md)
 * [How to support different device sizes](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-support-different-device-sizes.md)
 
+## Testing
+* [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
+* [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
+* [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
+* [Handy overrides](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
+
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
@@ -103,12 +109,6 @@ A starter kit for those interested in iOS programming
 * [How to work with pdfs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/work-with-pdfs.md)
 * [How to add a circle to a UIView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-circle-uiview.md)
 * [How to setup a feature flag via environment variable](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-feature-flag.md)
-
-## Testing
-* [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
-* [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
-* [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
-* [Handy overrides](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
