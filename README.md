@@ -105,10 +105,10 @@ A starter kit for those interested in iOS programming
 * [How to setup a feature flag via environment variable](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-feature-flag.md)
 
 ## Testing
+* [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
 * [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
 * [Handy overrides](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
-* [Async network call in ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
