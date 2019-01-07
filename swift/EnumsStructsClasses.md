@@ -43,9 +43,9 @@ You can define enums as strings like this
 
 ```swift
 enum SegueIdentifier: String {
-    case Login = "Login"
-    case Main = "Main"
-    case Options = "Options"
+    case Login
+    case Main
+    case Options
 }
 ```
 
@@ -63,8 +63,31 @@ override func prepareForSegue(...) {
             ...
         }
     }
+    
+    SequeIdentifer.Main.rawValue // returns the `String representation`
 }
 ```
+
+## Compound enums
+
+You can combine enums and access them like this
+
+```swift
+    public enum NetworkReachabilityStatus {
+        case unknown
+        case notReachable
+        case reachable(ConnectionType)
+    }
+
+    public enum ConnectionType {
+        case ethernetOrWiFi
+        case wwan
+    }
+    
+    open var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
+
+```
+ 
 # Structures
 
 Structures are general purpose constructs that form a key building block of your programs. `structs` in Swift are first class citizens - meaning they can contain functions, data, and pretty much anything else.
