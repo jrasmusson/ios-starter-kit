@@ -84,7 +84,7 @@ You can combine enums and access them like this
         case wwan
     }
     
-    open var isReachableOnEthernetOrWiFi: Bool { return .reachable(.ethernetOrWiFi) }
+    open var isReachableOnEthernetOrWiFi: Bool { return status == .reachable(.ethernetOrWiFi) }
 
 ```
  
