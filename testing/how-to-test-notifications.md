@@ -11,9 +11,10 @@ class CurrentLocationProvider {
 	init(notificationCenter: NotificationCenter = .default) {
 	    self.notificationCenter = notificationCenter
 	}
-	    func notifyAuthChanged() {
-	        let name = CurrentLocationProvider.authChangedNotification
-	        notificationCenter.post(name: name, object: self)
+	
+	func notifyAuthChanged() {
+	    let name = CurrentLocationProvider.authChangedNotification
+	    notificationCenter.post(name: name, object: self)
 	}
 } 
 ```
