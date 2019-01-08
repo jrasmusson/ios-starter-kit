@@ -5,7 +5,8 @@ Define your `notificationCenter` as a variable and dependency inject it like thi
 ```swift
 class CurrentLocationProvider {
     static let authChangedNotification = Notification.Name("AuthChanged")
- 	let notificationCenter: NotificationCenter
+ 
+	let notificationCenter: NotificationCenter
 	
 	init(notificationCenter: NotificationCenter = .default) {
 	    self.notificationCenter = notificationCenter
@@ -25,7 +26,7 @@ class CurrentLocationProviderTests: XCTestCase {
         let notificationCenter = NotificationCenter()
         let poster = CurrentLocationProvider(notificationCenter: notificationCenter)
 		  
-		  // Notification only sent to this specific center, isolating test
+	// Notification only sent to this specific center, isolating test
         let name = CurrentLocationProvider.authChangedNotification
         let expectation = XCTNSNotificationExpectation(name: name, object: poster,
                                          notificationCenter: notificationCenter)
