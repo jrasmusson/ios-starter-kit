@@ -69,6 +69,7 @@ A starter kit for those interested in iOS programming
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
 * [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
 * [Handy overrides](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
+* [How to test notifications](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-notifications.md)
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
