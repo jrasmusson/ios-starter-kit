@@ -19,7 +19,7 @@ class CurrentLocationProvider {
 } 
 ```
 
-Then test it with a `` like this
+Then test it like this
 
 ```swift
 class CurrentLocationProviderTests: XCTestCase {
