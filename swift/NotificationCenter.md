@@ -16,6 +16,14 @@ Register for them
 ```swift
 NotificationCenter.default.addObserver(self, selector: #selector(setToPeru(notification:)), name: .peru, object: nil)
 NotificationCenter.default.addObserver(self, selector: #selector(setToArgentina(notfication:)), name: .argentina, object: nil)
+
+func setToPeru(notification: NSNotification) {
+     cityChosenLabel.text = "Peru"
+}
+
+func setToArgentina(notfication: NSNotification) {
+     cityChosenLabel.text = "Argentina"
+}
 ```
 
 Then post
