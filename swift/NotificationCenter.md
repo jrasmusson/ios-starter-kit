@@ -41,7 +41,7 @@ Then post
 	
 ```swift
 deinit {
-	NotificationCenter.default.removeObserver(self)
+     NotificationCenter.default.removeObserver(self)
 }
 ```
 
