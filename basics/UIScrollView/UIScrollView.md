@@ -74,6 +74,14 @@ class ViewController: UIViewController {
             label.textAlignment = .center
             stackView.addArrangedSubview(label)
         }
+        
+        // get rid of gap at top
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+
     }
 
 }
