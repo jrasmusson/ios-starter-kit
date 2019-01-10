@@ -202,6 +202,6 @@ Finally hook it up and instantiate with your custom `ColumnFlowLayout()`.
 
 And in the end you'll see this.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
 
 
