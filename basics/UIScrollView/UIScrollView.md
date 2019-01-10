@@ -90,6 +90,17 @@ class ViewController: UIViewController {
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
 
+Note: If you don't know the intrinsic size of a view in the `UIStackView` you need to set it yourself. One quick way to make it the height of the screen is as follows
+
+```swift
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+
+        let chatView = ChatView()
+        chatView.heightAnchor.constraint(equalToConstant: screenHeight).isActive = true
+        stackView.addArrangedSubview(chatView)
+```
 
 ### Links that help
 
