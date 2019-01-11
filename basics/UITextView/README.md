@@ -4,7 +4,7 @@
 
 `UITextView` is like `UILabel` and `UITextField` but unlike label and text field, is better at displaying multiline text.
 
-![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
+![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextView/images/multiline.png)
 
 ```swift
 func makeChatTextView(text: String) -> UITextView {
