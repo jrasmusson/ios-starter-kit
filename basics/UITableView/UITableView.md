@@ -4,91 +4,57 @@
 ```swift
 import UIKit
 
-class ViewController: UIViewController {
+class ModemSupportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet var myTableView: UITableView!
-    
-    let cities = ["New York", "London", "San Francisco"]
-    
+    var myTableView: UITableView  =   UITableView()
+    var itemsToLoad: [String] = ["One", "Two", "Three"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        myTableView.delegate = self
-        myTableView.dataSource = self
     }
-}
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Get main screen bounds
+        let screenSize: CGRect = UIScreen.main.bounds
+
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+
+        myTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+
+        myTableView.dataSource = self
+        myTableView.delegate = self
+
+        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+
+        view.addSubview(myTableView)
+
+        myTableView.reloadData()
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        cell.textLabel?.text = cities[indexPath.row]
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return itemsToLoad.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
+
+        cell.textLabel?.text = itemsToLoad[indexPath.row]
+
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
+    }
+
 }
 ```
-
-## The Long
-
-Add a TableView to your UIViewController.
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/blank-vc.png)
-
-
-Add a Table View Cell to the table.
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/tableviewcell.png)
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/blank-tableviewcell.png)
-
-Select the cell and give it an identifier (e.g. ‘myCell’)
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/set-identifier.png)
-
-Create an outlet for the TableView in your VC by control dragging
-
-```swift
-@IBOutlet var myTableView: UITableView!
-```
-
-Create some fake data
-
-```swift
-let cities = ["New York", "London", "San Francisco"]
-```
-
-Create an extension to implement the UITableView delegates and connect the data
-
-```swift
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        cell.textLabel?.text = cities[indexPath.row]
-        return cell
-    }
-    
-}
-```
-
-Make yourself the delegate for the table
-
-```swift
-        myTableView.delegate = self
-        myTableView.dataSource = self
-```
-
-Voila!
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/voila.png)
 
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
