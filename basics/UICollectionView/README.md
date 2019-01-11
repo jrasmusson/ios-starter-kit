@@ -325,7 +325,7 @@ class SupportArticleHeaderCell: UICollectionViewCell {
 ```
 
 ```swift
-class ModemSupportViewController: UICollectionViewController {
+class ViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
