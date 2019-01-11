@@ -204,7 +204,7 @@ And in the end you'll see this.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
 
-### An alternative
+### An alternative way
 
 Another way to get the table column flow is to use a standard `UICollectionViewFlowLayout` 
 
@@ -254,4 +254,103 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         return estimatedFrame.height
     }
 ```
+
+### Adding a header
+
+Adding a header is pretty easy. The main gotcha if your are using your own custom layout is you need to give the header an initial size. Else the header callback methods in your ViewController never get called.
+
+```swift
+class ColumnFlowLayout: UICollectionViewFlowLayout {
+
+    override func prepare() {
+        super.prepare()
+
+        // important!
+        headerReferenceSize = CGSize(width: collectionView.frame.size.width, height: 100);
+    }
+}
+```
+
+Then you can define your own customer head and use in ViewController as follows.
+
+```swift
+import UIKit
+
+class SupportArticleHeaderCell: UICollectionViewCell {
+
+    static let identifier = "SupportArticleHeaderCell"
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Header title"
+        label.font = UIFont.systemFont(ofSize: 16)
+
+        return label
+    }()
+
+    let separatorLineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .lightGray
+
+        return view
+    }()
+
+    func setupViews() {
+        backgroundColor = .white
+
+        addSubview(textLabel)
+        addSubview(separatorLineView)
+
+        textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+
+        separatorLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        separatorLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        separatorLineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        separatorLineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+    }
+}
+```
+
+```swift
+class ModemSupportViewController: UICollectionViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupViews()
+    }
+
+    func setupViews() {
+        ...
+        collectionView?.register(SupportArticleHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SupportArticleHeaderCell.identifier)
+        ...
+    }
+    
+        // MARK: - Header
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SupportArticleHeaderCell.identifier, for: indexPath)
+        header.backgroundColor = .yellow
+        return header
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+
+```
+
 
