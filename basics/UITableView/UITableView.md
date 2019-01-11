@@ -1,6 +1,7 @@
 # How to setup a UITableView
 
-## The Short
+## Simple
+
 ```swift
 import UIKit
 
@@ -53,6 +54,77 @@ class ModemSupportViewController: UIViewController, UITableViewDataSource, UITab
         print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
     }
 
+}
+```
+
+## With custom header
+
+```swift
+import UIKit
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    var myTableView: UITableView  =   UITableView()
+    var itemsToLoad: [String] = ["One", "Two", "Three"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Get main screen bounds
+        let screenSize: CGRect = UIScreen.main.bounds
+
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+
+        myTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+
+        myTableView.dataSource = self
+        myTableView.delegate = self
+
+        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+
+        view.addSubview(myTableView)
+
+        myTableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return itemsToLoad.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
+
+        cell.textLabel?.text = itemsToLoad[indexPath.row]
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Header title"
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let greenView = UIView()
+
+        greenView.backgroundColor = .green
+        greenView.translatesAutoresizingMaskIntoConstraints = false
+        greenView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        greenView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+        return greenView
+    }
 }
 ```
 
