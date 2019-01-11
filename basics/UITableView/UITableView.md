@@ -59,7 +59,7 @@ class ModemSupportViewController: UIViewController, UITableViewDataSource, UITab
 
 ## With custom header
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/custom-header.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/custom-header.png" width="400"/>
 
 ```swift
 import UIKit
