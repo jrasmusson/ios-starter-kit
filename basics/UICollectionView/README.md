@@ -204,4 +204,54 @@ And in the end you'll see this.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
 
+### An alternative
+
+Another way to get the table column flow is to use a standard `UICollectionViewFlowLayout` 
+
+```swift
+   let homeController = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
+   window?.rootViewController = UINavigationController(rootViewController: homeController)
+```
+
+And then override the size via the `delegate`.
+
+```swift
+extension HomeController: UICollectionViewDelegateFlowLayout { 
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        // User Section
+        if indexPath.section == 0 {
+
+            let user = users[indexPath.item]
+            let estimatedHeight = estimatedHeightForText(user.bioText)
+
+            return CGSize(width: view.frame.width, height: estimatedHeight + 20 + 20 + 12 + 14 + 16)
+
+        } else if indexPath.section == 1 {
+
+            let tweet = tweets[indexPath.item]
+            let estimatedHeight = estimatedHeightForText(tweet.message)
+
+            return CGSize(width: view.frame.width, height: estimatedHeight + 20 + 20 + 12 + 14 + 16)
+        }
+
+        return CGSize(width: view.frame.width, height: 200)
+    }
+
+    private func estimatedHeightForText(_ text: String) -> CGFloat {
+
+        // calculate estimated height of cell based on the bioTextView because it is the dynamic part of our cell
+        // basically need to measure height of everything individually and just add it up...no magic except for the textView
+
+        let approxWidth = view.frame.width - 12 - 50 - 12
+        let approxHeight = CGFloat(1000) // just a guess
+        let size = CGSize(width: approxWidth, height: approxHeight)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]
+
+        let estimatedFrame = NSString(string: text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+
+        return estimatedFrame.height
+    }
+```
 
