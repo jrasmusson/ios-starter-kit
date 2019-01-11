@@ -1,7 +1,9 @@
 # UICollectionViews
 
 ## Column flow layout
- 
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
+
 First define a custom column flow layout that specifies the width, height, and insets of each item in your collection.
 
 
@@ -200,10 +202,6 @@ Finally hook it up and instantiate with your custom `ColumnFlowLayout()`.
     }
 ```
 
-And in the end you'll see this.
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
-
 ### An alternative way
 
 Another way to get the table column flow is to use a standard `UICollectionViewFlowLayout` 
@@ -258,6 +256,8 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
 ### Adding a header
 
 Adding a header is pretty easy. The main gotcha if your are using your own custom layout is you need to give the header an initial size. Else the header callback methods in your ViewController never get called.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/header.png"/>
 
 ```swift
 class ColumnFlowLayout: UICollectionViewFlowLayout {
