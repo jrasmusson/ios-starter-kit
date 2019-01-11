@@ -39,7 +39,7 @@ func setupViews() {
     chatText.topAnchor.constraint(equalTo: chatTitle.bottomAnchor, constant: 8).isActive = true
     chatText.heightAnchor.constraint(equalToConstant: 100).isActive = true // important!
 }
-    ```
+```
 
 ### Links that help
 * [How to get rid of extra padding](https://medium.com/@lawrey/swift-4-align-textview-with-uilabel-66dbc97c91c9)
