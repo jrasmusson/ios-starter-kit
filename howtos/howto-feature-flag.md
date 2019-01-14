@@ -47,6 +47,23 @@ func isFeatureAvailable() -> Bool {
 }
 ```
 
+Note: In older versions of Xcode and projects you will still see the old `Other Swift Flags` section. Where here you add a compile time flag per line.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/compile-flag-old-flag.png" />
+
+And then still access the same way
+
+```swift
+#if MOCK_API
+    return URL(string: "https://mock")
+#else
+    return URL(string: "https://prod")
+#endif
+```
+
+
+
+
 ### Links that help
 - [Conditional Compilation Block - Swift](https://docs.swift.org/swift-book/ReferenceManual/Statements.html)
 - [Sundell Feature Flags in Swift](https://medium.com/@johnsundell/feature-flags-in-swift-e99b11f5ca57)
