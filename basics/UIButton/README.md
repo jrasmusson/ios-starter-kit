@@ -2,6 +2,8 @@
 
 ## How to make a button with rounded corners
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
+
 ```swift
 func makeRoundCornerButton(title: String) -> UIButton {
     let button = UIButton()
@@ -17,6 +19,8 @@ func makeRoundCornerButton(title: String) -> UIButton {
 ```
 
 ## How to make a text only button
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-as-text.png"/>
 
 ```swift
 func makeButton(title: String) -> UIButton {
