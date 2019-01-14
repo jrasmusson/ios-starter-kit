@@ -33,25 +33,19 @@ Target > Build Settings then search for 'Swift Compiler - Custom'.
 
 Here you set a flag on the `Active Compilation Condition` for each of your targets by double clicking the row (i.e. Debug) and where is says `<Multiple Values>` you add your new flag (i.e. `FOO`).
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/compile-flag-foo.png" />
 
-
-```swift
-_DD_SIMULATOR[sdk=*simulator*] = BUILDING_FOR_SIMULATOR
-```
-
-And then use it like this.
+You can then access the flag at runtime like this
 
 ```swift
 func isFeatureAvailable() -> Bool {
-    #if BUILDING_FOR_SIMULATOR
+    #if FOO
         return false
     #else
         return true
     #endif
 }
 ```
-
-
 
 ### Links that help
 - [Conditional Compilation Block - Swift](https://docs.swift.org/swift-book/ReferenceManual/Statements.html)
