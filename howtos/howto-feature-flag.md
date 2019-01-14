@@ -23,7 +23,15 @@ Environment variable only work on the simulator and locally connected devices. T
 
 ## Conditional Compilation Block
 
-Compile time flags are setup up in configuration files (xcconfig). You define you compile time flag in there like this
+Compile time flags are setup up in configuration files (xcconfig) or as a `Swift Compiler - Custom Flag`.
+
+### Swift Compiler - Custom Flag
+
+Target > Build Settings then search for 'Swift Compiler - Custom'.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/custom-flags.png" />
+
+
 
 ```swift
 _DD_SIMULATOR[sdk=*simulator*] = BUILDING_FOR_SIMULATOR
@@ -41,7 +49,6 @@ func isFeatureAvailable() -> Bool {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/custom-flags.png" />
 
 
 ### Links that help
