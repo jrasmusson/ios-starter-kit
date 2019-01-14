@@ -1,6 +1,6 @@
 # Feature flags
 
-## Environment variable
+## Environment flags
 
 One way to setup a feature flag or toggle is to create an environment variable
 
@@ -21,7 +21,7 @@ var url: String = {
 
 Environment variable only work on the simulator and locally connected devices. To create a feature flag that will work into production we need a compile time flag.
 
-## Conditional Compilation Block
+## Compile time flags
 
 Compile time flags are setup up in configuration files (xcconfig) or as a `Swift Compiler - Custom Flag`.
 
@@ -30,6 +30,8 @@ Compile time flags are setup up in configuration files (xcconfig) or as a `Swift
 Target > Build Settings then search for 'Swift Compiler - Custom'.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/custom-flags.png" />
+
+Here you set a flag on the `Active Compilation Condition` for each of your targets by double clicking the row (i.e. Debug) and where is says `<Multiple Values>` you add your new flag (i.e. `FOO`).
 
 
 
@@ -53,3 +55,4 @@ func isFeatureAvailable() -> Bool {
 
 ### Links that help
 - [Conditional Compilation Block - Swift](https://docs.swift.org/swift-book/ReferenceManual/Statements.html)
+- [Sundell Feature Flags in Swift](https://medium.com/@johnsundell/feature-flags-in-swift-e99b11f5ca57)
