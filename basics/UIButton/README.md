@@ -1,5 +1,38 @@
 # UIButton
 
+## How to make a button with rounded corners
+
+```swift
+func makeRoundCornerButton(title: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(title, for: .normal)
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    button.backgroundColor = .blue
+    button.setTitleColor(.white, for: .normal)
+    button.layer.cornerRadius = layout.CTAButtonHeight / 2
+
+    return button
+}
+```
+
+## How to make a text only button
+
+```swift
+func makeButton(title: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(title, for: .normal)
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    button.backgroundColor = .white
+    button.setTitleColor(.blue, for: .normal)
+    button.titleLabel?.numberOfLines = 0
+    button.titleLabel?.lineBreakMode = .byWordWrapping
+    button.contentHorizontalAlignment = .left
+
+    return button
+}
+```
 ## How to set image on button
 
 ```swift
