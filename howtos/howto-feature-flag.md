@@ -21,7 +21,7 @@ var url: String = {
 
 Environment variable only work on the simulator and locally connected devices. To create a feature flag that will work into production we need a compile time flag.
 
-## Compile time flag
+## Conditional Compilation Block
 
 Compile time flags are setup up in configuration files (xcconfig). You define you compile time flag in there like this
 
@@ -40,3 +40,9 @@ func isFeatureAvailable() -> Bool {
     #endif
 }
 ```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/custom-flags.png" />
+
+
+### Links that help
+- [Conditional Compilation Block - Swift](https://docs.swift.org/swift-book/ReferenceManual/Statements.html)
