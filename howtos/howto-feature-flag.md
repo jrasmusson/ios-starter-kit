@@ -1,4 +1,6 @@
-# How to setup a feature flag
+# Feature flags
+
+## Environment variable
 
 One way to setup a feature flag or toggle is to create an environment variable
 
@@ -17,4 +19,24 @@ var url: String = {
 }()
 ```
 
-Now you can change behavior in your application by changing the setting of the flag during deploy.
+Environment variable only work on the simulator and locally connected devices. To create a feature flag that will work into production we need a compile time flag.
+
+## Compile time flag
+
+Compile time flags are setup up in configuration files (xcconfig). You define you compile time flag in there like this
+
+```swift
+_DD_SIMULATOR[sdk=*simulator*] = BUILDING_FOR_SIMULATOR
+```
+
+And then use it like this.
+
+```swift
+func isFeatureAvailable() -> Bool {
+    #if BUILDING_FOR_SIMULATOR
+        return false
+    #else
+        return true
+    #endif
+}
+```
