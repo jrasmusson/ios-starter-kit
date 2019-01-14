@@ -9,6 +9,9 @@ And then when you add it to the `UIViewController` treat it just like any other 
 So think internal for the custom view.
 Then external when you layout it out in the ViewController.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/embedded-custom-view.png" />
+
+
 Here is an example.
 
 ```swift
