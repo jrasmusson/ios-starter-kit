@@ -47,7 +47,7 @@ func isFeatureAvailable() -> Bool {
 }
 ```
 
-Note: In older versions of Xcode and projects you will still see the old `Other Swift Flags` section. Where here you add a compile time flag per line.
+Note: In older versions of Xcode and projects you will still see the old `Other Swift Flags` section. Where here you add a compile time flag per line. Also, these properties often are read in from configuration files (`.xcconfig`).
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/compile-flag-old-flag.png" />
 
