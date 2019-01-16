@@ -5,15 +5,11 @@
 If you have something `Optional` define one variable with a default value, then another to unwrap, and in the unwrapping reassign the default value one if need be.
 
 ```swift
-    func modemSpecificSupportViewTitle() -> String {
-        var title = "Modem specific support"
+var keyword = ""
 
-        if let modemModel = OrderDetailsService.sharedInstance.modemModel?.capitalizingFirstLetter() {
-            title = "\(modemModel) specific support"
-        }
-
-        return title
-    }
+if let modemModel = OrderDetailsService.sharedInstance.modemModel {
+    keyword = modemModel
+}                
 ```
 
 ## What's the difference?
