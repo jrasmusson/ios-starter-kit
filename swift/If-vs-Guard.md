@@ -1,3 +1,23 @@
+# If vs Guard
+
+## Examples
+
+If you have something `Optional` define one variable with a default value, then another to unwrap, and in the unwrapping reassign the default value one if need be.
+
+```swift
+    func modemSpecificSupportViewTitle() -> String {
+        var title = "Modem specific support"
+
+        if let modemModel = OrderDetailsService.sharedInstance.modemModel?.capitalizingFirstLetter() {
+            title = "\(modemModel) specific support"
+        }
+
+        return title
+    }
+```
+
+## What's the difference?
+
 Swift if-let and guard statements are two tools we have for safely wrapping  Optionals.
 
 If-let takes the current variable, and by assigning it to self, unwraps the Optional and makes it available within the scope of the if.
@@ -135,28 +155,6 @@ func validateFieldsAndContinueRegistration() {
    APIHandler.sharedInstance.registerUser(accountModel)
 }
 
-```
-
-# Examples
-
-## Parsing JSON
-
-Say you've got some code that blows up on JSON parsing
-
-
-```swift
-let usersJsonArray = json["users"].array
-let users = usersJsonArray!.map { User(json: $0) }
-```
-
-Convert to a guard clause like so
-
-```swift
-guard let usersJsonArray = json["users"].array else {
-  throw NSError(domain: "com.rsc.org", code: 1, userInfo: [NSLocalizedDescriptionKey: "'users' not valid in JSON"])
-}
-
-let users = usersJsonArray.map { User(json: $0) } // no bang required!
 ```
 
 ### Links that help
