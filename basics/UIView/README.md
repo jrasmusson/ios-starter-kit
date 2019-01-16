@@ -23,3 +23,30 @@ class ModemSpecificSupportView: UIView {
     }
 ```
 
+## Defining objects as variables but not instantating them till later
+
+Because of how Swift does a two phase initialization process on objects, you need to have all your properties defined before you instantiate your object. This can be a bit of a pain, as you would like your objects laid out in the order they are created without having to define earily.
+
+One way around this is to define a dummy or empty object early, and then set the real one later during construction.
+
+```swift
+class ModemSpecificSupportView: UIView {
+
+    // temp
+    var row1 = SupportArticleRowView()
+    var row2 = SupportArticleRowView()
+    var row3 = SupportArticleRowView()
+
+    init(title: String) {
+        super.init(frame: .zero)
+        setupViews()
+    }
+
+    func setupViews() {
+        backgroundColor = .white
+
+        // real
+        row1 = makeRowView()
+        row2 = makeRowView()
+        row3 = makeRowView()
+ ```
