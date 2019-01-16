@@ -41,5 +41,5 @@ let user = try! decoder.decode(User.self, from: jsonData)
 
 ### Links that help
 
-* [The Basics](https://medium.com/@guerrix/parsing-json-in-swift-4-the-basics-cd8270a8ff98)
+* [Guide](https://benscheirman.com/2017/06/swift-json/)
 
