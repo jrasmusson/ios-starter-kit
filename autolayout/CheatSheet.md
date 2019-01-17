@@ -1,16 +1,23 @@
 # Autolayout Cheat Sheet
 
+## Screen width and height
+
 ```swift
-someView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
-someView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-someView.widthAnchor.constraint(equalToConstant: 44).isActive = true
-someView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+problemView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
+problemView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+```
+## Available screen area
 
-textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+```swift
+let window = UIApplication.shared.keyWindow
+let topPadding = window?.safeAreaInsets.top
+let bottomPadding = window?.safeAreaInsets.bottom
+let visibleHeight: CGFloat = (window?.bounds.height)! - topPadding! - bottomPadding!
+```
 
-middleNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
-middleNameTextField.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal);
+## Multiplier
 
+```swift
 // for when you want a multiplier on a view - this view will be 0.8 of the bottom view
 NSLayoutConstraint(item: animationView,
                            attribute: .bottom,
