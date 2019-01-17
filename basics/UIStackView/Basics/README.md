@@ -1,3 +1,12 @@
+# UIStackView
+
+## How to put a button in a`UIStackView`
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/button-in-a-view.png" alt="drawing" width="400"/>
+
+
+
+
 # UIStackView Basics
 
 Let's say we want to build this model using a `UIStackView`.
