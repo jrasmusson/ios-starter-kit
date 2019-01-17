@@ -4,7 +4,24 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/button-in-a-view.png" alt="drawing" width="400"/>
 
+The trick to getting any view to layout customer in a `UIStackView` is to embed it in a container view and then let the stackview lay it out. Meanwhile you can setup whatever padding or constraints you want between your innerview and the container view.
 
+```swift
+    let moreButton = makeMoreButton()
+
+    let container = UIView()
+    container.translatesAutoresizingMaskIntoConstraints = false
+    container.heightAnchor.constraint(equalToConstant: layout.CTAButtonHeight).isActive = true
+    container.addSubview(moreButton)
+
+    moreButton.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+    moreButton.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+    moreButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24).isActive = true
+    moreButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -24).isActive = true
+    moreButton.heightAnchor.constraint(equalToConstant: layout.CTAButtonHeight).isActive = true
+
+    stackView.addArrangedSubview(container)
+```
 
 
 # UIStackView Basics
