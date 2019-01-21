@@ -113,6 +113,7 @@ A starter kit for those interested in iOS programming
 * [How to add a circle to a UIView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-circle-uiview.md)
 * [How to setup a feature flag via environment variable](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-feature-flag.md)
 * [How to curl alamofire](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-curl-alamofire.md)
+* [How to calculate height of label](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/height-of-label.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
