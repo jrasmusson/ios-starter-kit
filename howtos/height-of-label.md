@@ -5,14 +5,6 @@
 `UILabel` normally has intrinsic height. So no need to calculate. But occasionally you do need to dynamically calculate the height for autolayout (i.e. sometimes in `UIStackView` inside a `UIScollView`).
 
 ```swift
-//
-//  ViewController.swift
-//  HeightOfText
-//
-//  Created by Jonathan Rasmusson (Contractor) on 2019-01-21.
-//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
