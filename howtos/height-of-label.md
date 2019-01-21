@@ -1,6 +1,6 @@
 # How to calculate height of text
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/height-of-text.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/height-of-text.png" alt="drawing" width="400"/>
 
 `UILabel` normally has intrinsic height. So no need to calculate. But 
 
