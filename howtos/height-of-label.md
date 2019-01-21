@@ -2,7 +2,7 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/height-of-text.png" alt="drawing" width="400"/>
 
-`UILabel` normally has intrinsic height. So no need to calculate. But 
+`UILabel` normally has intrinsic height. So no need to calculate. But occasionally you do need to dynamically calculate the height for autolayout (i.e. sometimes in `UIStackView` inside a `UIScollView`).
 
 ```swift
 //
