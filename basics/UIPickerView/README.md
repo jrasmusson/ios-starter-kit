@@ -55,6 +55,8 @@ extension ViewController: UIPickerViewDelegate {
 
 ## Complex
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPickerView/images/complex-picker.png" alt="drawing" width="400"/>
+
 ```swift
 import UIKit
 
