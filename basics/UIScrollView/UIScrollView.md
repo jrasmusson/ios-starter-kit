@@ -38,23 +38,18 @@ class ViewController: UIViewController {
         
         // 2. Content is a stack view
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.spacing = 0
         stackView.distribution = .fill
         scrollView.addSubview(stackView)
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            // Attaching the content's edges to the scroll view's edges
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            
-            // Satisfying size constraints
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-            ])
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         
         // Add arranged subviews:
         for i in 0...20 {
