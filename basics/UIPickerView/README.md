@@ -53,3 +53,8 @@ extension ViewController: UIPickerViewDelegate {
 }
 ```
 
+
+
+### Links that helpe
+
+[Apple Docs](https://developer.apple.com/design/human-interface-guidelines/ios/controls/pickers/)
