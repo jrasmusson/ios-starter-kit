@@ -50,6 +50,7 @@ A starter kit for those interested in iOS programming
 * [Factory UI Methods](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FactoryMethodsUIElements.md)
 * [WebViews](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/WebViews/README.md)
 * [UIView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/README.md)
+* [UIPickerView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPickerView/README.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
