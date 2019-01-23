@@ -3,7 +3,7 @@
 There's a couple of ways to do this. One is to just define your protocol method by what it does and return self.
 
 ```swift
-protocol LogoDownloaderDelegate {
+protocol LogoDownloaderDelegate: AnyObject {
     func didFinishDownloading(_ sender:LogoDownloader)
 } 
 
