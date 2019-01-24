@@ -28,6 +28,12 @@ NSLayoutConstraint(item: animationView,
                            constant: 0.0).isActive = true
 ```
 
+## Hints
+
+```
+manageButtonsWrapper.accessibilityHint = "ManageStack"
+```
+
 ## Things to remember
 
 #### Set translatesAutoresizingMaskIntoConstraints = false on every view
