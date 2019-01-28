@@ -130,5 +130,6 @@ A starter kit for those interested in iOS programming
 
 ## Handy links
 * [OSStatus](https://osstatus.com)
-* [Google Style Guide)[https://google.github.io/swift/#type-variable-and-function-declarations]
+* [Google Style Guide](https://google.github.io/swift/#type-variable-and-function-declarations)
 * [Interview Questions](https://github.com/dashvlas/awesome-ios-interview/blob/master/Resources/English.md)
+* [Xcode download](https://developer.apple.com/download/more/)
