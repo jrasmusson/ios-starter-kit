@@ -98,7 +98,7 @@ guard let accessToken = dataSource?.accessToken else {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/datasource-pattern.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/datasource-pattern.png" alt="drawing" width="400"/>
 
 #### Full Source
 
