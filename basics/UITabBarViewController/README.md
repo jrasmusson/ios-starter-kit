@@ -42,6 +42,14 @@ class ViewController2: UIViewController {
 }
 ```
 
+### How to specify which `ViewController` to show?
+
+You can programatically specify which `ViewController` you would to like to appear or navigate to like this. `selectedViewController` is a property inside `UITabBarViewController` and you just specifiy the one you want there.
+
+```swift
+selectedViewController = secondViewController
+```
+
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITabBarViewController/images/demo.gif)
 
 ### Links that help
