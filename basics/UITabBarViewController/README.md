@@ -42,7 +42,7 @@ class ViewController2: UIViewController {
 }
 ```
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITabBarViewController/images/demo.gif)
 
 ### Links that help
 
