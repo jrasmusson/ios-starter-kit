@@ -116,16 +116,18 @@ if error != nil {
     self.showFailureWithNoArticles()
     return
 }
+```
 
 versus
 
-```
+```swift
 guard error == nil else {
     self.showFailureWithNoArticles()
     return
 }
-```swift
+```
 
+```swift
 // assert this is true - else don't continue
 guard !bankAccountRadioButton.isOn else { return }
 
