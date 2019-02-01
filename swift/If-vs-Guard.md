@@ -109,6 +109,21 @@ This example demonstrates this.
 
 # Guard clause examples
 
+You would check for error two different ways. Which way you prefer is largely a matter of style.
+
+```swift
+if error != nil {
+    self.showFailureWithNoArticles()
+    return
+}
+
+versus
+
+```
+guard error == nil else {
+    self.showFailureWithNoArticles()
+    return
+}
 ```swift
 
 // assert this is true - else don't continue
