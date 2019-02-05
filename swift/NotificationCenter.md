@@ -45,6 +45,22 @@ deinit {
 }
 ```
 
+### How to send data
+
+User the `userInfo` Dictionary. Send it like this
+
+```swift
+let payload:[String: UIImage] = ["image": image]
+NotificationCenter.default.post(name: .peru, object: payload)
+```
+
+Then receive it like this
+
+```swift
+if let image = notification.userInfo?["image"] as? UIImage {
+  // do something with your image   
+}
+```
 
 ### Links that help
 * [Example from web](https://medium.com/@JoyceMatos/using-nsnotificationcenter-in-swift-eb70cf0b60fc)
