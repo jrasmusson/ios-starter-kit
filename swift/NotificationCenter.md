@@ -50,8 +50,8 @@ deinit {
 User the `userInfo` Dictionary. Send it like this
 
 ```swift
-let payload:[String: UIImage] = ["image": image]
-NotificationCenter.default.post(name: .peru, object: payload)
+let userInfo:[String: UIImage] = ["image": image]
+NotificationCenter.default.post(name: .peru, object: self, userInfo: userInfo)
 ```
 
 Then receive it like this
