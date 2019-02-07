@@ -6,6 +6,8 @@
 problemView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
 problemView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
 ```
+Note this isn't great if you are rotating the app. Will make very wide (possibly break) in landscape).
+
 ## Available screen area
 
 ```swift
