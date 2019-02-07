@@ -30,6 +30,7 @@ A starter kit for those interested in iOS programming
 * [Protocol based inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
 * [Inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Inheritance.md)
 * [NotificationCenter](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/NotificationCenter.md)
+* [Strings](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Strings.md)
 
 ## Basics
 * [UILabel](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UILabel/README.md)
