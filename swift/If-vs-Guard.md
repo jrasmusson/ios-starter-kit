@@ -2,14 +2,24 @@
 
 ## Examples
 
-If you have something `Optional` define one variable with a default value, then another to unwrap, and in the unwrapping reassign the default value one if need be.
+Here is an example of how you could do both ways, but guard is nicer because avoids pyramid of doom.
 
 ```swift
-var keyword = ""
+if let url = URL(string:UIApplicationOpenSettingsURLString) {
+    if UIApplication.shared.canOpenURL(url) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}
+```
 
-if let modemModel = OrderDetailsService.sharedInstance.modemModel {
-    keyword = modemModel
-}                
+or 
+
+```swift
+guard let url = URL(string:UIApplicationOpenSettingsURLString) else { return }
+
+if UIApplication.shared.canOpenURL(url) {
+    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+}
 ```
 
 ## What's the difference?
