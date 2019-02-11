@@ -9,11 +9,13 @@ func makeRoundCornerButton(title: String) -> UIButton {
     let button = UIButton()
     button.translatesAutoresizingMaskIntoConstraints = false
     button.setTitle(title, for: .normal)
+    button.titleLabel?.minimumScaleFactor = 0.5
     button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
     button.backgroundColor = .blue
     button.setTitleColor(.white, for: .normal)
     button.layer.cornerRadius = layout.CTAButtonHeight / 2
-
+    
     return button
 }
 ```
