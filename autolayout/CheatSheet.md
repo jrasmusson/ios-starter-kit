@@ -1,5 +1,16 @@
 # Autolayout Cheat Sheet
 
+## Breakable constraint
+
+```swift
+public extension NSLayoutConstraint {
+    @objc public func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
+        self.priority = priority
+        isActive = true
+    }
+}
+```
+
 ## Screen width and height
 
 ```swift
