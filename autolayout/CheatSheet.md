@@ -66,3 +66,11 @@ chatLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
 ```swift
 addSubview(thumbnailImageView)
 ```
+
+### Checkout your negative signs
+
+Sometimes constraints values need to be negative depending on the direction of the constraint.
+
+```swift
+textLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -spacing).isActive = true
+```
