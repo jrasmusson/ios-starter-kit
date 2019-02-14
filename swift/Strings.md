@@ -30,7 +30,17 @@ Then wherever you need to localize now you can simply call it like this.
 let result = loc("activationButton.title"
 ```
 
-### How to parameterize localize Strings
+### How to parameterize localize strings with single variable
+
+```swift
+// Localizable.strings
+"activationButton.title" = "%@ support"; /* Label Title */
+
+// Usage
+title = String(format: loc("activationButton.title"), modemModel)
+```
+
+### How to parameterize localize Strings with multiple variables
 
 If you have a string that interpolates other variables do this. Define your string with the variables like so
 
