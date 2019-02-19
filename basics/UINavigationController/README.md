@@ -160,6 +160,19 @@ That's because when the computed property is created, self is not yet set into a
 
 Todo: Google Cocoa Core Competencies - and read about responder chain and delegate.
 
+## How to detect back button pressed
+
+```swift
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+           // back button pressed
+        }
+    }
+
+```
+
 ### Links that help
 
 * [Programmatic UINavigation Controller](https://medium.com/whoknows-swift/swift-the-hierarchy-of-uinavigationcontroller-programmatically-91631990f495)
