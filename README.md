@@ -61,6 +61,7 @@ A starter kit for those interested in iOS programming
 * [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVP/README.md)
 * [Guiding Principles](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Guiding-Principles.md)
 * [Datasource Pattern](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/DataSource-Pattern.md)
+* [Object Oriented](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/OO.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
