@@ -80,4 +80,4 @@ extension Protocol2 {
 
 ### Links that help
 
-* [Reddit](https://www.reddit.com/r/iOSProgramming/comments/4bg2tv/what_are_some_pros_and_cons_of_protocol_driven/)
+* [Protocol Oriented Programming - WWDC](https://developer.apple.com/videos/play/wwdc2015/408/)
