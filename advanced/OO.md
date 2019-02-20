@@ -1,12 +1,27 @@
 # Object Oriented Programming
 
-### How to pass an object type
+### Loose coupling
 
-Sometimes the client of you object needs to know a little bit more about the specifics of a particular instance, but you don't have a great way of telling it.
+Sometimes when writing software, the client of your library wants to pass something in, but you don't really want to know what they thing is.
 
-One way to get around this is to do what `NSNotification` does which is return a generic object (i.e. `Any`) and let the client pull out what it needs.
+For example you may have a view that you want to return a specific event on. But by passing in the event you are coupling to it. You basically have three options.
 
-For example if the client of this class needs the event that goes with the article tapped, you could pass it as part of the `delegate` call back.
+```swift
+// 1. Couple to the event -> Coupling
+func didSelectArticle(withURL url: URL, analyticsEvent: Analytics.Actions.Activation) {
+
+// 2. Pass in `Any` -> Must cast `Any` to specific type in client
+func didSelectArticle(withURL url: URL, analyticsEvent: Any?) {
+
+// 3. Use a generic -> No casting required
+func didSelectArticle(withURL url: URL, analyticsEvent: T) {
+```
+
+The problem with #1 is you introduce hard coupling into your API. Now you library need to know about event.
+
+The problem with #2 is you decouple, but they you need a cast in the client to convert `Any` into whatever object you want.
+
+#3 is the right way to go because with generics, no casting is required.
 
 ```swift
 protocol SupportArticleViewDelegate: AnyObject {
