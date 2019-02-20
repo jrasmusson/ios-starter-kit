@@ -67,3 +67,42 @@ Then use it like this
         client.fireEvent()
     }
 ```
+
+### Discussion
+
+The above approach works... but it is rather ugly. In cases like this it may be cleaner just doing what `NotificationCenter` does which is pass around a `userInfo` object of type `Any` and let the client cast it into whatever it expects. Like this.
+
+```swift
+protocol SupportArticleViewDelegate: AnyObject {
+    func didSelectArticle(withURL url: URL, userInfo: Any)
+}
+
+class SupportArticleView: UIView {
+
+    var userInfo: Any // placeholder for any info client may want passed back
+    
+    weak var delegate: SupportArticleViewDelegate?
+        
+    init(userInfo: Any) {
+        self.userInfo = userInfo
+        super.init(frame: .zero)
+    }
+
+    ...
+     delegate?.didSelectArticle(withURL: url, userInfo: userInfo)
+    ...
+```
+
+Then in the client.
+
+```swift
+extension FailureViewController: SupportArticleViewDelegate {
+
+    func didSelectArticle(withURL url: URL, userInfo: Any) {
+
+        guard let analyticsEvent = userInfo as? Analytics.Actions.Activation else { return }
+
+        // do something
+    }
+```
+
