@@ -51,7 +51,8 @@ class TestClient {
 
 extension TestClient: SupportArticleViewDelegate {
     
-    func didSelectArticle<String>(withEvent event: String) {
+    func didSelectArticle<T>(withEvent event: T) {
+        guard let event = analyticsEvent as? String else { return }
         print("\n\n\(event)\n\n")
     }
 
