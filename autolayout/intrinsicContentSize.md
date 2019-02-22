@@ -71,7 +71,15 @@ So if we wanted to override our orange dot instrinsic size in the superview, all
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic-overriden.png" />
 
 
+## What if I want width to expand?
 
+Then don't specify.
+
+```swift
+    override public var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 28)
+    }
+```
 
 
 
