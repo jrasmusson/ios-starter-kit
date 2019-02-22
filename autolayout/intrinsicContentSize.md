@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/how-to-layout-different-device-sizes/compression-apple-docs.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic.png" />
 
 
 ### Links that help
