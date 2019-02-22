@@ -81,4 +81,5 @@ extension Protocol2 {
 ### Links that help
 
 * [Protocol Oriented Programming - WWDC](https://developer.apple.com/videos/play/wwdc2015/408/)
+* [Type Values in Swift - WWDC](https://developer.apple.com/videos/play/wwdc2015/414/)
 * [Unit testing with protocols](https://riptutorial.com/swift/example/8271/leveraging-protocol-oriented-programming-for-unit-testing)
