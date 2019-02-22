@@ -206,11 +206,13 @@ If you do that, everything should line up nicely like this.
 
 ## Misc
 
-### How to set insets
+### How to layout margins set insets
 
 ```swift
 stackView.layoutMargins = UIEdgeInsets(top: Spacing.marginTop, left: Spacing.margin, bottom: Spacing.margin, right: 0)
 ```
+
+Not you should use new `directionalLayoutMargins` not regular `layoutMargins` and direction take into account language and left to right.
 
 ### Links that help
 
