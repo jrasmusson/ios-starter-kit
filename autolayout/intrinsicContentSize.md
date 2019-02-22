@@ -50,6 +50,30 @@ class ViewController: UIViewController {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic.png" />
 
+## Can the superview override the intrinsic content size?
+
+Yes. This is how intrinsic content size works. `UILabel` has an intrinsicContentSize. But we always stretch and adjust `UILabel`s with contraints. We override it's intrinsic content size. 
+
+And that's a good rule of thumb. As a general rule of thumb *a custom view should never create a constraint for it's own width and height*. When we set `intrinsicContentSize`s we aren't setting contraints. We are adjusting CHCR - hugging and compressing.
+
+That's what let's use constrain the size of our customer view, but not constrain it. The super view does the constraining. The customer the suggesting.
+
+So if we wanted to override our orange dot instrinsic size in the superview, all we have to do is something like this.
+
+```swift
+        container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+
+//        container.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        container.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic-overriden.png" />
+
+
+
+
+
 
 ### Links that help
 
