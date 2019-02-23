@@ -81,6 +81,16 @@ Then don't specify.
     }
 ```
 
+## How can I see what a views intrinsicContentSize is?
+
+```swift
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("view intrinsic content size: \(view.intrinsicContentSize)")
+        print("titleLabel intrinsic content size: \(titleLabel.intrinsicContentSize)")
+    }
+ ```
 
 
 ### Links that help
