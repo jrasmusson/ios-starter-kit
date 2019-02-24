@@ -218,5 +218,6 @@ Not you should use new `directionalLayoutMargins` not regular `layoutMargins` an
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/uistackview)
 * [Apple Example](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/LayoutUsingStackViews.html#//apple_ref/doc/uid/TP40010853-CH11-SW1)
+* [Excellent article on distribution](https://spin.atomicobject.com/2016/06/22/uistackview-distribution/)
 
 
