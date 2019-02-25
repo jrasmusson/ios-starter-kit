@@ -12,7 +12,7 @@ Let's look at some examples.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/customview/basic2.png" alt="drawing" width="400"/>
 
-Here is a customer view, laid out in the view controller beside a `UILabel`. Nothing fancy going on. Straighup autolayout.
+Here is a customer view, laid out in the view controller beside a `UILabel`. Note how the `UIView` defines its own intrinsic content size. Hense we don't need any width height constraints as both the label and view have their sizes defined.
 
 ```swift
 import UIKit
