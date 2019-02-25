@@ -65,7 +65,7 @@ A starter kit for those interested in iOS programming
 * [Guiding Principles](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Guiding-Principles.md)
 * [Datasource Pattern](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/DataSource-Pattern.md)
 * [Object Oriented](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/OO.md)
-* [CHCR Compression Hugging and Compression Resistance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Compression-Resistance.md)
+* [CHCR Content Hugging and Compression Resistance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Compression-Resistance.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
