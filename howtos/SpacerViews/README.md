@@ -6,7 +6,7 @@ The red dotted lines are empty spacer views that are there purely for spacing th
 
 Note also that there is an extension at the bottom that enables the red dotted spacers to show up.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/recipes/SpacerViews/images/demo.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/SpacerViews/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
 //
