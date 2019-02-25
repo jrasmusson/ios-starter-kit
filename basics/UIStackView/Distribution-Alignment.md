@@ -53,7 +53,16 @@ Those are the distribution options using `UIStackView`. Fill and Fill Equally ar
 
 ## Example Content Hugging
 
+This is an example of a fill distribution where normally the two controls we be evenly spaced. But because we want the Internet label to expand we drop its hugging power to 48 so that it will stretch, and then up the hugging power of the text label to 1000. Normally 251 would be OK. But for some reason 1000 is required here making it a required priority constraint.
+
 ```swift
+//
+//  LabelInAnExpandedStackView.swift
+//  StackViewFun2
+//
+//  Created by Jonathan Rasmusson Work Pro on 2019-02-23.
+//  Copyright © 2019 Rasmusson Software Consulting. All rights reserved.
+//
 
 import UIKit
 
@@ -67,15 +76,17 @@ class ViewController: UIViewController {
     func setupViews() {
         let item1 = makeLabel(title: "Internet", color: .red)       // hug = 48 => stretch
         let item2 = makeTextField(title: "Ready", color: .green)    // hug = 251
+
+        let stackView = makeStackView()
+
+        stackView.addArrangedSubview(item1)
+        stackView.addArrangedSubview(item2)
+
+        view.addSubview(stackView)
         
-        view.addSubview(item1)
-        view.addSubview(item2)
-        
-        item1.topAnchor.constraint(equalTo: view.topAnchor, constant: 48).isActive = true
-        item1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
-        item1.trailingAnchor.constraint(equalTo: item2.leadingAnchor, constant: 8).isActive = true
-        item2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
-        item1.centerYAnchor.constraint(equalTo: item2.centerYAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 48).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
     }
 
     func makeLabel(title: String, color: UIColor) -> UILabel {
@@ -100,7 +111,7 @@ class ViewController: UIViewController {
         textField.backgroundColor = color
 
         // default IB
-        textField.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+        textField.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal) // important!
         textField.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
         
         return textField
@@ -118,6 +129,7 @@ class ViewController: UIViewController {
     }
 
 }
+
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/example-fill.png" alt="drawing" width="400"/>
