@@ -51,7 +51,7 @@ Those are the distribution options using `UIStackView`. Fill and Fill Equally ar
 ## Alignment
 
 
-## Example
+## Example Content Hugging
 
 ```swift
 
