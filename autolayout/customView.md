@@ -1,4 +1,4 @@
-# Custom View
+# Custom Views
 
 Here are some things you need to know about creating custom views in iOS.
 
