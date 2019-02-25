@@ -107,9 +107,9 @@ Then don't specify.
 
 ### Links that help
 
-* [Apple Docs1](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize)
-* [Apple Docs2](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ViewswithIntrinsicContentSize.html)
-* [Apple Docs3](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/AnatomyofaConstraint.html#//apple_ref/doc/uid/TP40010853-CH9-SW21)
+* [Apple Docs - Intrinsic Content Size](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize)
+* [Apple Docs - Views with intrinsic content size](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ViewswithIntrinsicContentSize.html)
+* [Apple Docs - Intrinsic Content Size Equations](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/AnatomyofaConstraint.html#//apple_ref/doc/uid/TP40010853-CH9-SW21)
 * [Example1](https://medium.com/@vialyx/import-uikit-what-is-intrinsic-content-size-20ae302f21f3)
 * [Example2](https://blog.usejournal.com/custom-uiview-in-swift-done-right-ddfe2c3080a)
 * [Example3](https://samwize.com/2017/11/01/guide-to-creating-custom-uiview/)
