@@ -1,5 +1,9 @@
 # Distribution & Alignment
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/distribution.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/alignment.png" alt="drawing" width="400"/>
+
 ## Distribution
 
 ### Fill
@@ -44,7 +48,10 @@
 
 Those are the distribution options using `UIStackView`. Fill and Fill Equally are optionated about controlling size of children. Others respect intrinsic size and try to space in different ways.
 
-### Example
+## Alignment
+
+
+## Example
 
 ```swift
 
