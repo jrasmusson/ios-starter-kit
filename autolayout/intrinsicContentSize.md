@@ -1,11 +1,14 @@
 # IntrinsicContentSize
 
-Intrinsic content size is the default size a control gives itself that autolayout uses when doing autolayout.
+Intrinsic content size is the default size a control gives itself that autolayout uses when doing autolayout. No all controls have intrinsic content size. But many do.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/ios-controls.png" />
 
+And it's an important topic if you want to understand how autolayout works with certain view configurations. It also overlaps a lot with content hugging and resistance (CHCR). So you often see them spoken about at the same time.
 
-This is a super important topic for when you need to build custom views. Autolayout won't know the size of your custom view unless you tell it. You don't want to explicitly set height and width in the custom view itself (that would keep it from expanding or growing). But you can set it's size using `instrinsicContentSize` like this.
+But here are some examples on how to use.
 
+## Example
 
 ```swift
 // RoundContainer.swift
