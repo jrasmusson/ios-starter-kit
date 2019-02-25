@@ -56,6 +56,18 @@ Yes. This is how intrinsic content size works. `UILabel` has an intrinsicContent
 
 And that's a good rule of thumb. As a general rule of thumb *a custom view should never create a constraint for it's own width and height*. When we set `intrinsicContentSize`s we aren't setting contraints. We are adjusting CHCR - hugging and compressing.
 
+Here are the Compression-Resistance and Content-Hugging equations
+
+```swift
+// Compression Resistance
+View.height >= 0.0 * NotAnAttribute + IntrinsicHeight
+View.width >= 0.0 * NotAnAttribute + IntrinsicWidth
+ 
+// Content Hugging
+View.height <= 0.0 * NotAnAttribute + IntrinsicHeight
+View.width <= 0.0 * NotAnAttribute + IntrinsicWidth
+```
+
 That's what let's use constrain the size of our customer view, but not constrain it. The super view does the constraining. The customer the suggesting.
 
 So if we wanted to override our orange dot instrinsic size in the superview, all we have to do is something like this.
