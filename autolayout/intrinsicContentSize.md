@@ -68,7 +68,7 @@ View.height <= 0.0 * NotAnAttribute + IntrinsicHeight
 View.width <= 0.0 * NotAnAttribute + IntrinsicWidth
 ```
 
-That's what let's use constrain the size of our customer view, but not constrain it. The super view does the constraining. The customer the suggesting.
+That's what we use to suggest the size of our custom view but not constrain it. The super view does the constraining. The custom the suggesting. And this becomes really important in `UIStackView` because some distributions ignore the intrinsic size (fillEqually) while others use it. And ones like `fillEqually` use it for a suggestion, but you control it with Content Hugging Priority (CHP).
 
 So if we wanted to override our orange dot instrinsic size in the superview, all we have to do is something like this.
 
