@@ -42,6 +42,76 @@
 
 Those are the distribution options using `UIStackView`. Fill and Fill Equally are optionated about controlling size of children. Others respect intrinsic size and try to space in different ways.
 
+## Example
+
+```swift
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    func setupViews() {
+        let item1 = makeLabel(title: "Internet", color: .red)       // hug = 48 => stretch
+        let item2 = makeTextField(title: "Ready", color: .green)    // hug = 251
+        
+        view.addSubview(item1)
+        view.addSubview(item2)
+        
+        item1.topAnchor.constraint(equalTo: view.topAnchor, constant: 48).isActive = true
+        item1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        item1.trailingAnchor.constraint(equalTo: item2.leadingAnchor, constant: 8).isActive = true
+        item2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        item1.centerYAnchor.constraint(equalTo: item2.centerYAnchor).isActive = true
+    }
+
+    func makeLabel(title: String, color: UIColor) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = title
+        label.textAlignment = .center
+        label.textColor = .black
+        label.numberOfLines = 0
+        label.backgroundColor = color
+        
+        label.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
+
+        return label
+    }
+
+    func makeTextField(title: String, color: UIColor) -> UITextField {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.text = title
+        textField.backgroundColor = color
+
+        // default IB
+        textField.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: .horizontal)
+        textField.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
+        
+        return textField
+    }
+
+    func makeStackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.spacing = 8.0
+        
+        return stackView
+    }
+
+}
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/example-fill.png" alt="drawing" width="400"/>
 
 ### Links that help
 
