@@ -1,4 +1,4 @@
-# Compression & Resistance
+# Content-Hugging Compression-Resistance (CHCR)
 
 * Settings that describe how controls shrink and grow
 * Used to break ambiguous layouts
