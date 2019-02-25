@@ -1,6 +1,8 @@
 # Distribution & Alignment
 
-## Fill
+## Distribution
+
+### Fill
 
 * Fills all spaces 
 * Default setting
@@ -10,14 +12,14 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/fill.png" alt="drawing" width="400"/>
 
-## Fill Equally
+### Fill Equally
 
 * Makes all controls the same size
 * Only distribution NOT to use instrinsic size
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/fill-equally.png" alt="drawing" width="400"/>
 
-## Fill Proportionally
+### Fill Proportionally
 
 * maintains same proportion as layout shrinks and grows
 * Unlike previous two, needs intrinsic size
@@ -26,7 +28,7 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/fill-proportionally.png" alt="drawing" width="400"/>
 
-## Equal Spacing
+### Equal Spacing
 
 * Uses intrinsic size
 * Maintains equal space between each control
@@ -34,7 +36,7 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/equal-spacing.png" alt="drawing" width="400"/>
 
-## Equal Centering
+### Equal Centering
 
 * Equally spaces the center of controls
 
@@ -42,7 +44,7 @@
 
 Those are the distribution options using `UIStackView`. Fill and Fill Equally are optionated about controlling size of children. Others respect intrinsic size and try to space in different ways.
 
-## Example
+### Example
 
 ```swift
 
