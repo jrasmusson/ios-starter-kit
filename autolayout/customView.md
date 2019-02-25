@@ -10,7 +10,7 @@ Let's look at some examples.
 
 ## Basic custom view
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/customview/basiac.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/customview/basic.png" alt="drawing" width="400"/>
 
 
 ## Example Custom View in StackView
