@@ -6,6 +6,7 @@
 * Uses intrinsic size, but is controlled via CHCR (hugging/compressing)
 * Determines wih conrol to stretch by noting which has lowest Content Hugging Priority (CHP)
 * If all controls have same CHP, then Xcode will complain layout is ambiguous
+* asdfasdf
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
 
