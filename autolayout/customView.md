@@ -126,9 +126,6 @@ class BasicViewController: UIViewController {
 }
 ```
 
-## Example Custom View in StackView
-
-
 ### Links that help
 
 * [Apple Docs - Intrinsic Content Size](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize)
