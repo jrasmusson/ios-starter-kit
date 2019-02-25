@@ -1,5 +1,9 @@
 # IntrinsicContentSize
 
+Intrinsic content size is the default size a control gives itself that autolayout uses when doing autolayout.
+
+
+
 This is a super important topic for when you need to build custom views. Autolayout won't know the size of your custom view unless you tell it. You don't want to explicitly set height and width in the custom view itself (that would keep it from expanding or growing). But you can set it's size using `instrinsicContentSize` like this.
 
 
