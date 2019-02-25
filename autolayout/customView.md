@@ -6,9 +6,11 @@ Here are some things you need to know about creating custom views in iOS.
 * just do your layout relative to the bounds of the view you are in, but let the container control how you appear in the super view via it's contraints and let it set the hugging and compressing
 * do give your views an intrinsic size if you can. This will help them with various autolayout configurations and get rid of ambiguous layout. It will also help with `UIStackView`
 
-## Example Custom View
+Let's look at some examples.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+## Basic custom view
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/customview/basic.png" alt="drawing" width="400"/>
 
 
 ## Example Custom View in StackView
