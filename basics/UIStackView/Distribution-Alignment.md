@@ -1,8 +1,8 @@
 # Distribution & Alignment
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/distribution.png" alt="drawing" width="600"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/distribution.png" alt="drawing" width="800"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/alignment.png" alt="drawing" width="600"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/alignment.png" alt="drawing" width="800"/>
 
 ## Distribution
 
