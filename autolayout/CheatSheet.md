@@ -74,3 +74,47 @@ Sometimes constraints values need to be negative depending on the direction of t
 ```swift
 textLabel.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -spacing).isActive = true
 ```
+
+### Default values
+
+Swift has some default values you can use when doing autolayout.
+
+```swift
+print("low \(UILayoutPriority.defaultLow.rawValue)")        // 250
+print("high \(UILayoutPriority.defaultHigh.rawValue)")      // 750
+print("required \(UILayoutPriority.required.rawValue)")     // 1000
+```
+
+These are great because in stead of doing this you can do this
+
+```swift
+container.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
+container.setContentHuggingPriority(.defaultLow, for: .horizontal)
+```
+
+Unfortunately they don't have all the values mapped. And sometimes you need 251.
+
+To make it a little more clear here is an extension that will help you add +/- 1 to the default values.
+
+```swift
+extension UILayoutPriority {
+  static func +(lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
+    return UILayoutPriority(lhs.rawValue + rhs)
+  }
+
+  static func -(lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
+    return UILayoutPriority(lhs.rawValue - rhs)
+  }
+}
+```
+
+Now you can write nice clean code like this
+
+```swift
+container.setContentHuggingPriority(.defaultLow, for: .horizontal)
+```
+
+### Links that help
+
+[Easier Swift Layout Priorities](https://useyourloaf.com/blog/easier-swift-layout-priorities/)
+
