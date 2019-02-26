@@ -5,14 +5,30 @@ Swifter's have three beefs with OO class oriented programming.
 1. Implicit sharing 
 
 By sharing state among objects and instances you run into all sorts of problems.
-* Defensive copying (i.e. `NSArray.copy()`
-* Inefficiency (classes are expensive)
+* Defensive copying
+* Inefficiency
+* Expense
 * Race conditions
 * Locks
 * More inefficiency tracking locks
 * Deadlock
 * Complexity
 * Bugs!
+
+One side effect of NSArray in Objective-C is that arrays are passed by reference. Which means when you modifiy an array in Objective-C all the classes sharing that reference are modified. Which is why ObjC has so much defensive copying and you always copy an array when passing it from one class to another. 
+
+All Swift based collections are structures. Which means you get a new copy of an collection every time you use it. And you don't need to worry about modifying a collection when iterating through it like you do in ObjC.
+
+Values don't share. Classes over share. That's what is meant by value structured programming.
+
+2. Inheritance is very heavy and invasive.
+
+* You inherit all the property types
+* Leads to *initialization burden* 
+* Have to make sure you don't *break the super class invariants*. 
+* Must know what/how to override and what not to
+
+3. Lost type relationships 
 
 
 
