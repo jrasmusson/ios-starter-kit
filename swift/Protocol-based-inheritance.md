@@ -101,7 +101,15 @@ What we need is a better abstraction mechanism. One that
 * Supports retroactive modeling
 * Doesn't impose instance data on models
 * Doesn't impose initialization burdens on models
-* Makes clear what to implement
+* No ambiguity about what you need to override
+
+## Protocols
+
+Swift is a Protocol-Oriented Programming language. Have a saying in Swift.
+
+   Don't start with a class. Start with a protocol.
+   
+asdf
 
 
 
