@@ -30,8 +30,23 @@ Values don't share. Classes over share. That's what is meant by value structured
 
 ### 3. Lost type relationships 
 
+Classes are not a great fit for those design problems where type relationships matter. For example, if you have every tried to use classes for a symetric operation like comparison - for example general sort or binary search - you need a way to compare two elements.
 
+```swift
+class Ordered {
+   func precedes(other: Ordered) -> Bool
+}
 
+func binarySearch(sortedKeys: [Ordered], forkey: k: Ordered) -> Int {
+   var lo = 0, hi = sortkedKeys.count
+   while hi > lo {
+      let mid = lo + (hi - loo) / 2
+      if sortedKeys[mid].preceds(k) { lo = mid + 1 }
+      else { hi = mid }
+   }
+   return lo
+}
+```
 
 ## Inheritance
 
