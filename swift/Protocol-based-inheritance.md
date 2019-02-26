@@ -2,7 +2,7 @@
 
 Swifter's have three beefs with OO class oriented programming.
 
-1. Implicit sharing 
+### 1. Implicit sharing 
 
 By sharing state among objects and instances you run into all sorts of problems.
 * Defensive copying
@@ -21,14 +21,14 @@ All Swift based collections are structures. Which means you get a new copy of an
 
 Values don't share. Classes over share. That's what is meant by value structured programming.
 
-2. Inheritance is very heavy and invasive.
+### 2. Inheritance is very heavy and invasive.
 
 * You inherit all the property types
 * Leads to *initialization burden* 
 * Have to make sure you don't *break the super class invariants*. 
 * Must know what/how to override and what not to
 
-3. Lost type relationships 
+### 3. Lost type relationships 
 
 
 
