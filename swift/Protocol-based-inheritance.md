@@ -1,5 +1,9 @@
 # Protocol Oriented Programming
 
+These are notes based on the following WWDC talk.
+
+* [Protocol Oriented Programming - WWDC 2015](https://developer.apple.com/videos/play/wwdc2015/408/)
+
 Swifter's have three beefs with OO class oriented programming.
 
 ### 1. Implicit sharing 
@@ -80,7 +84,6 @@ class Number: Ordered  {
    var value: Double = 0
    override func precedes(other: Ordered) -> Bool {
       return value < (other as! Number).value
-   }
 }
 ```
 
@@ -107,14 +110,87 @@ What we need is a better abstraction mechanism. One that
 
 Swift is a Protocol-Oriented Programming language. Have a saying in Swift.
 
-   Don't start with a class. Start with a protocol.
+   * Don't start with a class. Start with a protocol.
    
-asdf
+If we convert our class based implementation to a protocol based one we see the following.
 
+1. Type safe check instead of dynamic runtime check.
+   
+```swift
+protocol Ordered {
+   func precedes(other: Ordered) -> Bool 
+}
+```
 
+Since protocols don't allow us to implement any default implementations, we lose the fatal trap and instead gain a compile tie check instead of relying on the dynamic runtime check.
 
+2. No more override.
 
+By converting `Number` from a class to a struct
 
+```swift
+class Number: Ordered  { 
+   var value: Double = 0
+   override func precedes(other: Ordered) -> Bool {
+      return self.value < (other as! Number).value
+}
+```
+
+the protocol is playing the exact same role as the class did in the previous example. It's better. We don't have the underlying fatal error anymore. But it still isn't address the underlying problem we have of the static type safety hole. Because we still need that forced downcast.
+
+So lets's make it a `Number` instead and drop the downcast.
+
+```swift
+class Number: Ordered  { 
+   var value: Double = 0
+   override func precedes(other: Number) -> Bool {
+      return self.value < (other as! Number).value
+}
+```
+
+Now Swift is going to complain that the signatures don't match up. `Number` isn't and `Ordered`.
+
+To fix this, we need to replace `Ordered` in the protocol method signature with `Self`.
+
+```swift
+protocol Ordered {
+   func precedes(other: Self) -> Bool 
+}
+```
+
+Note the capital `S` on `Self`. This is called a "Self" requirement. So when you see `Self` in a protocol it's a placeholder for the type that is going to conform to a protcol. A model type. A Generic
+
+So now instead of having a heterogeous array of type `[Ordered]` Swift requires us to make this a homogeneous type of the generic we just created - `T`.
+
+```swift
+// before
+func binarySearch(sortedKeys: [Ordered], forkey k: Ordered) -> Int {
+
+// after
+func binarySearch<T : Ordered>(sortedKeys: [T], forkey k: T) -> Int {
+```
+
+This one says I work on any homogeneous `Ordered` array type `T`.
+
+Now you might think that forcing the array to be homogenous is to restrictive. That we are somehow taking away functionality of forcing it unduly into a certain type. But if you think about it, the original signature was really a lie. We never handled the hetergeneous case other than by trapping. A homogeneous array is what we want.
+
+Once you add the `Self` or generic type to the protocol, it moves the protocol into a very different world where the capabilities have a lot less overlap with classes. It stops being usable as a type. Collections become homogeneous instead of heterogeneous. Interactions between instance no longer implies an interaction between all model types. We trade dynamic polymorphism for static polymorphism and make it more optimizable for the compiler.
+
+Later on we will see how to build a bridge between these two worlds.
+
+### The beauty of this - adding functionality to types is easy
+
+The beauty of working this way is it becomes very easy to create new type instances that conform to protocols, and use them in different instances. Like tests.
+
+```swift
+extension Renderer {
+   func circleAt(center: CGPoint, radius: CGFloat) { ... }
+}
+
+extension TestRenderer {
+   func circleAt(center: CGPoint, radius: CGFloat) { ... }
+}
+```
 
 ## Inheritance
 
