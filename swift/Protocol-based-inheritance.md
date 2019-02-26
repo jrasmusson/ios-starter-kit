@@ -32,12 +32,14 @@ Values don't share. Classes over share. That's what is meant by value structured
 
 Classes are not a great fit for those design problems where type relationships matter. For example, if you have every tried to use classes for a symetric operation like comparison - for example general sort or binary search - you need a way to compare two elements.
 
+With classes you end up with something like this.
+
 ```swift
 class Ordered {
    func precedes(other: Ordered) -> Bool
 }
 
-func binarySearch(sortedKeys: [Ordered], forkey: k: Ordered) -> Int {
+func binarySearch(sortedKeys: [Ordered], forkey k: Ordered) -> Int {
    var lo = 0, hi = sortkedKeys.count
    while hi > lo {
       let mid = lo + (hi - loo) / 2
@@ -47,6 +49,64 @@ func binarySearch(sortedKeys: [Ordered], forkey: k: Ordered) -> Int {
    return lo
 }
 ```
+
+The problem is that is we need an implementation for every class method, and we don't know anything about the object type of `Ordered`. So we have to trap.
+
+```swift
+class Ordered {
+   func precedes(other: Ordered) -> Bool { fatalError("implement me!") }
+}
+```
+
+This is the first sign that we are fighting the type system. We tend to brush this warning aside, and say that so long as every subclass of ordered implements it's own implementation or proceeds we'll be OK.
+
+So we press ahead, and make a subclass or `Ordered`.
+
+```swift
+class Number: Ordered  { 
+   var value: Double = 0
+   override func precedes(other: Ordered) -> Bool {
+      return value < other.value
+   }
+}
+```
+
+Expect this doens't work. `other` has no variable for value. It's just some arbitrary object. It could be a `Label` with a `text` property. So now we need to downcast just to get to the right type.
+
+```swift
+class Label : Ordered { var text: String = "" ... }
+
+class Number: Ordered  { 
+   var value: Double = 0
+   override func precedes(other: Ordered) -> Bool {
+      return value < (other as! Number).value
+   }
+}
+```
+
+But hold on. What if that `other` value is of type `Label`. Now we are going to trap.
+
+This is a static type safety hole. Classes don't let us express this crucial type relationship between the type of `self` and the type of `other`. In fact you could use this as a code smell.
+
+```swift
+as! ASubclass => Code smell
+```
+
+Usually this means some kind of important type information was lost. And it is usually caused by classes being used for abstraction.
+
+What we need is a better abstraction mechanism. One that
+* Supports value types (and classes)
+* Supports static type relationships (and dynamic dispatch)
+* Non-monolithic
+* Supports retroactive modeling
+* Doesn't impose instance data on models
+* Doesn't impose initialization burdens on models
+* Makes clear what to implement
+
+
+
+
+
 
 ## Inheritance
 
