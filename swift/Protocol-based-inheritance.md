@@ -1,4 +1,4 @@
-# Protocol based inheritance
+# Protocol Oriented Programming
 
 There are two ways you can do inheritance in swift.
 
@@ -80,6 +80,7 @@ extension Protocol2 {
 
 ### Links that help
 
-* [Protocol Oriented Programming - WWDC](https://developer.apple.com/videos/play/wwdc2015/408/)
-* [Type Values in Swift - WWDC](https://developer.apple.com/videos/play/wwdc2015/414/)
+* [Protocol Oriented Programming - WWDC 2015](https://developer.apple.com/videos/play/wwdc2015/408/)
+* [Type Values in Swift - WWDC 2015](https://developer.apple.com/videos/play/wwdc2015/414/)
+* [Protocol and Value Oriented Programming in UIKit Apps - WWDC 2016](https://developer.apple.com/videos/play/wwdc2016/419/?time=340)
 * [Unit testing with protocols](https://riptutorial.com/swift/example/8271/leveraging-protocol-oriented-programming-for-unit-testing)
