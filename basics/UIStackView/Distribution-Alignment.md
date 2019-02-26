@@ -51,7 +51,7 @@ Those are the distribution options using `UIStackView`. Fill and Fill Equally ar
 ## Alignment
 
 
-## Example Content Hugging
+## Example Fill
 
 This is an example of a fill distribution where normally the two controls we be evenly spaced. But because we want the Internet label to expand we drop its hugging power to 48 so that it will stretch, and then up the hugging power of the text label to 1000. Normally 251 would be OK. But for some reason 1000 is required here making it a required priority constraint.
 
