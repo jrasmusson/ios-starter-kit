@@ -1,8 +1,27 @@
 # Protocol Oriented Programming
 
+Swifter's have three beefs with OO class oriented programming.
+
+1. Implicit sharing 
+
+By sharing state among objects and instances you run into all sorts of problems.
+* Defensive copying (i.e. `NSArray.copy()`
+* Inefficiency (classes are expensive)
+* Race conditions
+* Locks
+* More inefficiency tracking locks
+* Deadlock
+* Complexity
+* Bugs!
+
+
+
+
+## Inheritance
+
 There are two ways you can do inheritance in swift.
 
-## Class based inheritance
+### Class based inheritance
 
 ```swift
 class ActivationService {
@@ -19,7 +38,7 @@ class ActivationService {
 }
 ```
 
-## Protocol based inheritance
+### Protocol based inheritance
 
 ```swift
 protocol ActivationService {
