@@ -6,7 +6,7 @@ A starter kit for those interested in iOS programming
   * [Protocols Oriented Programming](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
   * [Protocols & Delegates](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Delegates.md)
   * [Protocols & Generics](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Generics.md)
-  * [Protocols & Unit tests](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Generics.md)
+  * [Protocols & Unit Testing](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Unit-Testing.md)
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 * [Completion Blocks](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Completion%20Blocks.md)
 * [JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/JSON.md)
