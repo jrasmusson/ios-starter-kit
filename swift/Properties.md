@@ -60,6 +60,14 @@ class DataManager {
 }
 ```
 
+Lazy vars can also be computed properties. Very handy for when you want to access a class method but can wait until the var is loaded.
+
+```swift
+    lazy var button: UIButton = {
+        makeButton()
+    }()
+```
+
 ## Property Observers
 
 Respond to changes in a property's value. Can observe anything except `lazy` properties. 
