@@ -137,8 +137,6 @@ class GetStartedViewController: UIViewController {
         gettingStartedbutton.topAnchor.constraint(greaterThanOrEqualTo: stackLabels.bottomAnchor, constant: 44).setActiveBreakable(priority: .defaultHigh)
         gettingStartedbutton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: layout.CTAButtomButtonSpacer).setActiveBreakable(priority: .defaultHigh)
         gettingStartedbutton.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -8).setActiveBreakable(priority: .defaultLow)
-
-
     }
 
     func setupNavigationBar() {
@@ -189,3 +187,5 @@ public extension NSLayoutConstraint {
     }
 }
 ```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-constraints.png" alt="drawing" />
