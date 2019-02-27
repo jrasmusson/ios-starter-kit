@@ -188,4 +188,4 @@ public extension NSLayoutConstraint {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-constraints.png" alt="drawing" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-constraints.png" alt="drawing" width="600" />
