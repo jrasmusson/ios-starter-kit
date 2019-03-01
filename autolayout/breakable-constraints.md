@@ -195,3 +195,6 @@ public extension NSLayoutConstraint {
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-constraints.png" alt="drawing" width="600" />
+
+> Note: Strictly speaking this layout could be simplified. The `UIImageView` at the top will always expand/collapse to whatever size is needed. Hense all these breakable constraints of different priorities are not needed. Leaving this here as an example however for future reference as it explains how breakable constraints work.
+
