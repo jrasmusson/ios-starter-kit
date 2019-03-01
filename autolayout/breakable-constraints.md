@@ -116,15 +116,18 @@ class GetStartedViewController: UIViewController {
         stackLabels.centerXAnchor.constraint(equalTo: stackImages.centerXAnchor).isActive = true
         stackLabels.widthAnchor.constraint(equalTo: stackImages.widthAnchor).isActive = true
 
-        // same width
+        // equal width
         setupLabel.widthAnchor.constraint(equalTo: activateLabel.widthAnchor).isActive = true
         activateLabel.widthAnchor.constraint(equalTo: activateLabel.widthAnchor).isActive = true
         setupLabel.widthAnchor.constraint(equalTo: connectLabel.widthAnchor).isActive = true
 
-        // same width
         setupLabel.centerXAnchor.constraint(equalTo: setupImageView.centerXAnchor).isActive = true
         activateLabel.centerXAnchor.constraint(equalTo: activateImageView.centerXAnchor).isActive = true
         connectLabel.centerXAnchor.constraint(equalTo: connectImageView.centerXAnchor).isActive = true
+
+        // constrain height
+        stackImages.heightAnchor.constraint(equalTo: setupImageView.heightAnchor).isActive = true
+        stackLabels.heightAnchor.constraint(equalTo: setupLabel.heightAnchor).isActive = true
 
         chevronRight.widthAnchor.constraint(equalTo: chevronLeft.widthAnchor).isActive = true
 
@@ -135,8 +138,11 @@ class GetStartedViewController: UIViewController {
 
         // breakables
         gettingStartedbutton.topAnchor.constraint(greaterThanOrEqualTo: stackLabels.bottomAnchor, constant: 44).setActiveBreakable(priority: .defaultHigh)
+        gettingStartedbutton.topAnchor.constraint(equalTo: stackLabels.bottomAnchor, constant: 44).setActiveBreakable(priority: .defaultHigh + 1)
         gettingStartedbutton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: layout.CTAButtomButtonSpacer).setActiveBreakable(priority: .defaultHigh)
         gettingStartedbutton.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -8).setActiveBreakable(priority: .defaultLow)
+
+
     }
 
     func setupNavigationBar() {
