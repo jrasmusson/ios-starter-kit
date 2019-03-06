@@ -27,7 +27,7 @@ private extension Selector {
 }
 ```
 
-Then use like this
+Then get some nice readable type safe extensions for your ViewController by implementing the protocol.
 
 ```swift
 extension PaymentSetupViewController: PaymentSetupUserActions {
