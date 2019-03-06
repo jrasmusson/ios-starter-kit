@@ -16,15 +16,27 @@ class CreditCardDetailsViewController: UIViewController {
 ### How to make type safe selectors
 
 ```swift
-@objc protocol Actions {
+@objc protocol PaymentSetupUserActions {
     @objc optional func performChangeNameAction(sender: Any?)
     @objc optional func performChangePasswordAction(sender: Any?)
 }
 
 private extension Selector {
-    static let performChangeNameAction = #selector(Actions.performChangeNameAction(sender:))
-    static let performChangePasswordAction = #selector(Actions.performChangePasswordAction(sender:))
+    static let performChangeNameAction = #selector(PaymentSetupUserActions.performChangeNameAction(sender:))
+    static let performChangePasswordAction = #selector(PaymentSetupUserActions.performChangePasswordAction(sender:))
 }
+```
+
+Then use like this
+
+```swift
+extension PaymentSetupViewController: PaymentSetupUserActions {
+    func performChangeNameAction(sender: Any?) {
+
+        // if credit card details
+        // display warning
+        // else
+    }
 ```
 
 ### Links that help
