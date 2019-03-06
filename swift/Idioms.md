@@ -32,10 +32,7 @@ Then use like this
 ```swift
 extension PaymentSetupViewController: PaymentSetupUserActions {
     func performChangeNameAction(sender: Any?) {
-
-        // if credit card details
-        // display warning
-        // else
+       // do something here...
     }
 ```
 
