@@ -33,6 +33,7 @@ A starter kit for those interested in iOS programming
 * [Inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Inheritance.md)
 * [NotificationCenter](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/NotificationCenter.md)
 * [Strings](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Strings.md)
+* [Idioms](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Idioms.md)
 
 ## Basics
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
