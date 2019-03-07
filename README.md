@@ -3,7 +3,8 @@ A starter kit for those interested in iOS programming
 
 ## Swift
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
-  * [Protocols Oriented Programming](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
+  * [Protocol Oriented Programming](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-oriented-programming.md)
+  * [Protocol based inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
   * [Protocols & Delegates](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Delegates.md)
   * [Protocols & Generics](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Generics.md)
   * [Protocols & Unit Testing](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Unit-Testing.md)
