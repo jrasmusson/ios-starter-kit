@@ -209,10 +209,12 @@ If you do that, everything should line up nicely like this.
 ### How to layout margins set insets
 
 ```swift
-stackView.layoutMargins = UIEdgeInsets(top: Spacing.marginTop, left: Spacing.margin, bottom: Spacing.margin, right: 0)
+        let textLabelStackView = makeStackView()
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        stackView.isLayoutMarginsRelativeArrangement = true
 ```
 
-Not you should use new `directionalLayoutMargins` not regular `layoutMargins` and direction take into account language and left to right.
+`directionalLayoutMargins` are another way to layout views. But use those on views. Use `insets` for `UIStackViews`.
 
 ### Links that help
 
