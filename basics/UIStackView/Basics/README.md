@@ -218,7 +218,7 @@ If you do that, everything should line up nicely like this.
 
 Say you want to layout a view like this. With the top image expandable and flush, but with other elements aligned differently with different margins. The way to do it is to insert the second element in another StackView and set is insets there.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/model.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/stackview-different-insets.png" alt="drawing" width="400"/>
 
 
 ```swift
