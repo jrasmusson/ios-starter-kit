@@ -214,7 +214,60 @@ If you do that, everything should line up nicely like this.
         stackView.isLayoutMarginsRelativeArrangement = true
 ```
 
-`directionalLayoutMargins` are another way to layout views. But use those on views. Use `insets` for `UIStackViews`.
+### How to layout stackviews with different margins and padding
+
+Say you want to layout a view like this. With the top image expandable and flush, but with other elements aligned differently with different margins. The way to do it is to insert the second element in another StackView and set is insets there.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/model.png" alt="drawing" width="400"/>
+
+
+```swift
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        view.backgroundColor = .white
+        title = "Connect"
+
+        // Scroll view, vertical
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+
+        // Holding a stackview
+        let rootStackView = makeStackView()
+        scrollView.addSubview(rootStackView)
+
+        rootStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        rootStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        rootStackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        rootStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+        // HeroView
+        rootStackView.addArrangedSubview(makeHeroView(named: "hitron_connect"))
+
+        // TextLabel - Create another stackView here and set it's insets
+        let textLabelStackView = makeStackView()
+        textLabelStackView.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        textLabelStackView.isLayoutMarginsRelativeArrangement = true
+
+        let textLabel = makeGrayTextLabel(text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.")
+        textLabelStackView.addArrangedSubview(textLabel)
+
+        rootStackView.addArrangedSubview(textLabelStackView)
+    }
+```
+
 
 ### Links that help
 
