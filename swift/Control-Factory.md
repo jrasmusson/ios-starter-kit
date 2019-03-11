@@ -3,6 +3,8 @@
 ```swift
 import UIKit
 
+typealias layout = ActivationLayout
+
 struct ActivationLayout {
     static let discLogoRadius: CGFloat = 35
     static let CTAButtomButtonSpacer: CGFloat = -80
