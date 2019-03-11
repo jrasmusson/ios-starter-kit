@@ -2,7 +2,7 @@
 
 ## Stretch able image
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImage/images/stretchable-image.png"/>
 
 First define a custom column flow layout that specifies the width, height, and insets of each item in your collection.
 
