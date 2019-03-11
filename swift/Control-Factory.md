@@ -3,7 +3,7 @@
 ```swift
 import UIKit
 
-typealias layout = ActivationLayout
+typealias Layout = ActivationLayout
 
 struct ActivationLayout {
     static let discLogoRadius: CGFloat = 35
@@ -107,7 +107,7 @@ func makeCompanyButton(title: String) -> UIButton {
     button.titleLabel?.font = UIFont(name: "Company-Medium", size: 20)
     button.backgroundColor = companyBlue()
     button.setTitleColor(.white, for: .normal)
-    button.layer.cornerRadius = layout.CTAButtonHeight / 2
+    button.layer.cornerRadius = Layout.CTAButtonHeight / 2
 
     return button
 }
