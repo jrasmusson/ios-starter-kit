@@ -1,6 +1,6 @@
 # Responder Chain
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/responder-chain.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/responder-chain.png" alt="drawing" width="600"/>
 
 The responder chain is an eventing mechanism Mac and iOS programs use for firing events up the UI hierarchy and having others listening for them.
 
