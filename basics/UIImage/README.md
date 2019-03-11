@@ -4,8 +4,7 @@
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImage/images/stretchable-image.png" width="600px"/>
 
-First define a custom column flow layout that specifies the width, height, and insets of each item in your collection.
-
+Use this technique when you need to stretch a part of an image out to the side. The `325` number used is relative to the diminensions of the image itself. So the part of the image that gets stretch is the area between 325 from the left and 325 fron the right.
 
 ```swift
 import UIKit
