@@ -121,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 An even better way to do this is with protocols.
 
-``swift
+```swift
 @objc protocol ButtonPressable: AnyObject {
     func buttonPressed(sender: Any?)
 }
