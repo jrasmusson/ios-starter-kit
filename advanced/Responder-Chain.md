@@ -117,6 +117,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/responder-chain-button.png" alt="drawing" width="400"/>
 
+## Example with Protocol
+
+An even better way to do this is with protocols.
+
+``swift
+@objc protocol ButtonPressable: AnyObject {
+    func buttonPressed(sender: Any?)
+}
+
+class ViewController: UIViewController {
+    func setupViews() {
+        ...
+        button.addTarget(nil, action: #selector(ButtonPressable.buttonPressed), for: .touchUpInside)
+        ...
+    }
+}
+```
+
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate, ButtonPressable {
+
+    func buttonPressed(sender: Any?) {
+        print("\nAppDelegate: buttonPressed")
+    }
+
+}
+```
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events)
