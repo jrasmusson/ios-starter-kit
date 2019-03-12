@@ -14,10 +14,18 @@ public extension NSLayoutConstraint {
 ## Screen width and height
 
 ```swift
-problemView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
-problemView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+headerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
+headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
 ```
-Note this isn't great if you are rotating the app. Will make very wide (possibly break) in landscape).
+Note this isn't great if you are rotating the app. Will make very wide and break in landscape.
+
+Better to go with
+
+```swift
+headerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
+headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+```
 
 ## Available screen area
 
