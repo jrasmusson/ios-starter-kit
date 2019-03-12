@@ -69,7 +69,7 @@ extension ViewController: UITableViewDataSource {
 
 ## Headers
 
-### Plain text title
+### Plain text
 
 ```swift
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
