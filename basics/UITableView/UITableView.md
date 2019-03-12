@@ -154,23 +154,13 @@ Sometimes you will see a nice title at the top of your table. Often that is a na
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/navigation-bar.png" width="400"/>
 
-## Custom Cell Types
+## Custom Cell Styles
 
 ```swift
-
-    public enum CellStyle : Int {
-
-        
-        case `default`
-
-        case value1
-
-        case value2
-
-        case subtitle
-    }
-
+let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") ?? UITableViewCell(style: .default, reuseIdentifier: "myCell")
 ```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/default-cell-styles.png" width="400"/>
 
 ## Accessory types
 
