@@ -1,57 +1,65 @@
-# How to setup a UITableView
+# UITableView
 
-## Simple
+## Basic Setup
 
 ```swift
+//
+//  ViewController.swift
+//  SecondaryTableView
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2019-03-07.
+//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
+//
+
 import UIKit
 
-class ModemSupportViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
 
-    var myTableView: UITableView  =   UITableView()
-    var itemsToLoad: [String] = ["One", "Two", "Three"]
+    let actionButtons = ["Change Name", "Change ID", "Change Password", "Change Recovery Email Address"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func setupViews() {
+        view.backgroundColor = .red
 
-        // Get main screen bounds
-        let screenSize: CGRect = UIScreen.main.bounds
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
 
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
+        tableView.delegate = self
+        tableView.dataSource = self
 
-        myTableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        view.addSubview(tableView)
 
-        myTableView.dataSource = self
-        myTableView.delegate = self
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
 
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
-
-        view.addSubview(myTableView)
-
-        myTableView.reloadData()
+        tableView.reloadData()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return itemsToLoad.count
+}
+
+extension ViewController: UITableViewDelegate {
+
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return actionButtons.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath as IndexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 
-        cell.textLabel?.text = itemsToLoad[indexPath.row]
+        cell.textLabel?.text = actionButtons[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
 
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        print("User selected table row \(indexPath.row) and item \(itemsToLoad[indexPath.row])")
     }
 
 }
