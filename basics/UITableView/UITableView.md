@@ -69,9 +69,14 @@ extension ViewController: UITableViewDataSource {
 
 ## Headers
 
-`UITableViews` have headers and sections. There is a dedicated header and foot at the top and bottom of every table view. But there are also sections, which themselves have headers, for tables also.
+So `UITableViews` have headers and footers, but confusingly headers and footers can also be set via sections. Stick with headers and footers in sections (as these seem to be more common). But know that the API exists for you to create a custom `UIView` or `UITableViewCell` and set the header or footer like this.
 
-Here is how you set the header.
+```swift
+tableView.tableHeaderView = ...
+tableView.tableFooterView = ...
+```
+
+When I played with this the header and footer would be obscured if you have sections. So pick one or the other. But not both.
 
 ## Headers in Sections
 
