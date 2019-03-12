@@ -69,6 +69,14 @@ extension ViewController: UITableViewDataSource {
 
 ## Headers
 
+`UITableViews` have headers and sections. There is a dedicated header and foot at the top and bottom of every table view. But there are also sections, which themselves have headers, for tables also.
+
+Here is how you set the header.
+
+## Headers in Sections
+
+Here is how you can set the headers within a `UITableView` section.
+
 ### Plain text
 
 ```swift
