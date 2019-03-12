@@ -77,6 +77,9 @@ extension ViewController: UITableViewDataSource {
     }
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/header-title.png" width="400"/>
+
+
 ## With custom header
 
 
