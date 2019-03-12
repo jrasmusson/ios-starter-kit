@@ -67,6 +67,16 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
+## Headers
+
+### Header title
+
+```swift
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Header title"
+    }
+```
+
 ## With custom header
 
 
