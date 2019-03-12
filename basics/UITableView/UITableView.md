@@ -154,20 +154,26 @@ Sometimes you will see a nice title at the top of your table. Often that is a na
 There are five different accessory types for a `UITableViewCell`.
 
 ```swift
-    public enum AccessoryType : Int {
-    
-        case none // don't show any accessory view
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 
-        case disclosureIndicator // regular chevron. doesn't track
+        cell.textLabel?.text = actionButtons[indexPath.row]
 
-        case detailDisclosureButton // info button w/ chevron. tracks
+        if indexPath.row == 0 {
+            cell.accessoryType = UITableViewCell.AccessoryType.none
+        } else if indexPath.row == 1 {
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        } else if indexPath.row == 2 {
+            cell.accessoryType = UITableViewCell.AccessoryType.detailDisclosureButton
+        } else if indexPath.row == 3 {
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+        } else if indexPath.row == 4 {
+            cell.accessoryType = UITableViewCell.AccessoryType.detailButton
+        }
 
-        case checkmark // checkmark. doesn't track
-
-        case detailButton // info button. tracks
+        return cell
     }
 ```
-
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/accessories.png" width="400"/>
 
 
