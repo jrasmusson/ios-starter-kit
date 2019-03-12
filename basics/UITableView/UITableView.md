@@ -100,8 +100,24 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
-## Sections
+### Sections
 
+Headers and sections are really one in the same. You can tell from the API `titleForHeaderInSection`. When you only have one it's a header. But as soon as you have multiple they act more like sections.
+
+```swift
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Section 1"
+        }
+        else {
+            return "Section 2"
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/custom-header-view.png" width="400"/>
 
