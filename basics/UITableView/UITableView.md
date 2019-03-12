@@ -176,7 +176,14 @@ There are five different accessory types for a `UITableViewCell`.
 ```
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/accessories.png" width="400"/>
 
+## TableView Style
 
+```swift
+let tableView = UITableView(frame: .zero, style: .plain)
+let tableView = UITableView(frame: .zero, style: .grouped)
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/grouped.png" width="400"/>
 
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
