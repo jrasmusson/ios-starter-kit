@@ -119,7 +119,7 @@ Headers and sections are really one in the same. You can tell from the API `titl
     }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/custom-header-view.png" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/sections.png" width="400"/>
 
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
