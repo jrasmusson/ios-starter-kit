@@ -69,7 +69,7 @@ extension ViewController: UITableViewDataSource {
 
 ## Headers
 
-### Header title
+### Plain text title
 
 ```swift
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -79,6 +79,28 @@ extension ViewController: UITableViewDataSource {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/header-title.png" width="400"/>
 
+### Custom View
+
+```swift
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Header title"
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let greenView = UIView()
+
+        greenView.backgroundColor = .green
+        greenView.translatesAutoresizingMaskIntoConstraints = false
+        greenView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        greenView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+        return greenView
+    }
+}
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/header-title.png" width="400"/>
 
 ## With custom header
 
