@@ -84,13 +84,26 @@ Here is how you can set the headers within a `UITableView` section.
 
 ### Plain text
 
+Headers and sections are really one in the same. You can tell from the API `titleForHeaderInSection`. When you only have one it's a header. But as soon as you have multiple they act more like sections.
+
 ```swift
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Header title"
+        if section == 0 {
+            return "Section 1"
+        }
+        else {
+            return "Section 2"
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/header-title.png" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/sections.png" width="400"/>
+
+A similar API exists for footers.
 
 ### Custom View
 
@@ -112,27 +125,6 @@ Here is how you can set the headers within a `UITableView` section.
     }
 }
 ```
-
-### Sections
-
-Headers and sections are really one in the same. You can tell from the API `titleForHeaderInSection`. When you only have one it's a header. But as soon as you have multiple they act more like sections.
-
-```swift
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Section 1"
-        }
-        else {
-            return "Section 2"
-        }
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-```
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/sections.png" width="400"/>
 
 ## Navigation title
 
@@ -161,6 +153,24 @@ Sometimes you will see a nice title at the top of your table. Often that is a na
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/navigation-bar.png" width="400"/>
+
+## Custom Cell Types
+
+```swift
+
+    public enum CellStyle : Int {
+
+        
+        case `default`
+
+        case value1
+
+        case value2
+
+        case subtitle
+    }
+
+```
 
 ## Accessory types
 
