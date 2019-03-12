@@ -149,6 +149,26 @@ Sometimes you will see a nice title at the top of your table. Often that is a na
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/navigation-bar.png" width="400"/>
 
+## Accessory types
+
+There are five different accessory types for a `UITableViewCell`.
+
+```swift
+    public enum AccessoryType : Int {
+    
+        case none // don't show any accessory view
+
+        case disclosureIndicator // regular chevron. doesn't track
+
+        case detailDisclosureButton // info button w/ chevron. tracks
+
+        case checkmark // checkmark. doesn't track
+
+        case detailButton // info button. tracks
+    }
+```
+
+
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
