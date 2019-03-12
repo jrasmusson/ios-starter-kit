@@ -121,6 +121,34 @@ Headers and sections are really one in the same. You can tell from the API `titl
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/sections.png" width="400"/>
 
+## Navigation title
+
+Sometimes you will see a nice title at the top of your table. Often that is a nav bar with a title set.
+
+```swift
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+
+        let navigatorController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigatorController
+
+        return true
+    }
+```
+
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+
+        navigationItem.title = "Actions"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/sections.png" width="400"/>
+
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
