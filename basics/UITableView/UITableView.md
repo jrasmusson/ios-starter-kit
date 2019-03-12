@@ -198,6 +198,12 @@ let tableView = UITableView(frame: .zero, style: .grouped)
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/grouped.png" width="400"/>
 
+## Other things you can change
+
+* [Focus style](https://developer.apple.com/documentation/uikit/uitableviewcell/focusstyle)
+* [Editting style](https://developer.apple.com/documentation/uikit/uitableviewcell/1623234-editingstyle)
+* [Selection style](https://developer.apple.com/documentation/uikit/uitableviewcell/1623221-selectionstyle)
+
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
