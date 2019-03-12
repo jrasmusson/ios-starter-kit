@@ -2,6 +2,8 @@
 
 ## Basic Setup
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic-setup.png" width="400"/>
+
 ```swift
 //
 //  ViewController.swift
@@ -67,7 +69,6 @@ extension ViewController: UITableViewDataSource {
 
 ## With custom header
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/custom-header.png" width="400"/>
 
 ```swift
 
