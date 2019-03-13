@@ -145,6 +145,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ButtonPressable {
 }
 ```
 
+## How to fire event programmatically
+
+```swift
+UIApplication.shared.sendAction(#selector(PayBillUserActions.performConfirmPayBillAction), to: nil, from: self, for: nil)
+```
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events)
