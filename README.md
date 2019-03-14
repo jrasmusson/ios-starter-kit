@@ -84,10 +84,10 @@ A starter kit for those interested in iOS programming
 * [Breakable Constraints](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/breakable-constraints.md)
 
 ## Testing
+* [Misc](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
 * [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
 * [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
-* [Handy overrides](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
 * [How to test notifications](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-notifications.md)
 * [How to test for specific error](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-errors.md)
 
