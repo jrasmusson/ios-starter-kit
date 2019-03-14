@@ -1,5 +1,11 @@
-# Handy overrides
+# Misc
 
+## ViewControllers
+
+```swift
+viewController.loadViewIfNeeded() // calls viewDidLoad
+viewController.beginAppearanceTransition(true, animated: false) // calls viewWillAppear
+```
 
 ```swift
 
