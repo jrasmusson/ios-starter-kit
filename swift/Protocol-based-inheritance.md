@@ -4,6 +4,8 @@ There are two ways you can do inheritance in swift.
 
 ### Class based inheritance
 
+Swift doesn't have the concept of abstract class. But we can do straight up inheritance like this.
+
 ```swift
 class ActivationService {
 
@@ -20,6 +22,8 @@ class ActivationService {
 ```
 
 ### Protocol based inheritance
+
+The Swift was of protocol inheritance however doesn't use classes. Instead you define a protocol, and then give desired shared functionality via it's extension.
 
 ```swift
 protocol ActivationService {
@@ -77,6 +81,83 @@ extension Protocol2 {
 	func two() { // impl }
 }
 ```
+
+## One draw back - Composition to the rescue
+
+One thing protocol based inheritance doesn't do very well is properites. You can't shared properties via inheritance through protocols. For example in our above example what ever we wanted to share a common data source that gave us authorization tokens for logging in.
+
+We can't do that with protocols. So here we can either go back to traditional class based inheritance, or use composition instead.
+
+Create the object you want to contain the data and functionality you want to share.
+
+```swift
+public class NetworkHandler {
+
+    public static let sharedInstance = NetworkHandler()
+
+    public var dataSource: NetworkingDataSource?
+
+    func handle<T: Codable>(response: DataResponse<Data>, completion: @escaping (T?, Error?) -> Void) {
+        switch response.result {
+        case .success:
+
+            guard let jsonData = response.result.value else {
+                completion(nil, NetworkHandlerError.noData)
+                return
+            }
+
+            let decoder = JSONDecoder()
+            do {
+                let result = try decoder.decode(T.self, from: jsonData)
+                completion(result, nil)
+            } catch {
+                completion(nil, NetworkHandlerError.parsingJSON)
+            }
+
+        case .failure(let error):
+            completion(nil, error)
+        }
+    }
+
+}
+```
+
+Set the data externally that needs to be set.
+
+```swift
+// set accessToken on classes needing network
+NetworkHandler.sharedInstance.dataSource = session
+```
+
+Then use compose your new functionality as an element in the class where required.
+
+```swift
+public class InternetSubscriptionService {
+
+    // composition!
+    public var networkHandler = NetworkHandler.sharedInstance
+
+    public func fetchInternetSubscription(completion: @escaping (InternetSubscription?, Error?) -> Void ) {
+
+        guard let accessToken = networkHandler.dataSource?.accessToken else {
+            completion(nil, NetworkHandlerError.noAccessToken)
+            return
+        }
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(accessToken)"
+        ]
+
+	let request = Alamofire.request(url, method: .get, encoding: JSONEncoding.default, headers: headers)
+
+        request.responseData { response in
+            self.networkHandler.handle(response: response, completion: completion)
+        }
+    }
+
+}
+```
+
 
 ## An example
 
