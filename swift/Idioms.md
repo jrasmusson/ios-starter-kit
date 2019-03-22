@@ -1,3 +1,19 @@
+# Gotchas
+
+Never assume reference the first element in an array with `0`. 
+
+```swift
+guard let hardware = subscription.hardware[0] else { // BOOM! - Don't do this
+    return
+}
+```
+Use `first` instead.
+```swift
+guard let hardware = subscription.hardware.first else { // Safe - nil return guard fails gracefully
+    return
+}
+```
+
 # Idioms
 
 Here are some Swift idioms that are handy when writing code.
