@@ -46,6 +46,13 @@ for tweetJson in tweetsJsonArray! {
 }
 ```
 
+## foreach
+
+```swift
+[headline, body, footnote].forEach {
+$0?.adjustsFontForContentSizeCategory = true }
+```
+
 Create a constructor taking only json
 
 ```swift
