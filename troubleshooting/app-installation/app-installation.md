@@ -18,3 +18,25 @@ Here are some trouble shooting things to try when you are having app installatio
 - [check device logs](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-devicelogs.md)
 - [delete provisioning profiles](https://github.com/jrasmusson/ios-starter-kit/blob/master/tips/howto-delete-provisioning-profiles.md)
 - check and ensure that you haven't let *Charles* manual wifi turned on
+
+
+## How to speed up build
+
+You can speed up your build by compiling only for the current architecture and setting clang and swift optimization levels to none.
+
+```swift
+post_install do |installer|
+
+  installer.pods_project.build_configurations.each do |config|
+
+    # make compile fast...
+    if config.name.include?("Mock-API")
+      config.build_settings['GCC_OPTIMIZATION_LEVEL'] = '0'
+      config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
+      config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+    end
+
+  end
+
+end
+```
