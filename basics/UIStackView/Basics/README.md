@@ -38,7 +38,7 @@ But what we are missing is the hugging and compression necessary to tell autolay
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/chart.png" alt="drawing" width="600"/>
 
-Usually in this situation we want the label to hold it's intrinsic width, and have the text field expand. So we **increase** the `UILabel` horizontal and vertical **hugging**, while **decreasing** the `UITextField` hugging and horizontal resistance.
+    Usually in this situation we want the label to hold it's intrinsic width, and have the text field expand. So we **increase** the `UILabel` horizontal and vertical **hugging**, while **decreasing** the `UITextField` hugging and horizontal resistance.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/hugging-added.png" alt="drawing" width="400"/>
 
