@@ -272,7 +272,7 @@ class ViewController: UIViewController {
 ```
 ### Hugging example image, labels, image
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/image-labels-image.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/image-labels-image.png" alt="drawing" width="400"/>
 
 This examples shows how the labels in a `UIStackView` can stretch to fill available space.
 
