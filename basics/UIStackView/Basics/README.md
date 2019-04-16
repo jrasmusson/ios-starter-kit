@@ -270,6 +270,32 @@ class ViewController: UIViewController {
         rootStackView.addArrangedSubview(textLabelStackView)
     }
 ```
+### Hugging example image, labels, image
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/image-labels-image.png" alt="drawing" width="400"/>
+
+This examples shows how the labels in a `UIStackView` can stretch to fill available space.
+
+```swift
+    func makeDownloadTitleLabel() -> UILabel {
+        ...
+        label.backgroundColor = .red
+        label.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal) // stretch horizontal
+        label.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)  // stretch vertical
+
+        return label
+    }
+    
+    func makeDownloadSubTitleLabel() -> UILabel {
+        ...
+        label.backgroundColor = .green
+        label.setContentHuggingPriority(UILayoutPriority(rawValue: 48), for: .horizontal) // stretch
+
+        return label
+    }
+
+```
+
 
 
 ### Links that help
