@@ -277,6 +277,16 @@ class ViewController: UIViewController {
 This examples shows how the labels in a `UIStackView` can stretch to fill available space.
 
 ```swift
+
+    func makeDownloadLabelsStackView() -> UIView {
+        let stackView = makeStackView(axis: .vertical)
+
+        stackView.addArrangedSubview(makeDownloadTitleLabel())
+        stackView.addArrangedSubview(makeDownloadSubTitleLabel())
+
+        return stackView
+    }
+    
     func makeDownloadTitleLabel() -> UILabel {
         ...
         label.backgroundColor = .red
