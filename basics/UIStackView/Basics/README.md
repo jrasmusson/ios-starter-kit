@@ -22,9 +22,12 @@ The trick to getting any view to layout customer in a `UIStackView` is to embed 
 
     stackView.addArrangedSubview(container)
 ```
+
 ## How to add a separator into a `UIStackView`
 
 Using the same technique as above, you need to add the separator into a container view, and then set contraints between the separator and container view to give it the spacing you want.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/button-in-a-view.png" alt="drawing" width="400"/>
 
 ```swift
     func setupViews() {
