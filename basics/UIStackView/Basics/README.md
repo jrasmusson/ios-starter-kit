@@ -22,7 +22,43 @@ The trick to getting any view to layout customer in a `UIStackView` is to embed 
 
     stackView.addArrangedSubview(container)
 ```
+## How to add a separator into a `UIStackView`
 
+Using the same technique as above, you need to add the separator into a container view, and then set contraints between the separator and container view to give it the spacing you want.
+
+```swift
+    func setupViews() {
+        ...
+        stackView.addArrangedSubview(makeTopSeparatorView())
+        ...
+    }
+
+    func makeTopSeparatorView() -> UIView {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+
+        let separatorView = makeSeparatorView()
+
+        container.addSubview(separatorView)
+
+        separatorView.topAnchor.constraint(equalTo: container.topAnchor, constant: -12).isActive = true
+        separatorView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24).isActive = true
+        separatorView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: 0).isActive = true
+
+        container.heightAnchor.constraint(equalTo: separatorView.heightAnchor).isActive = true
+
+        return container
+    }
+    
+    func makeSeparatorView() -> UIView {
+       let view = UIView()
+       view.translatesAutoresizingMaskIntoConstraints = false
+       view.backgroundColor = .lightGray
+       view.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+
+       return view
+    }
+```
 
 # UIStackView Basics
 
