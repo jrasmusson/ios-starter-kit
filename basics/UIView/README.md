@@ -1,5 +1,40 @@
 # UIView
 
+## Decompose big ViewControllers into smaller Views
+
+Here is an example of how to exact a `UIStackView` into it's own `UIView`. Basically create the new view, and pin the stackView to it's edges. Yes you have an extra container view that you didn't have before, but you also have a much easier to understand view and viewController.
+
+```swift
+import UIKit
+
+class DownloadView: UIView {
+
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+
+        setupView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupView() {
+        let downloadStackView = makeStackView(axis: .horizontal)
+
+        ...
+        
+        self.addSubview(downloadStackView)
+
+        downloadStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        downloadStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        downloadStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        downloadStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+
+}
+```
+
 ## Custom constructor
 
 When creating a custom view, all non-optional variables have to be initialized before you call `super`.
