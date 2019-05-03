@@ -52,6 +52,14 @@ Just remember that because we are on the stack, we need to pop ourselves off to 
 
 ![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
 
+## NavigationBar
+
+### How to change the background color
+
+```
+navigatorController.navigationBar.barTintColor = .yellow
+```
+
 ## Custom BarButton Items
 
 We can add `UIBarButtonItem`s to our navigation bar.
