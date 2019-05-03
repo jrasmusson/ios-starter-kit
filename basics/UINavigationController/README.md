@@ -85,6 +85,8 @@ This is done app wide by setting them on the `UINavigationBar.appearance()`.
         UINavigationBar.appearance().titleTextAttributes = attributes
 ```
 
+![Push](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/nav-bar-blue.gif)
+
 Note: These need to be set as a group, else the last attribute set will override what was previously there.
 
 ## Custom BarButton Items
