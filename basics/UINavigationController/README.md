@@ -52,23 +52,35 @@ Just remember that because we are on the stack, we need to pop ourselves off to 
 
 ![PresentAndDismiss](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/dismiss.gif)
 
-## NavigationBar
+## NavigationBar Attributes
 
-### How to change the background color
+Working with the `UINavigationBar` can be confusing. Some APIs, like the background color are on the bar, the text title attributes are set on the `UINavigationBar.appearance(), and things like the title can only be set from the `UIViewController` being displayed.
 
-```swift
-navigatorController.navigationBar.barTintColor = .yellow
-```
+Here is a rundown on how to set the most popular attributes on the `UINavigationBar`.
 
-### How to set style the navigation bar
-
-`titleTextAttributes` can be used to set the font, text color, and shadow properties for the title in the text attributes dictionary, using the keys found in NSAttributedString.h.
-
-#### How to set the text color
+### How to set the background color
 
 ```swift
-UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+navigatorController.navigationBar.barTintColor = .blue
 ```
+
+### How to set the text attributes on the title
+
+This is done app wide by setting them on the `UINavigationBar.appearance()`.
+
+```swift
+        let color = UIColor.white
+        let font = UIFont(name: "CourierNewPS-BoldMT", size: 24)!
+
+        let attributes: [NSAttributedString.Key: AnyObject] = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: color
+        ]
+
+        UINavigationBar.appearance().titleTextAttributes = attributes
+```
+
+Note: These need to be set as a group, else the last attribute set will override what was previously there.
 
 ## Custom BarButton Items
 
