@@ -69,6 +69,11 @@ navigatorController.navigationBar.barTintColor = .blue
 This is done app wide by setting them on the `UINavigationBar.appearance()`.
 
 ```swift
+        let navigatorController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigatorController
+
+        navigatorController.navigationBar.barTintColor = .blue
+        
         let color = UIColor.white
         let font = UIFont(name: "CourierNewPS-BoldMT", size: 24)!
 
