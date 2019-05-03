@@ -56,8 +56,18 @@ Just remember that because we are on the stack, we need to pop ourselves off to 
 
 ### How to change the background color
 
-```
+```swift
 navigatorController.navigationBar.barTintColor = .yellow
+```
+
+### How to set style the navigation bar
+
+`titleTextAttributes` can be used to set the font, text color, and shadow properties for the title in the text attributes dictionary, using the keys found in NSAttributedString.h.
+
+#### How to set the text color
+
+```swift
+UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 ```
 
 ## Custom BarButton Items
