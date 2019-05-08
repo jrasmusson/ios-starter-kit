@@ -22,3 +22,11 @@ extension XCTestCase {
 }
 ```
 
+## Nimble
+
+### eventually
+
+```swift
+expect{ view.isHidden}.toEventually(beFalse(), timeout: 1.0)
+```
+
