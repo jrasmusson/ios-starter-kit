@@ -134,6 +134,7 @@ A starter kit for those interested in iOS programming
 * [How to curl alamofire](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-curl-alamofire.md)
 * [How to calculate height of label](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/height-of-label.md)
 * [Add corner and shadow to view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/corner-and-shadow.md)
+* [How to Xcode command line](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/xcode-command-line.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
