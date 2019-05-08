@@ -1,6 +1,6 @@
 # How to animations
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/images/demo.gif)
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/images/simple-stack.gif)
 
 
 ```swift
