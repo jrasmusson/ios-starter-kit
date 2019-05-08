@@ -1,8 +1,8 @@
 # How to animations
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/images/simple-stack.gif)
-
 ## How to animate a view in a Stack
+
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/images/simple-stack.gif)
 
 ```swift
 //
