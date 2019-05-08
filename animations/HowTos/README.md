@@ -7,20 +7,19 @@
 Animating in a `UIStackView` is pretty easy. Just change the visibility, and the stackView takes care of the rest for you.
 
 ```swift
-            UIView.animate(withDuration: 0.8) {
-                self.stackView.arrangedSubviews[1].isHidden = false
-                self.label.alpha = 1
-            }
+UIView.animate(withDuration: 0.8) {
+    self.stackView.arrangedSubviews[1].isHidden = false
+    self.label.alpha = 1
+}
 ```
 
 If you want a bit of bounce, add a spring. Note the extra brackets.
 
 ```swift
-            UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.stackView.arrangedSubviews[1].isHidden = true
-                self.label.alpha = 0
-            })
-
+UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+    self.stackView.arrangedSubviews[1].isHidden = true
+    self.label.alpha = 0
+})
 ```
 
 Here is the full source.
