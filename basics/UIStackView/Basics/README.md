@@ -295,9 +295,6 @@ class ViewController: UIViewController {
         rootStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
 
-        // HeroView
-        rootStackView.addArrangedSubview(makeHeroView(named: "hitron_connect"))
-
         // TextLabel - Create another stackView here and set it's insets
         let textLabelStackView = makeStackView()
         textLabelStackView.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
