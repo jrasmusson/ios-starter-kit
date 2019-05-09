@@ -8,7 +8,7 @@ Frame in iOS are like the frames of a picture on the wall. They are relative to 
 
 Bounds is the coordinate systems within the frame itself. There is a distinction. Because while the frame rarely changes, the bounds inside the view doesn. This is who `UIScrollViews` work as well as animations.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/images/frame1.png"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/images/frame2.png"/>
 
