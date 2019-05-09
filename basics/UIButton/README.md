@@ -14,7 +14,7 @@ func makeRoundCornerButton(title: String) -> UIButton {
     button.titleLabel?.adjustsFontSizeToFitWidth = true
     button.backgroundColor = .blue
     button.setTitleColor(.white, for: .normal)
-    button.layer.cornerRadius = layout.CTAButtonHeight / 2
+    button.layer.cornerRadius = 40 / 2
     
     return button
 }
