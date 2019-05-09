@@ -62,6 +62,7 @@ A starter kit for those interested in iOS programming
 * [UIPickerView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPickerView/README.md)
 * [Swipe Gestures](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/SwipeGesture/README.md)
 * [UITabBarViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITabBarViewController/README.md)
+* [Frame vs Bounds](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/README.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
