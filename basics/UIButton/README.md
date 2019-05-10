@@ -1,5 +1,9 @@
 # UIButton
 
+## How to control spacing between button and text (edge insets)
+
+https://noahgilmore.com/blog/uibutton-padding/
+
 ## How to make a button with rounded corners
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
