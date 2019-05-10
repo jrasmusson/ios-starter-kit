@@ -1,5 +1,24 @@
 # How to animations
 
+## Bouncy button
+
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/images/bouncy-button.gif)
+
+```swift
+@objc func buttonPressed(sender: UIButton!) {
+    let button = sender
+    let bounds = button!.bounds
+
+    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
+        button?.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+    }) { (success: Bool) in
+        UIView.animate(withDuration: 0.5, animations: {
+            button?.bounds = bounds
+        })
+    }
+}
+```
+
 ## How to animate a view in a Stack
 
 ![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/images/simple-stack.gif)
