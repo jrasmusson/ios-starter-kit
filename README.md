@@ -154,3 +154,4 @@ A starter kit for those interested in iOS programming
 * [Interview Questions](https://github.com/dashvlas/awesome-ios-interview/blob/master/Resources/English.md)
 * [Xcode download](https://developer.apple.com/download/more/)
 * [Markdown](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html)
+* [Good git commit guidelines](https://chris.beams.io/posts/git-commit/)
