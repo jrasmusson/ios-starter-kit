@@ -37,6 +37,31 @@ default:
 
 > Note: Unlike C and Objective-C, Swift enumeration cases are not assigned a default integer value when created. Instead each enumeration case is a fully fledged value in it's own right, with an explicitly defined type.
 
+### How to use enums
+
+You can use enums are choose different functionality based on type. Instead of definining a int value to represent a flag or a boolean, you can simply define an enum.
+
+```swift
+enum ChatType {
+    case authenticated
+    case unauthenticated
+}
+```
+
+And then use it in code to route functionality.
+
+```swift
+class NewChatViewController: UIViewController {
+
+    let chatType: ChatType
+
+    public init(chatType: ShawChatType) { ... }
+
+    guard chatType == .authenticated else {
+        return
+    }
+```
+
 ## Enums as strings
 
 You can define enums as strings like this
