@@ -80,7 +80,6 @@ A starter kit for those interested in iOS programming
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-tos/How-Tos.md)
 * [Image label in a stackview](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/stackview/ImageLabelStackView/README.md)
 * [Centering and alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/Centering-and-alignment.md)
-* [How to support different device sizes](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-support-different-device-sizes.md)
 * [IntrinsicContentSize](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/intrinsicContentSize.md)
 * [Breakable Constraints](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/breakable-constraints.md)
 * [How to resize image](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-resize-image.md)
