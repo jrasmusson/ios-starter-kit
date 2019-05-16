@@ -83,6 +83,7 @@ A starter kit for those interested in iOS programming
 * [How to support different device sizes](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-support-different-device-sizes.md)
 * [IntrinsicContentSize](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/intrinsicContentSize.md)
 * [Breakable Constraints](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/breakable-constraints.md)
+* [How to resize image](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-resize-image.md)
 
 ## Testing
 * [Misc](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
