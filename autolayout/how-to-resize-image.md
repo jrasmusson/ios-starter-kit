@@ -7,7 +7,7 @@ When it comes to autolaying out images, there are a couple of different routes y
 
 One way is to embed the image within another view, set the image to `scaleAspectFit` to drop the hugging and compression so that the image contracts and expands to fill the entire area. 
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/embedded-view.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/shrink.png" width="800px" />
 
 ```swift        
     public static func makeImageView(named: String) -> UIImageView {
@@ -61,7 +61,7 @@ Use this method when you want the image to shrink and grow to the space availabl
 
 ## Crop the image with scaleAspectFill
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/crop-image.png" width="800px" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/crop.png" width="800px" />
 
 Another technique you can use is to create a regular `UIImage` with `.scaleAspectFill` and `clipsToBounds` (optional).
 
