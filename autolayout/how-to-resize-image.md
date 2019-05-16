@@ -10,54 +10,21 @@ One way is to embed the image within another view, set the image to `scaleAspect
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/shrink.png" width="800px" />
 
 ```swift        
-    public static func makeImageView(named: String) -> UIImageView {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: named)
+public static func makeImageView(named: String) -> UIImageView {
+let imageView = UIImageView()
+imageView.translatesAutoresizingMaskIntoConstraints = false
+imageView.contentMode = .scaleAspectFit
+imageView.image = UIImage(named: named)
 
-        return imageView
-    }
-    
-    public class HeroView: UIView {
+// shrink and grow
+imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
+imageView.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .vertical)
 
-    typealias Factory = ControlFactory
-
-    init(frame: CGRect, named: String) {
-        super.init(frame: frame)
-
-        let heroImageView = Factory.makeImageView(named: named)
-
-        addSubview(heroImageView)
-
-        heroImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        heroImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-        heroImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        heroImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-
-        heroImageView.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
-        heroImageView.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .vertical)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+return imageView
 }
 ```
 
-And then lay it out like any other view.
-
-
-```swift
-	Factory.makeHeroView(named: "XB6_waves_tighter")
-	
-    heroView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-    heroView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-    heroView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-```
-
-Use this method when you want the image to shrink and grow to the space available.
+And then lay it out like any other view. 
 
 ## Crop the image with scaleAspectFill
 
