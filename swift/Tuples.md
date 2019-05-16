@@ -118,7 +118,7 @@ class ViewController: UIViewController {
             NewChatViewController.havePromptedUserForNotifications = true
         }
 
-        switch (status, NewChatViewController.havePromptedUserForNotifications)  {
+        switch (status, ViewController.havePromptedUserForNotifications)  {
         case (Status.notShown, false):
             showNotificationScreen()
         case (Status.shownAndDenied, false):
