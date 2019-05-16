@@ -102,6 +102,32 @@ func display(authError: Error?) {
     }
 ```
 
+## How to switch on a tuple
+
+One coold thing you can with tuples is switch on them.
+
+```swift
+
+class ViewController: UIViewController {
+
+    static var havePromptedUserForNotifications = false
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        defer {
+            NewChatViewController.havePromptedUserForNotifications = true
+        }
+
+        switch (status, NewChatViewController.havePromptedUserForNotifications)  {
+        case (Status.notShown, false):
+            showNotificationScreen()
+        case (Status.shownAndDenied, false):
+            showNotificationAlert()
+        default:
+            return
+        }
+    }
+```
 ### Links that help
 
 * [Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
