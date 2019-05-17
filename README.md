@@ -36,6 +36,7 @@ A starter kit for those interested in iOS programming
 * [Strings](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Strings.md)
 * [Idioms](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Idioms.md)
 * [Control Factory](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Control-Factory.md)
+* [DynamicCallable](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/DynamicCallable.md)
 
 ## Basics
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
@@ -63,7 +64,6 @@ A starter kit for those interested in iOS programming
 * [Swipe Gestures](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/SwipeGesture/README.md)
 * [UITabBarViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITabBarViewController/README.md)
 * [Frame vs Bounds](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/README.md)
-* [DynamicCallable](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/DynamicCallable.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
