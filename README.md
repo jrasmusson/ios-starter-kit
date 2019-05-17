@@ -91,6 +91,7 @@ A starter kit for those interested in iOS programming
 * [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
 * [How to test notifications](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-notifications.md)
 * [How to test for specific error](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-errors.md)
+* [How to test via callbacks](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/testing-with-callbacks.md)
 
 ## Animations
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
