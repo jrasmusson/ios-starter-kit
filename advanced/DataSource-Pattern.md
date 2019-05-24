@@ -1,6 +1,6 @@
 # The DataSource Pattern
 
-One very popular Cocoa pattern you see a lot in iOS (i.e. `UITableViewDataSource`) is the Data Source pattern. The way it works is you have an object that you want to configure for usage before it is actually used. 
+One very popular Cocoa pattern you see a lot in iOS (i.e. `UITableViewDataSource`) is the Data Source pattern. It's handy, because it lets you create an object and instiate it, and then populate it with data after (like somewhere else in the code once an asychronous call has been completed).
 
 For example say early on in the lifecycle of the app we get an `accessToken` and our network class needs access to it later. We can setup the data source on the access token early, and have it ready for when the class is really needed.
 
