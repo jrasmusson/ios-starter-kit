@@ -1,5 +1,78 @@
 # UIView
 
+## How to create tile with shadow
+
+image
+
+Define your custom tile `UIView` like this.
+
+```swift
+import UIKit
+
+public struct Constants {
+    public static let cornerRadiusSmall = CGFloat(5) // 2
+}
+
+class TileView: UIView {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupViews() {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundColor = .white
+        layer.cornerRadius = Constants.cornerRadiusSmall
+        addShadow()
+    }
+}
+
+public extension UIView {
+    @objc func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.80 // 0.4
+        layer.shadowOffset = CGSize(width: -5, height: 5) // -1 1
+        layer.shadowRadius = Constants.cornerRadiusSmall
+        layer.masksToBounds = false
+    }
+}
+```
+And then use it in your `UIViewController` like this
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        view.backgroundColor = .red
+
+        let tileView = TileView()
+
+        view.addSubview(tileView)
+
+        let margin: CGFloat = 20
+        tileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin).isActive = true
+        tileView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: margin).isActive = true
+        tileView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -margin).isActive = true
+        tileView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -margin).isActive = true
+    }
+}
+```
+
+
 ## Decompose big ViewControllers into smaller Views
 
 Here is an example of how to exact a `UIStackView` into it's own `UIView`. Basically create the new view, and pin the stackView to it's edges. Yes you have an extra container view that you didn't have before, but you also have a much easier to understand view and viewController.
