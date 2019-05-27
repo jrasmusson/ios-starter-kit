@@ -2,7 +2,8 @@
 
 ## How to create tile with shadow
 
-image
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/tile.png" alt="drawing" width="400"/>
+
 
 Define your custom tile `UIView` like this.
 
