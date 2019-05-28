@@ -154,10 +154,10 @@ func companyBlue() -> UIColor {
     return UIColor(red:0, green:0.65, blue:0.94, alpha:1)
 }
 
-func makeStackView() -> UIStackView {
+static func makeStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = .vertical
+    stackView.axis = axis
     stackView.alignment = .fill
     stackView.spacing = 8
     stackView.distribution = .fill
@@ -173,5 +173,15 @@ extension UINavigationItem {
         backBarButtonItem = backItem
     }
 
+}
+
+public extension UIView {
+    @objc func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.40
+        layer.shadowOffset = CGSize(width: -1, height: 1)
+        layer.shadowRadius = Constants.cornerRadiusSmall
+        layer.masksToBounds = false
+    }
 }
 ```
