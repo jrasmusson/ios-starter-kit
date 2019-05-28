@@ -86,6 +86,49 @@ class ViewController: UIViewController {
 
 When you stick it in a `UIStackView` you may need to adjust the CHCR (i.e. make it hug) else it will will the stackView depending on what settings you use in your stackView (i.e. distribution/alignment = fill).
 
+For example if we setup our stackView to take up the entire view, and default it to fill, the view inside it will expand to the full view accordingly.
+
+```swift
+    func setupViews() {
+        let stackView = makeStackView(axis: .vertical)
+
+        let container = RoundedContainer()
+
+        stackView.addArrangedSubview(container)
+
+        view.addSubview(stackView)
+
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+    }
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/rounded-no-hub.png" alt="drawing" width="400"/>
+
+But if we increase the hugging factor on the container, or try changing the constrains on the stackView itself (i.e. not pinning to trailing side) it will respect its original `intrinsicContentSize` while sitting in a stackView.
+
+(still experimenting with this)
+
+```swift
+    func setupViews() {
+        let stackView = makeStackView(axis: .vertical)
+        stackView.alignment = .center
+        let container = RoundedContainer()
+
+        stackView.addArrangedSubview(container)
+
+        view.addSubview(stackView)
+
+//        container.setContentHuggingPriority(.defaultLow + 1, for: .horizontal) // hug
+//        container.setContentHuggingPriority(.required + 1, for: .horizontal) // hug
+
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+//        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+    }
+```
+
 
 
 ## How to create tile with shadow
