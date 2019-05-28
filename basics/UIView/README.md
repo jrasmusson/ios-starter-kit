@@ -1,5 +1,93 @@
 # UIView
 
+## How to rounded container
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/rounded-container.png" alt="drawing" width="400"/>
+
+The trick with the rounded container is to give the `UIView` an `intrinsicContentSize`. Once you do that, the view knows how to lay it out.
+
+```swift
+import UIKit
+
+public class RoundedContainer: UIView {
+
+    let cornerRadius: CGFloat = 22
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupView()
+    }
+
+    func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundColor = .gray
+        layer.cornerRadius = cornerRadius
+
+        let accountLabel = makeAccountLabel(text: "Comp. Account 03300000842")
+
+        addSubview(accountLabel)
+
+        accountLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        accountLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override public var intrinsicContentSize: CGSize {
+        return CGSize(width: 210, height: cornerRadius * 2)
+    }
+
+    // MARK - Factory methods
+
+    func makeAccountLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.textAlignment = .left
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.numberOfLines = 1
+
+        return label
+    }
+
+}
+```
+
+And then use it like this.
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        let container = RoundedContainer()
+
+        view.addSubview(container)
+
+        container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+    }
+
+}
+```
+
+### Sticking it in a stackView
+
+When you stick it in a `UIStackView` you may need to adjust the CHCR (i.e. make it hug) else it will will the stackView depending on what settings you use in your stackView (i.e. distribution/alignment = fill).
+
+
+
 ## How to create tile with shadow
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/tile.png" alt="drawing" width="400"/>
