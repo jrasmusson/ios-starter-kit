@@ -104,7 +104,7 @@ For example if we setup our stackView to take up the entire view, and default it
     }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/rounded-no-hub.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/rounded-no-hug.png" alt="drawing" width="400"/>
 
 But if we increase the hugging factor on the container, or try changing the constrains on the stackView itself (i.e. not pinning to trailing side) it will respect its original `intrinsicContentSize` while sitting in a stackView.
 
@@ -129,6 +129,7 @@ But if we increase the hugging factor on the container, or try changing the cons
     }
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIView/images/rounded-in-stackview.png" alt="drawing" width="400"/>
 
 
 ## How to create tile with shadow
