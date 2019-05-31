@@ -3,10 +3,13 @@
 You can use extensions to separate code in class, or add typed selectors like this
 
 ```swift
+
+func addButtonTargets() {
+    payBillButton.addTarget(nil, action: .performPayBillAction, for: .primaryActionTriggered)
+}
+
 private extension Selector {
-    static let performBalanceDisclaimerAction = #selector(AccountUIActions.performBalanceDisclaimerAction(sender:))
     static let performPayBillAction = #selector(AccountUIActions.performPayBillAction(sender:))
-    static let performPayAdditionalAmountAction = #selector(AccountUIActions.performPayAdditionalAmountAction(sender:))
 }
 
 private extension ViewController {
