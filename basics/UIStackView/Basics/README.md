@@ -37,6 +37,8 @@ And here is the embedded stackview containing the hugging elements.
     }
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/x2-side-by-side.png" alt="drawing" width="400"/>
+
 
 ## How to layout margins set insets
 
