@@ -1,5 +1,11 @@
 # UIButton
 
+## How to nudge a button around
+
+```swift
+button.contentEdgeInsets = UIEdgeInsets(top: 12, left: Spacing.margin, bottom: Spacing.margin, right: Spacing.margin)
+```
+
 ## How to control spacing between button and text (edge insets)
 
 https://noahgilmore.com/blog/uibutton-padding/
