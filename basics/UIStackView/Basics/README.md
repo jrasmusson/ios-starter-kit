@@ -1,5 +1,43 @@
 # UIStackView
 
+## How to layout x2 elements side by side
+
+Often you want x2 items to be side-by-side in a stackView. The question is how? This is where stackView inside stackViews really comes in handy.
+
+Create a container stackView holding the elements you want side-by-side, make one hug itself more than the other, then add that root stack view and style as you like using insets.
+
+Here is the parent.
+
+```swuft
+    func buildSubviews() {
+        let stackView = makeStackView()
+        view.addSubview(stackView)
+
+        stackView.addArrangedSubview(makeOverdueStackView())
+    }
+```
+
+And here is the embedded stackview containing the hugging elements.
+
+```swift
+    func makeOverdueStackView() -> UIStackView {
+        let stackView = ControlFactory.makeStackView(axis: .horizontal)
+        stackView.alignment = .leading
+
+        let imageView = ...
+        let label = ...
+
+        imageView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(label)
+
+        return stackView
+    }
+```
+
+
 ## How to layout margins set insets
 
 If you want to nudge controls around instead a `UIStackView`, the easiest way to do it is to embed the control in an other `UIStackView` and then play with it's layout margins as showing below.
