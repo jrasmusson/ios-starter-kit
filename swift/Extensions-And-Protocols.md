@@ -10,10 +10,10 @@ private extension Selector {
 }
 
 private extension ViewController {
-
     func commonInit() {
 
     }
+}
 ```
 
 # Extensions and Protocols
