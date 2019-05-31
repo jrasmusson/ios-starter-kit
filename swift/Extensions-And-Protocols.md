@@ -1,3 +1,21 @@
+# How to add private extensions to class
+
+You can use extensions to separate code in class, or add typed selectors like this
+
+```swift
+private extension Selector {
+    static let performBalanceDisclaimerAction = #selector(AccountUIActions.performBalanceDisclaimerAction(sender:))
+    static let performPayBillAction = #selector(AccountUIActions.performPayBillAction(sender:))
+    static let performPayAdditionalAmountAction = #selector(AccountUIActions.performPayAdditionalAmountAction(sender:))
+}
+
+private extension ViewController {
+
+    func commonInit() {
+
+    }
+```
+
 # Extensions and Protocols
 
 Extensions are Swift’s way to add new functionality to an existing class, structure, enumeration, or protocol type. Instead of extending a class, or implementing a protocol directly (like we did in Objective-C), in Swift you can implement protocols and add new functionality via an extension. LIke this.
