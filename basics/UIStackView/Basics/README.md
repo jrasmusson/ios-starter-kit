@@ -2,6 +2,8 @@
 
 ## How to layout margins set insets
 
+If you want to nudge controls around instead a `UIStackView`, the easiest way to do it is to embed the control in an other `UIStackView` and then play with it's layout margins as showing below.
+
 ```swift
         let textLabelStackView = makeStackView()
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
