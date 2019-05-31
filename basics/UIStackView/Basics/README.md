@@ -39,6 +39,9 @@ And here is the embedded stackview containing the hugging elements.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/x2-side-by-side.png" alt="drawing" width="400"/>
 
+Note you still have a problem - how to nudge that label over. There is no real good way to do this in a horizontal stackView - it doesn't have `alignment = .leading` the way vertical does.
+
+If you wanted those close together I would probably wrap those in a customer container view, and manually lay those out relative to one another.
 
 ## How to layout margins set insets
 
