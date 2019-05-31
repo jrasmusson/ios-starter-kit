@@ -1,5 +1,21 @@
 # UIStackView
 
+## How to layout margins set insets
+
+```swift
+        let textLabelStackView = makeStackView()
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        stackView.isLayoutMarginsRelativeArrangement = true
+```
+
+or 
+
+```swift
+        stackView.layoutMargins.top = LocalSpacing.rowSpacing
+        stackView.layoutMargins.left = Spacing.margin
+        stackView.layoutMargins.right = Spacing.margin
+```
+
 ## How to put a button in a`UIStackView`
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/button-in-a-view.png" alt="drawing" width="400"/>
@@ -247,14 +263,6 @@ If you do that, everything should line up nicely like this.
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/images.png" alt="drawing" width="400"/>
 
 ## Misc
-
-### How to layout margins set insets
-
-```swift
-        let textLabelStackView = makeStackView()
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        stackView.isLayoutMarginsRelativeArrangement = true
-```
 
 ### How to layout stackviews with different margins and padding
 
