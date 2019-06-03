@@ -86,6 +86,27 @@ class StepCounter {
     }
 }
 ```
+### set or didSet? 
+
+Use `set` when the property you are setting is undering a transformation.
+
+```swift
+var xTimesTwo:Int {
+    set {
+       x = newValue / 2
+    }
+}
+```
+
+Use `didSet` for after the fact processing. Or as swift likes to describe it observing.
+
+```swift
+var daysPastDue:Int {
+    didSet {
+       // update label
+    }
+}
+```
 
 ## Type Properties
 
