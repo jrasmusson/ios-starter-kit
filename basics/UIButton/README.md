@@ -10,6 +10,21 @@ button.contentEdgeInsets = UIEdgeInsets(top: 12, left: Spacing.margin, bottom: S
 
 https://noahgilmore.com/blog/uibutton-padding/
 
+## How to combine a button with an image
+
+```swift
+    paymentExtensionButton.setTitle("Request payment extension", for: .normal)
+    paymentExtensionButton.setTitleColor(.blue, for: .normal)
+    paymentExtensionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+    paymentExtensionButton.translatesAutoresizingMaskIntoConstraints = false
+    paymentExtensionButton.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
+    paymentExtensionButton.contentHorizontalAlignment = .left
+    paymentExtensionButton.semanticContentAttribute = .forceRightToLeft
+    paymentExtensionButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8)
+    paymentExtensionButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 8, bottom: 0.0, right: 0.0)
+    paymentExtensionButton.addTarget(nil, action: .performPaymentExtensionAction, for: .primaryActionTriggered)
+````
+
 ## How to make a button with rounded corners
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
