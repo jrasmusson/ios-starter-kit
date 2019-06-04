@@ -15,16 +15,39 @@ https://noahgilmore.com/blog/uibutton-padding/
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png" width="200"/>
 
 ```swift
-    paymentExtensionButton.setTitle("Request payment extension", for: .normal)
-    paymentExtensionButton.setTitleColor(.blue, for: .normal)
-    paymentExtensionButton.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-    paymentExtensionButton.translatesAutoresizingMaskIntoConstraints = false
-    paymentExtensionButton.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
-    paymentExtensionButton.contentHorizontalAlignment = .left
-    paymentExtensionButton.semanticContentAttribute = .forceRightToLeft
-    paymentExtensionButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8)
-    paymentExtensionButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 8, bottom: 0.0, right: 0.0)
-    paymentExtensionButton.addTarget(nil, action: .performPaymentExtensionAction, for: .primaryActionTriggered)
+    private struct LocalSizing {
+        static let warningIconSize = CGFloat(24)
+        static let buttonHeight = CGFloat(16)
+        static let imageWidth = CGFloat(10)
+        static let rightPadding = CGFloat(8)
+    }
+
+    func makeButton() -> UIButton {
+        button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        let buttonTitle = "Request payment extension"
+        let buttonFont = UIFont.systemFont(ofSize: 14.0)
+
+        button.setTitle(buttonTitle, for: .normal)
+        button.setTitleColor(.shawHighlightBlue, for: .normal)
+        button.titleLabel?.font = buttonFont
+
+        button.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.semanticContentAttribute = .forceRightToLeft
+        button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 8, bottom: 0.0, right: 0.0)
+        // button.addTarget(nil, action: nil, for: .primaryActionTriggered)
+
+        // dynamically calculate button width
+        let fontAttributes = [NSAttributedString.Key.font: buttonFont]
+        var buttonWidth = (buttonTitle as NSString).size(withAttributes: fontAttributes).width
+        buttonWidth += LocalSizing.rightPadding + LocalSizing.imageWidth
+        button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+
+        return button
+    }
 ````
 
 ## How to make a button with rounded corners
