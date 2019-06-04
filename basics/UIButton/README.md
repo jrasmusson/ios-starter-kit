@@ -12,7 +12,7 @@ https://noahgilmore.com/blog/uibutton-padding/
 
 ## How to combine a button with an image
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png" width="200"/>
 
 ```swift
     paymentExtensionButton.setTitle("Request payment extension", for: .normal)
