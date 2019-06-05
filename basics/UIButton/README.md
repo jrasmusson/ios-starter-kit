@@ -50,6 +50,16 @@ https://noahgilmore.com/blog/uibutton-padding/
     }
 ````
 
+So this works - but it is a bit hacky. This line
+
+```swift
+        button.semanticContentAttribute = .forceRightToLeft
+```
+
+Forces the image to be flipped and displayed on the RHS. But it works.
+
+Another way to do this is with `NSAttributedImage` string and add the image to that text. You can also explore setting the image to the right of the button the proper way.
+
 ## How to make a button with rounded corners
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
