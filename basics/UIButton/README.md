@@ -16,7 +16,52 @@ https://noahgilmore.com/blog/uibutton-padding/
 
 There are multiples ways you can do this - each with there respective pros and cons.
 
-Another way to do this is with `NSAttributedImage` string and add the image to that text. You can also explore setting the image to the right of the button the proper way.
+### Setting image on NSAttributed string
+
+Another way to do this is with `NSAttributedImage` string and add the image to that text. Nice thing about this is you still get left to right localization (unlike other method). Note how you need to set the width constraint on the `titleLabel` inside the button after calculating the width and not on the button itself (near bottom of method).
+
+```swift
+    func makePaymentExtensionButton() -> UIButton {
+        performPaymentExtensionButton = UIButton()
+        performPaymentExtensionButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let title = loc("paymentExtension.homeBanner.delinquent.button")
+        let font = UIFont.systemFont(ofSize: 14.0)
+
+        performPaymentExtensionButton.setTitleColor(.shawHighlightBlue, for: .normal)
+        performPaymentExtensionButton.titleLabel?.font = font
+
+        var attributes = [NSAttributedString.Key: AnyObject]()
+        attributes[.foregroundColor] = UIColor.shawHighlightBlue
+
+        let attributedString = NSMutableAttributedString(string: title, attributes: attributes)
+
+        let image = UIImage(named: "iconDisclosureBlue")!
+        let imageAttachment = NSTextAttachment()
+
+        imageAttachment.bounds = CGRect(x: LocalSpacing.buttonPaddingRight, y: -1, width: image.size.width, height: image.size.height) // 8
+        imageAttachment.image = image
+
+        let attributedImage = NSAttributedString(attachment: imageAttachment)
+        attributedString.append(attributedImage)
+
+        performPaymentExtensionButton.setAttributedTitle(attributedString, for: .normal)
+
+        let width = buttonWidth(forText: title, font: font)
+        performPaymentExtensionButton.titleLabel?.widthAnchor.constraint(equalToConstant: width).isActive = true // important titleLabel - not button
+
+        return performPaymentExtensionButton
+    }
+
+    func buttonWidth(forText text: String, font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        var width = (text as NSString).size(withAttributes: fontAttributes).width
+        width += LocalSpacing.buttonPaddingRight + LocalSizing.buttonImageWidth // 8 + 10
+
+        return width
+    }
+```
+
 
 ### UIEdgeInsets and flipping semanticContentAttribute
 
