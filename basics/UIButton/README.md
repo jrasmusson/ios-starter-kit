@@ -14,6 +14,16 @@ https://noahgilmore.com/blog/uibutton-padding/
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png" width="200"/>
 
+There are multiples ways you can do this - each with there respective pros and cons.
+
+Another way to do this is with `NSAttributedImage` string and add the image to that text. You can also explore setting the image to the right of the button the proper way.
+
+### UIEdgeInsets and flipping semanticContentAttribute
+
+This method is very simple. It adds the text and image to the button and then nudges them around with UIEdge insets. To get the image to appear on the right, `button.semanticContentAttribute = .forceRightToLeft` is applied which requires a smaller offset if you want the image on the right.
+
+The downside to this method is it ignores right to left languages, i.e. it forces the image on the right which may or may not be what you want.
+
 ```swift
     private struct LocalSizing {
         static let warningIconSize = CGFloat(24)
@@ -50,15 +60,6 @@ https://noahgilmore.com/blog/uibutton-padding/
     }
 ````
 
-So this works - but it is a bit hacky. This line
-
-```swift
-        button.semanticContentAttribute = .forceRightToLeft
-```
-
-Forces the image to be flipped and displayed on the RHS. But it works.
-
-Another way to do this is with `NSAttributedImage` string and add the image to that text. You can also explore setting the image to the right of the button the proper way.
 
 ## How to make a button with rounded corners
 
