@@ -2,7 +2,7 @@
 
 Intrinsic content size is the default size a control gives itself that autolayout uses when doing autolayout. No all controls have intrinsic content size. But many do.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/ios-controls.png" width="400" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/ios-controls.png" />
 
 And it's an important topic if you want to understand how autolayout works with certain view configurations. It also overlaps a lot with content hugging and resistance (CHCR). So you often see them spoken about at the same time.
 
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsic.png"  />
 
 ## Can the superview override the intrinsic content size?
 
@@ -117,7 +117,7 @@ You can style or size your `UIView`s with intrinsic content size and then invali
 
 For example say you want to adjust the size of a custom `UIView` depending on whether a button is present.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/invalidate.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/invalidate.png" width="400"  />
 
 Simply define your content size.
 
