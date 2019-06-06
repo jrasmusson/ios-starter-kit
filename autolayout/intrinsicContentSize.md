@@ -2,7 +2,7 @@
 
 Intrinsic content size is the default size a control gives itself that autolayout uses when doing autolayout. No all controls have intrinsic content size. But many do.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/ios-controls.png" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/ios-controls.png" width="400" />
 
 And it's an important topic if you want to understand how autolayout works with certain view configurations. It also overlaps a lot with content hugging and resistance (CHCR). So you often see them spoken about at the same time.
 
