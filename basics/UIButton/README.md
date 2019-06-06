@@ -16,7 +16,7 @@ https://noahgilmore.com/blog/uibutton-padding/
 
 There are multiples ways you can do this - each with there respective pros and cons.
 
-### Setting image on NSAttributed string
+### NSAttributed string
 
 Another way to do this is with `NSAttributedImage` string and add the image to that text. Nice thing about this is you still get left to right localization (unlike other method). Note how you need to set the width constraint on the `titleLabel` inside the button after calculating the width and not on the button itself (near bottom of method).
 
@@ -63,48 +63,46 @@ Another way to do this is with `NSAttributedImage` string and add the image to t
 ```
 
 
-### UIEdgeInsets and flipping semanticContentAttribute
+### UIEdgeInsets
 
-This method is very simple. It adds the text and image to the button and then nudges them around with UIEdge insets. To get the image to appear on the right, `button.semanticContentAttribute = .forceRightToLeft` is applied which requires a smaller offset if you want the image on the right.
-
-The downside to this method is it ignores right to left languages, i.e. it forces the image on the right which may or may not be what you want.
+You can add image and text individually to a button and then play with the edge insets. 
 
 ```swift
-    private struct LocalSizing {
-        static let warningIconSize = CGFloat(24)
-        static let buttonHeight = CGFloat(16)
-        static let imageWidth = CGFloat(10)
-        static let rightPadding = CGFloat(8)
-    }
+    func makePaymentExtensionButton() -> UIButton {
+        performPaymentExtensionButton = UIButton()
+        performPaymentExtensionButton.translatesAutoresizingMaskIntoConstraints = false
 
-    func makeButton() -> UIButton {
-        button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        let buttonTitle = "Request payment extension"
+        let buttonTitle = loc("paymentExtension.homeBanner.delinquent.button")
         let buttonFont = UIFont.systemFont(ofSize: 14.0)
 
-        button.setTitle(buttonTitle, for: .normal)
-        button.setTitleColor(.shawHighlightBlue, for: .normal)
-        button.titleLabel?.font = buttonFont
+        performPaymentExtensionButton.setTitle(buttonTitle, for: .normal)
+        performPaymentExtensionButton.setTitleColor(.shawHighlightBlue, for: .normal)
+        performPaymentExtensionButton.titleLabel?.font = buttonFont
 
-        button.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.semanticContentAttribute = .forceRightToLeft
-        button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 8, bottom: 0.0, right: 0.0)
-        // button.addTarget(nil, action: nil, for: .primaryActionTriggered)
+        performPaymentExtensionButton.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
+        performPaymentExtensionButton.contentHorizontalAlignment = .left
+//        performPaymentExtensionButton.semanticContentAttribute = .forceRightToLeft
+        performPaymentExtensionButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8.0)
+        performPaymentExtensionButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 180 + 8 + 10, bottom: 0.0, right: 0.0)
+        performPaymentExtensionButton.addTarget(nil, action: .performPaymentExtensionAction, for: .primaryActionTriggered)
 
-        // dynamically calculate button width
-        let fontAttributes = [NSAttributedString.Key.font: buttonFont]
-        var buttonWidth = (buttonTitle as NSString).size(withAttributes: fontAttributes).width
-        buttonWidth += LocalSizing.rightPadding + LocalSizing.imageWidth
-        button.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        performPaymentExtensionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
 
-        return button
+        return performPaymentExtensionButton
+    }
+
+    func buttonWidth(forText text: String, font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        var width = (text as NSString).size(withAttributes: fontAttributes).width
+        width += LocalSpacing.buttonPaddingRight + LocalSizing.buttonImageWidth
+
+        return width
     }
 ````
 
+Note that image start off on the left, so you need to either calculate the width of the button and add a large offset (i.e. 180) along with a width constraint on the button itself.
+
+Or you can force flip the `semanticContentAttribute` to be `.forceRightToLeft` to start the image on the right. But this isn't recommneded as you then lose direction of language.
 
 ## How to make a button with rounded corners
 
