@@ -111,13 +111,44 @@ Then don't specify.
     }
  ```
 
-## How can I use in autolayout?
+## How can I use in autolayout? Invalidate
 
+You can style or size your `UIView`s with intrinsic content size and then invalidate the size to force a redraw on the next autolayout pass.
+
+For example say you want to adjust the size of a custom `UIView` depending on whether a button is present.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/intrinsicContentSize/invalidate.png" />
+
+Simply define your content size.
+
+```swift
+    override public var intrinsicContentSize: CGSize {
+        let height: CGFloat = performPaymentExtensionButton.isHidden ? 110 : 130
+        return CGSize(width: UIView.noIntrinsicMetric, height: height)
+    }
+```
+
+And then invalidate it when the proper external event occurs. This will cause the view to refresh itself.
+
+```swift
+    var billing: BillingOverview? {
+        didSet {
+            if account.isDelinquent {
+                performPaymentExtensionButton.isHidden = false
+            } else {
+                performPaymentExtensionButton.isHidden = true
+            }
+
+            invalidateIntrinsicContentSize() // important!
+        }
+    }
+```
 
 
 ### Links that help
 
 * [Apple Docs - Intrinsic Content Size](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize)
+* [Apple Docs - Invalidate Content Size](https://developer.apple.com/documentation/uikit/uiview/1622457-invalidateintrinsiccontentsize)
 * [Apple Docs - Views with intrinsic content size](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ViewswithIntrinsicContentSize.html)
 * [Apple Docs - Intrinsic Content Size Equations](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/AnatomyofaConstraint.html#//apple_ref/doc/uid/TP40010853-CH9-SW21)
 * [Example1](https://medium.com/@vialyx/import-uikit-what-is-intrinsic-content-size-20ae302f21f3)
