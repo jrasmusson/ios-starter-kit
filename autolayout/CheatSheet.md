@@ -53,6 +53,7 @@ NSLayoutConstraint(item: animationView,
 
 ```
 manageButtonsWrapper.accessibilityHint = "ManageStack"
+manageButton.tag = 99
 ```
 
 ## Things to remember
@@ -93,7 +94,7 @@ print("high \(UILayoutPriority.defaultHigh.rawValue)")      // 750
 print("required \(UILayoutPriority.required.rawValue)")     // 1000
 ```
 
-These are great because in stead of doing this you can do this
+These are great because instead of doing this you can do this
 
 ```swift
 container.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .horizontal)
@@ -120,6 +121,14 @@ Now you can write nice clean code like this
 
 ```swift
 container.setContentHuggingPriority(.defaultLow, for: .horizontal)
+```
+
+### Local sizing and spacing
+
+```swift
+    struct LocalSizing {
+        static let imageSize = CGFloat(18)
+    }
 ```
 
 ### Links that help
