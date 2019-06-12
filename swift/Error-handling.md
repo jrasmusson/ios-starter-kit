@@ -34,7 +34,7 @@ func printAge(_ age: Int) {
 
 ### precondition()
 
-A harder form of assertm, precondition will stop your program in debug and release builds.
+A harder form of assert, precondition will stop your program in debug and release builds.
 
 ```swift
 func printAge(_ age: Int) {
