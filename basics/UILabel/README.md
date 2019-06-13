@@ -25,3 +25,14 @@
         return label
     }()
 ```
+
+## How to limit label size to on row and grow and shrink as required
+
+Make the label single line. Pin it to leading trailing.  They set adjustsFontSizeToFitWide and minimumScaleFactor.
+
+```swift
+        label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LocalSpacing.betweenImageAndLabel).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+
+```
