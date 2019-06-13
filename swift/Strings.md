@@ -55,6 +55,69 @@ Then build the string with the parameters like this
 let result = String.localizedStringWithFormat(NSLocalizedString("activationMessage", comment: "activation message"), manufacturer, model, serialNumber)
 ```
 
+### How to format currency
+
+```swift
+import Foundation
+
+public class DollarAmountValidator: TextFieldInputValidator {
+    
+    private struct Format {
+        static let characterSet = NSCharacterSet(charactersIn: "0123456789.,")
+    }
+    
+    let formatter = NumberFormatter()
+    private let locale: Locale = Locale(identifier: "en_CA")
+    
+    public init() {
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.minimumIntegerDigits = 1
+        formatter.locale = locale
+    }
+    
+    public func validatedString(string: String) -> String? {
+        if !isValid(newNumber: string) { return nil}
+
+        let temp = PaymentFormatter.handleFrenchKeyboard(paymentAmount: string)
+
+        let num = NSDecimalNumber(string: temp, locale: locale)
+        if num == NSDecimalNumber.notANumber { return nil }
+        
+        return formatter.string(from: num)
+    }
+    
+    public func validate(editingString: String, afterReplacingCharactersInRange range: NSRange, with replacement: String) -> TextFieldInputValidation {
+
+        guard replacement.rangeOfCharacter(from: Format.characterSet.inverted) == nil else { return .rejected }
+        
+        let newNumber = (editingString as NSString).replacingCharacters(in: range, with: replacement)
+
+        if isValid(newNumber: newNumber) {
+            return .accepted
+        }
+        
+        return .rejected
+    }
+    
+    public func isValid(newNumber: String) -> Bool {
+        if newNumber.rangeOfCharacter(from: Format.characterSet.inverted) != nil { return false }
+
+        let temp = PaymentFormatter.handleFrenchKeyboard(paymentAmount: newNumber)
+
+        let components = temp.components(separatedBy: ".")
+        if components.count > 2 { return false } // 0 or 1 decimal points
+
+        // No more than 8 digits before decimal point
+        if let first = components.first, first.count > 8 { return false }
+
+        // No more than 2 digits after decimal point
+        if let last = components.last, last.count > 2, components.count > 1 { return false }
+
+        return true
+    }
+}
+```
 
 ### Links that help
 
