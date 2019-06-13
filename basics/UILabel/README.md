@@ -35,4 +35,4 @@ label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
 label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LocalSpacing.betweenImageAndLabel).isActive = true
 label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
 ```
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UILabel/images/label-fontwidth.png" alt="drawing" width="600"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UILabel/images/label-fontwidth.png" alt="drawing" width="400"/>
