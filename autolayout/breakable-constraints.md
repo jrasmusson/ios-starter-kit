@@ -6,7 +6,7 @@ Say you want a view to resize itself based on whether a button is visible or not
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-design.png" width="400"  alt="drawing" />
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakab-demo.gif)
+(https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-demo.gif)
 
 ## Example in Interface Builder Xcode
 
