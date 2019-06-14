@@ -1,5 +1,16 @@
 # UIStackView
 
+## Always pin your stackview to avoid ambiguous height
+
+```swift
+        textStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+        textStackView.leftAnchor.constraint(equalTo: warningImageView.rightAnchor, constant: 16).isActive = true
+        textStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        textStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
+```
+
+If you fully pin your stackviews, you don't need to define intrinsicContentSize. If getting height is ambiguous, double check your stackView is fully pinned.
+
 ## How to layout x2 elements side by side
 
 Often you want x2 items to be side-by-side in a stackView. The question is how? This is where stackView inside stackViews really comes in handy.
