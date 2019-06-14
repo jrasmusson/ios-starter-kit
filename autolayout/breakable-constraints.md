@@ -8,6 +8,192 @@ Say you want a view to resize itself based on whether a button is visible or not
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-demo.gif)
 
+
+```swift
+//
+//  View.swift
+//  Foo1
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2019-06-14.
+//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
+//
+
+import UIKit
+
+class MyView: UIView {
+
+    var label = UILabel()
+    var button = UIButton()
+
+    // constraints
+    var buttonTopConstraint = NSLayoutConstraint()
+    var buttonBottomConstraint = NSLayoutConstraint()
+    var labelBottomConstraintBreakable = NSLayoutConstraint()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        backgroundColor = .red
+
+        label = makeLabel(withTitle: "Some text", size: 16)
+        button = makeButton(title: "Press")
+
+        addSubview(label)
+        addSubview(button)
+
+        label.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+
+        button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+        // flexible
+        buttonTopConstraint = label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16)
+        buttonBottomConstraint = button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+        labelBottomConstraintBreakable = label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+
+        buttonTopConstraint.isActive = true
+        buttonBottomConstraint.isActive = true
+        labelBottomConstraintBreakable.priority = .defaultLow
+        labelBottomConstraintBreakable.isActive = true
+    }
+
+    // MARK: - Actions
+
+    func adjust() {
+        button.isHidden = !button.isHidden
+        buttonTopConstraint.isActive = !buttonTopConstraint.isActive
+        buttonBottomConstraint.isActive = !buttonBottomConstraint.isActive
+    }
+}
+
+// MARK: - Factory methods
+
+extension UIView {
+
+    func makeLabel(withTitle title: String, size: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = title
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: size)
+        label.numberOfLines = 0
+
+        return label
+    }
+
+    func makeButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.backgroundColor = .white
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.contentHorizontalAlignment = .center
+
+        return button
+    }
+}
+```
+
+```swift
+//
+//  ViewController.swift
+//  Foo1
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2019-06-14.
+//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    var myView = MyView()
+    var adjustButton = UIButton()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        myView = makeMyView()
+        adjustButton = makeButton(title: "Adjust")
+
+        view.addSubview(myView)
+        view.addSubview(adjustButton)
+
+        myView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+        myView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
+        myView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        // bottom not required
+
+        adjustButton.topAnchor.constraint(equalTo: myView.bottomAnchor, constant: 80).isActive = true
+        adjustButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        adjustButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        // bottom not required
+    }
+
+    @objc func buttonPressed(sender: UIButton!) {
+        myView.adjust()
+    }
+}
+
+// MARK: - Factory methods
+
+extension ViewController {
+
+    func makeMyView() -> MyView {
+        let view = MyView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }
+
+    func makeLabel(withTitle title: String, size: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = title
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: size)
+        label.numberOfLines = 0
+
+        return label
+    }
+
+    func makeButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.backgroundColor = .white
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.lineBreakMode = .byWordWrapping
+        button.contentHorizontalAlignment = .center
+
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+
+        return button
+    }
+
+}
+```
+
 ## Example in Interface Builder Xcode
 
 Here is an example of a breakable contraint. Say you want a label to be at least 20px from the top, but flexible enough to be more if needed.
