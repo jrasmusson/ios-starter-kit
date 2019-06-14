@@ -1,39 +1,103 @@
 # Control Factory
 
 ```swift
+UIFont.systemFont(ofSize: 14.0)
+UIFont.boldSystemFont(ofSize: size)
+UIFont(name: "CustomBold", size: size)
+
 import UIKit
 
-typealias Layout = ActivationLayout
+typealias Size = ControlSize
 
-struct ActivationLayout {
-    static let discLogoRadius: CGFloat = 35
-    static let CTAButtomButtonSpacer: CGFloat = -80
-    static let CTAButtonHeight:CGFloat = 40
+public struct ControlSize {
+    public static let BigButtonHeight: CGFloat = 50
+    public static let MedButtonHeight: CGFloat = 35
 }
 
-// MARK: - Hero
+public struct ControlFactory {
 
-func makeHeroView(named: String) -> UIView {
-    let view = HeroView(frame: CGRect.zero, named: named)
-    view.translatesAutoresizingMaskIntoConstraints = false
+    // MARK: - Image
 
-    return view
+    public static func makeHeroView(named: String) -> UIView {
+        let view = HeroView(frame: CGRect.zero, named: named)
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }
+
+    public static func makeImageView(named: String) -> UIImageView {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: named)
+
+        return imageView
+    }
+
+    // MARK: - Label
+
+    public static func makeBoldLabel(text: String, size: CGFloat) -> UILabel {
+        let label = makeLabel(text: text, size: size)
+        label.font = UIFont.boldSystemFont(ofSize: size) // UIFont(name: "CustomBold", size: size)
+
+        return label
+    }
+
+
+    public static func makeLabel(text: String, size: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: size)
+        label.numberOfLines = 0
+
+        return label
+    }
+
+    // MARK: - Stack
+
+    public static func makeStackView(axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = axis
+        stackView.alignment = .fill
+        stackView.spacing = 8
+        stackView.distribution = .fill
+
+        return stackView
+    }
+
+    // MARK: - Button
+
+    public static func makeButton(title: String, size: CGFloat = 16) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: size)
+        button.setTitleColor(shawBlue(), for: .normal)
+
+        return button
+    }
+
+    // MARK: Misc
+
+    public static func shawBlue() -> UIColor {
+        return UIColor(red: 0, green: 0.65, blue: 0.94, alpha: 1)
+    }
 }
 
-func makeHeroLabel(text: String) -> UILabel {
-    let label = makeLabel(text: text)
-    label.font = UIFont(name: "Company-Bold", size: 28)
-    label.text = text
+// MARK: - Classes
 
-    return label
-}
+public class HeroView: UIView {
 
-class HeroView: UIView {
+    typealias Factory = ControlFactory
 
     init(frame: CGRect, named: String) {
         super.init(frame: frame)
 
-        let heroImageView = makeImageView(named: named)
+        let heroImageView = Factory.makeImageView(named: named)
 
         addSubview(heroImageView)
 
@@ -49,139 +113,6 @@ class HeroView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-}
 
-// MARK: - Label
-
-func makeLabel(text: String) -> UILabel {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.text = text
-    label.textAlignment = .center
-    label.textColor = .black
-    label.font = UIFont(name: "Company-Medium", size: 18)
-    label.numberOfLines = 0
-
-    return label
-}
-
-func makeTitleLabel(text: String) -> UILabel {
-    let label = makeLabel(text: text)
-    label.font = UIFont(name: "Company-Medium", size: 24)
-    label.textColor = .black
-
-    return label
-}
-
-func makeGrayTextBoldLabel(text: String) -> UILabel {
-    let label = makeLabel(text: text)
-    label.font = UIFont.boldSystemFont(ofSize: 16)
-    label.textColor = .gray
-    label.text = text
-
-    return label
-}
-
-func makeGrayTextLabel(text: String) -> UILabel {
-    let label = makeLabel(text: text)
-    label.font = UIFont.systemFont(ofSize: 16)
-    label.textColor = .gray
-
-    return label
-}
-
-func makeSmallGrayTextLabel(text: String) -> UILabel {
-    let label = makeGrayTextLabel(text: text)
-    label.font = UIFont.systemFont(ofSize: 14)
-
-    return label
-}
-
-// MARK: - Button
-
-func makeCompanyButton(title: String) -> UIButton {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle(title, for: .normal)
-    button.titleLabel?.font = UIFont(name: "Company-Medium", size: 20)
-    button.backgroundColor = companyBlue()
-    button.setTitleColor(.white, for: .normal)
-    button.layer.cornerRadius = Layout.CTAButtonHeight / 2
-
-    return button
-}
-
-func makeButton(title: String, color: UIColor) -> UIButton {
-    let button = makeCompanyButton(title: title)
-    button.backgroundColor = color
-
-    return button
-}
-
-func makeCloseRightBarButtonItem() -> UIBarButtonItem {
-    let barButtonItem = UIBarButtonItem(image: UIImage(named: "close_x"), style: .plain, target: nil, action: nil)
-
-    return barButtonItem
-}
-
-func makeDoneRightBarButtonItem() -> UIBarButtonItem {
-    let barButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: nil, action: nil)
-
-    return barButtonItem
-}
-
-// MARK: - Image
-
-func makeImageView(named: String) -> UIImageView {
-    let imageView = UIImageView()
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.contentMode = .scaleAspectFit
-    imageView.image = UIImage(named: named)
-
-    return imageView
-}
-
-// MARK: Supporting methods
-
-func checkForErrors(error: Error?) {
-    guard error == nil else {
-        preconditionFailure(String(describing: error))
-    }
-}
-
-func companyBlue() -> UIColor {
-    return UIColor(red:0, green:0.65, blue:0.94, alpha:1)
-}
-
-static func makeStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
-    let stackView = UIStackView()
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = axis
-    stackView.alignment = .fill
-    stackView.spacing = 8
-    stackView.distribution = .fill
-
-    return stackView
-}
-
-extension UINavigationItem {
-
-    func blankNavigationControllerBackButton() {
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        backBarButtonItem = backItem
-    }
-
-}
-
-public extension UIView {
-    @objc func addShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.40
-        layer.shadowOffset = CGSize(width: -1, height: 1)
-        layer.shadowRadius = Constants.cornerRadiusSmall
-        layer.masksToBounds = false
-    }
 }
 ```
