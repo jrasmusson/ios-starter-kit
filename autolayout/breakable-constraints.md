@@ -1,5 +1,15 @@
 # Breakable constraints
 
+## Example
+
+Say you want a view to resize itself based on whether a button is visible or not. Create a breakable constraint from the bottom of the label to the bottom, and then turn off the constraints surrounding the button when it disappears.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-design.png" width="400"  alt="drawing" />
+
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakab-demo.gif)
+
+## Example in Interface Builder Xcode
+
 Here is an example of a breakable contraint. Say you want a label to be at least 20px from the top, but flexible enough to be more if needed.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable1.png" width="400"  alt="drawing" />
