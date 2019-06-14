@@ -203,6 +203,10 @@ Just remember to adjust your constraints in the `UIView` to the stackView (not t
 * Pin the stackView to the view so it is flush, and the tweak using edgeInsets.
 * Don't set the width of the button (StackView wants to fill this out itself)
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-stackview.png" width="400"  alt="drawing" />
+
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-stackview.gif)
+
 
 
 ## Example in Interface Builder Xcode
