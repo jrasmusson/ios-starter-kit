@@ -194,6 +194,14 @@ extension ViewController {
 }
 ```
 
+### No breakables required with StackView
+
+Here is the same example only with a `UIStackView`. When you hide a view in a stackView it automatically resizes. This is one of the advantages of stackView and is why Apple pushes them so hard. They put a lot of magic in there and handle stuff like this for you.
+
+Just remember to adjust your constraints in the `UIView` to the stackView (not the view itself). And when you hide it will change the intrinsic size of the stack to adjust to the button being hidden.
+
+
+
 ## Example in Interface Builder Xcode
 
 Here is an example of a breakable contraint. Say you want a label to be at least 20px from the top, but flexible enough to be more if needed.
