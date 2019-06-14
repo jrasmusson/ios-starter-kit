@@ -200,7 +200,8 @@ Here is the same example only with a `UIStackView`. When you hide a view in a st
 
 Just remember to adjust your constraints in the `UIView` to the stackView (not the view itself). And when you hide it will change the intrinsic size of the stack to adjust to the button being hidden.
 
-Pin the stackView to the view so it is flush, and the tweak using edgeInsets.
+* Pin the stackView to the view so it is flush, and the tweak using edgeInsets.
+* Don't set the width of the button (StackView wants to fill this out itself)
 
 
 
