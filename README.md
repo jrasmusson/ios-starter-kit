@@ -35,7 +35,6 @@ A starter kit for those interested in iOS programming
 * [NotificationCenter](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/NotificationCenter.md)
 * [Strings](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Strings.md)
 * [Idioms](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Idioms.md)
-* [Control Factory](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Control-Factory.md)
 * [DynamicCallable](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/DynamicCallable.md)
 
 ## Basics
@@ -76,6 +75,7 @@ A starter kit for those interested in iOS programming
 * [Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Responder-Chain.md)
 
 ## Autolayout
+* [Control Factory](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Control-Factory.md)
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-identifier-tag-to-view.md)
