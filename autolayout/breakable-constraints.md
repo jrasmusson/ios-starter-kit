@@ -207,6 +207,58 @@ Just remember to adjust your constraints in the `UIView` to the stackView (not t
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/breakable-stackview.gif)
 
+```swift
+import UIKit
+
+class MyView: UIView {
+
+    var label = UILabel()
+    var button = UIButton()
+    var stackView = UIStackView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        label = makeLabel(withTitle: "Some text", size: 16)
+        button = makeButton(title: "Press")
+        stackView = makeStackView()
+
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(button)
+
+        addSubview(stackView)
+
+        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
+        // bottom neccesary ? Yes else size of stackView ambiguous - it cant figure out intrinsic size itself
+        // even though made up of standard controls all with instinsic sizes
+
+        stackView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: -8, right: 8)
+        stackView.isLayoutMarginsRelativeArrangement = true
+    }
+
+    // MARK: - Actions
+
+    func adjust() {
+        button.isHidden = !button.isHidden
+    }
+}
+```
+
+```swift
+
+```
 
 
 ## Example in Interface Builder Xcode
