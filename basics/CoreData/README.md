@@ -177,7 +177,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Generated Classes
 
-Now this is fine, but to give us some additional type safety CoreData lets you generated classes off of your data model. By selecting your data entity and clicking `Editor > Create NSManagedObject Subclass...` Xcode will produce x2 files.
+Now this is fine, but to give us some additional type safety CoreData lets you generated classes off of your data model. 
+
+Xcode generates these for you automatically and stories them in derivedData.
 
 A class for you to do your customization and helpers.
 
@@ -208,6 +210,10 @@ extension Device {
 
 }
 ```
+
+Its not clear to me yet how I am supposed to work with my own version of device as these are stored for you in DerievedData, through you can manually generated this yourself. Something I will have to work out.
+
+But even without generating them. You have access to them. So you can use them in your above code, i.e. `Device` for additional type safety when parsing.
 
 
 
