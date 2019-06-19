@@ -179,7 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 Now this is fine, but to give us some additional type safety CoreData lets you generated classes off of your data model. 
 
-Xcode generates these for you automatically and stories them in derivedData.
+If you run the generator on your data model (`Editor > Create NSManageObject Subclass...`) Xcode will generate the following files for you.
 
 A class for you to do your customization and helpers.
 
@@ -211,9 +211,79 @@ extension Device {
 }
 ```
 
-Its not clear to me yet how I am supposed to work with my own version of device as these are stored for you in DerievedData, through you can manually generated this yourself. Something I will have to work out.
+Except that if you do this you will get an error. As Xcode already does this for you (Xcode 10) and you will get a duplication produce file error.
 
-But even without generating them. You have access to them. So you can use them in your above code, i.e. `Device` for additional type safety when parsing.
+Not clear what the right way to do this yet is. But know that you have type safety with CoreData classes, which Xcode automatically creates, that let's you do your CoreData operations in a more type safe way like this.
+
+```swift
+    func addTestData() {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Device", in: persistentContainer.viewContext) else {
+            fatalError("Could not find entity description!")
+        }
+
+        for i in 1...1 {
+            let device = NSManagedObject(entity: entity, insertInto: persistentContainer.viewContext)
+            device.setValue("name\(i)", forKey: "name")
+            device.setValue(i % 3 == 0 ? "Watch" : "iPhone", forKey: "deviceType")
+        }
+    }
+
+    func retrieveData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
+
+        do {
+            let result = try persistentContainer.viewContext.fetch(fetchRequest)
+            for device in (result as? [Device])! {
+                let name = device.name
+                let device = device.deviceType
+
+                print("\(String(describing: name)) and \(String(describing: device))")
+            }
+        } catch {
+            print("Error fetching")
+        }
+    }
+
+    func updateData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", "name1")
+
+        do {
+            let result = try persistentContainer.viewContext.fetch(fetchRequest)
+
+            let deviceToUpdate = result[0] as! Device
+            deviceToUpdate.name = "newName"
+
+            do {
+                try persistentContainer.viewContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+
+    func deleteData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", "newName")
+
+        do {
+            let result = try persistentContainer.viewContext.fetch(fetchRequest)
+
+            let deviceToDelete = result[0] as! Device
+            persistentContainer.viewContext.delete(deviceToDelete)
+
+            do {
+                try persistentContainer.viewContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+```
 
 
 
