@@ -64,6 +64,7 @@ A starter kit for those interested in iOS programming
 * [UITabBarViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITabBarViewController/README.md)
 * [Frame vs Bounds](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/README.md)
 * [CoreData](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/CoreData)
+* [Xibs](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Xibs/README.md)
 
 ## Advanced
 * [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
