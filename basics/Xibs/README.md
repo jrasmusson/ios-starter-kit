@@ -52,7 +52,9 @@ class MyView: UIView {
     }
 
     func initViews() {
-
+		...
+		// fire up via responder chain (nil for target)
+		myShawTile.button.addTarget(nil, action: #selector(PaymentMethodTilePickerResponder.didTapMakeAPayment), for: .primaryActionTriggered)
     }
 
     func initLayout() {
@@ -81,4 +83,12 @@ protocol PaymentMethodTilePickerResponder: AnyObject {
 }    
 ```
 
+Catch via responder chain here.
+
+```swift
+extension MainViewController: PaymentMethodTilePickerResponder {
+    func didTapMakeAPayment() {
+    	// do something
+    }
+```
 
