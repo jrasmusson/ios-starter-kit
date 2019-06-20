@@ -157,6 +157,66 @@ extension AFError {
 
 ```
 
+## Associated values
+
+Something cool you can do with enums is pass along data - we call these associated values.  For example say we have a control that can be configured one of two ways.
+
+```swift
+public class StandardEntryView: UIView {
+    
+    public enum Kind {
+        case email(showHeaderView: Bool)
+        case listSelection(showHeaderView: Bool, pickerTitle: String, list: [(String, Any)])
+    }
+
+    public let kind: Kind
+
+    public init(kind: Kind = Kind.email(showHeaderView: false)) {
+        self.kind = kind
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+```
+
+By defining an enum, with assoicated values, we can pass data along with our enum and use that data in those switch cases. The `let showHeaderView` is how how unwrap associated values when we access in the switch.
+
+```swift
+    func commonInit() {
+
+        let showHeader: Bool
+
+        switch kind {
+        case .email(let showHeaderView): // unwrapping the associated value
+            showHeader = showHeaderView
+        case .listSelection(let showHeaderView, _, _):
+            showHeader = showHeaderView
+        }
+
+    }
+```
+
+Use don't have to use the associated values when you switch on them
+
+```swift
+        switch kind {
+        case .email:
+            textField = UITextField()
+        case .listSelection:
+            textField = NoCaratNoTypingTextField()
+        }
+```
+
+And if you don't care about certain values you can just ignore them.
+
+```swift
+        switch kind {
+        case .email:
+            ...
+        case .listSelection(_, let pickerTitle, let listItems):
+            ...
+        }
+```
 
 # Structures
 
