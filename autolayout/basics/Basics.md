@@ -19,3 +19,4 @@ nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive =
 nameLabel.lastBaselineAnchor.constraint(equalTo: nameTextField.lastBaselineAnchor, constant: 0).isActive = true
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
