@@ -210,7 +210,7 @@ Todo: Google Cocoa Core Competencies - and read about responder chain and delega
 
 ```
 
-## How to set the styling for the entire app - proxies
+## How to set the styling for the entire app - Appearance Proxy
 
 Instead of styling your navigation bar like this in a ViewController
 
