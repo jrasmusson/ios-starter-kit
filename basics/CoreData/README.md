@@ -1,5 +1,35 @@
 # CoreData
 
+## Fetching Results
+
+Say you have an entity name `Company`. You can fetch results like this.
+
+```swift
+    func fetchCompanies() {
+        // initialization
+        let persistentContainer = NSPersistentContainer(name: "IntermediateTrainingModels")
+        persistentContainer.loadPersistentStores { (storeDescription, error) in
+            if let error = error {
+                fatalError("Loading of store failed \(error)")
+            }
+        }
+
+        let context = persistentContainer.viewContext
+
+        let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
+
+        do {
+            let companies = try context.fetch(fetchRequest)
+            companies.forEach { (company) in
+                print(company.name ?? "")
+            }
+        } catch let fetchError {
+            print("Failed to fetch companies: \(fetchError)")
+        }
+
+    }
+```
+
 ## CRUD
 
 New Single View Application with CoreData added.
