@@ -19,8 +19,8 @@ nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive =
 nameLabel.lastBaselineAnchor.constraint(equalTo: nameTextField.lastBaselineAnchor, constant: 0).isActive = true
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/baseline.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/baseline.png" alt="drawing" width="300"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/baseline2.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/images/baseline2.png" alt="drawing" width="800"/>
 
 [Apple Docs](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/ViewswithIntrinsicContentSize.html#//apple_ref/doc/uid/TP40010853-CH13-SW1)
