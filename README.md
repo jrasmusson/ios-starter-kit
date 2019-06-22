@@ -44,6 +44,7 @@ A starter kit for those interested in iOS programming
 * [UILabel](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UILabel/README.md)
 * [UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/README.md)
 * [UIImage](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImage/README.md)
+* [UIImagePicker](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImagePicker/README.md)
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
