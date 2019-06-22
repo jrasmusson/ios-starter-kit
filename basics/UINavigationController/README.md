@@ -10,7 +10,7 @@ extension UINavigationController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/statusbar-white.png" alt="drawing" />
 
 
 ## How to set the styling for the entire app - Appearance Proxy
@@ -37,7 +37,7 @@ UINavigationBar.appearance().prefersLargeTitles = true
 UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/appearance-proxy.png" alt="drawing" />
 
 ## Basics
 
