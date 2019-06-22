@@ -1,5 +1,44 @@
 # UINavigationController
 
+## How to make status bar white
+
+```swift
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
+
+
+## How to set the styling for the entire app - Appearance Proxy
+
+Instead of styling your navigation bar like this in a ViewController
+
+```swift
+navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+navigationController?.navigationBar.isTranslucent = false
+navigationController?.navigationBar.barTintColor = .lightRed
+navigationController?.navigationBar.prefersLargeTitles = true
+navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+```
+
+Goto your AppDelegate and in didFinishLoading change it for all nav bars in your application like this
+
+```swift
+UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+UINavigationBar.appearance().isTranslucent = false
+UINavigationBar.appearance().barTintColor = .lightRed
+UINavigationBar.appearance().prefersLargeTitles = true
+UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/no-border.png" alt="drawing" />
+
 ## Basics
 
 Here is a simple example of how to embed your whole application in a `UINavigationController` and have it present a single screen.
@@ -209,31 +248,6 @@ Todo: Google Cocoa Core Competencies - and read about responder chain and delega
     }
 
 ```
-
-## How to set the styling for the entire app - Appearance Proxy
-
-Instead of styling your navigation bar like this in a ViewController
-
-```swift
-navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
-navigationController?.navigationBar.isTranslucent = false
-navigationController?.navigationBar.barTintColor = .lightRed
-navigationController?.navigationBar.prefersLargeTitles = true
-navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-```
-
-Goto your AppDelegate and in didFinishLoading change it for all nav bars in your application like this
-
-```swift
-UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
-UINavigationBar.appearance().isTranslucent = false
-UINavigationBar.appearance().barTintColor = .lightRed
-UINavigationBar.appearance().prefersLargeTitles = true
-UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-```
-
 
 ### Links that help
 
