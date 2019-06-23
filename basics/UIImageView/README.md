@@ -3,6 +3,17 @@
 ## How to round corner and draw circle around image
 
 ```swift
+    func setupCircularImageStyle() {
+        companyImageView.layer.cornerRadius = companyImageView.frame.width / 2
+        companyImageView.clipsToBounds = true
+        companyImageView.layer.borderColor = UIColor.darkBlue.cgColor
+        companyImageView.layer.borderWidth = 2
+    }
+```
+
+Or this
+
+```swift
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
