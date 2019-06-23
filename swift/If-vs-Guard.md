@@ -45,6 +45,42 @@ guard let x = someOptional {
 // use unwrapped x
 ```
 
+## Sometimes you can't use guards
+
+Generally I prefer guards - keeps the code cleaner. But sometimes you can't, because you need to continue doing some processing and don't want to return.
+
+For example the optional image I am trying to extract would force me to return prematurely if I were to use a guard.
+
+```swift
+    func saveCompany() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+
+        company?.name = nameTextField.text
+        company?.founded = datePicker.date
+        guard let imageData = companyImageView.image?.jpegData(compressionQuality: 0.8) else { return !!! }
+        company?.imageData = imageData
+
+        do {
+            try context.save()
+            dismiss(animated: true) {
+                self.delegate?.didEditCompany(company: self.company!)
+            }
+        } catch let saveError {
+            fatalError("Could not save company: \(saveError)")
+        }
+    }
+```
+
+I don't want to return. I want to continue processing. So in this case an if is better because I can set me company imageData in the if, but if it is nil, no big deal. Keep on processing.
+
+```swift
+        if let imageData = companyImageView.image?.jpegData(compressionQuality: 0.8) {
+            company?.imageData = imageData
+        }
+```
+
+
+
 # When to use if-let
 
 Use `if-let` when you want to check an unsafe operation for safety, before assigning it's output to a variable. For example here we want to make sure we only assign `NSUserDefaults` to our array if they already exist.
