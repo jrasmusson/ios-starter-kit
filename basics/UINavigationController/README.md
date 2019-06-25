@@ -57,6 +57,8 @@ AppDelegate
     }
 ```
 
+### Push
+
 Since we are already in a `UINavigationController` in our mainVC, we can either `push` a new `UIViewController` and get a free back button.
 
 ```swift
@@ -65,7 +67,17 @@ Since we are already in a `UINavigationController` in our mainVC, we can either 
     }
 ```
 
+Just remember that because we are on the stack, we need to pop ourselves off to return to root.
+
+```swift
+    @objc func dismissPressed(sender: UIButton!) {
+        self.navigationController?.popViewController(animated: true)
+    }
+```
+
 ![Push](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/push.gif)
+
+### Present
 
 Or we can present modally and manually dismiss ourselves in the presented viewcontroller.
 
@@ -81,11 +93,17 @@ Or we can present modally and manually dismiss ourselves in the presented viewco
     }
 ```
 
-Just remember that because we are on the stack, we need to pop ourselves off to return to root.
+Note: When your present yourself modally, you lose the navigationController you were originally in. If you wanted to present yourself within a navigationBar again, you would need to create a new one, and add yourself to that. You may need to do this if you are unable to style the original or override something unavaabile (like the content style).
 
 ```swift
-    @objc func dismissPressed(sender: UIButton!) {
-        self.navigationController?.popViewController(animated: true)
+    @objc func handleNexzt() {
+
+        let createCompanyController = CreateCompanyController()
+        createCompanyController.delegate = self
+
+        let navController = CustomNavigationController(rootViewController: createCompanyController)
+
+        present(navController, animated: true, completion: nil)
     }
 ```
 
