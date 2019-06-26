@@ -192,6 +192,35 @@ extension TestRenderer {
 }
 ```
 
+## Examples
+
+```swift
+@objc protocol PayBillUserActions {    
+    @objc optional func performCancelPayBillAction(sender: Any?)
+    @objc optional func performConfirmPayBillAction(sender: Any?)
+}
+
+private extension Selector {
+    static let performCancelPayBillAction = #selector(PayBillUserActions.performCancelPayBillAction(sender:))
+    static let performConfirmPayBillAction = #selector(PayBillUserActions.performConfirmPayBillAction(sender:))
+}
+
+extension PayBillViewController: PayBillUserActions {
+    
+    func addButtonTargets() {
+        cancelButton.addTarget(nil, action: .performCancelPayBillAction, for: .primaryActionTriggered)
+        confirmButton.addTarget(nil, action: .performConfirmPayBillAction, for: .primaryActionTriggered)
+    }
+
+    func performCancelPayBillAction(sender: Any?) {
+        ...
+    }
+    
+    func performConfirmPayBillAction(sender: Any?) {
+        ...
+    }
+}
+```
 
 ### Links that help
 
