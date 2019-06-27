@@ -102,6 +102,25 @@ func display(authError: Error?) {
     }
 ```
 
+Another
+
+```swift
+    func createEmployee(employeeName: String) -> (Employee?, Error?) {
+        let context = persistentContainer.viewContext
+        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee
+
+        employee.setValue(employeeName, forKey: "name")
+
+        do {
+            try context.save()
+            return (employee, nil)
+        } catch let createError {
+            print("Error creating employee: \(createError)")
+            return (nil, createError)
+        }
+    }
+```
+
 ## How to switch on a tuple
 
 One coold thing you can with tuples is switch on them.
