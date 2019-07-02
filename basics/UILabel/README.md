@@ -31,6 +31,21 @@
 Make the label single line. Pin it to leading trailing.  They set `adjustsFontSizeToFitWidth` and `minimumScaleFactor`.
 
 ```swift
+    func makeOverdueAlertLabel() -> UILabel {
+        let label = ControlFactory.makeBoldLabel(text: loc("Your account is overdue by $XXX"), size: 16)
+
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.0
+
+        return label
+    }
+```
+
+```swift
 label.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
 label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: LocalSpacing.betweenImageAndLabel).isActive = true
 label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
