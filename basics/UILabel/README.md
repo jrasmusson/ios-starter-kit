@@ -39,7 +39,7 @@ Make the label single line. Pin it to leading trailing.  They set `adjustsFontSi
         label.textAlignment = .left
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.0
+        label.minimumScaleFactor = 0.0 // default is 0.0 so this is optional
 
         return label
     }
