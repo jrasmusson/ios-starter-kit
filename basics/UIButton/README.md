@@ -1,5 +1,19 @@
 # UIButton
 
+## How to make button text dynamically fit the size of the button
+
+```swift
+    static func makeButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
+        
+        return button
+    }
+```
+
 ## How to nudge a button around
 
 ```swift
