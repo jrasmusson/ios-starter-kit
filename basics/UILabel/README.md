@@ -9,6 +9,7 @@
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: size)
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
 
         return label
     }
@@ -21,6 +22,7 @@
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 13)
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true        
 
         return label
     }()
@@ -39,8 +41,7 @@ Make the label single line. Pin it to leading trailing.  They set `adjustsFontSi
         label.textAlignment = .left
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.0 // default is 0.0 so this is optional
-
+        
         return label
     }
 ```
