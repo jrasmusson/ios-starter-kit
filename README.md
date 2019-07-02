@@ -123,7 +123,6 @@ A starter kit for those interested in iOS programming
 * [Create init constructor](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/how-to-initializer.md)
 * [How to change Xcode simulator runtime](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/change-xcode-simulator-runtime.md)
 * [Clear derived data](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/clear-derived-data.md)
-* [Make font fit within label](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/font-fit-label.md)
 * [How to view crash logs for devices in production](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/view-crash-logs.md)
 * [Round corners on an UIImageView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/round-corners-imageView.md)
 * [Style button with image and text](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/style-button-with-image-and-text.md)
