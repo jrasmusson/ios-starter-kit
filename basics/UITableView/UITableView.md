@@ -16,7 +16,27 @@ class IndentedLabel: UILabel {
     }
 }
 ```
+
 And then use like this.
+
+```swift
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let label = IndentedLabel()
+
+        if section == 0 {
+            label.text = "Short names"
+        } else {
+            label.text = "Long names"
+        }
+
+        label.backgroundColor = .lightBlue
+        label.textColor = .darkBlue
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+
+        return label
+    }
+```
 
 ## Auto Layout
 
