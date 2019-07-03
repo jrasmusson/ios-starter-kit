@@ -139,3 +139,4 @@ class ViewController: UIViewController {
 * [Apple docs distribution](https://developer.apple.com/documentation/uikit/uistackview/distribution)
 * [Apple docs alignment](https://developer.apple.com/documentation/uikit/uistackview/alignment)
 * [Visual example where images came from](https://spin.atomicobject.com/2016/06/22/uistackview-distribution/)
+* [NSHipster](https://nshipster.com/uistackview/)
