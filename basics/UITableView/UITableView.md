@@ -2,7 +2,53 @@
 
 ## How to custom format viewForHeaderInSection
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/how-to-nudge-right.png" width="400"/>
 
+## Simple
+
+If all you need is to nudge a label 16pts to the right, extend UILabel and redraw the text
+
+```swift
+class IndentedLabel: UILabel {
+    override func drawText(in rect: CGRect) {
+        let customRect = rect.insetBy(dx: 16, dy: 0)
+        super.drawText(in: customRect)
+    }
+}
+```
+And then use like this.
+
+## Auto Layout
+
+If you need something more complicated, consider creating a custom view. Both here do the same thing.
+
+```swift
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let containerView = UIView()
+        containerView.backgroundColor = .lightBlue
+
+        let label = UILabel()
+        containerView.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16).isActive = true
+
+        if section == 0 {
+            label.text = "Short names"
+        } else {
+            label.text = "Long names"
+        }
+
+        label.textColor = .darkBlue
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+
+        return containerView
+    }
+```
+
+Note: `containerView` doesn't need `translatesAutoresizingMaskIntoConstraints = false` because the UITable sets or draws the rect for thge section header itself.
 
 ## Basic Setup
 
