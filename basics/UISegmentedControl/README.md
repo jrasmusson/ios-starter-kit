@@ -2,7 +2,7 @@
 
 ## Example
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPickerView/images/simple-picker.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISegmentedControl/images/example.png" alt="drawing" width="400"/>
 
 ```swift
 let employeeTypeSegmentedControl: UISegmentedControl = {
