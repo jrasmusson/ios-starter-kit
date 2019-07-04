@@ -72,6 +72,14 @@ enum SegueIdentifier: String {
     case Main
     case Options
 }
+
+// or
+
+enum EmployeeType: String {
+    case Executive
+    case SeniorManagement = "Senior Management"
+    case Staff
+}
 ```
 
 And then use like this
