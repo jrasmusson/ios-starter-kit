@@ -1,5 +1,42 @@
 # UITableView
 
+## Basic
+
+```swift
+import UIKit
+
+class RootViewController: UITableViewController {
+
+    let labs = ["Basic Anchors",
+                "Safe Area Guide",
+                "Layout Margin",
+                "Spacer Views",
+                "Readable Content Guide"]
+    
+    let cellId = "cellId"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = "Anchors"
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        cell.textLabel?.text = labs[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return labs.count
+    }
+}
+```
+
+
 ## How to custom format viewForHeaderInSection
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/how-to-nudge-right.png" width="400"/>
