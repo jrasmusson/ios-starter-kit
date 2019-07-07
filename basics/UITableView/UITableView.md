@@ -36,6 +36,8 @@ class RootViewController: UITableViewController {
 }
 ```
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic-setup.png" width="400"/>
+
 
 ## How to custom format viewForHeaderInSection
 
@@ -106,73 +108,6 @@ If you need something more complicated, consider creating a custom view. Both he
 ```
 
 Note: `containerView` doesn't need `translatesAutoresizingMaskIntoConstraints = false` because the UITable sets or draws the rect for thge section header itself.
-
-## Basic Setup
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic-setup.png" width="400"/>
-
-```swift
-//
-//  ViewController.swift
-//  SecondaryTableView
-//
-//  Created by Jonathan Rasmusson (Contractor) on 2019-03-07.
-//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
-//
-
-import UIKit
-
-class ViewController: UIViewController {
-
-    let actionButtons = ["Change Name", "Change ID", "Change Password", "Change Recovery Email Address"]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-    }
-
-    func setupViews() {
-        view.backgroundColor = .red
-
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
-
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        view.addSubview(tableView)
-
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-
-        tableView.reloadData()
-    }
-
-}
-
-extension ViewController: UITableViewDelegate {
-
-}
-
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actionButtons.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-
-        cell.textLabel?.text = actionButtons[indexPath.row]
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-
-        return cell
-    }
-
-}
-```
 
 ## Headers
 
