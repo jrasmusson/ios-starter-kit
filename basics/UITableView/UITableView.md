@@ -36,7 +36,7 @@ class RootViewController: UITableViewController {
 }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic-setup.png" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic.png" width="400"/>
 
 
 ## How to custom format viewForHeaderInSection
