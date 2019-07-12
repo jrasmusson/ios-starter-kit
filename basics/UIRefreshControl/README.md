@@ -16,9 +16,13 @@
 
     @objc func handleRefresh() {
         Service.shared.downloadCompaniesFromServer()
-    }
+	
+	// Dismiss the refresh control
+        DispatchQueue.main.async {
+            self.refreshControl?.endRefreshing()
+        }
 
+    }
 ```
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIRefreshControl/images/demo.gif)
-
 
