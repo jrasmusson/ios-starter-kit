@@ -10,7 +10,8 @@
     func handleDownload() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-
+	refreshControl.tintColor = .white
+		
         self.refreshControl = refreshControl
     }
 
