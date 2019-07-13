@@ -5,8 +5,8 @@
 ```swift
 import UIKit
 
-class RootViewController: UITableViewController {
-
+class ViewController: UITableViewController {
+    
     let labs = ["Basic Anchors",
                 "Safe Area Guide",
                 "Layout Margin",
@@ -17,10 +17,14 @@ class RootViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+    }
+    
+    func setupViews() {
         navigationItem.title = "Anchors"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
@@ -32,6 +36,10 @@ class RootViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return labs.count
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 ```
