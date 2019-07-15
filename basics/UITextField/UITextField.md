@@ -92,7 +92,9 @@ One way to handle this is to
 * calculate the size of the keyboard
 * and then update that constraint to include the original height + the keyboard height
 
-The example below shows you how to do this.
+The other is to use [TPKeyboardAvoiding](https://github.com/michaeltyson/TPKeyboardAvoiding).
+
+This example below shows you how to do it the manual way.
 
 ```swift
 //
