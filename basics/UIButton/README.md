@@ -9,6 +9,7 @@
         button.setTitle(title, for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
+        button.backgroundColor = .blue
         
         return button
     }
