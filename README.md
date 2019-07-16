@@ -143,6 +143,7 @@ A starter kit for those interested in iOS programming
 * [How to calculate height of label](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/height-of-label.md)
 * [Add corner and shadow to view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/corner-and-shadow.md)
 * [How to Xcode command line](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/xcode-command-line.md)
+* [TPKeyboardAvoiding](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/howto-TPKeyboardAvoiding.md)
 
 ## Trouble Shooting
 * [App installation](https://github.com/jrasmusson/ios-starter-kit/blob/master/troubleshooting/app-installation/app-installation.md)
