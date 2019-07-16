@@ -1,6 +1,9 @@
 # How to TPKeyboardAvoiding
 
-This library deals with the popping up keyboard problem by putting your view into a scrollable view. Note: It doesn't adjust your layout - if you want to do that you still need to calculate the keyboard and do that yourself. But it's a good solution for making your view scrollable when the keyboard appears and it quite popular.
+This library deals with the popping up keyboard problem by putting your view into a scrollable view. Note: It doesn't adjust labels. Only fields that can respond as first responders. So if you have a layout containing labels, it will not adjust for those. But if you have multiple textFields, it will focus on each one and adjust the scrollview insets accordingly.
+
+There is also a `UITableViewController` and `UICollectionViewController` variant too.
+
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/TPKeyboardAvoiding-demo.gif)
 
@@ -11,14 +14,6 @@ This library deals with the popping up keyboard problem by putting your view int
 ```
 
 ```swift
-//
-//  ViewController.swift
-//  Foo
-//
-//  Created by Jonathan Rasmusson (Contractor) on 2019-07-16.
-//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
-//
-
 import UIKit
 import TPKeyboardAvoiding
 
@@ -30,13 +25,13 @@ class ViewController: UIViewController {
     }
 
     func setupViews() {
-        let textField = makeTextField()
         let scrollView = makeScrollView()
-        let middle = makeButton(title: "Middle")
+        let top = makeTextField()
+        let middle = makeTextField()
 
         view.addSubview(scrollView)
 
-        scrollView.addSubview(textField)
+        scrollView.addSubview(top)
         scrollView.addSubview(middle)
 
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -44,11 +39,11 @@ class ViewController: UIViewController {
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
-        textField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8).isActive = true
-        textField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
+        top.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8).isActive = true
+        top.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
 
         middle.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        middle.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor).isActive = true
+        middle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 500).isActive = true
     }
 
     func makeTextField() -> UITextField {
