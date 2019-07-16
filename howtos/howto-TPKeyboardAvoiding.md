@@ -5,7 +5,7 @@ This library deals with the popping up keyboard problem by putting your view int
 There is also a `UITableViewController` and `UICollectionViewController` variant too.
 
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/TPKeyboardAvoiding-demo.gif)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/demo-TPKeyboardAvoiding.gif)
 
 ```swift
 > pod init
