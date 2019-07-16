@@ -3,7 +3,7 @@
 ## How to make button text dynamically fit the size of the button
 
 ```swift
-    static func makeButton(title: String) -> UIButton {
+    func makeButton(title: String) -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(title, for: .normal)
