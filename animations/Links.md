@@ -6,4 +6,4 @@
 * [Nathan Glitter fluid interfaces](https://github.com/nathangitter/fluid-interfaces)
 * [Ray Wonderlich Apple Music Transition](https://www.raywenderlich.com/221-recreating-the-apple-music-now-playing-transition
 )
-
+* [Another peteog implementation of WWDC animation video](https://github.com/peteog/CardUI)
