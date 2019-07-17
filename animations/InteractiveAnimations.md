@@ -1,5 +1,16 @@
 # Interactive Animations
 
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/images/demo-InteractiveAnimations.gif)
+
+There is a lot going on in this demo. Read Nathan's blog post for a detailed break down. But basically we are creating a view, animating it's display up using `UIViewPropertyAnimator` and then taking into account a whole bunch of things like
+
+- direction
+- reveribility
+- fraction complete
+- custom tap gesture to act more like a scroll
+
+* [Nathan Glitter](http://www.swiftkickmobile.com/building-better-app-animations-swift-uiviewpropertyanimator/)
+
 ```swift
 //
 //  ViewController.swift
@@ -159,7 +170,6 @@ class InstantPanGestureRecognizer: UIPanGestureRecognizer {
 ```
 
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/images/pangesture.gif)
 
 
 ### Links that help
