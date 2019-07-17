@@ -105,6 +105,7 @@ A starter kit for those interested in iOS programming
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
 * [How tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/README.md)
+* [UIPanGestureRecognizer](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIPanGestureRecognizer.md)
 
 ## How tos
 * [Key Value Observe](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
