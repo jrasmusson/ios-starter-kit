@@ -101,6 +101,7 @@ A starter kit for those interested in iOS programming
 * [How to test via callbacks](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/testing-with-callbacks.md)
 
 ## Animations
+* [Useful links](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/Links.md)
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
