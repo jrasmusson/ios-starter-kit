@@ -65,6 +65,34 @@ class ViewController: UIViewController {
     }
 }
 ```
+The interesting bit is this method here
+
+```swift
+    case .began:
+        animator = UIViewPropertyAnimator(duration: 3, curve: .easeOut, animations: {
+            self.myView.transform = CGAffineTransform(translationX: 275, y: 0)
+            self.myView.alpha = 0
+        })
+        animator.startAnimation()
+        animator.pauseAnimation()
+```
+
+Because the animation starts with a pan gesture, we can be reasonably sure that the user will continue to scrub the animation first before releasing the tap. That's why we pause the animation just after we start it.
+
+Because then we can detect that a `change` has occurred, and update the animation to a `fractionComplete` by normalizing the width of the animation view against the views current position x.
+
+```swift
+case .changed:
+    animator.fractionComplete = recognizer.translation(in: myView).x / 275
+```
+
+Then once the user has finished scrubbing, we can let the animation play to it's completion.
+
+```swift
+        case .ended:
+            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+```
+
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/images/pangesture.gif)
 
