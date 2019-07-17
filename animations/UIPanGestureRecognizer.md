@@ -66,5 +66,8 @@ class ViewController: UIViewController {
 }
 ```
 
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/images/pangesture.gif)
+
+
 ### Links that help
 * [Nathan Glitter](http://www.swiftkickmobile.com/building-better-app-animations-swift-uiviewpropertyanimator/)
