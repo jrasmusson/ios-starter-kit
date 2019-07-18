@@ -40,7 +40,17 @@ Use basically create your ViewController and then set properties as follows
 
 Here are some of the more interesting outputs.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+CrossDisolve
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/images/crossDisolve.gif)
+
+FlipHorizontal
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/images/flipHorizontal.gif)
+
+OverfullScreen
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/images/overfullscreen.gif)
+
+PartialCurl
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/images/partialCurl.gif)
 
 
 ### Links that help
