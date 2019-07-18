@@ -2,6 +2,20 @@
 
 Initialization is the process of preparing an instance of a class, structure, or enumeration for use. This process involves setting an initial value for each stored property on that instance and performing any other setup or initialization that is required before the new instance is ready for use.
 
+## Private Lazy Vars
+
+These are nice because they defer instantiation until the variable is called for the first time, after which their value is saved. So, if you call the variable for the second time, the previously saved value is returned.
+
+```swift
+    private lazy var handleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        view.layer.cornerRadius = 3
+        return view
+    }()
+```
+
 ## Setting Initial Values for Stored Properties
 
 Classes and structures must set all of their stored properties to an appropriate initial value by the time an instance of that class or structure is created. Stored properties cannot be left in an indeterminate state.
