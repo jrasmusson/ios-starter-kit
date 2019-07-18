@@ -96,6 +96,36 @@ Note: If you don't know the intrinsic size of a view in the `UIStackView` you ne
         stackView.addArrangedSubview(chatView)
 ```
 
+## The trick to understanding ScrollViews
+
+The trick to understanding scroll views is you can't just rely on your contents intrinsic height to layout the scroll views content. You need an unbroken chain of constraints to the scroll view can calculate is scrollable area.
+
+For example, if we add a lable to a scroll view, but don't fully pin it to all the edge of the scroll view (and try to rely solely on it's intrinsic size like, this, we will get a warning.
+
+```swift
+label.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+label.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+label.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true\
+```
+
+`Warning: Constraints for scrollable content height are missing.`
+
+And that's because even though the label has an intrinsic content size, the scroll view can't determine how much of the view is scrollable. The fix is to add the bottom constraint to fully define it.
+
+```label.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true```
+
+Apple in their [docs](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) describes it like this:
+
+> IMPORTANT
+>
+> Your layout must fully define the size of the content view (except where defined in steps 5 and 6). To set the height based on the intrinsic size of your content, you must have an unbroken chain of constraints and views stretching from the content view’s top edge to its bottom edge. Similarly, to set the width, you must have an unbroken chain of constraints and views from the content view’s leading edge to its trailing edge.
+> 
+> If your content does not have an intrinsic content size, you must add the appropriate size constraints, either to the content view or to the content.
+> 
+> When the content view is taller than the scroll view, the scroll view enables vertical scrolling. When the content view is wider than the scroll view, the scroll view enables horizontal scrolling. Otherwise, scrolling is disabled by default.
+> 
+
+
 ### Links that help
 
 * [Apple UIScrollView docs](https://developer.apple.com/documentation/uikit/uiscrollview)
