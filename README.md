@@ -57,7 +57,7 @@ A starter kit for those interested in iOS programming
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 * [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
-* [UIModel](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/README.md)
+* [UIModal](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/README.md)
 * [UIColor](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIColor/README.md)
 * [UIRefreshControl](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIRefreshControl/README.md)
 * [Margins & Layout Guides](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
