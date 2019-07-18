@@ -45,4 +45,4 @@ Here are some of the more interesting outputs.
 
 ### Links that help
 
-* [Programmatic UINavigation Controller](https://medium.com/whoknows-swift/swift-the-hierarchy-of-uinavigationcontroller-programmatically-91631990f495)
+* [Apple Docs](https://developer.apple.com/documentation/uikit/uimodalpresentationstyle)
