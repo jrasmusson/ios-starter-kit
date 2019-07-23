@@ -28,9 +28,16 @@
     }()
 ```
 
-## How to limit label size to on row and grow and shrink as required
+## How to adjust label size when width shrinks
 
-Make the label single line. Pin it to leading trailing.  They set `adjustsFontSizeToFitWidth` and `minimumScaleFactor`.
+If your label ever gets compressed, you can make the `UILabel` dynamically adjust itself by using these two properties.
+
+```swift
+button.titleLabel?.minimumScaleFactor = 0.5 // default 0
+button.titleLabel?.adjustsFontSizeToFitWidth = true // default false
+```
+
+> `adjustsFontSizeToFitWidth` A Boolean value indicating whether the font size should be reduced in order to fit the title string into the label’s bounding rectangle.
 
 ```swift
     func makeOverdueAlertLabel() -> UILabel {
