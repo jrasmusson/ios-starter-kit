@@ -2,7 +2,7 @@
 
 ## Paragraph Spacing
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/FramesVsBounds/images/frame1.png"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/paragraph.png" width="400/>
 
 ```swift
     let nameLabel: UILabel = {
