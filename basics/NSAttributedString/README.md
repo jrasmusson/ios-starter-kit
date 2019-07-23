@@ -16,7 +16,7 @@
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
-        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+        attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
         
         // check mark
         let attachment = NSTextAttachment()
@@ -28,4 +28,20 @@
         return label
         
     }()
+```
+
+### Paragraph style
+
+```swift
+let paragraphStyle = NSMutableParagraphStyle()
+paragraphStyle.lineSpacing = 4
+attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+```
+## Others
+
+```swift
+let attributedText = NSMutableAttributedString(string: "Kevin Flynn", attributes: [
+    NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+    NSAttributedString.Key.kern: 1
+    ])
 ```
