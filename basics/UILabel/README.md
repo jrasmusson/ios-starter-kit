@@ -39,6 +39,10 @@ button.titleLabel?.adjustsFontSizeToFitWidth = true // default false
 
 > `adjustsFontSizeToFitWidth` A Boolean value indicating whether the font size should be reduced in order to fit the title string into the label’s bounding rectangle.
 
+> `minimumScaleFactor` The minimum scale factor supported for the label’s text.
+
+The `minimumScaleFactor` is a multiplier against the label. Whatever value you choose here, is the smallest your label will become. So if you `UIFont` size is 10, and you give a `miniumScaleFactor = 0.5` the smallest your font will go is `5`. The default is '0' so you don't really need it. But it's a way for you to limit a minium font size if you want to.
+
 ```swift
     func makeOverdueAlertLabel() -> UILabel {
         let label = ControlFactory.makeBoldLabel(text: loc("Your account is overdue by $XXX"), size: 16)
