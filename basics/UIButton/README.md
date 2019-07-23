@@ -1,5 +1,96 @@
 # UIButton
 
+## How to make a button with rounded corners
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
+
+```swift
+func makeRoundCornerButton(title: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(title, for: .normal)
+    button.titleLabel?.minimumScaleFactor = 0.5
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.backgroundColor = .blue
+    button.setTitleColor(.white, for: .normal)
+    button.layer.cornerRadius = 40 / 2
+    
+    return button
+}
+```
+
+## How to make a text only button
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-as-text.png"/>
+
+```swift
+func makeButton(title: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(title, for: .normal)
+    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+    button.backgroundColor = .white
+    button.setTitleColor(.blue, for: .normal)
+    button.titleLabel?.numberOfLines = 0
+    button.titleLabel?.lineBreakMode = .byWordWrapping
+    button.contentHorizontalAlignment = .left
+
+    return button
+}
+```
+## How to set image on button
+
+```swift
+    let progressButton: UIButton = {
+        let button = makeButton(title: "")
+
+        let imageView = UIImageView()
+        let image = UIImage(named: "loading_dots_large_white1")
+        button.setImage(image, for: .normal)
+
+        return button
+    }()
+```
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/image-on-button.png"/>
+
+
+
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    let button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .green
+        button.setTitle("GOT IT", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .white
+        view.addSubview(button)
+
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+
+    @objc func buttonPressed(sender: UIButton!) {
+        print("Button tapped")
+    }
+    
+}
+```
+
 ## How to make button text dynamically fit the size of the button
 
 ```swift
@@ -119,96 +210,6 @@ Note that image start off on the left, so you need to either calculate the width
 
 Or you can force flip the `semanticContentAttribute` to be `.forceRightToLeft` to start the image on the right. But this isn't recommneded as you then lose direction of language.
 
-## How to make a button with rounded corners
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
-
-```swift
-func makeRoundCornerButton(title: String) -> UIButton {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle(title, for: .normal)
-    button.titleLabel?.minimumScaleFactor = 0.5
-    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-    button.titleLabel?.adjustsFontSizeToFitWidth = true
-    button.backgroundColor = .blue
-    button.setTitleColor(.white, for: .normal)
-    button.layer.cornerRadius = 40 / 2
-    
-    return button
-}
-```
-
-## How to make a text only button
-
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-as-text.png"/>
-
-```swift
-func makeButton(title: String) -> UIButton {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setTitle(title, for: .normal)
-    button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-    button.backgroundColor = .white
-    button.setTitleColor(.blue, for: .normal)
-    button.titleLabel?.numberOfLines = 0
-    button.titleLabel?.lineBreakMode = .byWordWrapping
-    button.contentHorizontalAlignment = .left
-
-    return button
-}
-```
-## How to set image on button
-
-```swift
-    let progressButton: UIButton = {
-        let button = makeButton(title: "")
-
-        let imageView = UIImageView()
-        let image = UIImage(named: "loading_dots_large_white1")
-        button.setImage(image, for: .normal)
-
-        return button
-    }()
-```
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/image-on-button.png"/>
-
-
-
-
-```swift
-import UIKit
-
-class ViewController: UIViewController {
-
-    let button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .green
-        button.setTitle("GOT IT", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-
-        return button
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .white
-        view.addSubview(button)
-
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-
-    @objc func buttonPressed(sender: UIButton!) {
-        print("Button tapped")
-    }
-    
-}
-```
 
 ## Buttons on UINavigationBar
 
