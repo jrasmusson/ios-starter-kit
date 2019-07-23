@@ -30,6 +30,8 @@
     }()
 ```
 
+Unicode bullet https://unicode-table.com/en/2022/
+
 ## Button
 
 ```swift
