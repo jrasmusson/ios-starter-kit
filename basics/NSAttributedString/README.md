@@ -1,6 +1,6 @@
 # NSAttributedString
 
-## Paragraph Spacing
+## Label
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/paragraph.png" width="400"/>
 
@@ -30,18 +30,28 @@
     }()
 ```
 
-### Paragraph style
+## Button
 
 ```swift
-let paragraphStyle = NSMutableParagraphStyle()
-paragraphStyle.lineSpacing = 4
-attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
-```
-## Others
+    func makeSpotifyButton(withText title: String) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.minimumScaleFactor = 0.5
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.backgroundColor = .spotifyGreen
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = buttonHeight / 2
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: buttonHeight, bottom: 10, right: buttonHeight)
 
-```swift
-let attributedText = NSMutableAttributedString(string: "Kevin Flynn", attributes: [
-    NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
-    NSAttributedString.Key.kern: 1
-    ])
+        // You are here - add kerning
+        let attributedText = NSMutableAttributedString(string: title, attributes: [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.kern: 1
+            ])
+
+        button.setAttributedTitle(attributedText, for: .normal)
+
+        return button
+    }
 ```
