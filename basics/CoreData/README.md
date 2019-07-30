@@ -2,6 +2,7 @@
 
 ## Example
 
+```swift
 import CoreData
 
 struct CoreDataManager {
