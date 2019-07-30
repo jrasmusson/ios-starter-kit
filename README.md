@@ -36,6 +36,7 @@ A starter kit for those interested in iOS programming
 * [Strings](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Strings.md)
 * [Idioms](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Idioms.md)
 * [DynamicCallable](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/DynamicCallable.md)
+* [Result](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Result.md)
 
 ## Basics
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
