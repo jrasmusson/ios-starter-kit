@@ -1,3 +1,30 @@
+# Stubs
+
+```swift
+class ActivationStatusServiceErrorStub: ActivationStatusProtocol {
+
+    var expectation: XCTestExpectation?
+
+    override func fetchActivationStatus(completion: @escaping (ActivateStatus?, Error?) -> Void ) {
+        completion(nil, NetworkHandlerError.noData)
+        expectation?.fulfill()
+        expectation = nil
+    }
+}
+
+class ActivationStatusServiceSuccessStub: ActivationStatusProtocol {
+
+    var expectation: XCTestExpectation?
+
+    override func fetchActivationStatus(completion: @escaping (ActivateStatus?, Error?) -> Void ) {
+        let activateStatus = ActivateStatus(status: ActivationResult.Success.rawValue, accountNumber: "111", serialNumber: "222")
+        completion(activateStatus, nil)
+        expectation?.fulfill()
+        expectation = nil
+    }
+}
+```
+
 # Mocking
 
 ## How to mock a shared service
