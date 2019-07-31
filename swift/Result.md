@@ -26,3 +26,16 @@ func refreshOrders(completion: @escaping ((Result<[OrderItem], Error>) -> Void))
                 
 }
 ```
+
+And then when you call
+
+```swift
+fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
+    switch result {
+    case .success(let count):
+        print("\(count) unread messages.")
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
