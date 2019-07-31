@@ -27,7 +27,7 @@ func refreshOrders(completion: @escaping ((Result<[OrderItem], Error>) -> Void))
 }
 ```
 
-And then when you call
+And then when you call you pull the payload or error from the result like this by defining lets
 
 ```swift
 fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
