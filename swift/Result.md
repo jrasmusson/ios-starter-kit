@@ -39,3 +39,13 @@ fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
     }
 }
 ```
+
+Alternatively
+
+``swift
+            do {
+                let orderItems = try? result.get()
+            } catch error {
+                print("Error fetching value: \(error)")
+            }
+```
