@@ -19,11 +19,12 @@ Example
 ```swift
 func refreshOrders(completion: @escaping ((Result<[OrderItem], Error>) -> Void)) {
 
-	completion(Result.failure(ActivationError.coreData))
+   // Success
+   self.selectedAccount?.orderItems = NSSet(array: collection)
+   completion(Result.success(collection))             
 
-    self.selectedAccount?.orderItems = NSSet(array: collection)
-    completion(Result.success(collection))
-                
+   // Error
+   completion(Result.failure(ActivationError.coreData))
 }
 ```
 
