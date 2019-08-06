@@ -43,10 +43,14 @@ fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
 
 Alternatively
 
-``swift
-            do {
-                let orderItems = try? result.get()
-            } catch error {
-                print("Error fetching value: \(error)")
-            }
+```swift
+session.refreshOrders(completion: { (result) in
+    subject = try? result.get().first
+})
+
+do {
+    let orderItems = try? result.get()
+} catch error {
+    print("Error fetching value: \(error)")
+}
 ```
