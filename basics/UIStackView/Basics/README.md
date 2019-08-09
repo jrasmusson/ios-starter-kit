@@ -3,7 +3,7 @@
 ## insets for padding and spacing
 
 ```swift
-stackView.layoutMargins = UIEdgeInsets(top: 0, left: Spacing.marginSmall, bottom: 18, right: Spacing.marginSmall)
+stackView.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 18, right: 8)
 ```
 
 ## breakable spacer view
