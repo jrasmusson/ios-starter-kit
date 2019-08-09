@@ -1,5 +1,35 @@
 # UIStackView
 
+## insets for padding and spacing
+
+```swift
+stackView.layoutMargins = UIEdgeInsets(top: 0, left: Spacing.marginSmall, bottom: 18, right: Spacing.marginSmall)
+```
+
+## breakable spacer view
+
+```swift
+stackView.addArrangedSubview(makeSpacerView(height: 200))
+
+public func makeSpacerView(height: CGFloat? = nil) -> UIView {
+    let spacerView = UIView(frame: .zero)
+    if let height = height {
+        spacerView.heightAnchor.constraint(equalToConstant: height).setActiveBreakable()
+    }
+    spacerView.translatesAutoresizingMaskIntoConstraints = false
+    return spacerView
+}
+
+public extension NSLayoutConstraint {
+    @objc func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
+        self.priority = priority
+        isActive = true
+    }
+}
+```
+
+What this is doing is inserting a spacer view into the stack view, but making it breakable. That way if the stackview needs to adjust because of its distribution or alignment it can.
+
 ## Always pin your stackview to avoid ambiguous height
 
 ```swift
