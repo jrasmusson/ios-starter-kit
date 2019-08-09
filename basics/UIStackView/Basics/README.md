@@ -9,7 +9,6 @@ stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 16
 
 Note: Do not use `stackView.layoutMargins = UIEdgeInsets(...)` as this has been deprecated.
 
-[USe your load](https://useyourloaf.com/blog/adding-padding-to-a-stack-view/)
 
 ## breakable spacer view
 
@@ -448,5 +447,6 @@ This examples shows how the labels in a `UIStackView` can stretch to fill availa
 * [Apple docs](https://developer.apple.com/documentation/uikit/uistackview)
 * [Apple Example](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/LayoutUsingStackViews.html#//apple_ref/doc/uid/TP40010853-CH11-SW1)
 * [Excellent article on distribution](https://spin.atomicobject.com/2016/06/22/uistackview-distribution/)
+* [Use your loaf - Padding to StackView](https://useyourloaf.com/blog/adding-padding-to-a-stack-view/)
 
 
