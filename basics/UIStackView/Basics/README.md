@@ -1,10 +1,15 @@
 # UIStackView
 
-## insets for padding and spacing
+## Add padding to your stackview
 
 ```swift
-stackView.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 18, right: 8)
+stackView.isLayoutMarginsRelativeArrangement = true
+stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: -16)
 ```
+
+Note: Do not use `stackView.layoutMargins = UIEdgeInsets(...)` as this has been deprecated.
+
+[USe your load](https://useyourloaf.com/blog/adding-padding-to-a-stack-view/)
 
 ## breakable spacer view
 
