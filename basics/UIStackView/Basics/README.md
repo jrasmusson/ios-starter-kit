@@ -110,7 +110,7 @@ or
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/button-in-a-view.png" alt="drawing" width="400"/>
 
-The trick to getting any view to layout customer in a `UIStackView` is to embed it in a container view and then let the stackview lay it out. Meanwhile you can setup whatever padding or constraints you want between your innerview and the container view.
+The trick to getting any view to layout custom in a `UIStackView` is to embed it in a container view and then let the stackview lay it out. Meanwhile you can setup whatever padding or constraints you want between your innerview and the container view.
 
 ```swift
     let moreButton = makeMoreButton()
