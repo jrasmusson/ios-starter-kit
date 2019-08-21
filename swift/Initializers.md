@@ -48,7 +48,7 @@ class SurveyQuestion {
 Swift provides a default initializer for any structure or class that provides default values for all of its properties and does not provide at least one initializer itself. The default initializer simply creates a new instance with all of its properties set to their default values.
 
 ```swift
-lass ShoppingListItem {
+class ShoppingListItem {
     var name: String?
     var quantity = 1
     var purchased = false
@@ -56,6 +56,21 @@ lass ShoppingListItem {
 var item = ShoppingListItem()
 ```
  
+## Delayed Assignment
+
+Sometimes you want to assign multiple values to a variable, but some specific initialization is need on one of them. In that case just define the variable, create a newVariable, and assign it after the custom work has been done.
+
+```swift
+let viewController: UIViewController
+
+if selectedAccount.isDefault {
+    let defaultViewController = ManageAccountsViewController()
+    defaultViewController.presenter = ManageAccountsPresenter(wireframe: self, session: session)
+    viewController = defaultViewController
+} else {
+    viewController = ManageAccountsReadOnlyViewController()
+}
+```
 ### Links that help
 
 * [Swift Initializers](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html)
