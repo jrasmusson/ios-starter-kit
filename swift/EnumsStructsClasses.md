@@ -228,22 +228,32 @@ And if you don't care about certain values you can just ignore them.
 
 ## Enums are more powerful than you think
 
-### How to add an enum to a struct
+### How to add an enum to an existing struct
 
-Say you have an enum
+Say you want to have a struct return an enum based on an internal type.
 
 ```swift
-public enum ActivationModemType: String {
+enum ActivationModemType: String {
     case xb6
     case hitron
     case unknown
 }
+
+struct OrderItem {
+    let modemType: String
+}
+
+extension OrderItem {
+    // computed getter
+    public var activationModemType: ActivationModemType {
+        guard let modemType = modemType, let returnValue = ActivationModemType(rawValue: modemType) else {
+            return ActivationModemType.unknown
+        }
+        return returnValue
+    }
 ```
 
-And you want to add or expose it to a struct, based on an structs internal value.
-
-```swift
-
+You use the internal variable (`modemType`) to dynamically figure out the enum in the computed getter, and then return that enum value.
 
 ### Enums can be used as types
 
