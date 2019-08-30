@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Example with Protocol
 
-An even better way to do this is with protocols.
+An even better way to do this is with protocols. The advantage of this is you get type safety with the button selector. Where as if you just put any wily nily method there, there is no guarantee that anyone is going to pick it up.
 
 ```swift
 @objc protocol ButtonPressable: AnyObject {
