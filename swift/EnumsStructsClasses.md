@@ -220,9 +220,9 @@ And if you don't care about certain values you can just ignore them.
 ```swift
         switch kind {
         case .email:
-            ...
+            break
         case .listSelection(_, let pickerTitle, let listItems):
-            ...
+            break
         }
 ```
 
