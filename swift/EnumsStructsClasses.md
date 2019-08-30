@@ -226,6 +226,89 @@ And if you don't care about certain values you can just ignore them.
         }
 ```
 
+## Enums are more powerful than you think
+
+### How to add an enum to a struct
+
+Say you have an enum
+
+```swift
+public enum ActivationModemType: String {
+    case xb6
+    case hitron
+    case unknown
+}
+```
+
+And you want to add or expose it to a struct, based on an structs internal value.
+
+```swift
+
+
+### Enums can be used as types
+
+Enums don't just have to be used for switch statements. They, along with their associated values, can be more more akin to objects and structures themselves. For example here is an example of how a struct where one of it's types is an Enum.
+
+```swift
+
+import Foundation
+
+struct ActivationResourcePackage {
+    let headerImageName: String
+    let list: [ListType]
+}
+
+enum ListType {
+    case checkmark(header: String, subheader: String)
+    case url(title: String, url: URL)
+    case appDownload(title: String, subheader: String, buttonTitle: String, appUrl: URL)
+}
+
+extension ActivationResourcePackage {
+    static var hitronPackage = ActivationResourcePackage(headerImageName: "hitron-pink", list: [
+        ListType.checkmark(header: "Pat your head", subheader: "This helps the intertubes do their magic."),
+        ])
+
+    static var xb6Package = ActivationResourcePackage(headerImageName: "hitron-pink", list: [
+        ListType.checkmark(header: "Rub your belly", subheader: "Getting hungry for that internet goodness!"),
+        ListType.checkmark(header: "That's it!", subheader: "Don't forget to have a good day."),
+        ])
+}
+```
+
+Couple of cool things going on here:
+
+1. Enums are being used as a type (i.e. `ListType`).
+
+This is an enum, but it has parameters (associated types), and it is used as a type in an array. Like a struct or a class.
+
+2. Structs can have concrete static types.
+
+You can create a struct, and then statically give it type safe configurations, or representations, of what that struct represents. Handy for configuration, encapsulating differences, and exposing in a type safe way.
+
+Then you can use all these later in switch statements like this.
+
+```swift
+private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackage {
+
+    switch orderItem.activationModemType {
+    case .hitron:
+        return ActivationResourcePackage.hitronPackage
+    case .xb6:
+        return ActivationResourcePackage.xb6Package
+    case .unknown:
+        // TODO: bubble this up where if we can't make a package, don't
+        // even show the activation view controller, but present an alert
+        // to the user to potentially upgrade the app to the version that
+        // supports their modem to self activate
+        return ActivationResourcePackage.hitronPackage
+    }
+
+}
+```
+
+Here we are creating a type safe package representing our configuration, based on an enum type.
+
 # Structures
 
 Structures are general purpose constructs that form a key building block of your programs. `structs` in Swift are first class citizens - meaning they can contain functions, data, and pretty much anything else.
@@ -268,6 +351,35 @@ fan.rotates
 
 > Note: Structures and enumerations are values types in Swift. Value types are _copied_ when assigned to a variable or constant, or passed into a function. All basic types in Swift - integers, floating point numbers, Booleans, strings, arrays, dictionaries - are all value types.
 
+### Struct can't contain stored properties
+
+```swift
+extension OrderItem {
+    // lazy stored property
+    lazy var activationModemType: ActivationModemType = {
+        let activationModemType = ActivationModemType.xb6
+        return activationModemType
+    }()
+```
+
+### But they can contain computed properties
+
+```swift
+enum ActivationModemType: String {
+    case xb6
+    case hitron
+    case unknown
+}
+
+extension OrderItem {
+    // computed getter
+    public var activationModemType: ActivationModemType {
+        guard let modemType = modemType, let returnValue = ActivationModemType(rawValue: modemType) else {
+            return ActivationModemType.unknown
+        }
+        return returnValue
+    }
+```
 
 ## Initializer Rules
 
