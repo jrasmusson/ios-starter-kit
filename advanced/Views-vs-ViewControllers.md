@@ -36,6 +36,11 @@ It should all look something like this
         statusViewController.endAppearanceTransition()
 ```
 
+You would want to do this if you are creating a viewController this is going to contain or facilitate the interaction of other view controllers. This is called a `containerViewController` and is a thing in iOS.
+
+### Links that help
+
+- [Container ViewControllers](https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html)
 
 
 
