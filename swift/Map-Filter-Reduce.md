@@ -109,6 +109,31 @@ Final refactoring looks beautiful :)
         }
     }
  ```
+ 
+ ## Reduce
+ 
+ Use `reduce` to combine all items in a collection to create a single new value. The reduce method takes two values, an initial value and a combine closure. 
+ 
+ ```swift
+ let items = [2.0,4.0,5.0,7.0]
+let total = items.reduce(10.0, +)
+// 28.0
+
+let codes = ["abc","def","ghi"]
+let text = codes.reduce("", +)
+// "abcdefghi"
+
+let names = ["alan","brian","charlie"]
+let csv = names.reduce("===") {text, name in "\(text),\(name)"}
+// "===,alan,brian,charlie"
+
+## FlatMap and CompactMap
+
+See loaf website for example.
+
+```
+
+
 
 ### Links that help
 [Use your loaf - Map Filter Reduce](https://useyourloaf.com/blog/swift-guide-to-map-filter-reduce)
