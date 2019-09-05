@@ -167,6 +167,17 @@ myViewController.view.responderChain()
 // MyView -> MyViewController -> UIWindow -> UIApplication -> AppDelegate
 ```
 
+### Lifecycle matters
+
+You can't call responder chain programmatically until view is ready to appear. Works from here.
+
+```swift
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // fire here...
+    }
+```
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events)
