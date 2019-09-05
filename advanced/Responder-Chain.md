@@ -151,7 +151,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ButtonPressable {
 UIApplication.shared.sendAction(#selector(PayBillUserActions.performConfirmPayBillAction), to: nil, from: self, for: nil)
 ```
 
+How to check view responder chain
+
+```swift
+extension UIResponder {
+    func responderChain() -> String {
+        guard let next = next else {
+            return String(describing: self)
+        }
+        return String(describing: self) + " -> " + next.responderChain()
+    }
+}
+
+myViewController.view.responderChain()
+// MyView -> MyViewController -> UIWindow -> UIApplication -> AppDelegate
+```
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events)
 * [Example](http://swiftandpainless.com/utilize-the-responder-chain-for-target-action/)
+* [Another example](https://swiftrocks.com/understanding-the-ios-responder-chain.html)
