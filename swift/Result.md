@@ -78,9 +78,9 @@ return .success(())
 ### How to inline an error
 
 ```swift
-if failure {
+guard error == nil else {
     enum ForcedActivationError: Error { case failure }
-    completion(ForcedActivationError.failure)
+    completion(Swift.Result.failure(ForcedActivationError.failure))
     return
 }
 ```
