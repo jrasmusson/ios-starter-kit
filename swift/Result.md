@@ -1,5 +1,14 @@
 # Result
 
+## How to fire success or failure
+
+```swift
+completion(Swift.Result.success(()))
+completion(Swift.Result.failure(error))
+```
+
+## How they work
+
 An enum representing success or failure in an operation. If success return the success. If failure return the failure.
 
 ```swift
