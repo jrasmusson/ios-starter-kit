@@ -54,3 +54,27 @@ do {
     print("Error fetching value: \(error)")
 }
 ```
+
+### How to return a Void Success Result
+
+```swift
+    public func activate(completion: @escaping (Result<Void, Error>) -> Void) {
+        completion(Swift.Result.success(()))
+    }
+```
+
+"Void" doesn't mean "returns nothing." It's a type in Swift, a type that has exactly one value: the empty tuple (). That also happens to be the type:
+
+```swift
+public typealias Void = ()
+```
+
+As a matter of convention, we use Void to mean the type, and () to mean the value. The one thing that's a bit strange about using Void this way in a Result is the syntax. You wind up with something like:
+
+```swift
+return .success(())
+```
+
+### Links that help
+
+- [Void Success Result](https://stackoverflow.com/questions/44067192/how-to-handle-void-success-case-with-result-lib-success-failure)
