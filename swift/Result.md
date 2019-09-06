@@ -75,6 +75,16 @@ As a matter of convention, we use Void to mean the type, and () to mean the valu
 return .success(())
 ```
 
+### How to inline an error
+
+```swift
+if failure {
+    enum ForcedActivationError: Error { case failure }
+    completion(ForcedActivationError.failure)
+    return
+}
+```
+
 ### Links that help
 
 - [Void Success Result](https://stackoverflow.com/questions/44067192/how-to-handle-void-success-case-with-result-lib-success-failure)
