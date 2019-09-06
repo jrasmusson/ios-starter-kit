@@ -1,5 +1,13 @@
 # NSAttributedString
 
+Another way to define attributes.
+
+```swift
+        var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
+        boldTextAttributes[.foregroundColor] = UIColor.black
+        boldTextAttributes[.font] = UIFont.boldSystemFont(ofSize: 14)
+```
+
 ## Label
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/paragraph.png" width="400"/>
