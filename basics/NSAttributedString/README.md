@@ -1,14 +1,36 @@
 # NSAttributedString
 
-Another way to define attributes.
+## Label1
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/paragraph.png" width="400"/>
 
 ```swift
+    private func makeSubLabel() -> UILabel {
+        let subLabel = UILabel()
+        subLabel.textAlignment = .center
+        subLabel.numberOfLines = 0
+        subLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        subLabel.textColor = UIColor.shawGreyishBlack
+
+        var plainTextAttributes = [NSAttributedString.Key: AnyObject]()
+        plainTextAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
+
         var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
         boldTextAttributes[.foregroundColor] = UIColor.black
         boldTextAttributes[.font] = UIFont.boldSystemFont(ofSize: 14)
+
+        let text = NSMutableAttributedString(string: "Please", attributes: plainTextAttributes)
+        text.append(NSAttributedString(string: " stay on this screen ", attributes: boldTextAttributes))
+        text.append(NSAttributedString(string: "while we activate your service. This process may take a few minutes.", attributes: plainTextAttributes))
+
+        subLabel.attributedText = text
+
+        return subLabel
+    }
 ```
 
-## Label
+## Label2
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/paragraph.png" width="400"/>
 
