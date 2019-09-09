@@ -15,9 +15,13 @@ pod install
 ```
 Close Xcode. Reopen project file.
 
+## Importing Lottie files
+
+Lottie files come in as raw json files (do not add to asset catalog).
+
 [Download](https://www.lottiefiles.com/159-servishero-loading) sample lottie file.
 
-Drag into project.
+Drag into project (not Asset).
 
 ```swift
 //
