@@ -178,6 +178,52 @@ You can't call responder chain programmatically until view is ready to appear. W
     }
 ```
 
+### How to pass information as part of responder chain
+
+Responder chain by itself can't pass data. All you have is the `sender` API call, and it simply passing the `UIControl` that fired the event (i.e. `UIButton`).
+
+```swift
+@objc
+protocol NewActivationViewControllerResponder {
+    func didPressActivationUrlCTAButton(_ sender: Any?)
+}
+```
+
+To pass information (i.e. the URL to display based on what the user clicked) you need to add one layer of abstraction. Create a plain old method to receive the button tap, and then fire the `UIResponder` chain event manually yourself, passing your in as the sender. Also make yourself a generic protocol so any control can do this.
+
+
+```swift
+protocol ActivationLinkable {
+    var url: URL { get }
+}
+
+class ActivationURLView: UIView, ActivationLinkable {
+
+    let url = "http://someURL" // we want to pass this up the responder chain 
+    
+    private func styleButton(text: String, url: URL) {
+        button.addTarget(nil, action: #selector(buttonPressed), for: .primaryActionTriggered)
+    }
+    
+    // so we pass it as part of ourself below
+    @objc 
+    private func buttonPressed() {
+        UIApplication.shared.sendAction(#selector(NewActivationViewControllerResponder.didPressActivationUrlCTAButton), to: nil, from: self, for: nil)
+    }
+```
+
+Then we can receive it anywhere else later and handle.
+
+```swift
+ViewController.swift
+
+    func didPressActivationUrlCTAButton(_ sender: Any?) {
+        guard let sender = sender as? ActivationLinkable else { return }
+        present(SFSafariViewController(url: sender.url), animated: true)
+    }
+```
+
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events)
