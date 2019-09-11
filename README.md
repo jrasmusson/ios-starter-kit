@@ -74,7 +74,7 @@ A starter kit for those interested in iOS programming
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 
 ## Advanced
-* [Views vs ViewConttrollers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
+* [Views vs ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/MVVM.md)
 * [MVP](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVP/README.md)
 * [Guiding Principles](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Guiding-Principles.md)
