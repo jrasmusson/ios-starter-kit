@@ -1,5 +1,12 @@
 # UIStackView
 
+## How to set specific or variable spacing
+
+```swift
+stackView.setCustomSpacing(10.0, after: firstLabel)
+stackView.setCustomSpacing(10.0, after: secondLabel)
+```
+
 ## Stack within Stack for padding
 
 Nudge elements within a stackView can be tricky. Usually it involves embedding your control in a view, and then setting constraints (or padding) around that control within your view inside the stack.
