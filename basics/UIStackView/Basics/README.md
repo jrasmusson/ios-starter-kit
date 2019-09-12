@@ -29,8 +29,7 @@ private func makeTitleStackView() -> UIView {
     LabelStyle.titleDarkGrey.apply(to: titleLabel)
 
     stackView.addArrangedSubview(titleLabel)
-    stackView.layoutMargins.left = Spacing.margin
-    stackView.layoutMargins.top = 24
+    stackView.layoutMargins = UIEdgeInsets(top: 24, left: 8, bottom: 0, right: 0)
 
     return stackView.wrapInCollapsible()
 }
