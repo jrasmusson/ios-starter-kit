@@ -10,6 +10,22 @@ let even = digits.filter { $0 % 2 == 0 }
 
 ## Map
 
+### Examples
+
+```swift
+let allViewElements = [
+    activateModemButton,
+    chatButton,
+    readyToActivateViewContainer,
+    failedActivationViewContainer,
+    readyToActivateViewSpacer,
+    currentInternetStackView,
+    manageInternetButton,
+    descriptionLabel
+]
+_ = allViewElements.map { $0.isHidden = true }
+```
+
 ### How to map instead of for loop
 
 Instead of 
