@@ -1,5 +1,28 @@
 # NSUserDefaults
 
+## A pattern
+
+```swift
+public class LocalState {
+    
+    private enum Keys: String {
+        case hasSuccessfullyActivated
+    }
+    
+    public static var hasSuccessfullyActivated: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: Keys.hasSuccessfullyActivated.rawValue)
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: Keys.hasSuccessfullyActivated.rawValue)
+            UserDefaults.standard.synchronize()
+        }
+    }
+}
+```
+
+## What are they?
+
 `NSUserDefaults` are temporary local storage you can use for storing data on the user's device.
 
 ```swift
