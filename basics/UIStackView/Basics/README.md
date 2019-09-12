@@ -1,6 +1,6 @@
 # UIStackView
 
-## How to add spacing to a label in a stackView
+## Stack within Stack for padding
 
 Nudge elements within a stackView can be tricky. Usually it involves embedding your control in a view, and then setting constraints (or padding) around that control within your view inside the stack.
 
@@ -35,6 +35,9 @@ private func makeTitleStackView() -> UIView {
     return stackView.wrapInCollapsible()
 }
 ```
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/stack-in-stack.png" alt="drawing" width="400"/>
+
 
 ## Add padding to your stackview
 
