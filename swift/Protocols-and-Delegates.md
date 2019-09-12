@@ -9,7 +9,7 @@ protocol LogoDownloaderDelegate: AnyObject {
 
 class LogoDownloader {
 
-    weak var delegate:LogoDownloaderDelegate?
+    weak var delegate: LogoDownloaderDelegate?
     
     func downloadLogo() {
     	delegate?.didFinishDownloading(self)
