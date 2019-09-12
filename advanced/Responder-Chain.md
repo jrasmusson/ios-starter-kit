@@ -1,5 +1,22 @@
 # Responder Chain
 
+## How to fire event manually
+
+```swift
+@objc protocol ActivationTileActions {
+    func performSetupYourModemAction(sender: Any?)
+}
+
+extension ActivationTileViewController: ActivationTileRowButtonViewDelegate {
+
+    func didPressButton(_ sender: Any?) {
+        UIApplication.shared.sendAction(#selector(ActivationTileActions.performSetupYourModemAction), to: nil, from: self, for: nil)
+    }
+}
+```
+
+## What is responder chain?
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/responder-chain.png" alt="drawing" width="600"/>
 
 The responder chain is an eventing mechanism Mac and iOS programs use for firing events up the UI hierarchy and having others listening for them.
