@@ -15,6 +15,14 @@ extension ActivationTileViewController: ActivationTileRowButtonViewDelegate {
 }
 ```
 
+Then to receive
+
+```swift
+@objc func performSetupYourModemAction(sender: Any?) {
+    presenter?.performSetupYourModemAction()
+}
+```
+
 ## What is responder chain?
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/responder-chain.png" alt="drawing" width="600"/>
