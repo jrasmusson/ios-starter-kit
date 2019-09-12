@@ -1,5 +1,33 @@
 # Enumerations
 
+## You can set enums like properties on a class
+
+```swift
+class Tile {
+    enum StatusState {
+        case loading
+        case loaded
+        case failed
+        case delinquent
+    }
+    
+    var status: StatusState {
+        didSet {
+            switch status {
+            case .loading: loadingState.isHidden = false
+            case .loaded: loadedState.isHidden = false
+            case .failed: failedState.isHidden = false
+            case .delinquent: delinquentState?.isHidden = false
+            }
+        }
+    }
+}
+```
+
+This is much better than having x4 `Bool`s. Enums are good at encapsulated and switching on state.
+
+## What is enum
+
 Enumerations define a common type for a group of related values. They're valuable because they let you work with constants in a type-safe way. Unlike `enums` in other languages, enumberations in Swift are first class citizens. They can have computed values, methods, and can be more than just integers.
 
 ```swift
