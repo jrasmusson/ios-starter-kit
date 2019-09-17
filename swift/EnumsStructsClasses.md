@@ -264,6 +264,8 @@ enum WeekDay :String {
 print(WeekDay.Monday.day()) // prints Monday
 ```
 
+Important: Enums can have methods, subscripts, and computed properties. But it cannot have stored properties.
+
 ## Enums are more powerful than you think
 
 ### How to add an enum to an existing struct
