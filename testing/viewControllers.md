@@ -16,6 +16,8 @@ class Tests: XCTestCase {
     func testHiddenButton() throws {
         _ = self.viewController.view // To call viewDidLoad
         
+        statusViewController.beginAppearanceTransition(true, animated: false) // viewWillAppear
+        statusViewController.endAppearanceTransition() // viewWillDisappear
         ...
     }
 }
