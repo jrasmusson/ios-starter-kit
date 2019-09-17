@@ -253,6 +253,16 @@ And if you don't care about certain values you can just ignore them.
             break
         }
 ```
+## Enums with methods
+
+```swift
+enum WeekDay :String {
+    case Monday
+    case Tuesday
+    func day() ->String { return self.rawValue }
+}
+print(WeekDay.Monday.day()) // prints Monday
+```
 
 ## Enums are more powerful than you think
 
