@@ -10,7 +10,7 @@ let even = digits.filter { $0 % 2 == 0 }
 
 ## Map
 
-### Examples
+Use map to loop over a collection and apply the same operation to every element. i.e. hidding all elements.
 
 ```swift
 let allViewElements = [
