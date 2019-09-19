@@ -695,8 +695,9 @@ private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackag
 
 Here we are creating a type safe package representing our configuration, based on an enum type.
 
-Links that help
-Apple Swift Docs
-More Enum Examples
+## Links that help
+
+- [Apple Swift Docs](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)
+- [More Enum Examples](https://developerinsider.co/advanced-enum-enumerations-by-example-swift-programming-language/)
 
 
