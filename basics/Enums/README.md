@@ -211,7 +211,7 @@ public enum NetworkReachabilityStatus {
         case wwan
     }
     
-    open var isReachableOnEthernetOrWiFi: Bool { return status == .reachable(.ethernetOrWiFi) }
+    var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
 ```
 
 This makes for some really nice readable code, and lets you combine various state representations within each other, in very nice programmable ways.
