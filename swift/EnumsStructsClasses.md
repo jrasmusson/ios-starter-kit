@@ -275,7 +275,7 @@ Say you want to have a struct return an enum based on an internal type.
 ```swift
 enum ActivationModemType: String {
     case xb6
-    case hitron
+    case usRobotics
     case unknown
 }
 
@@ -315,11 +315,11 @@ enum ListType {
 }
 
 extension ActivationResourcePackage {
-    static var hitronPackage = ActivationResourcePackage(headerImageName: "hitron-pink", list: [
+    static var usRoboticsPackage = ActivationResourcePackage(headerImageName: "robot-pink", list: [
         ListType.checkmark(header: "Pat your head", subheader: "This helps the intertubes do their magic."),
         ])
 
-    static var xb6Package = ActivationResourcePackage(headerImageName: "hitron-pink", list: [
+    static var xb6Package = ActivationResourcePackage(headerImageName: "robot-pink", list: [
         ListType.checkmark(header: "Rub your belly", subheader: "Getting hungry for that internet goodness!"),
         ListType.checkmark(header: "That's it!", subheader: "Don't forget to have a good day."),
         ])
@@ -342,16 +342,12 @@ Then you can use all these later in switch statements like this.
 private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackage {
 
     switch orderItem.activationModemType {
-    case .hitron:
-        return ActivationResourcePackage.hitronPackage
+    case .usRobotics:
+        return ActivationResourcePackage.usRoboticsPackage
     case .xb6:
         return ActivationResourcePackage.xb6Package
     case .unknown:
-        // TODO: bubble this up where if we can't make a package, don't
-        // even show the activation view controller, but present an alert
-        // to the user to potentially upgrade the app to the version that
-        // supports their modem to self activate
-        return ActivationResourcePackage.hitronPackage
+        return ActivationResourcePackage.unKnowPackage
     }
 
 }
@@ -417,7 +413,7 @@ extension OrderItem {
 ```swift
 enum ActivationModemType: String {
     case xb6
-    case hitron
+    case usRobotics
     case unknown
 }
 
