@@ -200,7 +200,8 @@ override func prepareForSegue(...) {
 Another cool thing you can do with enums is combine them.
 
 ```swift
-public enum NetworkReachabilityStatus {
+open class NetworkReachabilityManager {
+    public enum NetworkReachabilityStatus {
         case unknown
         case notReachable
         case reachable(ConnectionType)
@@ -210,8 +211,16 @@ public enum NetworkReachabilityStatus {
         case ethernetOrWiFi
         case wwan
     }
+
+    // MARK: - Properties
+
+    open var isReachable: Bool { return isReachableOnWWAN || isReachableOnEthernetOrWiFi }
+    open var isReachableOnWWAN: Bool { return networkReachabilityStatus == .reachable(.wwan) }
+    open var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
     
-    var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
+    open var networkReachabilityStatus: NetworkReachabilityStatus {
+        return .unknown
+    }
 ```
 
 This makes for some really nice readable code, and lets you combine various state representations within each other, in very nice programmable ways.
