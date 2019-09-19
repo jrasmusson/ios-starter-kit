@@ -174,5 +174,3 @@ A starter kit for those interested in iOS programming
 * [Good git commit guidelines](https://chris.beams.io/posts/git-commit/)
 * [Xcode build configuration files](https://nshipster.com/xcconfig)
 
-## Articles
-
