@@ -274,7 +274,7 @@ Say you want to have a struct return an enum based on an internal type.
 
 ```swift
 enum ActivationModemType: String {
-    case xb6
+    case hayes
     case usRobotics
     case unknown
 }
@@ -319,7 +319,7 @@ extension ActivationResourcePackage {
         ListType.checkmark(header: "Pat your head", subheader: "This helps the intertubes do their magic."),
         ])
 
-    static var xb6Package = ActivationResourcePackage(headerImageName: "robot-pink", list: [
+    static var hayesPackage = ActivationResourcePackage(headerImageName: "robot-pink", list: [
         ListType.checkmark(header: "Rub your belly", subheader: "Getting hungry for that internet goodness!"),
         ListType.checkmark(header: "That's it!", subheader: "Don't forget to have a good day."),
         ])
@@ -344,8 +344,8 @@ private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackag
     switch orderItem.activationModemType {
     case .usRobotics:
         return ActivationResourcePackage.usRoboticsPackage
-    case .xb6:
-        return ActivationResourcePackage.xb6Package
+    case .hayes:
+        return ActivationResourcePackage.hayesPackage
     case .unknown:
         return ActivationResourcePackage.unKnowPackage
     }
@@ -403,7 +403,7 @@ fan.rotates
 extension OrderItem {
     // lazy stored property
     lazy var activationModemType: ActivationModemType = {
-        let activationModemType = ActivationModemType.xb6
+        let activationModemType = ActivationModemType.hayes
         return activationModemType
     }()
 ```
@@ -412,7 +412,7 @@ extension OrderItem {
 
 ```swift
 enum ActivationModemType: String {
-    case xb6
+    case hayes
     case usRobotics
     case unknown
 }
