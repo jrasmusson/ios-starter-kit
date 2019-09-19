@@ -397,7 +397,7 @@ fan.rotates
 
 > Note: Structures and enumerations are values types in Swift. Value types are _copied_ when assigned to a variable or constant, or passed into a function. All basic types in Swift - integers, floating point numbers, Booleans, strings, arrays, dictionaries - are all value types.
 
-### Struct can't contain stored properties
+### Extensions can't contain stored properties
 
 ```swift
 extension OrderItem {
