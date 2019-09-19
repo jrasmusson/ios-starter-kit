@@ -83,7 +83,7 @@ class NewChatViewController: UIViewController {
 
     let chatType: ChatType
 
-    public init(chatType: ShawChatType) { ... }
+    public init(chatType: ChatType) { ... }
 
     guard chatType == .authenticated else {
         return
