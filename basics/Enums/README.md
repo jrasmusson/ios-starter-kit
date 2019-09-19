@@ -524,20 +524,13 @@ let info =Information<String, Int>.age(20)
 print(info) //prints age(20)
 ```
 
+## Other misc things
 
-
-
-
-
-
-
-
-Other misc things
-
-Enums as guards
+### Enums as guards
 
 Another example of how enums can be used in with guard statements.
 
+```swift
 enum ChatType {
     case authenticated
     case unauthenticated
@@ -552,13 +545,11 @@ class NewChatViewController: UIViewController {
     guard chatType == .authenticated else {
         return
     }
+```
 
-If the state of the thing you are interested in isn’t properly set, the guard clause can be used to determine logic flow and react appropriately.
+### Iterating over enums
 
-Iterating over enums
-
-You can walk an enum like like this.
-
+```swift
 enum Beverage: CaseIterable {
     case coffee, tea, juice
 }
@@ -567,9 +558,11 @@ let numberOfChoices = Beverage.allCases.count
 for beverage in Beverage.allCases {
     print(beverage)
 }
+```
 
-Enums as Errors
+### Enums as Errors
 
+```swift
 public enum AFError: Error {
 
     case invalidURL(url: URLConvertible)
@@ -606,19 +599,22 @@ extension AFError {
         return false
     }
 }
+```
 
-Is there anything enums can’t do?
+## Is there anything enums can’t do?
 
 Yes. Enums don’t support stored properties.
 
 In other words you can’t do this
 
+```swift
 enum Device {
   case iPad
   case iPhone
 
   var year: Int
 }
+```
 
 ## Enums are more powerful than you think
 
@@ -680,17 +676,7 @@ extension ActivationResourcePackage {
 }
 ```
 
-Couple of cool things going on here:
-
-1. Enums are being used as a type (i.e. `ListType`).
-
-This is an enum, but it has parameters (associated types), and it is used as a type in an array. Like a struct or a class.
-
-2. Structs can have concrete static types.
-
-You can create a struct, and then statically give it type safe configurations, or representations, of what that struct represents. Handy for configuration, encapsulating differences, and exposing in a type safe way.
-
-Then you can use all these later in switch statements like this.
+What you are signalling here is I want you to create an object for me, based on this enum and all it's associated data. It's a compact way of sending a lot of state and type information, conveniently in one package.
 
 ```swift
 private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackage {
