@@ -303,6 +303,25 @@ try? throwerWithDefer(shouldThrow: true)
 // First defer statement executed
 ```
 
+## How to throw an error
+
+```swift
+public struct ActivationManager: ActivationManagerProtocol {
+    let session: MyAccountSession
+    let account: Account
+
+    init(session: MyAccountSession) throws {
+        self.session = session
+
+        guard let possibleAccount = session.selectedAccount else {
+            throw ActivationError.initialization(message: "Account required")
+        }
+
+        self.account = possibleAccount
+    }
+```
+
+
 ### Links that help
 * https://agostini.tech/2017/10/01/assert-precondition-and-fatal-error-in-swift/
 * https://khawerkhaliq.com/blog/swift-error-handling/
