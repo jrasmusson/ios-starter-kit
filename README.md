@@ -2,7 +2,7 @@
 A starter kit for those interested in iOS programming
 
 ## Swift
-* [Array](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Array/README.md)
+* [Arrays](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Array/README.md)
 * [Enums](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Enums/README.md)
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
   * [Protocol Oriented Programming](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-oriented-programming.md)
