@@ -1,28 +1,6 @@
 # Enums
 
-An enumeration defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code.
-
-```swift
-enum CardSuit {
-     case clubs
-     case diamonds
-     case hearts
-     case spades
-}
-```
-
-If you are familiar with C, you will know that C enumerations assign related names to a set of integer values. Enumerations in Swift are much more flexible, and don’t have to provide a value for each case of the enumeration. If a value (known as a raw value) is provided for each enumeration case, the value can be a string, a character, or a value of any integer or floating-point type.
-
-Alternatively, enumeration cases can specify associated values of any type to be stored along with each different case value, much as unions or variants do in other languages. You can define a common set of related cases as part of one enumeration, each of which has a different set of values of appropriate types associated with it.
-
-Enumerations in Swift are first-class types in their own right. They adopt many features traditionally supported only by classes, such as computed properties to provide additional information about the enumeration’s current value, and instance methods to provide functionality related to the values the enumeration represents. Enumerations can also define initializers to provide an initial case value; can be extended to expand their functionality beyond their original implementation; and can conform to protocols to provide standard functionality.
-
-
-## Enums as state and data
-
-This enum thing may initially seem more mere syntactic sugar, but there are much more than that. One example of where enums come in really handy is representing state.
-
-For example, anytime you have a ViewContoller, or class that has some kind of state with predefined values, you can represent that state nicely as an enum.
+## Examples
 
 ```swift
 class Tile {
@@ -45,12 +23,6 @@ class Tile {
     }
 }
 ```
-
-Here is an example of a ViewController that can be in one of four states, and when that state is set, we can conveniently switch and hide certain page elements based on the state of the enum passed in.
-
-This is much better than using a series of booleans, and then having to track the state of each boolean and ensuring they never conflict with one another. Enums encapsulate various states nicely and let’s you switch on them in a nice way.
-
-And once you start combining enums, and nesting them within one another, you can start to do really cool things like this.
 
 ```swift
 enum Character {
@@ -78,31 +50,39 @@ enum Character {
         }
     }
 }
-```
 
-Here we have defined an entire data structure, along with type, state, that let’s us do some very cool things with regards to how we represent objects, and state in code. This isn’t a struct, or a classes. It contains no state. But all it’s state and type is defined within the name of the enums itself.
-
-So we don’t need to define a class Human, and then extend it to implement another classes as thief. Here we can capture everything there is to know about a thief, as an enum, along with associated values which gives us a nice convient way to represent all that state and type information we need to know about a thief.
-
-```swift
 let helmet = Character.Helmet.iron
 print(helmet)
 //prints "iron"
 
-let weapon = Character.Weapon.dagger
-print(weapon)
-//prints "weapon"
-
 let character1 = Character.warrior(weapon: .sword, helmet: .diamond)
 print(character1.getDescription())
 // prints "Warrior chosen sword and diamond helmet"
-
-let character2 = Character.thief(weapon: .bow, helmet: .iron)
-print(character2.getDescription())
-//prints "Thief chosen bow and iron helmet"
 ```
 
-And this is where enums really come into play. By embedding enums in structs or classes, we can contain and capture a lot of business logic. By keeping a lot of related information together in the enums.
+```swift
+open class NetworkReachabilityManager {
+    public enum NetworkReachabilityStatus {
+        case unknown
+        case notReachable
+        case reachable(ConnectionType)
+    }
+
+    public enum ConnectionType {
+        case ethernetOrWiFi
+        case wwan
+    }
+
+    // MARK: - Properties
+
+    open var isReachable: Bool { return isReachableOnWWAN || isReachableOnEthernetOrWiFi }
+    open var isReachableOnWWAN: Bool { return networkReachabilityStatus == .reachable(.wwan) }
+    open var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
+    
+    open var networkReachabilityStatus: NetworkReachabilityStatus {
+        return .unknown
+    }
+```
 
 ## Enums in structs
 
@@ -194,36 +174,6 @@ override func prepareForSegue(...) {
     SequeIdentifer.Main.rawValue // returns the `String representation`
 }
 ```
-
-## Compound enums
-
-Another cool thing you can do with enums is combine them.
-
-```swift
-open class NetworkReachabilityManager {
-    public enum NetworkReachabilityStatus {
-        case unknown
-        case notReachable
-        case reachable(ConnectionType)
-    }
-
-    public enum ConnectionType {
-        case ethernetOrWiFi
-        case wwan
-    }
-
-    // MARK: - Properties
-
-    open var isReachable: Bool { return isReachableOnWWAN || isReachableOnEthernetOrWiFi }
-    open var isReachableOnWWAN: Bool { return networkReachabilityStatus == .reachable(.wwan) }
-    open var isReachableOnEthernetOrWiFi: Bool { return networkReachabilityStatus == .reachable(.ethernetOrWiFi) }
-    
-    open var networkReachabilityStatus: NetworkReachabilityStatus {
-        return .unknown
-    }
-```
-
-This makes for some really nice readable code, and lets you combine various state representations within each other, in very nice programmable ways.
 
 ## Enums and associated values
 
@@ -624,9 +574,6 @@ enum Device {
   var year: Int
 }
 ```
-
-## Enums are more powerful than you think
-
 ### How to add an enum to an existing struct
 
 Say you want to have a struct return an enum based on an internal type.
@@ -703,6 +650,17 @@ private func createPackage(for orderItem: OrderItem) -> ActivationResourcePackag
 ```
 
 Here we are creating a type safe package representing our configuration, based on an enum type.
+
+### How to convert a string into an enum
+
+```swift
+enum ActivationModemType: String {
+    case hayes
+    case usRobotics
+    case unknown
+}
+let modem = ActivationModemType(rawValue: "usRobotics")
+```
 
 ## Links that help
 
