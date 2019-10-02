@@ -17,7 +17,7 @@ Use.
 Other commands
 
 ```bash
-> pod repos update
+> pod repo update
 ```
 
 ### Links
