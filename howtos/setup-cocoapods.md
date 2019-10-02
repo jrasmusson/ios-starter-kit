@@ -3,15 +3,22 @@
 ## Setup
 
 ```bash
-sudo gem install cocoapods
-cd <project>
-pod init
-vi Podfile
-pod install
+> sudo gem install cocoapods
+> cd <project>
+> pod init
+> vi Podfile
+> pod install
+
 ```
 Close project.
 Reopen with workspace file.
 Use.
+
+Other commands
+
+```bash
+> pod repos update
+```
 
 ### Links
 
