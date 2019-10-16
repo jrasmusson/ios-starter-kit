@@ -1,4 +1,4 @@
-# UIVisualEffectView
+# UIVisualEffectView / Materials
 
 iOS provides materials (or blur effects) that create a translucent effect you can use to evoke a sense of depth. The effect of a material lets views and controls hint at background content without distracting from foreground content. To produce this effect, materials allow background color information to pass through foreground views, while also blurring the background context to maintain legibility.
 
@@ -52,7 +52,7 @@ class VibrancyViewController: UIViewController {
 
 Materials is just one of many blur options you have for adding vibrancy to your views controls.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/options.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/options.png" alt="drawing"/>
 
 
 ### Links that help
