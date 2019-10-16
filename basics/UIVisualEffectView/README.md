@@ -50,6 +50,11 @@ class VibrancyViewController: UIViewController {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/materials.png" alt="drawing" width="800"/>
 
+Materials is just one of many blur options you have for adding vibrancy to your views controls.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/options.png" alt="drawing" width="800"/>
+
+
 ### Links that help
 
 - [Apple Materials](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/materials/)
