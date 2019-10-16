@@ -32,6 +32,16 @@ var xTimesTwo:Int {
 
 `newValue` is the default variable name assigned in the getter. You can assign another if you like.
 
+## Computed Property as closure
+
+Usefull for when you have complicated setup.
+
+```swift
+    var foo: Int = {
+        return 1
+    }()
+```
+
 ### Read-Only Computed Properites
 
 These are getters with no setters. They must be `var`s. You can simplify the declaration of a read-only property  by removing the get keyword and braces.
@@ -51,22 +61,13 @@ A _lazy property_ is one where the initial value is not calculated until needed.
 
 > Note: Lazy properties are always `var`s because of their delayed loading.
 
-Lazy properties work best when the initial value dependent on outside factors whose values are not known until later.
-
 ```swift
-class DataManager {
-    lazy var importer = DataImporter()
-    var data = [String]()
-}
-```
-
-Lazy vars can also be computed properties. Very handy for when you want to access a class method but can wait until the var is loaded.
-
-```swift
-    lazy var button: UIButton = {
-        makeButton()
+    lazy var headerView: ActivationHeaderView = {
+        return ActivationHeaderView(activationResourcePackage: activationResourcePackage)
     }()
 ```
+
+`lazy` enables class to initialize other resources first, so we can use later in initialization.
 
 ## Property Observers
 
