@@ -185,7 +185,6 @@ private class MountainsPreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Mountains"
         let mountains = UIImage(named: "tron")!
 
         imageView.image = mountains
@@ -283,6 +282,7 @@ extension VCPreviewSingleViewController: UIContextMenuInteractionDelegate {
         }
     }
 }
+
 
 import UIKit
 
