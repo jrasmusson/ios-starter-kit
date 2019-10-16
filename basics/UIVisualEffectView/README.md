@@ -4,7 +4,51 @@ iOS provides materials (or blur effects) that create a translucent effect you ca
 
 When you use the system-defined materials, your elements look great in every context, because these effects automatically adapt to the system’s light and dark modes.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/example.png" alt="drawing" width="1200"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/example.png" alt="drawing" width="800"/>
+
+
+```swift
+import UIKit
+
+class VibrancyViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+
+        // Image
+        let imageView = UIImageView(image: UIImage(named: "tron"))
+        imageView.frame = view.bounds
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+
+        // Blur
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = imageView.bounds
+        view.addSubview(blurredEffectView)
+
+        // Vibrancy
+        let segmentedControl = UISegmentedControl(items: ["First Item", "Second Item"])
+        segmentedControl.sizeToFit()
+        segmentedControl.center = view.center
+
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyEffectView.frame = imageView.bounds
+
+        vibrancyEffectView.contentView.addSubview(segmentedControl)
+        blurredEffectView.contentView.addSubview(vibrancyEffectView)
+    }
+}
+```
+
+## Materials
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/materials.png" alt="drawing" width="800"/>
 
 ### Links that help
 
