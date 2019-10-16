@@ -1,6 +1,6 @@
 # Context Menus
 
-!table()["https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png"]
+!(Foo)["https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png"]
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png" alt="drawing" width="400"/>
 
