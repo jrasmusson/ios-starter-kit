@@ -1,34 +1,59 @@
 # Context Menus
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png" alt="drawing" width="400"/>
+
 ```swift
 import UIKit
 
-func makeLabel() -> UILabel {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.text = "Title"
-    label.textAlignment = .center
-    label.textColor = .black
-    label.font = UIFont.systemFont(ofSize: 18)
-    label.numberOfLines = 0
+class ContextViewController: UIViewController {
 
-    return label
-}
+    let menuView = UIView()
 
-func makeButton() -> UIButton {
-    let button = UIButton()
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.backgroundColor = .lightGray
-    button.setTitleColor(.black, for: .normal)
-    button.layer.cornerRadius = 10
-    button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
-    return button
-}
-
-func checkForErrors(error: Error?) {
-    guard error == nil else {
-        preconditionFailure(String(describing: error))
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
     }
+
+    func setupViews() {
+        menuView.backgroundColor = .systemBlue
+        menuView.frame.size = .init(width: 100, height: 100)
+        view.addSubview(menuView)
+
+        let interaction = UIContextMenuInteraction(delegate: self)
+        menuView.addInteraction(interaction)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        menuView.center = view.center
+    }
+}
+
+
+extension ContextViewController: UIContextMenuInteractionDelegate {
+
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+
+            // Create an action for sharing
+            let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
+                // Show system share sheet
+            }
+
+            // Create an action for renaming
+            let rename = UIAction(title: "Rename", image: UIImage(systemName: "square.and.pencil")) { action in
+                // Perform renaming
+            }
+
+            // Here we specify the "destructive" attribute to show that it’s destructive in nature
+            let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+                // Perform delete
+            }
+
+            // Create and return a UIMenu with all of the actions as children
+            return UIMenu(title: "", children: [share, rename, delete])
+        }
+    }
+
 }
 ```
