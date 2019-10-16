@@ -1,6 +1,6 @@
 # Context Menus
 
-!(Foo)[https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.gif]
+!(TableView)[https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.gif]
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png" alt="drawing" width="400"/>
 
