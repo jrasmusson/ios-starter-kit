@@ -1,8 +1,18 @@
 # Context Menus
 
+!table()["https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png"]
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/images/simple.png" alt="drawing" width="400"/>
 
 ```swift
+//
+//  ContextViewController.swift
+//  Foo2
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2019-10-16.
+//  Copyright © 2019 Jonathan Rasmusson. All rights reserved.
+//
+
 import UIKit
 
 class ContextViewController: UIViewController {
@@ -15,6 +25,8 @@ class ContextViewController: UIViewController {
     }
 
     func setupViews() {
+        view.backgroundColor = .systemBackground
+
         menuView.backgroundColor = .systemBlue
         menuView.frame.size = .init(width: 100, height: 100)
         view.addSubview(menuView)
@@ -38,6 +50,7 @@ extension ContextViewController: UIContextMenuInteractionDelegate {
             // Create an action for sharing
             let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
                 // Show system share sheet
+                self.present(ShareViewController(), animated: true)
             }
 
             // Create an action for renaming
@@ -55,6 +68,27 @@ extension ContextViewController: UIContextMenuInteractionDelegate {
         }
     }
 
+}
+
+class ShareViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        view.backgroundColor = .systemRed
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Swipe down to dismiss"
+
+        view.addSubview(label)
+
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
 }
 ```
 
