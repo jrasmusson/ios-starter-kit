@@ -247,6 +247,71 @@ extension JoinWifiViewController: SupportArticleViewDelegate, SupportArticleAnal
 }
 ```
 
+
+
+### Another example of how to add functionality to a class without changing it?
+
+Ruby calls these mixins. 
+Eliminate the need for multiple inheritance.
+
+For example say you have some common code for creating a ContextMenu, and you want to share it among multiple ViewControllers.
+
+Instead of creating a parent viewController, and adding that functionality through inheritance, you can create a protocol and add the functionality from there.
+
+```swift
+import UIKit
+
+protocol ContextMenuDemo {
+    static var title: String { get }
+}
+
+extension ContextMenuDemo {
+    func makeDefaultDemoMenu() -> UIMenu {
+
+        // Create a UIAction for sharing
+        let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { action in
+            // Show system share sheet
+        }
+
+        // Create an action for renaming
+        let rename = UIAction(title: "Rename", image: UIImage(systemName: "square.and.pencil")) { action in
+            // Perform renaming
+        }
+
+        // Here we specify the "destructive" attribute to show that it’s destructive in nature
+        let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+            // Perform delete
+        }
+
+        // Create and return a UIMenu with all of the actions as children
+        return UIMenu(title: "", children: [share, rename, delete])
+    }
+}
+```
+
+You can now add this functionality to any ViewController you like, simply by adding the protocol.
+
+```swift
+class VCPreviewSingleViewController: UIViewController, ContextMenuDemo {
+
+
+}
+```
+
+And then using it like this
+
+```swift
+extension VCPreviewSingleViewController: UIContextMenuInteractionDelegate {
+
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: MountainsPreviewViewController.init) { suggestedActions in
+            return self.makeDefaultDemoMenu() // < HERE
+        }
+    }
+
+}
+```
+
 ### Links that help
 
 * [Protocol Oriented Programming - WWDC 2015](https://developer.apple.com/videos/play/wwdc2015/408/)
