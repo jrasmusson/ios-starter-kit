@@ -84,7 +84,7 @@ extension Protocol2 {
 
 ## One draw back - Composition to the rescue
 
-One thing protocol based inheritance doesn't do very well is properites. You can't shared properties via inheritance through protocols. For example in our above example what ever we wanted to share a common data source that gave us authorization tokens for logging in.
+One thing protocol based inheritance doesn't do very well is properites. You can't share properties via inheritance through protocols. For example in our above example what ever we wanted to share a common data source that gave us authorization tokens for logging in.
 
 We can't do that with protocols. So here we can either go back to traditional class based inheritance, or use composition instead.
 
