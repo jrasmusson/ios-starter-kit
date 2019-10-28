@@ -2,6 +2,7 @@
 
 ## System after spacing syntax
 
+```
                           │
 ┌──────────────────┐      │
 │                  │      │
@@ -9,6 +10,7 @@
 │                  │      │
 └──────────────────┘      │
                           │
+```
                           
 ```swift
 stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true // system spacing...
