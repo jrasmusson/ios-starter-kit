@@ -1,5 +1,22 @@
 # UIStackView
 
+## System after spacing syntax
+
+                          │
+┌──────────────────┐      │
+│                  │      │
+│    StackView     │ 8pt  │  View
+│                  │      │
+└──────────────────┘      │
+                          │
+                          
+```swift
+stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true // system spacing...
+view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1).isActive = true
+```
+
+Instead of going stackView trailing, think of the new api as a _receiver_, receiving a constraint after the thing it is being pinned to.
+
 ## How to set specific or variable spacing
 
 ```swift
