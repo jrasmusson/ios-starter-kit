@@ -14,10 +14,11 @@ Close project.
 Reopen with workspace file.
 Use.
 
-Other commands
+How to search for pod from command line (better than web)
 
 ```bash
 > pod repo update
+> pod search firebase
 ```
 
 ### Links
