@@ -125,6 +125,25 @@ Apple in their [docs](https://developer.apple.com/library/archive/documentation/
 > When the content view is taller than the scroll view, the scroll view enables vertical scrolling. When the content view is wider than the scroll view, the scroll view enables horizontal scrolling. Otherwise, scrolling is disabled by default.
 > 
 
+## How to programmatically scroll
+
+You can scroll to a position in your scroll view based on an offset.
+
+```swift
+override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let contentSizeHeight = scrollView.contentSize.height
+        let boundsHeight = scrollView.bounds.size.height
+        let bottomOffset = CGPoint(x:0, y: contentSizeHeight - boundsHeight)
+        scrollView.setContentOffset(bottomOffset, animated: true)
+
+       // scrollView.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
+    }
+```
+
+> Note: This may not work in `viewDidLoad()` as view will not have been totally sized and rendered.
+
 
 ### Links that help
 
