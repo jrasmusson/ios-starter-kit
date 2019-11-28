@@ -42,6 +42,7 @@ A starter kit for those interested in iOS programming
 * [Result](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Result.md)
 
 ## Basics
+* [UIViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/README.md)
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
   * [Distribution & Alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Distribution-Alignment.md)
   * [Layout Patterns](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Layout-Patterns.md)
