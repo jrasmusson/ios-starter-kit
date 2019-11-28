@@ -42,7 +42,7 @@ class LaunchViewController: UIViewController {
 
 ## How to present full screen
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/full-screen.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/fullscreen.png" alt="drawing" width="400"/>
 
 ```swift
 override func viewDidAppear(_ animated: Bool) {
