@@ -2,7 +2,7 @@
 
 ## How to present modally
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/modal.png" alt="drawing" width="400"/>
 
 - To present modally you want to use the `present` method.
 - Don't `present` in `viewDidLoad()`. View hierarchy has not been loaded yet.
@@ -42,7 +42,7 @@ class LaunchViewController: UIViewController {
 
 ## How to present full screen
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/full-screen.png" alt="drawing" width="400"/>
 
 ```swift
 override func viewDidAppear(_ animated: Bool) {
