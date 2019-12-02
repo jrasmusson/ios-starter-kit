@@ -119,6 +119,7 @@ A starter kit for those interested in iOS programming
 * [How tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/README.md)
 * [UIPanGestureRecognizer](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIPanGestureRecognizer.md)
 * [Interactive Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/InteractiveAnimations.md)
+* [UIViewControllerTransitioningDelegate](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/README.md)
 
 ## How tos
 * [Generic How Tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/aaHow-To.md)
