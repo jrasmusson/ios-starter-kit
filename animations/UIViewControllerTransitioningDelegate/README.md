@@ -33,7 +33,7 @@ And then setting it on the viewController you are transitioning too...
 
 You can add animations and customize transitions from one viewController to another.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/demo.gif)
 
 ### Full source
 
