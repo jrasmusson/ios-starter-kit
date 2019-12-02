@@ -203,4 +203,6 @@ class ViewController2: UIViewController {
 
 ### Links that help
 
+- [Push & Pop](https://medium.com/@felicity.johnson.mail/pushing-popping-dismissing-viewcontrollers-a30e98731df5)
+- [Use your load](https://useyourloaf.com/blog/presenting-view-controllers/)
 - [Sundell How to add child viewController](https://www.swiftbysundell.com/articles/using-child-view-controllers-as-plugins-in-swift/)
