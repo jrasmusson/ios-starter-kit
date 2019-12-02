@@ -2,7 +2,7 @@
 
 This is a delegate you can create that can do some additional processing between `UIViewController` transitions.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/images/transition.png" alt="drawing" width="400"/>
 
 By defining a delegate
 
