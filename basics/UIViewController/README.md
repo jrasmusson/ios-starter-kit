@@ -58,6 +58,31 @@ override func viewDidAppear(_ animated: Bool) {
 }
 ```
 
+Or use this extension
+
+```swift
+extension UIViewController {
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+
+    func remove() {
+        // Just to be safe, we check that this view controller
+        // is actually added to a parent before removing it.
+        guard parent != nil else {
+            return
+        }
+
+        willMove(toParent: nil)
+        view.removeFromSuperview()
+        removeFromParent()
+    }
+}
+```
+
+
 ### Links that help
 
 - [Sundell How to add child viewController](https://www.swiftbysundell.com/articles/using-child-view-controllers-as-plugins-in-swift/)
