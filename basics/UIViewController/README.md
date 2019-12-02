@@ -58,7 +58,7 @@ override func viewDidAppear(_ animated: Bool) {
 }
 ```
 
-Or use this extension
+## Add/Remove Extension
 
 ```swift
 extension UIViewController {
