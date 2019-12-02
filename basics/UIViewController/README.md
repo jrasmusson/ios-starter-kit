@@ -1,6 +1,6 @@
 # UIViewController
 
-## How to present modally
+## How to present modally 
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/modal.png" alt="drawing" width="400"/>
 
@@ -82,6 +82,124 @@ extension UIViewController {
 }
 ```
 
+## Dismissing
+
+`UINavigationController`s have push/pop. `UIViewControllers` have present/dismiss. 
+
+```swift
+present(viewController, animated: true)
+dismiss(animated: true)
+```
+
+When you go to dismiss a presented viewController, you have three options.
+
+### Dismiss entire stack
+
+```swift
+dismiss(animated: true)
+```
+
+This will dismiss the presented viewController, and the entire stack of viewControllers sitting on top of it.
+
+### Dismiss only presented
+
+```swift
+presentingViewController?.dismiss(animated: true)
+```
+
+Calling this will dismiss just the currently preseted viewController.
+
+### Dismiss via protocol delegate
+
+You can have the parent take responsibilty for dismissing the child via protocol delegate.
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        view.backgroundColor = .red
+        let button = makeButton(title: "Go to Next")
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+
+        view.addSubview(button)
+
+        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+    }
+
+    @objc func buttonPressed() {
+        let vc2 = ViewController2()
+        vc2.delegate = self
+        present(vc2, animated: true, completion: nil)
+    }
+
+}
+
+extension UIViewController {
+
+    func makeButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
+
+        return button
+    }
+
+}
+
+extension ViewController: ViewController2Delegate {
+    func button2Pressed() {
+        presentedViewController?.dismiss(animated: true)
+    }
+}
+```
+
+And child
+
+```swift
+import UIKit
+
+protocol ViewController2Delegate: AnyObject {
+    func button2Pressed()
+}
+
+class ViewController2: UIViewController {
+
+    weak var delegate: ViewController2Delegate?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    func setupViews() {
+        view.backgroundColor = .blue
+        let button = makeButton(title: "Go back")
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+
+        view.addSubview(button)
+
+        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+    }
+
+    @objc func buttonPressed() {
+        delegate?.button2Pressed()
+//        dismiss(animated: true)
+//        presentingViewController?.dismiss(animated: true)
+    }
+
+}
+```
 
 ### Links that help
 
