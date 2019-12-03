@@ -23,6 +23,8 @@ This example shows how to swipe left/right on button presses using `UIViewContro
 
 We basically look for button presses in our tabBar viewController, and then add > animate > remove viewControllers appropriately.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/images/reveal.png" alt="drawing" width="400"/>
+
 ## Full Source
 
 ```swift
