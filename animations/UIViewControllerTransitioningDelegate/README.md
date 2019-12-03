@@ -1,6 +1,6 @@
 # UIViewControllerTransitioningDelegate
 
-This is a delegate you can create that can do some additional processing between `UIViewController` transitions.
+This is a delegate you can create that can do some additional processing between `UIViewController` transitions when using 'viewController.present'. 
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/images/transition.png" alt="drawing" width="400"/>
 
