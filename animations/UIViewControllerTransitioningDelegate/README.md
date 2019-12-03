@@ -188,3 +188,9 @@ class FadePopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 - [UIViewControllerTransitioningDelegate](https://developer.apple.com/documentation/uikit/uiviewcontrollertransitioningdelegate)
 - [Example](https://itnext.io/learn-ios-custom-view-controller-animation-transition-once-for-all-9db80ad447e)
+
+More Links
+
+- [UIViewControllerAnimatedTransitioning](https://developer.apple.com/documentation/uikit/uiviewcontrolleranimatedtransitioning)
+- [UIViewControllerInteractiveTransitioning](https://developer.apple.com/documentation/uikit/uiviewcontrollerinteractivetransitioning)
+- [UIPercentDrivenInteractiveTransition](https://developer.apple.com/documentation/uikit/uipercentdriveninteractivetransition)
