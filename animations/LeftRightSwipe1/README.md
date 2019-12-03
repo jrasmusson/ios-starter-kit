@@ -1,10 +1,10 @@
 # Left / Right Swipe Animation
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/images/demo-InteractiveAnimations.gif)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/images/demo.gif)
 
 This example shows how to swipe left/right on button presses using `UIViewController` `add/remove` functionality. Core of demo is how viewControllers are added and removed.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/images/demo.png" alt="drawing" width="400"/>
 
 ```swift
     @objc func button1Pressed() {
