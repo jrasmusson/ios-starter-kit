@@ -121,6 +121,7 @@ A starter kit for those interested in iOS programming
 * [Interactive Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/InteractiveAnimations.md)
 * [UIViewControllerTransitioningDelegate](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/README.md)
 * [Left/Right Swipe Add/Remove ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/README.md)
+* [Left/Right Swipe with PageController](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipePageController/README.md)
 
 ## How tos
 * [Generic How Tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/aaHow-To.md)
