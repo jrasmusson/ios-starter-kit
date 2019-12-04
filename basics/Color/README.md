@@ -1,14 +1,26 @@
 # Color
 
-Apple has a whole host of design colors they would like you to stick too that work by default will all native controls while also adapting to light and dark mode.
+## System Colors
 
-- system color
-- system grey
+iOS has a range of system colors that automatically adapt to vibrancy and changes in accessibility setting like Increase Contrast and Reduce Transparency. The system colors look great individually and in combination, on both light and dark backgrounds, and in both like and dark modes.
+
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-colors.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-grays.png" alt="drawing" width="400"/>
+
 
 ## Dynamic System Colors
 
 Apple also has semantically defined system colors for use in background areas, foreground content, and native controls like labels, seperators, and fill. They automatically adapt to both like and dark UI modes.
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-colors.png" alt="drawing" width="400"/>
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-system-color-both.png" alt="drawing" width="800"/>
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-stystem-background-example.png" alt="drawing" width="800"/>
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-system-grouped-background-example.png" alt="drawing" width="800"/>
 
 
 
