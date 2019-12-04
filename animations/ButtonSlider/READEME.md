@@ -1,6 +1,6 @@
 # Button Slider
 
-![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/images/demo.gif)
+![Demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ButtonSlider/images/demo.gif)
 
 This example demonstrates how to use auto layout with animator to make a green slider move back and forth under buttons when pressed.
 
