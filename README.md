@@ -79,6 +79,7 @@ A starter kit for those interested in iOS programming
 * [Xibs](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Xibs/README.md)
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
+* [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
 
 ## Advanced
 * [Views vs ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
