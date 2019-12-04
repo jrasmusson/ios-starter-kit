@@ -7,14 +7,14 @@ iOS has a range of system colors that automatically adapt to vibrancy and change
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-colors.png" alt="drawing" width="600"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-grays.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-grays.png" alt="drawing" width="600"/>
 
 
 ## Dynamic System Colors
 
 Apple also has semantically defined system colors for use in background areas, foreground content, and native controls like labels, seperators, and fill. They automatically adapt to both like and dark UI modes.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-colors.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-colors.png" alt="drawing" width="600"/>
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-system-color-both.png" alt="drawing" width="800"/>
 
