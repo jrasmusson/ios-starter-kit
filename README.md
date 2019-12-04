@@ -43,6 +43,8 @@ A starter kit for those interested in iOS programming
 
 ## Basics
 * [UIViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/README.md)
+* [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
+* [Color](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/README.md)
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
   * [Distribution & Alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Distribution-Alignment.md)
   * [Layout Patterns](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Layout-Patterns.md)
@@ -79,7 +81,6 @@ A starter kit for those interested in iOS programming
 * [Xibs](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Xibs/README.md)
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
-* [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
 
 ## Advanced
 * [Views vs ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
