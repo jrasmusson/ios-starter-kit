@@ -112,7 +112,7 @@ A starter kit for those interested in iOS programming
 * [How to test ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/viewControllers.md)
 
 ## Animations
-* [Useful links](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/Links.md)
+* [ButtonSlider](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ButtonSlider/READEME.md)
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
@@ -122,6 +122,7 @@ A starter kit for those interested in iOS programming
 * [UIViewControllerTransitioningDelegate](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/README.md)
 * [Left/Right Swipe Add/Remove ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/README.md)
 * [Left/Right Swipe with PageController](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipePageController/README.md)
+* [Useful links](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/Links.md)
 
 ## How tos
 * [Generic How Tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/aaHow-To.md)
