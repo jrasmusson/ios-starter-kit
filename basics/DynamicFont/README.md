@@ -1,10 +1,12 @@
 # Dymnamic Font
 
-The way Apple keeps its fonts looking good (even when people resize their devices for accessibility) is through Dynamic Font.
+The way Apple keeps its fonts looking good (even when people resize their devices for accessibility) is through Dynamic Font - `UIFontTextStyle`.
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/demo.png" alt="drawing" width="400"/>
+
 
 So long as you stick to these `UIFontTextStyle`s, your app will resize its fonts appropriatedly. The advantages here aren't just astectic. They can also serve as the design language you use with your designers. So when you say `Title1` everyone will know what you mean, and you won't have to hardcode font sizes any more.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
 
 ## Source
 
@@ -74,10 +76,17 @@ class ViewController: UIViewController {
 
 To see this in action, change your device/simulator accessibility to something larger.
 
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
+![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/demo.gif)
 
+Then you can see what your app will look like before and after.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+#### Before
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/before.png" alt="drawing" width="400"/>
+
+#### After
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/after.png" alt="drawing" width="400"/>
 
 
 ### Links that help
