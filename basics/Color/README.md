@@ -5,7 +5,7 @@
 iOS has a range of system colors that automatically adapt to vibrancy and changes in accessibility setting like Increase Contrast and Reduce Transparency. The system colors look great individually and in combination, on both light and dark backgrounds, and in both like and dark modes.
 
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-colors.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-colors.png" alt="drawing" width="600"/>
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/system-grays.png" alt="drawing" width="400"/>
 
