@@ -7,4 +7,4 @@
 * [Ray Wonderlich Apple Music Transition](https://www.raywenderlich.com/221-recreating-the-apple-music-now-playing-transition
 )
 * [Another peteog implementation of WWDC animation video](https://github.com/peteog/CardUI)
-* [Spotift TabBar Controller like example](https://medium.com/@masamichiueta/create-transition-and-interaction-like-ios-photos-app-2b9f16313d3)
+* [Spotify TabBar Controller like example](https://medium.com/@masamichiueta/create-transition-and-interaction-like-ios-photos-app-2b9f16313d3)
