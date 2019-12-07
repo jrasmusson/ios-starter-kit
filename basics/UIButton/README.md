@@ -2,6 +2,45 @@
 
 ## How to make a button with rounded corners
 
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-label.png"/>
+
+```swift
+    var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemGray
+        label.text = "?"
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    var button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Get weather", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
+        button.backgroundColor = .systemBlue
+        button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
+        
+        return button
+    }()
+
+    func setupViews() {
+        view.addSubview(label)
+        view.addSubview(button)
+        
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.widthAnchor.constraint(equalTo: label.widthAnchor).isActive = true
+        button.heightAnchor.constraint(equalTo: label.heightAnchor).isActive = true
+    }
+```
+
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-rounded.png"/>
 
 ```swift
