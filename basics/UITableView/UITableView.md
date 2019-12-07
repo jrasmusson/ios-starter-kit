@@ -1,6 +1,4 @@
-# UITableView
-
-## Basic
+# UITableViewController
 
 ```swift
 import UIKit
@@ -46,6 +44,61 @@ class ViewController: UITableViewController {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic.png" width="400"/>
 
+Same thing but implemented as a standalone `UITableView`.
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+    
+    let labs = ["Basic Anchors",
+                "Safe Area Guide",
+                "Layout Margin",
+                "Spacer Views",
+                "Readable Content Guide"]
+    
+    let cellId = "cellId"
+    
+    var tableView = UITableView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    func setupViews() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        view = tableView
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        cell.textLabel?.text = labs[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return labs.count
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+```
 
 ## How to custom format viewForHeaderInSection
 
