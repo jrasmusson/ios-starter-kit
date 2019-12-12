@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        
+
         // 2. Content is a stack view
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,13 +44,12 @@ class ViewController: UIViewController {
         stackView.spacing = 0
         stackView.distribution = .fill
         scrollView.addSubview(stackView)
-        
+
         stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        
+
         // Add arranged subviews:
         for i in 0...20 {
             // A simple green view.
@@ -60,7 +59,8 @@ class ViewController: UIViewController {
             greenView.translatesAutoresizingMaskIntoConstraints = false
             // Doesn't have intrinsic content size, so we have to provide the height at least
             greenView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            
+            greenView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+
             // Label (has instrinsic content size)
             let label = UILabel()
             label.backgroundColor = .orange
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             label.textAlignment = .center
             stackView.addArrangedSubview(label)
         }
-        
+
         // get rid of gap at top
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
@@ -79,7 +79,6 @@ class ViewController: UIViewController {
     }
 
 }
-
 ``` 
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
