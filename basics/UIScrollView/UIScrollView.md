@@ -121,7 +121,7 @@ Apple in their [docs](https://developer.apple.com/library/archive/documentation/
 
 ## How to programmatically scroll
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/images/turn-off-debug-console.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/scroll.png" alt="drawing" width="400"/>
 
 You can scroll to a position in your scroll view based on an offset.
 
