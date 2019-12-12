@@ -70,12 +70,7 @@ class ViewController: UIViewController {
         }
 
         // get rid of gap at top
-        if #available(iOS 11.0, *) {
-            scrollView.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
-        }
-
+        scrollView.contentInsetAdjustmentBehavior = .never
     }
 
 }
