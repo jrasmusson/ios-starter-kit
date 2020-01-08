@@ -4,14 +4,14 @@ Define your `notificationCenter` as a variable and dependency inject it like thi
 
 ```swift
 class CurrentLocationProvider {
-    static let authChangedNotification = Notification.Name("AuthChanged")
+    	static let authChangedNotification = Notification.Name("AuthChanged")
  
 	let notificationCenter: NotificationCenter
-	
+
 	init(notificationCenter: NotificationCenter = .default) {
 	    self.notificationCenter = notificationCenter
 	}
-	
+
 	func notifyAuthChanged() {
 	    let name = CurrentLocationProvider.authChangedNotification
 	    notificationCenter.post(name: name, object: self)
