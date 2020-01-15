@@ -91,6 +91,7 @@ A starter kit for those interested in iOS programming
 * [Object Oriented](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/OO.md)
 * [CHCR Content Hugging and Compression Resistance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Compression-Resistance.md)
 * [Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Responder-Chain.md)
+* [Performance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Performance.md)
 
 ## Autolayout
 * [Control Factory](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Control-Factory.md)
