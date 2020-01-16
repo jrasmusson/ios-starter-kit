@@ -88,6 +88,28 @@ Then you can see what your app will look like before and after.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/after.png" alt="drawing" width="400"/>
 
+## Styling Preferred Fonts
+
+You can style preferred fonts via their `UIFontDescriptor.SymbolicTraits`.
+
+```swift
+let boldFont = UIFont.preferredFont(forTextStyle: .footnote).withTraits(traits: [.traitBold])
+percentOfDataLimitReachedLabel.font = boldFont
+percentOfDataLimitReachedLabel.adjustsFontForContentSizeCategory = true
+```
+Traits
+
+```swift
+public static var traitItalic: UIFontDescriptor.SymbolicTraits { get }
+public static var traitBold: UIFontDescriptor.SymbolicTraits { get }
+public static var traitExpanded: UIFontDescriptor.SymbolicTraits { get }
+public static var traitCondensed: UIFontDescriptor.SymbolicTraits { get }
+public static var traitMonoSpace: UIFontDescriptor.SymbolicTraits { get }
+public static var traitVertical: UIFontDescriptor.SymbolicTraits { get }
+public static var traitUIOptimized: UIFontDescriptor.SymbolicTraits { get }
+public static var traitTightLeading: UIFontDescriptor.SymbolicTraits { get }
+public static var traitLooseLeading: UIFontDescriptor.SymbolicTraits { get }
+ ```
 
 ### Links that help
 
