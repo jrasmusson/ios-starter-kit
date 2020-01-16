@@ -115,3 +115,4 @@ public static var traitLooseLeading: UIFontDescriptor.SymbolicTraits { get }
 
 - [Apple UIFontTextStyle](https://developer.apple.com/documentation/uikit/uifonttextstyle)
 - [Example](https://kitefaster.com/2016/08/17/dynamic-type-in-ios-using-uifonttextstyle/)
+- [Bold preferredFont](https://spin.atomicobject.com/2018/02/02/swift-scaled-font-bold-italic/)
