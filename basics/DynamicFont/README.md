@@ -1,4 +1,4 @@
-# Dymnamic Font
+# Dynamic Font
 
 The way Apple keeps its fonts looking good (even when people resize their devices for accessibility) is through Dynamic Font - `UIFontTextStyle`.
 
