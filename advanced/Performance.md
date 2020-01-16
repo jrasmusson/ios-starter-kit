@@ -6,7 +6,7 @@ Strings are indirectly allocated on the heap, while structs are always on the st
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/string-key.png" alt="drawing" width="300"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/struct-over-string.png" alt="drawing" width="600"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/struct-over-strings.png" alt="drawing" width="600"/>
 
 ### Links that help
 
