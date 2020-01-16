@@ -21,6 +21,29 @@ After
 - UUID instead of string
 - Enum over string for mimetype
 
+## Three axis of performance
+
+- stack vs heap
+- retain counts (retain/release)
+- method dispatch
+
+Static method dispatch is when the compiler can figure out what method needs to be called at compile time. Very fast. Very efficient. Statically dispatched methods are also candidates for inlining and other optimizations.
+
+Dynamic dispatch is when the compiler can't figure it out at compile time, and you can only figure out with a table lookup at runtime. That's not too bad. What is bad is that dynamic dispatches can't be optimized.
+
+So static dispatching is preferred, and in Swift we get static dispatch with:
+
+- marking classes as final (final classes can all be statically dispatched and inlined)
+- use structs
+- doing protocol oriented programming over classical inheritance
+
+## Protocol oriented programming
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/performance/protocol-oriented.png" alt="drawing" width="600"/>
+
+
+
+
 
 ### Links that help
 
