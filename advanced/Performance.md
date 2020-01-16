@@ -8,6 +8,20 @@ Strings are indirectly allocated on the heap, while structs are always on the st
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/performance/structs-over-strings.png" alt="drawing" width="600"/>
 
+## Other improvements
+
+Before
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/performance/before.png" alt="drawing" width="600"/>
+
+After
+
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/images/performance/after.png" alt="drawing" width="600"/>
+
+- UUID instead of string
+- Enum over string for mimetype
+
+
 ### Links that help
 
 - [WWDC Understanding Swift Performance](https://developer.apple.com/videos/play/wwdc2016/416/)
