@@ -17,6 +17,11 @@ class ViewController: UIViewController {
     func setupDelegates() {
         cityTextField.delegate = self
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true) // gives up keyboard on touch
+    }
+
 }
 
 extension ViewController: UITextFieldDelegate {
