@@ -1,5 +1,27 @@
 # UIAlertController
 
+## Basics
+
+```swift
+func showNotificationAlert() {
+    let alert = UIAlertController(title: "Notifications Disabled",
+                                  message: "For the best chat experience needs notification",
+                                  preferredStyle: .alert)
+
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+
+    }))
+
+    alert.addAction(UIAlertAction(title: "Settings", style: .cancel, handler: { [weak self] (_) in
+
+    }))
+
+    present(alert, animated: true, completion: nil)
+}
+```
+
+## More
+
 ```swift
 import UIKit
 
