@@ -1,5 +1,39 @@
 # UITextField
 
+# Basics
+
+```swift
+class ViewController: UIViewController {
+    let cityTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.preferredFont(forTextStyle: .body)
+        textField.textAlignment = .center
+        textField.backgroundColor = .systemFill
+        
+        return textField
+    }()
+    
+    func setupDelegates() {
+        cityTextField.delegate = self
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("Check city")
+    }
+}
+
+```
+
+# More
+
 `UITextField` it a basic `UIKit` control for entering text. When the user taps, a keyboard appears. Too dismiss the keyboard, call `resignFirstResponder` directly on the `UITextField`.
 
 ![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
