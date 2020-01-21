@@ -3,25 +3,54 @@
 # Basics
 
 ```swift
+//
+//  ViewController.swift
+//  BuzzableTraditional
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2020-01-21.
+//  Copyright © 2020 Jonathan Rasmusson. All rights reserved.
+//
+
+import UIKit
+
 class ViewController: UIViewController {
+
     let cityTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.preferredFont(forTextStyle: .body)
         textField.textAlignment = .center
         textField.backgroundColor = .systemFill
-        
+
         return textField
     }()
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupDelegates()
+        setupViews()
+    }
+
     func setupDelegates() {
         cityTextField.delegate = self
     }
-    
+
+    func setupViews() {
+        view.backgroundColor = .white
+        view.addSubview(cityTextField)
+
+        cityTextField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 3).isActive = true
+        cityTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cityTextField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3).isActive = true
+        view.trailingAnchor.constraint(equalToSystemSpacingAfter: cityTextField.trailingAnchor, multiplier: 3).isActive = true
+        cityTextField.heightAnchor.constraint(equalToConstant: 32).isActive = true
+    }
+
+    // MARK: - Textfield
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true) // gives up keyboard on touch
     }
-
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -29,12 +58,11 @@ extension ViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true;
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Check city")
+        print("Check textfield")
     }
 }
-
 ```
 
 # More
