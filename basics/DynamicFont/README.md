@@ -4,7 +4,7 @@ The way Apple keeps its fonts looking good (even when people resize their device
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/preferred-font-sizes.png" alt="drawing" width="400"/>
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/sizes.png" alt="drawing" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/sizes.png" alt="drawing" width="800"/>
 
 
 
