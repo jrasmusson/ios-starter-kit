@@ -92,12 +92,14 @@ Then you can see what your app will look like before and after.
 
 You can style preferred fonts via their `UIFontDescriptor.SymbolicTraits`.
 
+### How to bold
+
 ```swift
 let boldFont = UIFont.preferredFont(forTextStyle: .footnote).withTraits(traits: [.traitBold])
 percentOfDataLimitReachedLabel.font = boldFont
 percentOfDataLimitReachedLabel.adjustsFontForContentSizeCategory = true
 ```
-Traits
+### Other Traits
 
 ```swift
 public static var traitItalic: UIFontDescriptor.SymbolicTraits { get }
