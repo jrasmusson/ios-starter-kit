@@ -65,7 +65,6 @@ A starter kit for those interested in iOS programming
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 * [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
 * [UIModal](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/README.md)
-* [UIColor](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIColor/README.md)
 * [UIStatusBar](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UIStatusBar)
 * [UIRefreshControl](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIRefreshControl/README.md)
 * [Margins & Layout Guides](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Margins/README.md)
