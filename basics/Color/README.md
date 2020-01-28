@@ -22,7 +22,13 @@ Apple also has semantically defined system colors for use in background areas, f
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/images/dynamic-system-grouped-background-example.png" alt="drawing" width="800"/>
 
+## Programatic Color
 
+```swift
+extension UIColor {
+    static let darkBlue = UIColor(red: 10/255, green: 132/255, blue: 255/255, alpha: 1)
+}
+```
 
 ### Links that help
 
