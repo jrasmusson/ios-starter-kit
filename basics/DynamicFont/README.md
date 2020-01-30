@@ -98,10 +98,27 @@ You can style preferred fonts via their `UIFontDescriptor.SymbolicTraits`.
 ### How to bold
 
 ```swift
+
+extension UIFont {
+    func withTraits(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        let descriptor = fontDescriptor.withSymbolicTraits(traits)
+        return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
+    }
+
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
+
+    func italic() -> UIFont {
+        return withTraits(traits: .traitItalic)
+    }
+}
+
 let boldFont = UIFont.preferredFont(forTextStyle: .footnote).withTraits(traits: [.traitBold])
 percentOfDataLimitReachedLabel.font = boldFont
 percentOfDataLimitReachedLabel.adjustsFontForContentSizeCategory = true
 ```
+
 ### Other Traits
 
 ```swift
@@ -119,5 +136,4 @@ public static var traitLooseLeading: UIFontDescriptor.SymbolicTraits { get }
 ### Links that help
 
 - [Apple UIFontTextStyle](https://developer.apple.com/documentation/uikit/uifonttextstyle)
-- [Example](https://kitefaster.com/2016/08/17/dynamic-type-in-ios-using-uifonttextstyle/)
 - [Bold preferredFont](https://spin.atomicobject.com/2018/02/02/swift-scaled-font-bold-italic/)
