@@ -35,5 +35,5 @@ func makeStackView(axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
     stackView.distribution = .fill
 
     return stackView
-    }
+}
 ```
