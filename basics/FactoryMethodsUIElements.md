@@ -25,4 +25,15 @@ func makeLabel(withTitle title: String) -> UILabel {
 
     return label
 }
+
+func makeStackView(axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
+    let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = axis
+    stackView.alignment = .fill
+    stackView.spacing = 8
+    stackView.distribution = .fill
+
+    return stackView
+    }
 ```
