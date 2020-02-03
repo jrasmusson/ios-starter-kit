@@ -93,7 +93,6 @@ A starter kit for those interested in iOS programming
 * [Performance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Performance.md)
 
 ## Autolayout
-* [Control Factory](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Control-Factory.md)
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/basics/Basics.md)
 * [How to set identifier on view](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/add-identifier-tag-to-view.md)
