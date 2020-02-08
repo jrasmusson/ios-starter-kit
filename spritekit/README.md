@@ -155,6 +155,20 @@ class GameScene: SKScene {
 }
 ```
 
+# How to
+
+## How to start/stop animation 
+
+```swift
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if dog.hasActions() {
+            dog.removeAllActions()
+        } else {
+            dog.run(SKAction.repeatForever(SKAction.animate(with: dogFrames, timePerFrame: 0.1)))
+        }
+    }
+```
+
 
 
 
