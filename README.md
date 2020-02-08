@@ -81,6 +81,9 @@ A starter kit for those interested in iOS programming
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
 
+## SpriteKit
+* [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/spritekit/README.md)
+
 ## Advanced
 * [Views vs ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Views-vs-ViewControllers.md)
 * [MVVM](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/MVVM/MVVM.md)
