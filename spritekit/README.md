@@ -185,8 +185,23 @@ This gets run x60/s.
 
 ## SpriteKit Scene / SKTileMapNode
 
+### SpitKitScene
 New file > SpriteKitScene
+Library '+' near upper right
+Drag out Tile Map node
+Atrributes Inspector
+Tile size 64x64
+Map Size 12x21
+Can't edit map until you add tiles
 
+### SpriteKit Tile Set
+New file > SpriteKit Tile Set
+Empty Tile Set
+Tiles come from Asset Catalogue - add tile there
+Back to MyTileSet > + sign upper right > Drag image to tile
+Rename Concrete > Block
+Click on Scene > Show Attributes Inspector > Tile Sets = Concrete
+Double click map > Now you can start adding tiles
 
 
 # How to
