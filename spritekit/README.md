@@ -183,6 +183,12 @@ This gets run x60/s.
     }
 ```
 
+## SpriteKit Scene / SKTileMapNode
+
+New file > SpriteKitScene
+
+
+
 # How to
 
 ## How to start/stop animation 
@@ -196,6 +202,27 @@ This gets run x60/s.
         }
     }
 ```
+
+## How to load GameScene vs SKScene
+
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let view = self.view as! SKView? {
+            if let scene = SKScene(fileNamed: "MyTileMapScene") {
+//                let scene = GameScene(size: view.bounds.size)
+                scene.scaleMode = .aspectFill
+                view.presentScene(scene)
+                
+                view.ignoresSiblingOrder = true
+                view.showsFPS = true
+                view.showsNodeCount = true
+            }
+        }
+    }
+```
+
 
 
 
