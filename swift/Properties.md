@@ -110,6 +110,26 @@ var daysPastDue:Int {
 }
 ```
 
+## Conditional Initialization
+
+Here is how you can define a variable as a `let`, but instantiated it's value based on logic.
+
+```swift
+let entryPoints: [String]
+
+if Chat.shared.hasFailedActivation {
+    entryPoints = ["iossafail"]
+}
+else {
+    entryPoints = ["ios", "myshawapp"]
+}
+
+// or as ternary
+
+let entryPoints = Chat.shared.hasFailedActivation ? ["iossafail"] : ["ios", "myshawapp"]
+```
+
+
 ### Links that help
 
 * [Apple docs](https://docs.swift.org/swift-book/LanguageGuide/Properties.html)
