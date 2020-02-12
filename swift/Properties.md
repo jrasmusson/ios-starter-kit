@@ -118,15 +118,15 @@ Here is how you can define a variable as a `let`, but instantiated it's value ba
 let entryPoints: [String]
 
 if Chat.shared.hasFailedActivation {
-    entryPoints = ["iossafail"]
+    entryPoints = ["fail"]
 }
 else {
-    entryPoints = ["ios", "myshawapp"]
+    entryPoints = ["ios", "myapp"]
 }
 
 // or as ternary
 
-let entryPoints = Chat.shared.hasFailedActivation ? ["iossafail"] : ["ios", "myshawapp"]
+let entryPoints = Chat.shared.hasFailedActivation ? ["fail"] : ["ios", "myapp"]
 ```
 
 
