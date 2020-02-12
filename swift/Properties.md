@@ -13,6 +13,25 @@ struct FixedLengthRange {
 }
 ```
 
+### Property Observers
+
+Respond to changes in a property's value. Can observe anything except `lazy` properties. 
+
+```swift
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print("About to set totalSteps to \(newTotalSteps)")
+        }
+        didSet {
+            if totalSteps > oldValue  {
+                print("Added \(totalSteps - oldValue) steps")
+            }
+        }
+    }
+}
+```
+
 ## Computed Properties
 
 Computed properties are _computed_ which means they don't have a backing variable. They don't store any variables directly, but they can change other variables that back them up.
@@ -69,25 +88,7 @@ A _lazy property_ is one where the initial value is not calculated until needed.
 
 `lazy` enables class to initialize other resources first, so we can use later in initialization.
 
-## Property Observers
-
-Respond to changes in a property's value. Can observe anything except `lazy` properties. 
-
-```swift
-class StepCounter {
-    var totalSteps: Int = 0 {
-        willSet(newTotalSteps) {
-            print("About to set totalSteps to \(newTotalSteps)")
-        }
-        didSet {
-            if totalSteps > oldValue  {
-                print("Added \(totalSteps - oldValue) steps")
-            }
-        }
-    }
-}
-```
-### set or didSet? 
+## set (Computed) or didSet (Stored)? 
 
 Use `set` when the property you are setting is undering a transformation.
 
@@ -106,22 +107,6 @@ var daysPastDue:Int {
     didSet {
        // update label
     }
-}
-```
-
-## Type Properties
-
-Instance properties are properites that belong to that one instance. Type properties belong to all instances of that type.
-
-```swift
-struct SomeStructure {
-    static var storedTypeProperty = "Some value."
-}
-enum SomeEnumeration {
-    static var storedTypeProperty = "Some value."
-}
-class SomeClass {
-    static var storedTypeProperty = "Some value."
 }
 ```
 
