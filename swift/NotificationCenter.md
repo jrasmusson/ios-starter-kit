@@ -9,6 +9,9 @@ extension Notification.Name {
      static let peru = Notification.Name("peru")
      static let argentina = Notification.Name("argentina")
 }
+
+// or like this
+public let perun: NSNotification.Name = NSNotification.Name(rawValue: "peru")
 ```
 
 Register for them
