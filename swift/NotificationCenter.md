@@ -2,50 +2,28 @@
 
 Here is an example of how to use `NotificationCenter`. 
 
-Define some named events like this
+One convention is to use _Did_ in the name.
 
 ```swift
 extension Notification.Name {
-     static let peru = Notification.Name("peru")
-     static let argentina = Notification.Name("argentina")
+     static let ActivationDidFail = Notification.Name("ActivationDidFail")
 }
 
 // or like this
-public let peru: NSNotification.Name = NSNotification.Name(rawValue: "peru")
+public let ActivationDidFail: NSNotification.Name = NSNotification.Name(rawValue: "ActivationDidFail")
 ```
 
-Register for them
+Register for like this
 
 ```swift
-NotificationCenter.default.addObserver(self, selector: #selector(setToPeru(notification:)), name: .peru, object: nil)
-NotificationCenter.default.addObserver(self, selector: #selector(setToArgentina(notfication:)), name: .argentina, object: nil)
-
-func setToPeru(notification: NSNotification) {
-     cityChosenLabel.text = "Peru"
-}
-
-func setToArgentina(notfication: NSNotification) {
-     cityChosenLabel.text = "Argentina"
-}
+NotificationCenter.default.addObserver(self, selector: #selector(performActivationDidFailAction),
+name: ActivationDidFail, object: nil)
 ```
 
 Then post
 
 ```swift
-@IBAction func peruButton(_ sender: Any) {
-     NotificationCenter.default.post(name: .peru, object: nil)
-}
-@IBAction func argentinaButton(_ sender: Any) {
-     NotificationCenter.default.post(name: .argentina, object: nil
-}
-```
-
-	Note: Always remember to unregister yourself as an observer when done.
-	
-```swift
-deinit {
-     NotificationCenter.default.removeObserver(self)
-}
+NotificationCenter.default.post(name: ActivationDidFail, object: nil)
 ```
 
 ### How to send data
