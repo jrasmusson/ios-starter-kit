@@ -11,7 +11,7 @@ extension Notification.Name {
 }
 
 // or like this
-public let perun: NSNotification.Name = NSNotification.Name(rawValue: "peru")
+public let peru: NSNotification.Name = NSNotification.Name(rawValue: "peru")
 ```
 
 Register for them
