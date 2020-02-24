@@ -32,14 +32,16 @@ User the `userInfo` Dictionary. Send it like this
 
 ```swift
 let userInfo:[String: UIImage] = ["image": image]
-NotificationCenter.default.post(name: .peru, object: self, userInfo: userInfo)
+NotificationCenter.default.post(name: .ActivationDidFail, object: self, userInfo: userInfo)
 ```
 
 Then receive it like this
 
 ```swift
-if let image = notification.userInfo?["image"] as? UIImage {
-  // do something with your image   
+func performActivationDidFailAction(notification: Notification) {
+     if let image = notification.userInfo?["image"] as? UIImage {
+       // do something with your image   
+     }
 }
 ```
 
