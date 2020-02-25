@@ -1,6 +1,6 @@
 # Protocols & Delegates
 
-There's a couple of ways to do this. One is to just define your protocol method by what it does and return self.
+An example.
 
 ```swift
 protocol LogoDownloaderDelegate: AnyObject {
@@ -29,10 +29,26 @@ extension ViewController: LogoDownloaderDelegate {
 
 ```
 
-The other is to start your protocol method names with the name of your class.
+## Naming
+
+There is a definite convention around naming your protocol methods. Start the name of your protocol with the name of the sender, followed by the state of the thing that changed. 
 
 ```swift
+sender / state that changed
+```
 
+For example here we return the switch of the button followed by the state after. 
+
+```swift
+protocol SavedPaymentSectionViewDelegate: AnyObject {
+    func savedPaymentInfoSwitch(_ infoSwitch: CheckBoxButton, didChange state: Bool)
+    func savePaymentInfoButtonWasTapped(_ infoButton: UIButton)
+}
+```
+
+If there is no state change, include the action with the sender in the name. Here is another.
+
+```swift
 protocol FileImporterDelegate: AnyObject {
     func fileImporter(_ importer: FileImporter,
                       shouldImportFile file: File) -> Bool
