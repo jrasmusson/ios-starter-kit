@@ -308,6 +308,28 @@ extension HomeController {
 }
 ```
 
+### How to pass a selector as an argument to a function
 
+Define
 
+```swift
+struct PaymentSection {
+    static func makeWarning(showHintSelector: Selector) -> UIStackView {
+        let button = UIButton(frame: .zero)
+        ButtonStyle.mediumDarkHint.apply(to: button)
+        button.addTarget(self, action: showHintSelector, for: .primaryActionTriggered)
+        ...
+    }
+}
+```
+
+Call
+
+```swift
+let makeWarning = PaymentSection.makeWarning(showHintSelector: #selector(showHint))
+
+@objc func showHint(sender: UIButton) {
+       delegate?.savePaymentToolTipWasTapped(sender)
+}
+```
 
