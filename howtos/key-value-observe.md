@@ -60,3 +60,56 @@ class ViewController: UIViewController {
 
 }
 ```
+
+## How does it work - Key-Value Coding
+
+KVO works because of something built into Cocoa called Key-Value Coding. KVC is the ability to set a property on an object via it's string based key and associted value.
+
+```swift
+class Child: NSObject {
+    @objc dynamic var name: String!
+
+    override init() {
+        self.name = ""
+        super.init()
+    }
+}
+
+var child = Child()
+
+child.setValue("Jonathan", forKey: "name")
+child.name
+```
+
+This was primarily used in Cocoa on Mac for simplifying `UITableView` processing. Because `UITableView` references it's columns via `identifier`, if a datasource was not Key-Value compliant you code would look something like this:
+
+```swift
+- (id)tableView:(NSTableView *)tableview objectValueForTableColumn:(id)column row:(NSInteger)row
+{
+    id result = nil;
+    Person *person = [self.people objectAtIndex:row];
+ 
+    if ([[column identifier] isEqualToString:@"name"]) {
+        result = [person name];
+    } else if ([[column identifier] isEqualToString:@"age"]) {
+        result = @([person age]);  // Wrap age, a scalar, as an NSNumber
+    } else if ([[column identifier] isEqualToString:@"favoriteColor"]) {
+        result = [person favoriteColor];
+    } // And so on...
+ 
+```
+
+And everytime you added a new column you would need to update this code. Whereas a Key-Coding compliant datasource simplifies the code to this:
+
+```swift
+- (id)tableView:(NSTableView *)tableview objectValueForTableColumn:(id)column row:(NSInteger)row
+{
+    return [[self.people objectAtIndex:row] valueForKey:[column identifier]];
+}
+```
+
+### Links that help
+
+- [KVC](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/BasicPrinciples.html#//apple_ref/doc/uid/20002170-BAJEAIEE)
+
+
