@@ -73,7 +73,7 @@ struct CoreDataManager {
 
     Note
      - All attributes in CoreData are Optional
-     - https://developer.apple.com/documentation/coredata/modeling_data/configuring_attributes?language=objc
+     - 
 
 
 ### Checklist
@@ -83,4 +83,5 @@ struct CoreDataManager {
 
 ### Links that help
 
-* [Live Cycle Managed Object](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/LifeofaManagedObject.html)
+- [CoreData Optionalaity](https://developer.apple.com/documentation/coredata/modeling_data/configuring_attributes?language=objc)
+- [Live Cycle Managed Object](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/LifeofaManagedObject.html)
