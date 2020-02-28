@@ -80,6 +80,7 @@ A starter kit for those interested in iOS programming
 * [Xibs](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Xibs/README.md)
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
+* [Higher Order Functions](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/HigherOrderFunctions/README.md)
 
 ## SpriteKit
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/spritekit/README.md)
