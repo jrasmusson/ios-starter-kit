@@ -3,6 +3,37 @@
 ## Example
 
 ```swift
+import UIKit
+import CoreData
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        RunCoreData()
+    }
+
+    func RunCoreData() {
+
+        // Create
+        guard let newChannel = CoreDataManager.shared.createChannel(number: "1") else { return }
+
+        // Read
+        guard let channel = CoreDataManager.shared.fetchChannel(withNumber: "1") else { return }
+        guard let channels = CoreDataManager.shared.fetchChannels() else { return }
+
+        // Update
+        CoreDataManager.shared.updateChannel(channel: channel)
+        guard let updatedChannel = CoreDataManager.shared.fetchChannel(withNumber: "2") else { return }
+
+        // Delete
+        CoreDataManager.shared.deleteChannel(channel: updatedChannel)
+    }
+
+}
+```
+
+```swift
 import CoreData
 
 struct CoreDataManager {
@@ -11,7 +42,7 @@ struct CoreDataManager {
 
     let persistentContainer: NSPersistentContainer = {
 
-        let container = NSPersistentContainer(name: "IntermediateTrainingModels")
+        let container = NSPersistentContainer(name: "MyData")
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error {
                 fatalError("Loading of store failed \(error)")
@@ -21,43 +52,77 @@ struct CoreDataManager {
         return container
     }()
 
-    func fetchCompanies() -> [Company] {
+    func createChannel(number: String) -> Channel? {
         let context = persistentContainer.viewContext
+        let channel = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: context) as! Channel
 
-        let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
+        channel.number = number
 
         do {
-            let companies = try context.fetch(fetchRequest)
-            return companies
+            try context.save()
+            return channel
+        } catch let createError {
+            print("Failed to create: \(createError)")
+        }
+
+        return nil
+    }
+
+    func fetchChannels() -> [Channel]? {
+        let context = persistentContainer.viewContext
+
+        let fetchRequest = NSFetchRequest<Channel>(entityName: "Channel")
+
+        do {
+            let channels = try context.fetch(fetchRequest)
+            return channels
         } catch let fetchError {
             print("Failed to fetch companies: \(fetchError)")
         }
 
-        return []
+        return nil
     }
 
-    func createEmployee(employeeName: String, employeeType: String, birthday: Date, company: Company) -> (Employee?, Error?) {
+    func fetchChannel(withNumber number: String) -> Channel? {
         let context = persistentContainer.viewContext
-        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee
 
-        employee.name = employeeName
-        employee.type = employeeType
-        employee.company = company
+        let fetchRequest = NSFetchRequest<Channel>(entityName: "Channel")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = NSPredicate(format: "number == %@", number)
 
-        let employeeInformation = NSEntityDescription.insertNewObject(forEntityName: "EmployeeInformation", into: context) as! EmployeeInformation
-        employeeInformation.taxId = "456"
-        employeeInformation.birthday = birthday
+        do {
+            let channels = try context.fetch(fetchRequest)
+            return channels.first
+        } catch let fetchError {
+            print("Failed to fetch: \(fetchError)")
+        }
 
-        employee.employeeInformation = employeeInformation
+        return nil
+    }
+
+    func updateChannel(channel: Channel) {
+        let context = persistentContainer.viewContext
+
+        channel.number = "2"
 
         do {
             try context.save()
-            return (employee, nil)
         } catch let createError {
-            print("Error creating employee: \(createError)")
-            return (nil, createError)
+            print("Failed to update: \(createError)")
         }
     }
+
+    func deleteChannel(channel: Channel) {
+        let context = persistentContainer.viewContext
+        context.delete(channel)
+
+        do {
+            try context.save()
+        } catch let saveError {
+            print("Failed to delete: \(saveError)")
+        }
+    }
+
 }
 ```
 
