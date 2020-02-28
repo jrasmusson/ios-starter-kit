@@ -61,6 +61,21 @@ struct CoreDataManager {
 }
 ```
 
+### How to add CoreData to project from scratch
+
+- Go new DataModel > MyData.xcdatamodeld
+- Click Add Entity (Channel)
+- Give it a name
+- Add your attributes
+- Make non-optional (RHS - but not Swift Optional)
+- Build / Clean / Restart Xcode
+- You can now access (Channel) entity in your viewController.
+
+    Note
+     - All attributes in CoreData are Optional
+     - https://developer.apple.com/documentation/coredata/modeling_data/configuring_attributes?language=objc
+
+
 ### Checklist
 
 - Relationship directions
