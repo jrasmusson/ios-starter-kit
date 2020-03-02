@@ -3,37 +3,14 @@
 ## Example
 
 ```swift
-import UIKit
-import CoreData
+//
+//  CoreDataManager.swift
+//  CoreDataDemo
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2020-03-02.
+//  Copyright © 2020 Jonathan Rasmusson. All rights reserved.
+//
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        RunCoreData()
-    }
-
-    func RunCoreData() {
-
-        // Create
-        guard let newChannel = CoreDataManager.shared.createChannel(number: "1") else { return }
-
-        // Read
-        guard let channel = CoreDataManager.shared.fetchChannel(withNumber: "1") else { return }
-        guard let channels = CoreDataManager.shared.fetchChannels() else { return }
-
-        // Update
-        CoreDataManager.shared.updateChannel(channel: channel)
-        guard let updatedChannel = CoreDataManager.shared.fetchChannel(withNumber: "2") else { return }
-
-        // Delete
-        CoreDataManager.shared.deleteChannel(channel: updatedChannel)
-    }
-
-}
-```
-
-```swift
 import CoreData
 
 struct CoreDataManager {
@@ -52,15 +29,15 @@ struct CoreDataManager {
         return container
     }()
 
-    func createChannel(number: String) -> Channel? {
+    func createEmployee(name: String) -> Employee? {
         let context = persistentContainer.viewContext
-        let channel = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: context) as! Channel
+        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee
 
-        channel.number = number
+        employee.name = name
 
         do {
             try context.save()
-            return channel
+            return employee
         } catch let createError {
             print("Failed to create: \(createError)")
         }
@@ -68,14 +45,14 @@ struct CoreDataManager {
         return nil
     }
 
-    func fetchChannels() -> [Channel]? {
+    func fetchEmployees() -> [Employee]? {
         let context = persistentContainer.viewContext
 
-        let fetchRequest = NSFetchRequest<Channel>(entityName: "Channel")
+        let fetchRequest = NSFetchRequest<Employee>(entityName: "Employee")
 
         do {
-            let channels = try context.fetch(fetchRequest)
-            return channels
+            let employees = try context.fetch(fetchRequest)
+            return employees
         } catch let fetchError {
             print("Failed to fetch companies: \(fetchError)")
         }
@@ -83,16 +60,16 @@ struct CoreDataManager {
         return nil
     }
 
-    func fetchChannel(withNumber number: String) -> Channel? {
+    func fetchEmployee(withName name: String) -> Employee? {
         let context = persistentContainer.viewContext
 
-        let fetchRequest = NSFetchRequest<Channel>(entityName: "Channel")
+        let fetchRequest = NSFetchRequest<Employee>(entityName: "Employee")
         fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = NSPredicate(format: "number == %@", number)
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
 
         do {
-            let channels = try context.fetch(fetchRequest)
-            return channels.first
+            let employees = try context.fetch(fetchRequest)
+            return employees.first
         } catch let fetchError {
             print("Failed to fetch: \(fetchError)")
         }
@@ -100,10 +77,10 @@ struct CoreDataManager {
         return nil
     }
 
-    func updateChannel(channel: Channel) {
+    func updateEmployee(employee: Employee) {
         let context = persistentContainer.viewContext
 
-        channel.number = "2"
+        employee.name = "Peter"
 
         do {
             try context.save()
@@ -112,9 +89,9 @@ struct CoreDataManager {
         }
     }
 
-    func deleteChannel(channel: Channel) {
+    func deleteEmployee(employee: Employee) {
         let context = persistentContainer.viewContext
-        context.delete(channel)
+        context.delete(employee)
 
         do {
             try context.save()
@@ -123,6 +100,35 @@ struct CoreDataManager {
         }
     }
 
+}
+```
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        RunCoreData()
+    }
+
+    func RunCoreData() {
+        // Create
+        guard let newEmployee = CoreDataManager.shared.createEmployee(name: "Jon") else { return }
+
+        // Read
+        guard let employee = CoreDataManager.shared.fetchEmployee(withName: "Jon") else { return }
+        guard let employees = CoreDataManager.shared.fetchEmployees() else { return }
+
+        // Update
+        CoreDataManager.shared.updateEmployee(employee: employee)
+        guard let updatedEmployee = CoreDataManager.shared.fetchEmployee(withName: "Jon") else { return }
+
+        // Delete
+        CoreDataManager.shared.deleteEmployee(employee: updatedEmployee)
+    }
 }
 ```
 
