@@ -1,3 +1,9 @@
+```swift
+label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+label.setContentHuggingPriority(UILayoutPriority(rawValue: 250), for: .vertical)
+label.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
+```
+
 # Content-Hugging Compression-Resistance (CHCR)
 
 * Settings that describe how controls shrink and grow
