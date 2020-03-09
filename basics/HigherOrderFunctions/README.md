@@ -18,6 +18,14 @@ let numbers = ["101", "102", "103", "11"]
 let unsortedInts = numbers.compactMap { Int($0) } // [101, 102, 103, 11]
 ```
 
+### Map with if
+
+```swift
+  var arr = [11, 12, 13, 14, 15]
+  arr = arr.map { elem in
+      if elem == 15 { return 1 } else { return 0 }
+  }
+```
 ## Filter
 
 
