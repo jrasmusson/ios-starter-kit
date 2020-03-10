@@ -26,14 +26,33 @@ func makeLabel(withTitle title: String) -> UILabel {
     return label
 }
 
-func makeStackView(axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
-    let stackView = UIStackView()
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = axis
-    stackView.alignment = .fill
-    stackView.spacing = 8
-    stackView.distribution = .fill
+func makeHorizontalStackView() -> UIStackView {
+    let stack = UIStackView()
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.spacing = 8.0
 
-    return stackView
+    return stack
+}
+
+func makeVerticalStackView() -> UIStackView {
+    let stack = UIStackView()
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.axis = .vertical
+    stack.spacing = 8.0
+
+    return stack
+}
+
+func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UIButton {
+    let configuration = UIImage.SymbolConfiguration(scale: .large)
+    let image = UIImage(systemName: systemName, withConfiguration: configuration)
+
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.addTarget(target, action: selector, for: .primaryActionTriggered)
+    button.setImage(image, for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+
+    return button
 }
 ```
