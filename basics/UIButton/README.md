@@ -1,5 +1,22 @@
 # UIButton
 
+## Symbol Button
+
+```swift
+func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UIButton {
+    let configuration = UIImage.SymbolConfiguration(scale: .large)
+    let image = UIImage(systemName: systemName, withConfiguration: configuration)
+
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.addTarget(target, action: selector, for: .primaryActionTriggered)
+    button.setImage(image, for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+
+    return button
+}
+```
+
 ## How to make a button with rounded corners
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-label.png"/>
