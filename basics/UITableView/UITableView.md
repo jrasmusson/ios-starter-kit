@@ -301,11 +301,43 @@ let tableView = UITableView(frame: .zero, style: .grouped)
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/grouped.png" width="400"/>
 
-## Insert/Delete Rows in Table 
+## Editing Styles
 
-Here is an example of how to insert/delete rows in a _UITableView_.
+There are two ways you can edit the rows and provide actions on a _UITableViewCell_. You can either return an array of action buttons with closures like this.
 
-- [How to swipe to delete](https://www.hackingwithswift.com/example-code/uikit/how-to-swipe-to-delete-uitableviewcells)
+```swift
+override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        objects.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    } else if editingStyle == .insert {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+```
+
+- [How to swipe to delete tableViewCelles](https://www.hackingwithswift.com/example-code/uikit/how-to-swipe-to-delete-uitableviewcells)
+
+Or you can create a custom action button (like on a navbarController) and do your work via target-action there.
+
+```swift
+    lazy var addButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addGamePressed))
+        return barButtonItem
+    }()
+
+    @objc
+    func addGamePressed() {
+        games.append("Ms Pacman")
+        let indexPath = IndexPath(row: games.count - 1, section: 0)
+
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
+```
+
+Either way will work. More just a matter of design and whatever makes sense for your app.
 
 ## Other things you can change
 
