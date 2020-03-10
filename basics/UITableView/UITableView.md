@@ -305,6 +305,7 @@ let tableView = UITableView(frame: .zero, style: .grouped)
 
 Here is an example of how to insert/delete rows in a _UITableView_.
 
+- [How to swipe to delete](https://www.hackingwithswift.com/example-code/uikit/how-to-swipe-to-delete-uitableviewcells)
 
 ## Other things you can change
 
