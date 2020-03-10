@@ -104,7 +104,7 @@ extension ViewController: UITableViewDataSource {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/how-to-nudge-right.png" width="400"/>
 
-## Simple
+### Simple
 
 If all you need is to nudge a label 16pts to the right, extend UILabel and redraw the text
 
@@ -138,7 +138,7 @@ And then use like this.
     }
 ```
 
-## Auto Layout
+### Auto Layout
 
 If you need something more complicated, consider creating a custom view. Both here do the same thing.
 
@@ -181,11 +181,11 @@ tableView.tableFooterView = ...
 
 When I played with this the header and footer would be obscured if you have sections. So pick one or the other. But not both.
 
-## Headers in Sections
+### Headers in Sections
 
 Here is how you can set the headers within a `UITableView` section.
 
-### Plain text
+#### Plain text
 
 Headers and sections are really one in the same. You can tell from the API `titleForHeaderInSection`. When you only have one it's a header. But as soon as you have multiple they act more like sections.
 
@@ -208,7 +208,7 @@ Headers and sections are really one in the same. You can tell from the API `titl
 
 A similar API exists for footers.
 
-### Custom View
+#### Custom View
 
 ```swift
 
@@ -300,6 +300,11 @@ let tableView = UITableView(frame: .zero, style: .grouped)
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/grouped.png" width="400"/>
+
+## Insert/Delete Rows in Table 
+
+Here is an example of how to insert/delete rows in a _UITableView_.
+
 
 ## Other things you can change
 
