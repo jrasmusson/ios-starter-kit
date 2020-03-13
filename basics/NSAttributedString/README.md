@@ -25,7 +25,7 @@
     }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" />
 
 ## How to add paragraph and spacing to a UILabel
 
