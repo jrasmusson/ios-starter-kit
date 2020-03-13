@@ -2,7 +2,7 @@
 
 ## How to add paragraph and spacing to a UILabel
 
-```
+```swift
 private func makeDescriptionLabel() -> UIView {
     let label = UILabel()
 
