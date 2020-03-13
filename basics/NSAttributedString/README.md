@@ -1,6 +1,6 @@
 # NSAttributedString
 
-# Formatting with baseline
+## Formatting with baseline
 
 ```swift
     func makeAttributed2() -> UILabel {
@@ -25,7 +25,7 @@
     }
 ```
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/bold.png" width="400"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" width="400"/>
 
 ## How to add paragraph and spacing to a UILabel
 
