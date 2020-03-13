@@ -3,26 +3,26 @@
 ## Formatting with baseline
 
 ```swift
-    func makeAttributed2() -> UILabel {
-        let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
-        let priceAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
-        let monthAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout)]
-        let termAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
+func makeAttributed2() -> UILabel {
+    let dollarSignAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout), .baselineOffset: 8]
+    let priceAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .title1)]
+    let monthAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .callout)]
+    let termAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
 
-        let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttributes)
-        let priceString = NSAttributedString(string: "8", attributes: priceAttributes)
-        let monthString = NSAttributedString(string: "/mo", attributes: monthAttributes)
-        let termString = NSAttributedString(string: "1", attributes: termAttributes)
+    let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttributes)
+    let priceString = NSAttributedString(string: "8", attributes: priceAttributes)
+    let monthString = NSAttributedString(string: "/mo", attributes: monthAttributes)
+    let termString = NSAttributedString(string: "1", attributes: termAttributes)
 
-        rootString.append(priceString)
-        rootString.append(monthString)
-        rootString.append(termString)
+    rootString.append(priceString)
+    rootString.append(monthString)
+    rootString.append(termString)
 
-        let label = UILabel()
-        label.attributedText = rootString
+    let label = UILabel()
+    label.attributedText = rootString
 
-        return label
-    }
+    return label
+}
 ```
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" />
