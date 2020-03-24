@@ -1,6 +1,6 @@
-UITableViewCell
+# UITableViewCell
 
-## The Short
+## Xibs
 
 **CustomCell.swift**
 
