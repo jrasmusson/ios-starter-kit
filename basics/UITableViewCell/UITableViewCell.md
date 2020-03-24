@@ -209,4 +209,5 @@ Voila!
 
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableviewcell)
+* [Customizing Cells](https://developer.apple.com/documentation/uikit/views_and_controls/table_views/configuring_the_cells_for_your_table)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
