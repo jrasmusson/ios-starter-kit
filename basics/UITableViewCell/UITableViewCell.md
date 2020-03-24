@@ -1,5 +1,90 @@
 # UITableViewCell
 
+## Programmatically
+
+![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/simple.png)
+
+**ChannelCell.swift**
+
+```swift
+import UIKit
+
+class ChannelCell: UITableViewCell {
+
+    var channel: Channel? {
+        didSet {
+            guard let channel = channel else { return }
+            nameLabel.text = channel.name
+        }
+    }
+
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.text = "Name"
+
+        return label
+    }()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        layout()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func layout() {
+        addSubview(nameLabel)
+
+        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+
+}
+```
+
+**ViewController.swift**
+
+```swift
+struct Channel {
+    let imageName: String
+    let name: String
+    let price: String
+}
+
+let channel1 = Channel(imageName: "crave", name: "Crave", price: "8")
+
+var channels = [channel1]
+
+class ViewController: UIViewController {
+
+    let cellId = "cellId"
+
+    func setup() {
+        tableView.register(ChannelCell.self, forCellReuseIdentifier: cellId)
+    }
+
+// MARK:  - UITableView DataSource
+
+extension ViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ChannelCell
+
+        let channel = channels[indexPath.row]
+        cell.channel = channel
+        cell.accessoryType = UITableViewCell.AccessoryType.none
+
+        return cell
+    }
+}
+```
+
+
 ## Xibs
 
 **CustomCell.swift**
