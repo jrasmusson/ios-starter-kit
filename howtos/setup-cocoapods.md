@@ -20,7 +20,7 @@ How to search for pod from command line (better than web)
 > pod repo update
 > pod search firebase
 - add pod
-> pod update
+> pod install
 ```
 
 ### Links
