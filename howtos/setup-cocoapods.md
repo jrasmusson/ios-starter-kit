@@ -19,7 +19,7 @@ How to search for pod from command line (better than web)
 ```bash
 > pod repo update
 > pod search firebase
-- add pod
+- pod  'AppDynamicsAgent', '~> 2020.3.0'
 > pod install
 ```
 
