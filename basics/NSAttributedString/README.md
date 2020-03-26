@@ -27,7 +27,7 @@ func makeAttributed2() -> UILabel {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" />
 
-## Label1
+## Bolding in paragraph
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/bold.png" width="400"/>
 
