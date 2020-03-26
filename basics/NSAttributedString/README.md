@@ -27,32 +27,6 @@ func makeAttributed2() -> UILabel {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/baseline.png" />
 
-## How to add paragraph and spacing to a UILabel
-
-```swift
-private func makeDescriptionLabel() -> UIView {
-    let label = UILabel()
-
-    let paragraphStyle = NSMutableParagraphStyle()
-    paragraphStyle.headIndent = Spacing.margin
-    paragraphStyle.firstLineHeadIndent = Spacing.margin
-    paragraphStyle.tailIndent = -Spacing.margin
-
-    let attributes = [
-        NSAttributedString.Key.foregroundColor: UIColor.gray,
-        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14.0),
-        NSAttributedString.Key.paragraphStyle: paragraphStyle
-    ]
-
-    let attributedString = NSAttributedString(string: "It looks like you have a service ready.", attributes: attributes)
-
-    label.attributedText = attributedString
-    label.numberOfLines = 0
-
-    return label
-}
-```
-
 ## Label1
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/images/bold.png" width="400"/>
