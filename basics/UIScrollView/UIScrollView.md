@@ -94,7 +94,7 @@ Note: If you don't know the intrinsic size of a view in the `UIStackView` you ne
 
 The trick to understanding scroll views is you can't just rely on your contents intrinsic height to layout the scroll views content. You need an unbroken chain of constraints to the scroll view can calculate is scrollable area.
 
-For example, if we add a lable to a scroll view, but don't fully pin it to all the edge of the scroll view (and try to rely solely on it's intrinsic size like, this, we will get a warning.
+For example, if we add a label to a scroll view, but don't fully pin it to all the edge of the scroll view (and try to rely solely on it's intrinsic size like, this, we will get a warning.
 
 ```swift
 label.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
