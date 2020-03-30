@@ -2,7 +2,7 @@
 
 Simple example of using a Timer to update a _UIProgressView_.
 
-[Table](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIProgressView/images/progress.gif)
+![Table](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIProgressView/images/progress.gif)
 
 ```swift
 import UIKit
