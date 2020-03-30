@@ -1,5 +1,33 @@
 # Strings
 
+## How to convert double into two decimal String for currency
+
+On Double
+
+```swift
+extension Double {
+    var clean: String {
+       return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
+    }
+}
+```
+
+On FloatingPoint
+
+```swift
+extension FloatingPoint {
+    var isInt: Bool {
+        return floor(self) == self
+    }
+}
+
+func roundPrice(price: Double) -> String {
+    return price.isInt ? String(format: "%.0f", price) : String(format: "%.2f", price)
+}
+```
+
+
+
 ## How to localize Strings
 
 First you need a localizable string file with contains all the strings for your application. And in there you put the string you want to lookup.
