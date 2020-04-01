@@ -4,7 +4,7 @@ iOS provides materials (or blur effects) that create a translucent effect you ca
 
 When you use the system-defined materials, your elements look great in every context, because these effects automatically adapt to the system’s light and dark modes.
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/example.png" alt="drawing" width="800"/>
+<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIVisualEffectView/images/vibrancy.png" alt="drawing" width="400"/>
 
 
 ```swift
