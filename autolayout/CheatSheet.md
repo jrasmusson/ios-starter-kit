@@ -131,6 +131,47 @@ container.setContentHuggingPriority(.defaultLow, for: .horizontal)
     }
 ```
 
+### LayoutEdgeAnchorable
+
+```swift
+enum LayoutEdgeAnchor {
+    case leading
+    case trailing
+    case top
+    case bottom
+}
+
+protocol LayoutEdgeAnchorable {
+    var leadingAnchor: NSLayoutXAxisAnchor { get }
+    var trailingAnchor: NSLayoutXAxisAnchor { get }
+    var topAnchor: NSLayoutYAxisAnchor { get }
+    var bottomAnchor: NSLayoutYAxisAnchor { get }
+
+    func makeEdgeConstraints(equalToAnchorsOf anchorable: LayoutEdgeAnchorable, forEdges edges: [LayoutEdgeAnchor], insetBy insets: UIEdgeInsets) -> [NSLayoutConstraint]
+}
+
+extension LayoutEdgeAnchorable {
+
+    func makeEdgeConstraints(equalToAnchorsOf anchorable: LayoutEdgeAnchorable, forEdges edges: [LayoutEdgeAnchor] = [.top, .leading, .bottom, .trailing], insetBy insets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
+        return edges.map { edge in
+            switch edge {
+            case .top:
+                return topAnchor.constraint(equalTo: anchorable.topAnchor, constant: insets.top)
+            case .leading:
+                return leadingAnchor.constraint(equalTo: anchorable.leadingAnchor, constant: insets.left)
+            case .bottom:
+                return anchorable.bottomAnchor.constraint(equalTo: bottomAnchor, constant: insets.bottom)
+            case .trailing:
+                return anchorable.trailingAnchor.constraint(equalTo: trailingAnchor, constant: insets.right)
+            }
+        }
+    }
+
+}
+
+extension UIView: LayoutEdgeAnchorable {}
+```
+
 ### Links that help
 
 - [Anchor API](https://developer.apple.com/documentation/uikit/NSLayoutAnchor)
