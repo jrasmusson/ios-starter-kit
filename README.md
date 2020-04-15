@@ -124,7 +124,6 @@ A starter kit for those interested in iOS programming
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
 * [Basic Animation Curves](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimationCurves/README.md)
 * [How tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/HowTos/README.md)
-* [UIPanGestureRecognizer](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIPanGestureRecognizer.md)
 * [Interactive Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/InteractiveAnimations.md)
 * [UIViewControllerTransitioningDelegate](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/UIViewControllerTransitioningDelegate/README.md)
 * [Left/Right Swipe Add/Remove ViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/LeftRightSwipe1/README.md)
