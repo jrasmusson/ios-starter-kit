@@ -2,6 +2,13 @@
 
 ## Simple
 
+Moving your finger -> from left-to-right is a `.right` swipe direction.
+Moving your finger <- from right-to-left is a `.left` swipe direction
+
+So the direction of the arrow is the direction of the swipe:
+ - <- swipe left
+ - -> swipe right
+ 
 ```swift
 import UIKit
 
