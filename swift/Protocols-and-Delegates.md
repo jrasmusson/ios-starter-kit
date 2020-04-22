@@ -92,6 +92,16 @@ protocol DetailViewControllerDelegate: AnyObject {
 }
 ```
 
+## Button target action
+
+```swift
+button.addTarget(self, action: #selector(buttonPressed(_:)), for: .primaryActionTriggered)
+
+@objc func buttonPressed(_ sender: UIButton) {
+delegate?.headerViewDelegate(self, didChange: 0)
+}
+```
+
 
 ## Links that help
 * https://medium.com/@abhimuralidharan/all-about-protocols-in-swift-11a72d6ea354
