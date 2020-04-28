@@ -149,6 +149,19 @@ See loaf website for example.
 
 ```
 
+## Examples
+
+```swift
+// Returns our categories from our fetched subscription offers, sorted, and no duplicates
+var categories: [String] {
+    let offers = fetchedSubscriptionOffers else {
+        return []
+    }
+
+    return Set(offers.map { $0.upsellChannelType }).map { $0 }.compactMap { $0 }.sorted(by: <)
+}
+```
+
 
 
 ### Links that help
