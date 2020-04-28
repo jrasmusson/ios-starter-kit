@@ -350,3 +350,9 @@ let makeWarning = PaymentSection.makeWarning(showHintSelector: #selector(showHin
 }
 ```
 
+### How to make a button or view clear and transparent
+
+```swift
+termsTextView.backgroundColor = .clear
+termsTextView.isOpaque = false
+```
