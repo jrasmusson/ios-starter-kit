@@ -144,7 +144,7 @@ override func viewDidAppear(_ animated: Bool) {
 ### Links that help
 
 * [Manually Scrolling](https://jayeshkawli.ghost.io/manually-scrolling-uiscrollview-ios-swift/)
-* [Undserstanding UIScrollView](https://oleb.net/blog/2014/04/understanding-uiscrollview/)
+* [Understanding UIScrollView](https://oleb.net/blog/2014/04/understanding-uiscrollview/)
 * [Apple UIScrollView docs](https://developer.apple.com/documentation/uikit/uiscrollview)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/scroll-views/)
 * [Auto Layout UIScrollView](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html#//apple_ref/doc/uid/TP40010853-CH24-SW1)
