@@ -356,3 +356,10 @@ let makeWarning = PaymentSection.makeWarning(showHintSelector: #selector(showHin
 termsTextView.backgroundColor = .clear
 termsTextView.isOpaque = false
 ```
+
+### How to trigger a button inside a unit test
+
+```swift
+viewController.planDetailsButton.sendActions(for: .touchUpInside) // .primaryActionTriggered
+```
+
