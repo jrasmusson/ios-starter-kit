@@ -199,6 +199,39 @@ class ViewController2: UIViewController {
 }
 ```
 
+## Alternative way to load a view
+
+Often we create and layout our view in `viewDidLoad`. But there is another way this can be done.
+
+```swift
+public class PhoneTileViewController: UIViewController {
+    
+    let phoneTileView = PhoneTileView(frame: .zero)
+
+    override public func loadView() {
+        view = phoneTileView
+    }
+
+    public func update(with state: PhoneTileViewState) {
+        phoneTileView.update(with: state)
+    }
+}
+```
+
+`loadView()` is method `UIViewController` calls when it loads its view. `viewDidLoad` is a bit of lie. When we call it, we _expect_ our view to already be loaded! But for reasons (mostly convention) we don't. We instead usually do most of our layout in there because that's what everyone else does.
+
+When you call
+
+```swift
+    override public func loadView() {
+        view = phoneTileView
+    }
+```
+
+The view gets layed out according to however that _ViewController_ gets presented. If it is presented modally from a rootViewController in a _NavigationController_ it will fill the entire screen frame.
+
+If it is embedded as a subsubview somewhere else it will view whatever space it is given.
+
 ### Links that help
 
 - [Push & Pop](https://medium.com/@felicity.johnson.mail/pushing-popping-dismissing-viewcontrollers-a30e98731df5)
