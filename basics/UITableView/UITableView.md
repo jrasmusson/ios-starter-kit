@@ -265,6 +265,28 @@ let cell = tableView.dequeueReusableCell(withIdentifier: "myCell") ?? UITableVie
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/default-cell-styles.png" width="400"/>
 
+## Cell Reuse
+
+Do this is you need a cell created a specific way.
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    let offer = viewModel.offersForSelectedCategory[indexPath.row]
+
+    let cell: ChannelAddOnsViewControllerCell
+
+    if let existingCell = tableView.dequeueReusableCell(withIdentifier: ChannelAddOnsView.cellId) as? ChannelAddOnsViewControllerCell {
+        cell = existingCell
+    } else {
+        cell = ChannelAddOnsViewControllerCell(style: .default, reuseIdentifier: ChannelAddOnsView.cellId)
+    }
+
+    cell.subscriptionOffer = offer
+
+    return cell
+}
+```
 ## Accessory types
 
 There are five different accessory types for a `UITableViewCell`.
