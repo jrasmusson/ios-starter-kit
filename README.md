@@ -42,6 +42,7 @@ A starter kit for those interested in iOS programming
 * [Result](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Result.md)
 
 ## Basics
+* [Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Animation/README.md)
 * [UIViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/README.md)
 * [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
 * [Color](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/README.md)
