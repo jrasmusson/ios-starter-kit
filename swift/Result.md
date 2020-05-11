@@ -26,41 +26,30 @@ public enum Result<Success, Failure> where Failure : Error {
 Example
 
 ```swift
-func refreshOrders(completion: @escaping ((Result<[OrderItem], Error>) -> Void)) {
+class GameService {
+    func fetchGames(completion: @escaping ((Result<[Game], Error>) -> Void)) {
 
-   // Success
-   self.selectedAccount?.orderItems = NSSet(array: collection)
-   completion(Result.success(collection))             
+        // Success
+        let games = [Game(name: "Space Invaders")]
+        completion(Result.success(games))
 
-   // Error
-   completion(Result.failure(ActivationError.coreData))
+       // Error
+       completion(Result.failure(ActivationError.coreData))
+    }
 }
 ```
 
 And then when you call you pull the payload or error from the result like this by defining lets
 
 ```swift
-fetchUnreadCount1(from: "https://www.hackingwithswift.com") { result in
+GameService().fetchGames { [weak self] result in
     switch result {
-    case .success(let count):
-        print("\(count) unread messages.")
+    case .success(let games):
+        self?.games = games
+        self?.tableView.reloadData()
     case .failure(let error):
         print(error.localizedDescription)
     }
-}
-```
-
-Alternatively
-
-```swift
-session.refreshOrders(completion: { (result) in
-    subject = try? result.get().first
-})
-
-do {
-    let orderItems = try? result.get()
-} catch error {
-    print("Error fetching value: \(error)")
 }
 ```
 
