@@ -181,6 +181,12 @@ tableView.tableFooterView = ...
 
 When I played with this the header and footer would be obscured if you have sections. So pick one or the other. But not both.
 
+### Hide extra rows in footer
+
+```swift
+tableView.tableFooterView = UIView() // hide empty rows
+```
+
 ### Headers in Sections
 
 Here is how you can set the headers within a `UITableView` section.
