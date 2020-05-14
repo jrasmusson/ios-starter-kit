@@ -118,6 +118,7 @@ A starter kit for those interested in iOS programming
 * [How to test for specific error](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-errors.md)
 * [How to test via callbacks](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/testing-with-callbacks.md)
 * [How to test ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/viewControllers.md)
+* [How to test Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-responder-chain.md)
 
 ## Animations
 * [ButtonSlider](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ButtonSlider/READEME.md)
