@@ -140,8 +140,6 @@ Key thing to remember with headers & footers is you need to give them height. El
 
 ![](images/section-insets.png)
 
-![](images/section-insets-example.png)
-
 ```swift
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
