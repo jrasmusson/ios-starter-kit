@@ -236,8 +236,8 @@ class FooterCell: UICollectionViewCell {
         textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
     }
 }
+```
 
-``
 ## Notes
 
 ![](images/flow.png)
