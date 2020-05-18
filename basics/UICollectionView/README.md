@@ -7,6 +7,14 @@ There are x2 types of concrete collection views.
 
 ## Flow Layout
 
+![](images/flow.png)
+
+UICollectionViews
+
+- Don't come with cells. You need to create your own.
+- Have a layout delegates you override to stylize.
+- Backgrounds are implemented as Supplemental Views
+
 ## Simple
 
 ![](images/simple.png)
@@ -238,23 +246,30 @@ class FooterCell: UICollectionViewCell {
 }
 ```
 
-## Notes
+## Section Insets
 
-![](images/flow.png)
+![](images/section-insets.png)
 
-UICollectionViews
+![](images/section-insets-example.png)
 
-- Don't come with cells. You need to create your own.
-- Have a layout delegates you override to stylize.
-- Backgrounds are implemented as Supplemental Views
+The size may override the left and right. But this way you can apply some spacing at top and bottom.
+
+```swift
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 100, left: -20, bottom: 80, right: -20)
+    }
+}
+```
+
 
 ## Compositional Layout
 
 
 
-## Example App
-
-## Column flow layout
+## Custom Layout
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
 
