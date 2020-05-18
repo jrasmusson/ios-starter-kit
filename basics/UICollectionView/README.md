@@ -7,9 +7,7 @@ There are x2 types of concrete collection views.
 
 ## Flow Layout
 
-![](images/flow.png)
-
-### Simple
+## Simple
 
 ![](images/simple.png)
 
@@ -88,13 +86,7 @@ class MyCell: UICollectionViewCell {
 }
 ```
 
-UICollectionViews
-
-- Don't come with cells. You need to create your own.
-- Have a layout delegates you override to stylize.
-
-
-### Column
+## Column
 
 ![](images/column.png)
 
@@ -130,9 +122,130 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 ```
 
+## Headers & Footers
 
-### Theory
+Key thing to remember with headers & footers is you need to give them height. Else they won't show.
 
+![](images/flow-header.png)
+
+```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        /// Register
+        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.identifier)
+
+        collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.identifier)
+    }
+
+/// Data Source
+extension ViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if kind == "UICollectionElementKindSectionHeader" {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath)
+            header.backgroundColor = .yellow
+            return header
+        }
+
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FooterCell.identifier, for: indexPath)
+        footer.backgroundColor = .green
+        return footer
+    }
+
+}
+
+/// Cells
+class HeaderCell: UICollectionViewCell {
+
+    static let identifier = "SupportArticleHeaderCell"
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Header title"
+        label.font = UIFont.systemFont(ofSize: 16)
+
+        return label
+    }()
+
+    let separatorLineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .lightGray
+
+        return view
+    }()
+
+    func setupViews() {
+        backgroundColor = .white
+
+        addSubview(textLabel)
+        addSubview(separatorLineView)
+
+        textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+
+        separatorLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        separatorLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        separatorLineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        separatorLineView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+    }
+}
+
+class FooterCell: UICollectionViewCell {
+
+    static let identifier = "SupportArticleFooterCell"
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Footer title"
+        label.font = UIFont.systemFont(ofSize: 16)
+
+        return label
+    }()
+
+    func setupViews() {
+        backgroundColor = .white
+
+        addSubview(textLabel)
+
+        textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+    }
+}
+
+``
+## Notes
+
+![](images/flow.png)
+
+UICollectionViews
+
+- Don't come with cells. You need to create your own.
+- Have a layout delegates you override to stylize.
 - Backgrounds are implemented as Supplemental Views
 
 ## Compositional Layout
