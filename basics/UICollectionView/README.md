@@ -385,6 +385,208 @@ class FooterCell: UICollectionViewCell {
 
 ![](images/compositional-layout.png)
 
+### ListView
+
+![](images/listview.png)
+
+```swift
+    private func createLayout() -> UICollectionViewLayout {
+
+        // item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+
+        return layout
+    }
+```
+
+### GridView
+
+![](images/gridview.png)
+
+```swift
+    private func createLayout() -> UICollectionViewLayout {
+
+        // itemWidth is 20% of group container - .fractionalWidth(0.2)
+        //
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // add some inset spacing
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+        // Still want the group to span the entire width of the collection view - .fractionalWidth(1.0)
+        // Height of each group or row will be 20% of the width of the groups container.
+        //  This is what makes it square. The fact the height and width are the same value.
+        //  So it is the combination of itemSize (0.2, 1) and group height (0.2) that gives us the square.
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalWidth(0.2))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+```
+
+### Two Column Grid
+
+![](images/two-column-grid.png)
+
+```swift
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+```
+
+## Supplementary Items
+
+![](images/badges.png)
+
+Views can be added as supplementary items to collection view. You define your view.
+
+```swift
+class BadgeSupplementaryView: UICollectionReusableView {
+
+    static let reuseIdentifier = "badge-reuse-identifier"
+    let label = UILabel()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+
+    override var frame: CGRect {
+        didSet {
+            configureBorder()
+        }
+    }
+    override var bounds: CGRect {
+        didSet {
+            configureBorder()
+        }
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("Not implemented")
+    }
+}
+
+extension BadgeSupplementaryView {
+    func configure() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
+        addSubview(label)
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ])
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textAlignment = .center
+        label.textColor = .black
+        backgroundColor = .green
+        configureBorder()
+    }
+    func configureBorder() {
+        let radius = bounds.width / 2.0
+        layer.cornerRadius = radius
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1.0
+    }
+}
+```
+
+Register it with the collection with the collection.
+
+```swift
+    func configureHierarchy() {
+        ...
+        collectionView.register(BadgeSupplementaryView.self,
+                    forSupplementaryViewOfKind: ItemBadgeSupplementaryViewController.badgeElementKind,
+                    withReuseIdentifier: BadgeSupplementaryView.reuseIdentifier)
+        ...
+    }
+    
+    import UIKit
+```
+
+And then you give it its own set of anchors and size to be positioned relative to each cell, created as a `NSCollectionLayoutSupplementaryItem`. 
+
+```swift
+        let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.3, y: -0.3))
+        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20),
+                                              heightDimension: .absolute(20))
+        let badge = NSCollectionLayoutSupplementaryItem(
+            layoutSize: badgeSize,
+            elementKind: ItemBadgeSupplementaryViewController.badgeElementKind,
+            containerAnchor: badgeAnchor)
+```
+Then when you create your item, you add it as a supplementary item.
+
+```swift
+        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [badge])
+```
+
+Full layout looks like this.
+
+```swift
+extension ItemBadgeSupplementaryViewController {
+    func createLayout() -> UICollectionViewLayout {
+        let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.3, y: -0.3))
+        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20),
+                                              heightDimension: .absolute(20))
+        let badge = NSCollectionLayoutSupplementaryItem(
+            layoutSize: badgeSize,
+            elementKind: ItemBadgeSupplementaryViewController.badgeElementKind,
+            containerAnchor: badgeAnchor)
+
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [badge])
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalWidth(0.2))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+}
+```
+
 
 ## Custom Layout
 
