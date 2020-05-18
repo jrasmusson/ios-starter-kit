@@ -1,5 +1,146 @@
 # UICollectionViews
 
+There are x2 types of concrete collection views.
+
+- Flow layout
+- Compositional layout 
+
+## Flow Layout
+
+![](images/flow.png)
+
+### Simple
+
+![](images/simple.png)
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+
+    override func loadView() {
+        super.loadView()
+        view = collectionView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        collectionView.backgroundColor = .white
+        collectionView.dataSource = self
+        collectionView.delegate = self
+
+        collectionView.register(MyCell.self, forCellWithReuseIdentifier: "MyCell")
+    }
+}
+
+extension ViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! MyCell
+        cell.textLabel.text = String(indexPath.row + 1)
+        return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row + 1)
+    }
+}
+
+class MyCell: UICollectionViewCell {
+
+    weak var textLabel: UILabel!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
+        textLabel = label
+
+        contentView.backgroundColor = .lightGray
+        textLabel.textAlignment = .center
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+```
+
+UICollectionViews
+
+- Don't come with cells. You need to create your own.
+- Have a layout delegates you override to stylize.
+
+
+### Column
+
+![](images/column.png)
+
+You can turn a simple flow layout into a column by overriding the `UICollectionViewDelegateFlowLayout` methods. Add these to the above example.
+
+```swift
+extension ViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.bounds.size.width - 16, height: 120)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
+    }
+}
+```
+
+
+### Theory
+
+- Backgrounds are implemented as Supplemental Views
+
+## Compositional Layout
+
+
+
+## Example App
+
 ## Column flow layout
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
