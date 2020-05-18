@@ -587,10 +587,136 @@ extension ItemBadgeSupplementaryViewController {
 }
 ```
 
+## Boundary Items
+
+Headers and footers are implemented as `NSCollectionLayoutBoundarySupplementaryItem`.
+
+![](images/section-header-footer.png)
+
+First your register.
+
+```swift
+    func configureHierarchy() {
+        collectionView.register(
+            TitleSupplementaryView.self,
+            forSupplementaryViewOfKind: SectionHeadersFootersViewController.sectionHeaderElementKind,
+            withReuseIdentifier: TitleSupplementaryView.reuseIdentifier)
+        collectionView.register(
+            TitleSupplementaryView.self,
+            forSupplementaryViewOfKind: SectionHeadersFootersViewController.sectionFooterElementKind,
+            withReuseIdentifier: TitleSupplementaryView.reuseIdentifier)
+    }
+```
+
+Then you layout and add as boundary supplementary items.
+
+```swift
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                     heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerFooterSize,
+            elementKind: SectionHeadersFootersViewController.sectionHeaderElementKind, alignment: .top)
+        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerFooterSize,
+            elementKind: SectionHeadersFootersViewController.sectionFooterElementKind, alignment: .bottom)
+        section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
+```
+
+### Pin header
+
+You can pin a header like this.
+
+```swift
+    func createLayout() -> UICollectionViewLayout {
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated(44)),
+            elementKind: PinnedSectionHeaderFooterViewController.sectionHeaderElementKind,
+            alignment: .top)
+        sectionHeader.pinToVisibleBounds = true
+        sectionHeader.zIndex = 2
+        section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
+    }
+```
+
+## Decoration Items
+
+Backgrounds can be added as decoration items.
+
+![](images/background.png)
+
+Create a view.
+
+```swift
+class SectionBackgroundDecorationView: UICollectionReusableView {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    required init?(coder: NSCoder) {
+        fatalError("not implemented")
+    }
+}
+
+extension SectionBackgroundDecorationView {
+    func configure() {
+        backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 12
+    }
+}
+```
+
+Register it.
+
+```swift
+        layout.register(
+            SectionBackgroundDecorationView.self,
+            forDecorationViewOfKind: SectionDecorationViewController.sectionBackgroundDecorationElementKind)
+```
+
+Add it as a decoration to the section.
+
+```swift
+    func createLayout() -> UICollectionViewLayout {
+        let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
+            elementKind: SectionDecorationViewController.sectionBackgroundDecorationElementKind)
+        sectionBackgroundDecoration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        section.decorationItems = [sectionBackgroundDecoration]
+    }
+```
+
+## Orthogonal Scrolling
+
+![](images/orthogonal.png)
+
+You can create orthogonal layouts that scroll like this:
+
+```swift
+    func createLayout() -> UICollectionViewLayout {
+    	section.orthogonalScrollingBehavior = .continuous // Boom!
+    }
+```
+
+And then choose from one of these scrolling types:
+
+```swift
+public enum UICollectionLayoutSectionOrthogonalScrollingBehavior : Int {
+    case continuous
+    case continuousGroupLeadingBoundary
+    case paging
+    case groupPaging
+    case groupPagingCentered
+}
+```
+
+
 
 ## Custom Layout
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/images/ColumnFlowLayout.png"/>
+<img src="images/ColumnFlowLayout.png"/>
 
 First define a custom column flow layout that specifies the width, height, and insets of each item in your collection.
 
