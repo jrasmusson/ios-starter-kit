@@ -136,18 +136,88 @@ Key thing to remember with headers & footers is you need to give them height. El
 
 ![](images/flow-header.png)
 
+## Section Insets
+
+![](images/section-insets.png)
+
+![](images/section-insets-example.png)
+
 ```swift
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 20, left: 0, bottom: 20, right: 0)
+    }
+}
+```
+
+## Full Example
+
+```swift
+//
+//  ViewController.swift
+//  FlowLayout
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2020-05-17.
+//  Copyright © 2020 Jonathan Rasmusson. All rights reserved.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    var collectionView: UICollectionView!
+    var flowLayout: UICollectionViewFlowLayout!
+
+    override func loadView() {
+        super.loadView()
+
+        flowLayout = UICollectionViewFlowLayout()
+        flowLayout.headerReferenceSize = CGSize(width: 100, height: 100)
+        flowLayout.footerReferenceSize = CGSize(width: 100, height: 100)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        self.view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /// Register
-        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.identifier)
+        collectionView.backgroundColor = .white
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
+        collectionView.register(MyCell.self, forCellWithReuseIdentifier: "MyCell")
+
+        collectionView.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCell.identifier)
         collectionView.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCell.identifier)
     }
+}
 
-/// Data Source
 extension ViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! MyCell
+        cell.textLabel.text = String(indexPath.row + 1)
+        return cell
+    }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
@@ -164,7 +234,70 @@ extension ViewController: UICollectionViewDataSource {
 
 }
 
-/// Cells
+extension ViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row + 1)
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: collectionView.bounds.size.width - 16, height: 120)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 20, left: 0, bottom: 20, right: 0)
+    }
+}
+
+
+class MyCell: UICollectionViewCell {
+
+    weak var textLabel: UILabel!
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        ])
+        textLabel = label
+
+        contentView.backgroundColor = .lightGray
+        textLabel.textAlignment = .center
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
 class HeaderCell: UICollectionViewCell {
 
     static let identifier = "SupportArticleHeaderCell"
@@ -246,27 +379,11 @@ class FooterCell: UICollectionViewCell {
 }
 ```
 
-## Section Insets
-
-![](images/section-insets.png)
-
-![](images/section-insets-example.png)
-
-The size may override the left and right. But this way you can apply some spacing at top and bottom.
-
-```swift
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 100, left: -20, bottom: 80, right: -20)
-    }
-}
-```
 
 
 ## Compositional Layout
 
+![](images/compositional-layout.png)
 
 
 ## Custom Layout
