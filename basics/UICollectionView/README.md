@@ -15,7 +15,7 @@ UICollectionViews
 - Have a layout delegates you override to stylize.
 - Backgrounds are implemented as Supplemental Views
 
-## Simple
+### Simple Flow Layout
 
 ![](images/simple.png)
 
@@ -94,7 +94,7 @@ class MyCell: UICollectionViewCell {
 }
 ```
 
-## Column
+### Column Flow Layout
 
 ![](images/column.png)
 
@@ -130,13 +130,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 ```
 
-## Headers & Footers
+### Headers & Footers
 
 Key thing to remember with headers & footers is you need to give them height. Else they won't show.
 
 ![](images/flow-header.png)
 
-## Section Insets
+### Section Insets
 
 ![](images/section-insets.png)
 
@@ -150,7 +150,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 ```
 
-## Full Example
+### Full Example
 
 ```swift
 //
@@ -383,6 +383,45 @@ class FooterCell: UICollectionViewCell {
 
 ![](images/compositional-layout.png)
 
+Compositional layouts use composition over inheritance to build composing views within views. There are four key concepts you need to understand.
+
+- Size - NSCollectionLayoutSize 
+- Item - NSCollectionLayoutItem 
+- Group - NSCollectionLayoutGroup 
+- Section - NSCollectionLayoutSection
+
+### Size
+
+Everything has a size. A height and a width dimension.
+
+```swift
+class NSCollectionLayoutSize {
+	init(widthDimension: NSCollectionLayoutDimension, heightDimension: NSCollectionLayoutDimension)
+}
+```
+
+_ NSCollectionLayoutDimension_ is a axis independent way of defining size.
+
+```swift
+class NSCollectionLayoutDimension {
+	class func fractionalWidth(_ fractionalWidth: CGFloat) -> Self 
+	class func fractionalHeight(_ fractionalHeight: CGFloat) -> Self 
+	class func absolute(_ absoluteDimension: CGFloat) -> Self
+	class func estimated(_ estimatedDimension: CGFloat) -> Self
+}
+
+let widthDimension = NSCollectionLayoutDimension.fractionalWidth(0.5)
+let heightDimension = NSCollectionLayoutDimension.fractionalHeight(0.3)
+
+let size = NSCollectionLayoutDimension(widthDimension: .fractionalWidth(0.25), heightDimension: .fractionalWidth(0.25))
+
+let heightDimension = NSCollectionLayoutDimension.absolute(200)
+let heightDimension = NSCollectionLayoutDimension.estimated(200)
+
+```
+
+### Item
+
 ### ListView
 
 ![](images/listview.png)
@@ -407,6 +446,8 @@ class FooterCell: UICollectionViewCell {
         return layout
     }
 ```
+
+The _itemSize_ describes how much the item should fill the group it is contained in.
 
 ### GridView
 
