@@ -398,6 +398,8 @@ Everything has a size. A height and a width dimension.
 class NSCollectionLayoutSize {
 	init(widthDimension: NSCollectionLayoutDimension, heightDimension: NSCollectionLayoutDimension)
 }
+
+let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
 ```
 
 _ NSCollectionLayoutDimension_ is a axis independent way of defining size.
@@ -421,6 +423,75 @@ let heightDimension = NSCollectionLayoutDimension.estimated(200)
 ```
 
 ### Item
+
+_NSCollectionLayoutItem_ is a cell or supplementary item. It takes a _size_ as an input.
+
+```swift
+class NSCollectionLayoutItem {
+   convenience init(layoutSize: NSCollectionLayoutSize) 
+   var contentInsets: NSDirectionalEdgeInsets
+}
+```
+
+### Group
+
+Basic unit of layout. This is our workhorse for laying things out. Will override or take precendence over what we say in _size_.
+
+```swift
+class NSCollectionLayoutGroup: NSCollectionLayoutItem { 
+   class func horizontal(layoutSize: NSCollectionLayoutSize, subitems: [NSCollectionLayoutItem]) -> Self 
+   class func vertical(layoutSize: NSCollectionLayoutSize,\ subitems: [NSCollectionLayoutItem]) -> Self 
+   class func custom(layoutSize: NSCollectionLayoutSize, itemProvider: NSCollectionLayoutGroupCustomItemProvider) -> Self
+}
+
+```
+
+### Section
+
+The layout for the section. Takes a group.
+
+```swift
+class NSCollectionLayoutSection {
+   convenience init(layoutGroup: NSCollectionLayoutGroup) 
+   var contentInsets: NSDirectionalEdgeInsets
+}
+```
+
+### Layout
+
+The layout of the view. Repeating per section.
+
+```swift
+class UICollectionViewCompositionalLayout: UICollectionViewLayout { 
+   init(section: NSCollectionLayoutSection)
+   init(sectionProvider: @escaping SectionProvider)
+}
+```
+
+### All together
+
+Bringing it all together looks something like this.
+
+```swift
+    private func createLayout() -> UICollectionViewLayout {
+
+        // item
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // group
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+
+        return layout
+    }
+```
 
 ### ListView
 
@@ -494,6 +565,13 @@ The _itemSize_ describes how much the item should fill the group it is contained
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .absolute(44))
+                                              
+                                              
+        // Group overrides item. Here we are saying lay these items out in a horizontal group, but 
+        // make it a repeating group of x2. Note - group layout will override item layout.
+        // So even though itemSize is 1x1, group will override it and stretch it out to meet
+        // the repeating requirements of the group.
+        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
         let spacing = CGFloat(10)
         group.interItemSpacing = .fixed(spacing)
