@@ -1,5 +1,70 @@
 # UINavigationController
 
+## How to create a title bar button item
+
+![](images/titleBarButton.png)
+
+You basically create a `UIBarButtonItem` and set the font via `NSAttributedString`. Note how the color also adapts for dark mode.
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+    
+    lazy var leftBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Music", style: .plain, target: self, action: #selector(leftTapped))
+        
+        barButtonItem.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .largeTitle).withTraits(traits: [.traitBold]),
+            NSAttributedString.Key.foregroundColor: UIColor.label],
+                                             for: .normal)
+
+        return barButtonItem
+    }()
+    
+    lazy var rightBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Podcasts", style: .plain, target: self, action: #selector(leftTapped))
+        
+        barButtonItem.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .largeTitle).withTraits(traits: [.traitBold]),
+            NSAttributedString.Key.foregroundColor: UIColor.label],
+                                             for: .normal)
+        
+        return barButtonItem
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavBar()
+    }
+
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.hidesBarsOnSwipe = true
+        
+        navigationItem.leftBarButtonItems = [leftBarButtonItem, rightBarButtonItem]
+    }
+    
+    @objc func leftTapped() {}
+    @objc func rightTapped() {}
+}
+
+extension UIFont {
+    func withTraits(traits: UIFontDescriptor.SymbolicTraits) -> UIFont {
+        let descriptor = fontDescriptor.withSymbolicTraits(traits)
+        return UIFont(descriptor: descriptor!, size: 0) //size 0 means keep the size as it is
+    }
+
+    func bold() -> UIFont {
+        return withTraits(traits: .traitBold)
+    }
+
+    func italic() -> UIFont {
+        return withTraits(traits: .traitItalic)
+    }
+}
+```
+
 ## How to hide the navigation bar on swipe
 
 ```swift
