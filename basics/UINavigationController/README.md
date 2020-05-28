@@ -1,5 +1,11 @@
 # UINavigationController
 
+## How to hide the navigation bar on swipe
+
+```swift
+navigationController?.hidesBarsOnSwipe = true
+```
+
 ![Example](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/example.png)
 
 ## How to make status bar white
