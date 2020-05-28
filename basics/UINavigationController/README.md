@@ -6,6 +6,12 @@
 navigationController?.hidesBarsOnSwipe = true
 ```
 
+## How to large titles
+
+```
+navigationController?.navigationBar.prefersLargeTitles = true
+```
+
 ![Example](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/example.png)
 
 ## How to make status bar white
