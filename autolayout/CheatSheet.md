@@ -172,6 +172,34 @@ extension LayoutEdgeAnchorable {
 extension UIView: LayoutEdgeAnchorable {}
 ```
 
+## Auto Resizing Mask 
+
+An alternative to autolayout is resizing mask. Two ways to fill a view.
+
+### AutoResizingMask
+
+```swift
+let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+view.addSubview(collectionView)
+```
+
+### Autolayout
+
+```swift
+let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+cv.translatesAutoresizingMaskIntoConstraints = false
+
+addSubview(collectionView)
+
+NSLayoutConstraint.activate([
+    collectionView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 0),
+    collectionView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 0),
+    trailingAnchor.constraint(equalToSystemSpacingAfter: collectionView.trailingAnchor, multiplier: 0),
+    bottomAnchor.constraint(equalToSystemSpacingBelow: collectionView.bottomAnchor, multiplier: 0)
+])
+```
+
 ### Links that help
 
 - [Anchor API](https://developer.apple.com/documentation/uikit/NSLayoutAnchor)
