@@ -71,6 +71,24 @@ if selectedAccount.isDefault {
     viewController = ManageAccountsReadOnlyViewController()
 }
 ```
+
+## Conditional Initializer off Optional Value
+
+Here is a way you can conditionally initialize a variable based off an optional value.
+
+```swift
+    func makeLegendItem(title: String, color: UIColor? = nil, valueLabel: UILabel) -> UIView {
+
+        var decoration: UIView
+        if let color = color {
+            decoration = UIView()
+            decoration.backgroundColor = color
+            decoration.layer.cornerRadius = LocalSpacing.dotSize/2
+        } else {
+            decoration = UIImageView(image: NamedImage.usageDot)
+        }
+```
+
 ### Links that help
 
 * [Swift Initializers](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html)
