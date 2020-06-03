@@ -74,7 +74,7 @@ if selectedAccount.isDefault {
 
 ## Conditional Initializer off Optional Value
 
-Here is a way you can conditionally initialize a variable based off an optional value.
+Here is a way you can conditionally initialize a variable based off an optional value. The compiler is smart enough to know as long as you have it defined but not yet set it will make sure all code paths have it set a value before it is accessed later on.
 
 ```swift
     func makeLegendItem(title: String, color: UIColor? = nil, valueLabel: UILabel) -> UIView {
