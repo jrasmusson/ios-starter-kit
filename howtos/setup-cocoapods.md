@@ -23,6 +23,8 @@ How to search for pod from command line (better than web)
 > pod install
 ```
 
+  >> Note: If you pod isnt found and it comes from custom repos run `pod repo update`.
+
 ### Links
 
 - [Cocoa Pods Getting Started](https://guides.cocoapods.org/using/getting-started.html#getting-started)
