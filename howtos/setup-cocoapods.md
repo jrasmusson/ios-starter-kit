@@ -23,7 +23,7 @@ How to search for pod from command line (better than web)
 > pod install
 ```
 
-  >> Note: If you pod isnt found and it comes from custom repos run `pod repo update`.
+   Note: If you pod isnt found and it comes from custom repos run `pod repo update`.
 
 ### Links
 
