@@ -131,13 +131,17 @@ public static var traitTightLeading: UIFontDescriptor.SymbolicTraits { get }
 public static var traitLooseLeading: UIFontDescriptor.SymbolicTraits { get }
  ```
  
- ### Customer font
+ ### How to resize a custom font using UIFontMetrics
  
  ```swift
- tagline.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .bold))
+if let font = UIFont(name: "Helvetica", size: 72) {
+    let fontMetrics = UIFontMetrics(forTextStyle: .headline)
+    label.font = fontMetrics.scaledFont(for: font)
+}
  ```
 
 ### Links that help
 
 - [Apple UIFontTextStyle](https://developer.apple.com/documentation/uikit/uifonttextstyle)
 - [Bold preferredFont](https://spin.atomicobject.com/2018/02/02/swift-scaled-font-bold-italic/)
+- [Paul Hudson Scaled Font](https://www.hackingwithswift.com/example-code/uikit/how-to-resize-a-custom-font-using-uifontmetrics)
