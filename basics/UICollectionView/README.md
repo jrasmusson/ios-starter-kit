@@ -589,7 +589,9 @@ The _itemSize_ describes how much the item should fill the group it is contained
 
 ![](images/badges.png)
 
-Views can be added as supplementary items to collection view. You define your view.
+[Supplementary Items](https://developer.apple.com/documentation/uikit/nscollectionlayoutsupplementaryitem?language=objc) are views such as a badges or a frames you can add to an item in a collection view.
+
+You create them by extending `UICollectionReusableView`.
 
 ```swift
 class BadgeSupplementaryView: UICollectionReusableView {
@@ -642,7 +644,8 @@ extension BadgeSupplementaryView {
 }
 ```
 
-Register it with the collection with the collection.
+Register them with the collection.
+
 
 ```swift
     func configureHierarchy() {
@@ -657,6 +660,8 @@ Register it with the collection with the collection.
 ```
 
 And then you give it its own set of anchors and size to be positioned relative to each cell, created as a `NSCollectionLayoutSupplementaryItem`. 
+
+![](images/anchors.png)
 
 ```swift
         let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.3, y: -0.3))
