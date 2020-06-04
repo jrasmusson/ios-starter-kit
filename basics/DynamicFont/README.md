@@ -2,6 +2,14 @@
 
 The way Apple keeps its fonts looking good (even when people resize their devices for accessibility) is through Dynamic Font - `UIFontTextStyle`.
 
+Simply use a preferred font, and set `adjustsFontForContentSizeCategory = true` and you will never have to adjust your font size again. iOS will do it for you.
+
+```swift
+label.font = UIFont.preferredFont(forTextStyle: .body)
+label.adjustsFontForContentSizeCategory = true
+```
+
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/preferred-font-sizes.png" alt="drawing" width="400"/>
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/DynamicFont/images/sizes.png" alt="drawing" width="800"/>
