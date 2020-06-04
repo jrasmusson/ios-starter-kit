@@ -24,6 +24,24 @@ dateFormatter.dateStyle = .full
 let stringOutput = dateFormatter.string(from: date)
 ```
 
+## TimeStyle
+
+|Style   |Output   |
+|---|---|
+|.full   |1:26:32 PM Greenwich Mean Time   |
+|.long   |1:26:32 PM GMT   |
+|.medium   |1:26:32 PM   |
+|.short   |1:26 PM   |
+
+Example
+
+```swift
+let date = Date()
+let dateFormatter = DateFormatter()
+dateFormatter.timeStyle = .short
+let stringOutput = dateFormatter.string(from: date)
+```
+
 ### Links that help
 
 - [DateFormatter](https://developer.apple.com/documentation/foundation/dateformatter)
