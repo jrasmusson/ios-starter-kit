@@ -40,6 +40,10 @@ sender / state that changed
 For example here we return the switch of the button followed by the state after. 
 
 ```swift
+protocol InternetTileViewControllerDelegate: AnyObject {
+    func internetTileViewController(_ viewController: InternetTileViewController, didSetInternetPackage package: InternetPackage?)
+}
+
 protocol SavedPaymentSectionViewDelegate: AnyObject {
     func savedPaymentInfoSwitch(_ infoSwitch: CheckBoxButton, didChange state: Bool)
     func savePaymentInfoButtonWasTapped(_ infoButton: UIButton)
