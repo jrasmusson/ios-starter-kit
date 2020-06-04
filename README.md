@@ -5,6 +5,7 @@ A starter kit for those interested in iOS programming
 * [Arrays](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Array/README.md)
 * [Enums](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Enums/README.md)
 * [Computed Properties](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Computed-Properties.md)
+* [DateFormatter](swift/DateFormatter.md)
 * [Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols.md)
   * [Protocol Oriented Programming](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-oriented-programming.md)
   * [Protocol based inheritance](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocol-based-inheritance.md)
