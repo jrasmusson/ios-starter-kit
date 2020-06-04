@@ -30,6 +30,20 @@ extension UIColor {
 }
 ```
 
+But also give the color a name around what it represents
+
+```swift
+public extension UIColor {
+    static var downloadColor: UIColor {
+        return .shawSkyBlue
+    }
+
+    static var uploadColor: UIColor {
+        return .shawTertiaryYellow
+    }
+}
+```
+
 ### Links that help
 
 - [HIG Color](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/)
