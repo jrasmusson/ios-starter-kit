@@ -14,7 +14,6 @@ transactionDate.text = dateFormatter.string(from: Date())
 |.long   |March 8, 2017   |
 |.medium   |Mar 8, 2017   |
 |.short   |3/8/17   |
-|   |   |
 
 Example
 
