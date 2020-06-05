@@ -1,5 +1,21 @@
 # UIStackView
 
+## Label in a StackView
+
+For those times when your label is giving you ambiguous width, make it explicit.
+
+```swift
+titleLabel.sizeToFit()
+titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.frame.size.width).setActiveBreakable()
+
+public extension NSLayoutConstraint {
+    @objc func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
+        self.priority = priority
+        isActive = true
+    }
+}
+```
+
 ## System after spacing syntax
 
 ```
