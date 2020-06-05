@@ -16,6 +16,12 @@ public extension NSLayoutConstraint {
 }
 ```
 
+And if that doesn't work manually set some _stackView_ insets.
+
+```swift
+stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.frame.width / 3)
+```
+
 ## System after spacing syntax
 
 ```
