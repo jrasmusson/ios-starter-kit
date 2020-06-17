@@ -5,11 +5,11 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    let labs = ["Basic Anchors",
-                "Safe Area Guide",
-                "Layout Margin",
-                "Spacer Views",
-                "Readable Content Guide"]
+    let games = ["Pacman",
+                "Space Invaders",
+                "Space Patrol",
+                "Galaga",
+                "Donkey Kong"]
     
     let cellId = "cellId"
     
@@ -19,21 +19,21 @@ class ViewController: UITableViewController {
     }
     
     func setupViews() {
-        navigationItem.title = "Anchors"
+        navigationItem.title = "Games"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        cell.textLabel?.text = labs[indexPath.row]
+        cell.textLabel?.text = games[indexPath.row]
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return labs.count
+        return games.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -50,52 +50,54 @@ Same thing but implemented as a standalone `UITableView`.
 import UIKit
 
 class ViewController: UIViewController {
-    
-    let labs = ["Basic Anchors",
-                "Safe Area Guide",
-                "Layout Margin",
-                "Spacer Views",
-                "Readable Content Guide"]
-    
+
+    let games = ["Pacman",
+                "Space Invaders",
+                "Space Patrol",
+                "Galaga",
+                "Donkey Kong"]
+
     let cellId = "cellId"
-    
+
     var tableView = UITableView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     func setupViews() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        
+
+        tableView.tableFooterView = UIView() // hide empty rows
+
         view = tableView
     }
 }
 
 extension ViewController: UITableViewDelegate {
-    
+
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        
-        cell.textLabel?.text = labs[indexPath.row]
+
+        cell.textLabel?.text = games[indexPath.row]
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return labs.count
+        return games.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
     }
 }
 ```
