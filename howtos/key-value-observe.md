@@ -108,6 +108,12 @@ And everytime you added a new column you would need to update this code. Whereas
 }
 ```
 
+## When should you use?
+
+KVO is handy for observing model changes. My buddy Dan best describes it like this.
+
+> I was observing specific model changes (they are events) here, and not user and other UI events. I tend to use responder chain for user events that happen, where if you use observers on model NSObjects you don't have to write your own eventing code in your model, as it's baked in via KVO, you just listen for changes.
+
 ### Links that help
 
 - [KVC](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/BasicPrinciples.html#//apple_ref/doc/uid/20002170-BAJEAIEE)
