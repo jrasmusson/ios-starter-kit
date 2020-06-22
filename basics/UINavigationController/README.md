@@ -79,6 +79,19 @@ navigationController?.navigationBar.prefersLargeTitles = true
 
 ![Example](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/example.png)
 
+## How to style large titles
+
+```swift
+navigationController.navigationBar.prefersLargeTitles = true
+
+let attrs = [
+    NSAttributedString.Key.foregroundColor: UIColor.red,
+    NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!
+]
+
+navigationController.navigationBar.largeTitleTextAttributes = attrs
+```
+
 ## How to make status bar white
 
 ```swift
