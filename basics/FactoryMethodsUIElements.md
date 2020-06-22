@@ -55,4 +55,23 @@ func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UI
 
     return button
 }
+
+func makeBarButtonItem(text: String, selector: Selector) -> UIBarButtonItem {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.addTarget(self, action: selector, for: .primaryActionTriggered)
+
+    let attributes = [
+        NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .largeTitle).withTraits(traits: [.traitBold]),
+        NSAttributedString.Key.foregroundColor: UIColor.label]
+
+    let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+
+    button.setAttributedTitle(attributedText, for: .normal)
+    button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 16)
+
+    let barButtonItem = UIBarButtonItem(customView: button)
+
+    return barButtonItem
+}
 ```
