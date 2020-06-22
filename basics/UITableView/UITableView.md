@@ -1,62 +1,42 @@
-# UITableViewController
-
-```swift
-import UIKit
-
-class ViewController: UITableViewController {
-    
-    let games = ["Pacman",
-                "Space Invaders",
-                "Space Patrol",
-                "Galaga",
-                "Donkey Kong"]
-    
-    let cellId = "cellId"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-    }
-    
-    func setupViews() {
-        navigationItem.title = "Games"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        
-        cell.textLabel?.text = games[indexPath.row]
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-}
-```
+# UITableView
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic.png" width="400"/>
-
-Same thing but implemented as a standalone `UITableView`.
 
 ```swift
 import UIKit
 
 class ViewController: UIViewController {
 
-    let games = ["Pacman",
+let games = [
+                "Pacman",
                 "Space Invaders",
                 "Space Patrol",
                 "Galaga",
-                "Donkey Kong"]
-
+                "Donkey Kong",
+                "Frogger",
+                "Defender",
+                "Dig Dug",
+                "Zaxxon",
+                "Qbert",
+                "Burger Time",
+                "Joust",
+                "Paperboy",
+                "Missle Command",
+                "Pole Position",
+                "Robotron",
+                "Spy Hunter",
+                "Star Wars",
+                "1942",
+                "Dragon's Lair",
+                "Moon Patrol",
+                "Centipede",
+                "Bezerk",
+                "Elevator Action",
+                "Gauntlet",
+                "Sinistar",
+                "Tempest",
+    ]
+    
     let cellId = "cellId"
 
     var tableView = UITableView()
@@ -101,6 +81,52 @@ extension ViewController: UITableViewDataSource {
     }
 }
 ```
+
+# UITableViewController
+
+```swift
+import UIKit
+
+class ViewController: UITableViewController {
+    
+    let games = ["Pacman",
+                "Space Invaders",
+                "Space Patrol",
+                "Galaga",
+                "Donkey Kong"]
+    
+    let cellId = "cellId"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    func setupViews() {
+        navigationItem.title = "Games"
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        cell.textLabel?.text = games[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+```
+
+
 
 ## How to custom format viewForHeaderInSection
 
