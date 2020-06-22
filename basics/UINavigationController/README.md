@@ -92,6 +92,8 @@ let attrs = [
 navigationController.navigationBar.largeTitleTextAttributes = attrs
 ```
 
+![](images/style-large-title.png)
+
 ## How to make status bar white
 
 ```swift
