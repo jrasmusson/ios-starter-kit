@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### TabBar within a NavBar
 
-![](images/demo2.gif)
+![](images/demo3.gif)
 
 Simply reverse who gets embedded within whom. Little less screen real estate this way.
 
