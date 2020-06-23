@@ -1,5 +1,45 @@
 # UINavigationController
 
+## How to hide the navigation bar on swipe
+
+```swift
+navigationController?.hidesBarsOnSwipe = true
+```
+
+## How to large titles
+
+```
+navigationController?.navigationBar.prefersLargeTitles = true
+```
+
+![Example](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/example.png)
+
+## How to style large titles
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .systemBackground
+        
+        let navigationController = UINavigationController(rootViewController: HomeController())
+        window?.rootViewController = navigationController
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title1).withTraits(traits: .traitBold)
+        ]
+
+        navigationController.navigationBar.largeTitleTextAttributes = attrs
+        
+        return true
+    }
+```
+
+![](images/style-large-title.png)
+
 ## How to create a title bar button item
 
 ![](images/titleBarButton.png)
@@ -64,35 +104,6 @@ extension UIFont {
     }
 }
 ```
-
-## How to hide the navigation bar on swipe
-
-```swift
-navigationController?.hidesBarsOnSwipe = true
-```
-
-## How to large titles
-
-```
-navigationController?.navigationBar.prefersLargeTitles = true
-```
-
-![Example](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UINavigationController/images/example.png)
-
-## How to style large titles
-
-```swift
-navigationController.navigationBar.prefersLargeTitles = true
-
-let attrs = [
-    NSAttributedString.Key.foregroundColor: UIColor.red,
-    NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!
-]
-
-navigationController.navigationBar.largeTitleTextAttributes = attrs
-```
-
-![](images/style-large-title.png)
 
 ## How to make status bar white
 
