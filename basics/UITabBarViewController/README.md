@@ -159,6 +159,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+#### How to set the title of the nav bar on a view controller within a tab bar
+
+The title of the nav bar is tied to the title of the tab bar button. You can't set it via `title`. Instead do it like this.
+
+```swift
+    private func setupNavBar() {
+        navigationController?.navigationBar.topItem?.title = "Good afternoon, Jonathan ☀️"
+//        title = "Good afternoon, Jonathan ☀️"
+    }
+```
+
+
+
 ### Links that help
 
 * [Apple docs](https://developer.apple.com/documentation/uikit/uitabbarcontroller)
