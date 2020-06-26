@@ -168,21 +168,18 @@ class ViewController: UIViewController {
 button.contentEdgeInsets = UIEdgeInsets(top: 12, left: Spacing.margin, bottom: Spacing.margin, right: Spacing.margin)
 ```
 
-## How to control spacing between button and text (edge insets)
+## How to pad button text and image
 
-https://noahgilmore.com/blog/uibutton-padding/
 
-![](images/button-padding.png)
-
-## How to combine a button with an image
-
-![](images/button-image.png)
-
-There are multiples ways you can do this.
-
-## contentEdgeInsets & imageEdgeInsets
+### contentEdgeInsets & imageEdgeInsets
 
 The simplest is to add you text and image to the button, and then whatever padding you give the `imageEdgeInsets` on the image, give the same corresponding padding to the `contentEdgeInsets` on the button.
+
+```swift
+let padding = 20
+button.imageEdgeInsets = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: 0)
+button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: padding)
+```
 
 This avoids having to calculate the width of the button manually, and set any kind of constraints based off that.
 
@@ -191,23 +188,23 @@ This avoids having to calculate the width of the button manually, and set any ki
 ![](images/reward2.png)
 
 ```swift
-        let configuration = UIImage.SymbolConfiguration(scale: .small)
-        let image = UIImage(systemName: "chevron.down", withConfiguration: configuration)
+let configuration = UIImage.SymbolConfiguration(scale: .small)
+let image = UIImage(systemName: "chevron.down", withConfiguration: configuration)
 
-        let rewardsButton = UIButton()
-        rewardsButton.translatesAutoresizingMaskIntoConstraints = false
-        rewardsButton.addTarget(target, action: #selector(rewardOptionsTapped), for: .primaryActionTriggered)
-        rewardsButton.setImage(image, for: .normal)
-        rewardsButton.imageView?.contentMode = .scaleAspectFit
+let rewardsButton = UIButton()
+rewardsButton.translatesAutoresizingMaskIntoConstraints = false
+rewardsButton.addTarget(target, action: #selector(rewardOptionsTapped), for: .primaryActionTriggered)
+rewardsButton.setImage(image, for: .normal)
+rewardsButton.imageView?.contentMode = .scaleAspectFit
 
-        rewardsButton.setTitle("Reward options", for: .normal)
-        rewardsButton.setTitleColor(.label, for: .normal)
-        rewardsButton.semanticContentAttribute = .forceRightToLeft
-        rewardsButton.backgroundColor = .systemYellow
-        rewardsButton.imageView?.tintColor = .label
-        
-        rewardsButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 20, bottom: 0, right: 0)
-        rewardsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
+rewardsButton.setTitle("Reward options", for: .normal)
+rewardsButton.setTitleColor(.label, for: .normal)
+rewardsButton.semanticContentAttribute = .forceRightToLeft
+rewardsButton.backgroundColor = .systemYellow
+rewardsButton.imageView?.tintColor = .label
+    
+rewardsButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 20, bottom: 0, right: 0)
+rewardsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
 ```
 
 ### NSAttributed string
@@ -255,6 +252,11 @@ Another way to do this is with `NSAttributedImage` string and add the image to t
         return width
     }
 ```
+
+Good article [here](https://noahgilmore.com/blog/uibutton-padding/).
+
+![](images/button-padding.png)
+
 
 ## Buttons on UINavigationBar
 
