@@ -1,10 +1,133 @@
 # Draw
 
-There are many ways to draw in iOS. You've got _UIKit_, _CoreAnimation_, and _CoreGraphic_ librairies. When you see `drawRect` that usually means setting things up with frameworks and primitives using the _CoreGraphic_ library. 
-
-_UIKit_ has bridges that will take your _CoreGraphics_ rectangles and turn them into `UIImages`. Once you have an image, you can convert it into a `UIImageView` and work with it in Auto Layout land.
+## Rectangle with border
 
 ![](images/square.png)
+
+```swift
+func drawRectangle() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 300))
+    
+    let img = renderer.image { ctx in
+        let rectangle = CGRect(x: 0, y: 0, width: 300, height: 300)
+        
+        ctx.cgContext.setFillColor(UIColor.red.cgColor)
+        ctx.cgContext.setStrokeColor(UIColor.green.cgColor)
+        ctx.cgContext.setLineWidth(10)
+
+        ctx.cgContext.addRect(rectangle)
+        ctx.cgContext.drawPath(using: .fillStroke)
+    }
+    
+    imageView.image = img
+}
+```
+
+## Rectangle with no border
+
+![](images/square-no-border.png)
+
+```swift
+func drawRectangle2() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 300))
+    
+    let img = renderer.image { ctx in
+        ctx.cgContext.setFillColor(UIColor.red.cgColor)
+        ctx.cgContext.fill(CGRect(x: 0, y: 0, width: 300, height: 300))
+    }
+    
+    imageView.image = img
+}
+```
+
+## Circle
+
+![](images/circle.png)
+
+```swift
+func drawCircle() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 300))
+    
+    let img = renderer.image { ctx in
+        ctx.cgContext.setFillColor(UIColor.red.cgColor)
+        ctx.cgContext.setStrokeColor(UIColor.green.cgColor)
+        ctx.cgContext.setLineWidth(10)
+
+        let rectangle = CGRect(x: 0, y: 0, width: 300, height: 300).inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        ctx.cgContext.addEllipse(in: rectangle)
+        ctx.cgContext.drawPath(using: .fillStroke)
+    }
+    
+    imageView.image = img
+}
+```
+
+	> Note: Circles need to be inset because they draw up to rectangle edge
+
+## Rotated square
+
+![](images/rotated-square.png)
+
+```swift
+func drawRotatedSquare() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 256, height: 256))
+    
+    let img = renderer.image { ctx in
+        
+        ctx.cgContext.translateBy(x: 128, y: 128)
+        let rotations = 16
+        let amount = Double.pi / Double(rotations)
+        
+        // add 16 rotated rectangles
+        for _ in 0 ..< rotations {
+            ctx.cgContext.rotate(by: CGFloat(amount))
+            ctx.cgContext.addRect(CGRect(x: -64, y: -64, width: 128, height: 128))
+        }
+        
+        ctx.cgContext.setStrokeColor(UIColor.systemRed.cgColor)
+        ctx.cgContext.strokePath()
+    }
+    
+    imageView.image = img
+}
+```
+
+## Draw lines
+
+![](images/draw-lines.png)
+
+```swift
+func drawLines() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 256, height: 256))
+    
+    let img = renderer.image { ctx in
+        ctx.cgContext.translateBy(x: 128, y: 128)
+        
+        var first = true
+        var length: CGFloat = 128
+        
+        for _ in 0 ..< 128 {
+            ctx.cgContext.rotate(by: .pi / 2)
+            if first {
+                ctx.cgContext.move(to: CGPoint(x: length, y: 25))
+                first = false
+            } else {
+                ctx.cgContext.addLine(to: CGPoint(x: length, y: 25))
+            }
+            
+            length *= 0.99
+        }
+        
+        ctx.cgContext.setStrokeColor(UIColor.systemRed.cgColor)
+        ctx.cgContext.strokePath()
+    }
+    
+    imageView.image = img
+}
+```
+
+
+## Auto Layout
 
 ```swift
 import UIKit
@@ -36,41 +159,7 @@ class GraphView: UIView {
         ])
     }
 
-    func drawRectangle() {
-        // Gateway to CoreGraphics via UIKit
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 300))
-        
-        let img = renderer.image { ctx in
-            // Now we are in CG land
-            let rectangle = CGRect(x: 0, y: 0, width: 300, height: 300)
-            
-            ctx.cgContext.setFillColor(UIColor.red.cgColor)
-            ctx.cgContext.setStrokeColor(UIColor.green.cgColor)
-            ctx.cgContext.setLineWidth(10)
-
-            ctx.cgContext.addRect(rectangle)
-            ctx.cgContext.drawPath(using: .fillStroke)
-        }
-    
-        // tie to our imageView - now can do auto layout
-        imageView.image = img
-    }
-
-    func drawCircle() {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 50, height: 50))
-        
-        let img = renderer.image { ctx in
-            ctx.cgContext.setFillColor(UIColor.red.cgColor)
-            ctx.cgContext.setStrokeColor(UIColor.green.cgColor)
-            ctx.cgContext.setLineWidth(10)
-
-            let rectangle = CGRect(x: 0, y: 0, width: 50, height: 50)
-            ctx.cgContext.addEllipse(in: rectangle)
-            ctx.cgContext.drawPath(using: .fillStroke)
-        }
-    
-        imageView.image = img
-    }
+    func drawRectangle() { ... }
 }
 ```
 
