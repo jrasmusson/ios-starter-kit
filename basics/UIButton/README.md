@@ -176,9 +176,39 @@ https://noahgilmore.com/blog/uibutton-padding/
 
 ## How to combine a button with an image
 
-<img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png" width="200"/>
+![](images/button-image.png)
 
-There are multiples ways you can do this - each with there respective pros and cons.
+There are multiples ways you can do this.
+
+## contentEdgeInsets & imageEdgeInsets
+
+The simplest is to add you text and image to the button, and then whatever padding you give the `imageEdgeInsets` on the image, give the same corresponding padding to the `contentEdgeInsets` on the button.
+
+This avoids having to calculate the width of the button manually, and set any kind of constraints based off that.
+
+	> Note: If you want the image to the right of the text, you need to set the _semanticContentAttribute_ in order to get it showing up on the right.
+	
+![](images/reward2.png)
+
+```swift
+        let configuration = UIImage.SymbolConfiguration(scale: .small)
+        let image = UIImage(systemName: "chevron.down", withConfiguration: configuration)
+
+        let rewardsButton = UIButton()
+        rewardsButton.translatesAutoresizingMaskIntoConstraints = false
+        rewardsButton.addTarget(target, action: #selector(rewardOptionsTapped), for: .primaryActionTriggered)
+        rewardsButton.setImage(image, for: .normal)
+        rewardsButton.imageView?.contentMode = .scaleAspectFit
+
+        rewardsButton.setTitle("Reward options", for: .normal)
+        rewardsButton.setTitleColor(.label, for: .normal)
+        rewardsButton.semanticContentAttribute = .forceRightToLeft
+        rewardsButton.backgroundColor = .systemYellow
+        rewardsButton.imageView?.tintColor = .label
+        
+        rewardsButton.imageEdgeInsets = UIEdgeInsets(top: 2, left: 20, bottom: 0, right: 0)
+        rewardsButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
+```
 
 ### NSAttributed string
 
@@ -225,49 +255,6 @@ Another way to do this is with `NSAttributedImage` string and add the image to t
         return width
     }
 ```
-
-
-### UIEdgeInsets
-
-You can add image and text individually to a button and then play with the edge insets. 
-
-```swift
-    func makePaymentExtensionButton() -> UIButton {
-        performPaymentExtensionButton = UIButton()
-        performPaymentExtensionButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let buttonTitle = loc("paymentExtension.homeBanner.delinquent.button")
-        let buttonFont = UIFont.systemFont(ofSize: 14.0)
-
-        performPaymentExtensionButton.setTitle(buttonTitle, for: .normal)
-        performPaymentExtensionButton.setTitleColor(.shawHighlightBlue, for: .normal)
-        performPaymentExtensionButton.titleLabel?.font = buttonFont
-
-        performPaymentExtensionButton.setImage(#imageLiteral(resourceName: "iconDisclosureBlue"), for: .normal)
-        performPaymentExtensionButton.contentHorizontalAlignment = .left
-//        performPaymentExtensionButton.semanticContentAttribute = .forceRightToLeft
-        performPaymentExtensionButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8.0)
-        performPaymentExtensionButton.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 180 + 8 + 10, bottom: 0.0, right: 0.0)
-        performPaymentExtensionButton.addTarget(nil, action: .performPaymentExtensionAction, for: .primaryActionTriggered)
-
-        performPaymentExtensionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-
-        return performPaymentExtensionButton
-    }
-
-    func buttonWidth(forText text: String, font: UIFont) -> CGFloat {
-        let fontAttributes = [NSAttributedString.Key.font: font]
-        var width = (text as NSString).size(withAttributes: fontAttributes).width
-        width += LocalSpacing.buttonPaddingRight + LocalSizing.buttonImageWidth
-
-        return width
-    }
-````
-
-Note that image start off on the left, so you need to either calculate the width of the button and add a large offset (i.e. 180) along with a width constraint on the button itself.
-
-Or you can force flip the `semanticContentAttribute` to be `.forceRightToLeft` to start the image on the right. But this isn't recommneded as you then lose direction of language.
-
 
 ## Buttons on UINavigationBar
 
