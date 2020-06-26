@@ -172,6 +172,8 @@ button.contentEdgeInsets = UIEdgeInsets(top: 12, left: Spacing.margin, bottom: S
 
 https://noahgilmore.com/blog/uibutton-padding/
 
+![](images/button-padding.png)
+
 ## How to combine a button with an image
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-image.png" width="200"/>
