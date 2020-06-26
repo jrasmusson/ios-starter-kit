@@ -126,6 +126,35 @@ func drawLines() {
 }
 ```
 
+## Text and images
+
+![](images/text.png)
+
+```swift
+func drawImagesAndText() {
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: 256, height: 256))
+    
+    let img = renderer.image { ctx in
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        let attrs: [NSAttributedString.Key: Any] = [
+            .font: UIFont.preferredFont(forTextStyle: .title1),
+            .paragraphStyle: paragraphStyle
+        ]
+        
+        let string = "The best laid schemes of mince and men"
+        
+        let attributedString = NSAttributedString(string: string, attributes: attrs)
+        attributedString.draw(with: CGRect(x: 32, y: 32, width: 200, height: 200), options: .usesLineFragmentOrigin, context: nil)
+        
+        let star = UIImage(named: "star")
+        star?.draw(at: CGPoint(x: 124, y: 150))
+    }
+    
+    imageView.image = img
+}
+```
 
 ## Auto Layout
 
