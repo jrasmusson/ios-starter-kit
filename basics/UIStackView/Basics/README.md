@@ -1,5 +1,74 @@
 # UIStackView
 
+## Animation
+
+```swift
+    @objc func toggleTapped() {
+        UIView.animate(withDuration: 0.75) { [unowned self] in
+            self.label.isHidden = !self.label.isHidden
+            self.label.alpha = self.label.isHidden ? 0 : 1
+            // maybe layoutIfNeeded()...
+        }
+    }
+```
+
+![](images/animation-demo.gif)
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    let stackView = UIStackView()
+    let label = UILabel()
+    let button = UIButton()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        style()
+        layout()
+    }
+
+    func style() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemPink
+        label.text = "Disappear..."
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemBlue
+        button.setTitle("Toggle", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.addTarget(self, action: #selector(toggleTapped), for: .primaryActionTriggered)
+    }
+    
+    @objc func toggleTapped() {
+        UIView.animate(withDuration: 0.75) { [unowned self] in
+            self.label.isHidden = !self.label.isHidden
+            self.label.alpha = self.label.isHidden ? 0 : 1
+        }
+        
+    }
+    
+    func layout() {
+        stackView.addArrangedSubview(label)
+        
+        view.addSubview(stackView)
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+        ])
+    }
+}
+```
+
+
 ## Label in a StackView
 
 For those times when your label is giving you ambiguous width, make it explicit.
