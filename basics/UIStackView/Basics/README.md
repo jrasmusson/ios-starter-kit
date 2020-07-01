@@ -24,6 +24,8 @@ stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.f
 
 ## Animation
 
+You can make views animate in and out by controlling their visibility in the stack view.
+
 ```swift
     @objc func toggleTapped() {
         UIView.animate(withDuration: 0.75) { [unowned self] in
