@@ -1,5 +1,27 @@
 # UIStackView
 
+## Ambigous height/width of Label
+
+For those times when your label is giving you ambiguous width, make it explicit.
+
+```swift
+titleLabel.sizeToFit()
+titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.frame.size.width).setActiveBreakable()
+
+public extension NSLayoutConstraint {
+    @objc func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
+        self.priority = priority
+        isActive = true
+    }
+}
+```
+
+And if that doesn't work manually set some _stackView_ insets.
+
+```swift
+stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.frame.width / 3)
+```
+
 ## Animation
 
 ```swift
@@ -67,48 +89,6 @@ class ViewController: UIViewController {
     }
 }
 ```
-
-
-## Label in a StackView
-
-For those times when your label is giving you ambiguous width, make it explicit.
-
-```swift
-titleLabel.sizeToFit()
-titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.frame.size.width).setActiveBreakable()
-
-public extension NSLayoutConstraint {
-    @objc func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
-        self.priority = priority
-        isActive = true
-    }
-}
-```
-
-And if that doesn't work manually set some _stackView_ insets.
-
-```swift
-stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.frame.width / 3)
-```
-
-## System after spacing syntax
-
-```
-                          │
-┌──────────────────┐      │
-│                  │      │
-│    StackView     │ 8pt  │  View
-│                  │      │
-└──────────────────┘      │
-                          │
-```
-                          
-```swift
-stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true // system spacing...
-view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1).isActive = true
-```
-
-Instead of going stackView trailing, think of the new api as a _receiver_, receiving a constraint after the thing it is being pinned to.
 
 ## How to set specific or variable spacing
 
