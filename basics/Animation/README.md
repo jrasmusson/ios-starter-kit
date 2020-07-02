@@ -1,6 +1,12 @@
 # Animations
 
-## Old vs New Way
+## Property Animations
+
+![](images/old-new.gif)
+
+_UIView.animate_ is still fine to use, but the new Property animators are the way to go.
+
+**Old**
 
 ```swift
 UIView.animate(withDuration: 0.75) { [unowned self] in
@@ -14,7 +20,11 @@ UIView.animate(withDuration: 0.25, delay: 0.5, options: [], animations: {
 }) { (finished) in
 
 }
+```
 
+**New**
+
+```swift
 let animator1 = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
     self.heightConstraint?.constant = 270
     self.layoutIfNeeded()
