@@ -1,5 +1,33 @@
 # Animations
 
+## Old vs New Way
+
+```swift
+UIView.animate(withDuration: 0.75) { [unowned self] in
+    self.heightConstraint?.constant = 270
+    self.layoutIfNeeded()
+}
+
+UIView.animate(withDuration: 0.25, delay: 0.5, options: [], animations: {
+    self.starRewardsView.isHidden = false
+    self.starRewardsView.alpha = 1
+}) { (finished) in
+
+}
+
+let animator1 = UIViewPropertyAnimator(duration: 0.75, curve: .easeInOut) {
+    self.heightConstraint?.constant = 270
+    self.layoutIfNeeded()
+}
+animator1.startAnimation()
+
+let animator2 = UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+    self.starRewardsView.isHidden = false
+    self.starRewardsView.alpha = 1
+}
+animator2.startAnimation(afterDelay: 0.5)
+```
+
 ## Animating the height
 
 To animate things you need to change the constraint constant. In this example we can adjust the height. Note we need to call `layoutIfNeeded()` where as in a _Stack View_ we dont.
