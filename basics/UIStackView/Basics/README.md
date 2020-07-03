@@ -24,6 +24,30 @@ And if that doesn't work manually set some _stackView_ insets.
 stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.frame.width / 3)
 ```
 
+## StackView in ScrollView
+
+```swift
+NSLayoutConstraint.activate([
+    headerViewTopConstraint!,
+    headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+    headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+    scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+    scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+    scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+    scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
+    rootStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+    rootStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+    rootStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+    rootStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+
+    // Removes ambiguity... not sure why...
+    rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+    rootStackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+])
+```
+
 ## Animation
 
 You can make views animate in and out by controlling their visibility in the stack view.
