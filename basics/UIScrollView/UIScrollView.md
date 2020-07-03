@@ -99,14 +99,28 @@ For example, if we add a label to a scroll view, but don't fully pin it to all t
 ```swift
 label.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
 label.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-label.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true\
+label.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
 ```
 
 `Warning: Constraints for scrollable content height are missing.`
 
-And that's because even though the label has an intrinsic content size, the scroll view can't determine how much of the view is scrollable. The fix is to add the bottom constraint to fully define it.
+And that's because even though the label has an intrinsic content size, the scroll view can't determine how much of the view is scrollable. The fix is make the chain of constraints unbroken. You can either.
+
+Add a bottom anchor:
 
 ```label.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true```
+
+Give the label as explicit height:
+
+```label.heightAnchor.constraint(equalToConstant: 300).isActive = true```
+
+Or give the entire view an intrinsic content size:
+
+```swift
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+```
 
 Apple in their [docs](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) describes it like this:
 
