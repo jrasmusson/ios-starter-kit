@@ -29,6 +29,49 @@ Or this
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImageView/images/rounded.png" alt="drawing" width="600"/>
 
 
+## How to image shrink / grow
+
+By lowering the hugging and compression vertically on an image you gain allow it to shrink and grow as need to meet constraints.
+
+```swift
+public static func makeImageView(named: String) -> UIImageView {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.contentMode = .scaleAspectFit
+    imageView.image = UIImage(named: named)
+
+    return imageView
+}
+
+public class HeroView: UIView {
+
+    typealias Factory = ControlFactory
+
+    init(frame: CGRect, named: String) {
+        super.init(frame: frame)
+
+        let heroImageView = Factory.makeImageView(named: named)
+
+        addSubview(heroImageView)
+
+        heroImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        heroImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        heroImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        heroImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+
+        heroImageView.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
+        heroImageView.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 749), for: .vertical)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+```
+
+
+
 ## Basics
 
 `UIImageView` has three `contentMode`s and eight positions you can use to fill space and position your `UIImageView`.
