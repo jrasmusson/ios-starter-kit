@@ -2,11 +2,13 @@
 
 ## Ambigous height/width of Label
 
-For those times when your label is giving you ambiguous width, make it explicit.
+For those times when your label is giving you ambiguous width/height, make it explicit breakable.
 
 ```swift
 titleLabel.sizeToFit()
 titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.frame.size.width).setActiveBreakable()
+
+ctaButton.heightAnchor.constraint(equalToConstant: ctaButton.frame.size.height).setActiveBreakable()
 
 public extension NSLayoutConstraint {
     @objc func setActiveBreakable(priority: UILayoutPriority = UILayoutPriority(900)) {
