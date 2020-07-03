@@ -26,18 +26,26 @@ stackView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: view.f
 
 ## StackView in ScrollView
 
-![StackOverflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
+[StackOverflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
 
 - Need to pin stack to inside of scroll.
 - Each subview will need an explicit height
 - Constrain width or height to enbable scrolling (width for vertical scroll)
 
 ```swift
-stackView.leadingAnchor.constraintEqualToAnchor(scrollView.leadingAnchor).active = true
-stackView.trailingAnchor.constraintEqualToAnchor(scrollView.trailingAnchor).active = true
-stackView.bottomAnchor.constraintEqualToAnchor(scrollView.bottomAnchor).active = true
-stackView.topAnchor.constraintEqualToAnchor(scrollView.topAnchor).active = true
-stackView.widthAnchor.constraintEqualToAnchor(scrollView.widthAnchor).active = true
+NSLayoutConstraint.activate([            
+    scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+    scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+    scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+    scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
+    rootStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+    rootStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+    rootStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+    rootStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+
+    rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+])
 ```
 
 ## Animation
