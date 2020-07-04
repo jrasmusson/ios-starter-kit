@@ -48,6 +48,7 @@ A starter kit for those interested in iOS programming
 * [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
 * [Color](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/README.md)
 * [Draw](basics/Draw/README.md)
+* [Shadows](basics/Shadows/README.md)
 * [UIStackView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/README.md)
   * [Distribution & Alignment](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Distribution-Alignment.md)
   * [Layout Patterns](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Layout-Patterns.md)
