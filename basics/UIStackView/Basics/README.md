@@ -1,5 +1,15 @@
 # UIStackView
 
+
+## Add padding to your stackview
+
+```swift
+stackView.isLayoutMarginsRelativeArrangement = true
+stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: -16)
+```
+
+Note: Do not use `stackView.layoutMargins = UIEdgeInsets(...)` as this has been deprecated.
+
 ## Ambigous height/width of Label
 
 For those times when your label is giving you ambiguous width/height, make it explicit breakable.
@@ -162,15 +172,6 @@ private func makeTitleStackView() -> UIView {
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/images/stack-in-stack.png" alt="drawing" width="400"/>
 
-
-## Add padding to your stackview
-
-```swift
-stackView.isLayoutMarginsRelativeArrangement = true
-stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: -16)
-```
-
-Note: Do not use `stackView.layoutMargins = UIEdgeInsets(...)` as this has been deprecated.
 
 
 ## breakable spacer view
