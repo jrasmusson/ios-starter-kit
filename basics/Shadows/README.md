@@ -34,3 +34,4 @@ class ViewController: UIViewController {
 ### Links that help
 
 - [Advanced UIView shadow effects using shadowPath](https://www.hackingwithswift.com/articles/155/advanced-uiview-shadow-effects-using-shadowpath)
+- [Swift Tip: Adding Rounded Corners and Shadows to a UIView](https://medium.com/bytes-of-bits/swift-tips-adding-rounded-corners-and-shadows-to-a-uiview-691f67b83e4a)
