@@ -153,5 +153,6 @@ class ViewController: UIViewController {
 
 ### Links that help
 
-- [CoreData Optionalaity](https://developer.apple.com/documentation/coredata/modeling_data/configuring_attributes?language=objc)
+- [CoreData Attributes](https://developer.apple.com/documentation/coredata/modeling_data/configuring_attributes?language=objc)
 - [Live Cycle Managed Object](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/LifeofaManagedObject.html)
+- [Parsing JSON background thread](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreData/Concurrency.html#//apple_ref/doc/uid/TP40001075-CH24-SW1)
