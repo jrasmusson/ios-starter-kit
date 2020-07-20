@@ -31,6 +31,11 @@ class ViewController: UIViewController {
 }
 ```
 
+## Advanced drop shadow
+
+
+- [Reddit](https://www.reddit.com/r/swift/comments/hukfwn/uiview_with_shadow_curved_corner_and_stroke/)
+
 ### Links that help
 
 - [Advanced UIView shadow effects using shadowPath](https://www.hackingwithswift.com/articles/155/advanced-uiview-shadow-effects-using-shadowpath)
