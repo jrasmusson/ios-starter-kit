@@ -1,68 +1,34 @@
 # JSON
 
-## Example
+## Example - Array
 
+Call the struct holding the json whatever you want (i.e. History). The properties inside must match.
 
 ```swift
-
-/subscriptionInternet
-
+let json = """
 {
-    "activeHardware": [
-        {
-            "type": "xxx",
-            "model": "xxx"
-        }
-    ]
+"transactions": [
+  {
+    "id": 699519475,
+  }
+ ]
 }
-```
+"""
 
-First create a struct for the highest level of the thing you are calling. In this case something to hold an array of hardwares.
-
-```swift
-public struct SubscriptionInternet: Codable {
-    public let activeHardwares: [ActiveHardware?]
-}
-```
-
-Then parse the thing inside. Make `Optional` if there is a chance the thing you are calling may not be there.
-
-```swift
-public struct ActiveHardware: Codable {
-    public let type: String?
-}
-```
-
-Then test like this.
-
-```swift
-class ActiveHardWareJSONSpec: QuickSpec {
-
-    override func spec() {
-
-        describe("when parsing") {
-
-            context("simple case") {
-
-                it("should work") {
-                    let json = """
-                     {
-                        "type": "xxx",
-                        "model": "xxx"
-                     }
-                    """
-                    let jsonData = json.data(using: .utf8)!
-                    let decoder = JSONDecoder()
-                    let result = try! decoder.decode(ActiveHarware.self, from: jsonData)
-
-                    XCTAssertEqual("xxx", result.type)
-                }
-            }
-        }
-    }
+struct History : Codable {
+    let transactions: [Transaction]
 }
 
+struct Transaction: Codable {
+    let id: Int
+}
+
+let data = json.data(using: .utf8)!
+let decoder = JSONDecoder()
+let result = try! decoder.decode(History.self, from: data)
+result.transactions[0].id
 ```
+
 
 ## The Basics
 
