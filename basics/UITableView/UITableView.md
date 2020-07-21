@@ -295,7 +295,7 @@ Sometimes you will see a nice title at the top of your table. Often that is a na
 
 Simple example of sections.
 
-![](images/section2.png)
+![](images/sections2.png)
 
 
 ```swift
