@@ -10,7 +10,6 @@ class ViewController: UIViewController {
         startLoad()
     }
 
-
     func startLoad() {
         let url = URL(string: "https://uwyg0quc7d.execute-api.us-west-2.amazonaws.com/prod/account")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
