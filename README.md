@@ -137,6 +137,7 @@ A starter kit for those interested in iOS programming
 * [Useful links](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/Links.md)
 
 ## How tos
+* [Add SwiftUI Preview](howtos/add-uikit-preview-swiftui.md)
 * [Generic How Tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/aaHow-To.md)
 * [Key Value Observer (KVO)](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/key-value-observe.md)
 * [Project without storyboards](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/no-storyboards.md)
