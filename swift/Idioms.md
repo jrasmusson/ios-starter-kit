@@ -1,3 +1,28 @@
+# Kind
+
+A nice use of enums for differentiating two different configrations in the same view.
+
+```swift
+class RequirementsView: UIView {
+    enum Kind {
+        case register
+        case download
+    }
+
+    var kind: Kind = .download
+}
+
+var ctaText: String? {
+        switch kind {
+        case .register:
+            return NSLocalizedString("Register", comment: "")
+        case .download:
+            return NSLocalizedString("Download", comment: "")
+        }
+    }
+```
+
+
 # Gotchas
 
 Never assume reference the first element in an array with `0`. 
