@@ -77,6 +77,28 @@ extension PaymentSetupViewController: PaymentSetupUserActions {
     }
 ```
 
+## Always check the main thread before popping alert when error handling
+
+```swift
+// Once you've created the builder, pass it to the sfmc_configure method.
+do {
+    try MarketingCloudSDK.sharedInstance().sfmc_configure(with:builder)
+    success = true
+} catch let error as NSError {
+    // Errors returned from configuration will be in the NSError parameter and can be used to determine
+    // if you've implemented the SDK correctly.
+
+    let configErrorString = String(format: "MarketingCloudSDK sfmc_configure failed with error = %@", error)
+    print(configErrorString)
+
+    DispatchQueue.main.async {
+        let alert = UIAlertController(title: "Configuration Error", message: configErrorString, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.window?.topMostViewController()?.present(alert, animated: true)
+    }
+}
+```
+
 ### Links that help
 
 * [Swift Lanaguage Guide - Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
