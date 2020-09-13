@@ -14,7 +14,6 @@ A starter kit for those interested in iOS programming
   * [Protocols & Unit Testing](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Protocols-and-Unit-Testing.md)
 * [Closures](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Closures.md)
 * [Completion Blocks](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Completion%20Blocks.md)
-* [JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/JSON.md)
 * [Generics](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Generics.md)
 * [Extensions & Protocols](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Extensions-And-Protocols.md)
 * [Structs, Enums, and Classes](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/EnumsStructsClasses.md)  
@@ -117,12 +116,12 @@ A starter kit for those interested in iOS programming
 * [Misc](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
 * [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
-* [Parsing JSON](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/parsingJSON.md)
 * [How to test notifications](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-notifications.md)
 * [How to test for specific error](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-errors.md)
 * [How to test via callbacks](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/testing-with-callbacks.md)
 * [How to test ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/viewControllers.md)
 * [How to test Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-responder-chain.md)
+* [How to load JSON test file](testing/how-to-load-json-test.md)
 
 ## Animations
 * [ButtonSlider](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ButtonSlider/READEME.md)
