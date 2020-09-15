@@ -3,7 +3,7 @@
 
 ```swift
 import XCTest
-import UnitTests
+@testable import MotionDetector
 
 class Tests: XCTestCase {
 
