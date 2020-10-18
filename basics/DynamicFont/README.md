@@ -55,6 +55,7 @@ class ViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200).isActive = true
 
+        let largeTitle = makeLabel("Large Title", UIFont.preferredFont(forTextStyle: .largeTitle))
         let title1 = makeLabel("Title1", UIFont.preferredFont(forTextStyle: .title1))
         let title2 = makeLabel("Title2", UIFont.preferredFont(forTextStyle: .title2))
         let title3 = makeLabel("Title3", UIFont.preferredFont(forTextStyle: .title3))
