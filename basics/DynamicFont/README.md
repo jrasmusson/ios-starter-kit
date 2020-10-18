@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         let caption1 = makeLabel("Caption1", UIFont.preferredFont(forTextStyle: .caption1))
         let caption2 = makeLabel("Caption2", UIFont.preferredFont(forTextStyle: .caption2))
 
+        stackView.addArrangedSubview(largeTitle)
         stackView.addArrangedSubview(title1)
         stackView.addArrangedSubview(title2)
         stackView.addArrangedSubview(title3)
