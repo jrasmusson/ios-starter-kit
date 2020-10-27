@@ -113,6 +113,7 @@ A starter kit for those interested in iOS programming
 * [How to resize image](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/how-to-resize-image.md)
 
 ## Testing
+* [Unit testing](testing/unit-testing.md)
 * [Misc](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/handyOverrides.md)
 * [Mocking](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/mocking-shared-service.md)
 * [Protocols and parameterization](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/protocols/protocols.md)
