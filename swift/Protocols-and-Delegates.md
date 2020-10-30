@@ -96,6 +96,32 @@ protocol DetailViewControllerDelegate: AnyObject {
 }
 ```
 
+So this is actually a bigger discussion than it seems but here is the low down.
+
+https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
+
+If you are working with classes, and you want to prevent retain cycles, you make your protocol mark your protocol as class-only (`AnyObject`), and declare your delegate as a `weak var`.
+
+```swift
+protocol DiceGameDelegate: AnyObject {
+}
+
+class SnakesAndLadders: DiceGame {
+    weak var delegate: DiceGameDelegate?
+```
+
+### Class-Only Protocols
+
+You can limit protocol adoption to class types (and not structures or enumerations) by adding the `AnyObject` protocol to a protocols inheritance list.
+
+```swift
+protocol SomeClassOnlyProtocol: AnyObject {
+    // class-only protocol definition goes here
+}
+```
+
+Use class-only protocol when the behaviour define by that protocol's requirements assume or require the a conforming type has reference semantics rather than value semantics.
+
 ## Button target action
 
 ```swift
