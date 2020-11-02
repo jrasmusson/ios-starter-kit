@@ -86,51 +86,123 @@ class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
 
 Which every way you go, remember to make your protocol reference `weak` in your delegate class. This will avoid any cyclomatic references and retains cycles in your code.
 
-## Class only protocol in Swift 4
+## Class-only weak var
 
-You used to use the keyword `class` but now the preferred way to do class based protocols is with `AnyObject`.
+If you are defining a protcol that needs to work with a class, you need to mark your protocol `AnyObject` and make the reference a `weak var`.
 
 ```swift
-protocol DetailViewControllerDelegate: AnyObject {
-  func didFinishTask(sender: DetailViewController)
+protocol WeatherServiceDelegate: AnyObject {
+    func didFetchWeather()
+}
+
+struct WeatherService {
+    weak var delegate: WeatherServiceDelegate?
 }
 ```
 
-So this is actually a bigger discussion than it seems but here is the low down.
+Even if you container is a `struct` using value semantics, it will still retain a strong reference to a `class` via the var. So if you push and pop this class repeatedly in a view controller, it will leak.
 
-https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
+That doesn't mean you can't use protocol-delegate purely between two structs and not require the `weak var` - you can.
 
-If you are working with classes, and you want to prevent retain cycles, you make your protocol mark your protocol as class-only (`AnyObject`), and declare your delegate as a `weak var`.
+But if your protocol is going to touch any class, it needs the `weak var` - else it has the potential to leak.
 
-```swift
-protocol DiceGameDelegate: AnyObject {
-}
-
-class SnakesAndLadders: DiceGame {
-    weak var delegate: DiceGameDelegate?
-```
-
-### Class-Only Protocols
-
-You can limit protocol adoption to class types (and not structures or enumerations) by adding the `AnyObject` protocol to a protocols inheritance list.
+This demo project shows how view controller two can leak if repeatedly pushed and popped and a `weak var` on the container struct is not used.
 
 ```swift
-protocol SomeClassOnlyProtocol: AnyObject {
-    // class-only protocol definition goes here
+import UIKit
+
+class ViewController2: UIViewController {
+
+    let button = makeButton(withText: "Pop")
+    var weatherService = WeatherService()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemRed
+        weatherService.delegate = self
+
+        button.addTarget(self, action: #selector(buttonTapped), for: .primaryActionTriggered)
+
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+
+    @objc func buttonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ViewController2: WeatherServiceDelegate {
+    func didFetchWeather() {
+
+    }
+}
+
+class ViewController: UIViewController {
+
+    let button = makeButton(withText: "Push")
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+
+        button.addTarget(self, action: #selector(buttonTapped), for: .primaryActionTriggered)
+
+        view.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+
+    @objc func buttonTapped() {
+        present(ViewController2(), animated: true, completion: nil)
+    }
+}
+
+
+
+// GOOD
+/*
+protocol WeatherServiceDelegate: AnyObject {
+    func didFetchWeather()
+}
+
+struct WeatherService {
+    weak var delegate: WeatherServiceDelegate?
+}
+*/
+
+
+
+// BAD - pattern - avoid doing this.
+protocol WeatherServiceDelegate {
+    func didFetchWeather()
+}
+
+struct WeatherService {
+    var delegate: WeatherServiceDelegate?
+}
+
+
+
+func makeButton(withText text: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(text, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    button.backgroundColor = .systemBlue
+    button.layer.cornerRadius = 8
+    return button
 }
 ```
 
-Use class-only protocol when the behaviour define by that protocol's requirements assume or require the a conforming type has reference semantics rather than value semantics.
-
-## Button target action
-
-```swift
-button.addTarget(self, action: #selector(buttonPressed(_:)), for: .primaryActionTriggered)
-
-@objc func buttonPressed(_ sender: UIButton) {
-delegate?.headerViewDelegate(self, didChange: 0)
-}
-```
 
 
 ## Links that help
