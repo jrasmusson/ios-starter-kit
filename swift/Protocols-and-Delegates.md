@@ -204,11 +204,27 @@ func makeButton(withText text: String) -> UIButton {
     return button
 }
 ```
+### Subtlties around language
 
+Describing these things can sometimes be problematic. Here are some sentences to help me explain.
+
+```
+A retain cycle is created when two instances of classes reference each other.
+```
+
+This is true. But that doens't mean you still can have a memory leak between a `struct` and a `class` as we just saw above.
+
+The best way to think of this is if you touch a class, define your protocol using `AnyObject`. If you never touch a class, go a head without, but be careful. The compiler will allow you do use a container without a `weak var` and that will leak.
+
+So when in doubt. Make it a `weak var`.
 
 
 ## Links that help
-* https://medium.com/@abhimuralidharan/all-about-protocols-in-swift-11a72d6ea354
-* https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
+
+- https://medium.com/@abhimuralidharan/all-about-protocols-in-swift-11a72d6ea354
+- https://docs.swift.org/swift-book/LanguageGuide/Protocols.html
+- https://medium.com/mackmobile/avoiding-retain-cycles-in-swift-7b08d50fe3ef
+- https://riptutorial.com/swift/example/2533/reference-cycles-and-weak-references
+- https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID51
 
 
