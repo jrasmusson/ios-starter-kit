@@ -108,6 +108,8 @@ But if your protocol is going to touch any class, it needs the `weak var` - else
 
 This demo project shows how view controller two can leak if repeatedly pushed and popped and a `weak var` on the container struct is not used.
 
+![](images/weak-var-leak.png)
+
 ```swift
 import UIKit
 
