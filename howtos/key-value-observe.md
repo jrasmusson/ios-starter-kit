@@ -1,5 +1,107 @@
 # How to key value observe
 
+## Simple buttons
+
+![](images/simple-kvo.gif)!
+
+```swift
+//
+//  ViewController.swift
+//  Observable
+//
+//  Created by Jonathan Rasmusson (Contractor) on 2020-11-13.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    let useWifiButton = makeButton(withText: "Use Wifi")
+    let downloadWifiButton = makeButton(withText: "Download Wifi")
+    let toggleButton = makeButton(withText: "Toggle")
+
+    let stackView = makeVerticalStackView()
+
+    var viewModel = ViewModel()
+    var observation: Any?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setup()
+        layout()
+
+        // 2 Observe it
+        observation = viewModel.observe(\.shawGoWifiAppInstalled, options: [.initial, .new], changeHandler: shawGoWifiAppInstalledDidChange(viewModel:observedChange:))
+    }
+
+    // 3 Update when changed
+    func shawGoWifiAppInstalledDidChange(viewModel: ViewModel, observedChange: NSKeyValueObservedChange<Bool>) {
+        if viewModel.shawGoWifiAppInstalled {
+            useWifiButton.backgroundColor = .systemBlue
+            downloadWifiButton.backgroundColor = .systemGray3
+        } else {
+            useWifiButton.backgroundColor = .systemGray3
+            downloadWifiButton.backgroundColor = .systemBlue
+        }
+    }
+
+    func setup() {
+        toggleButton.addTarget(self, action: #selector(togglePressed), for: .touchUpInside)
+        toggleButton.backgroundColor = .systemYellow
+    }
+
+    func layout() {
+        stackView.addArrangedSubview(useWifiButton)
+        stackView.addArrangedSubview(downloadWifiButton)
+        stackView.addArrangedSubview(toggleButton)
+
+        view.addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+
+    @objc func togglePressed() {
+        viewModel.shawGoWifiAppInstalled = !viewModel.shawGoWifiAppInstalled
+    }
+}
+
+class ViewModel: NSObject {
+
+    // 1 Make a property observable
+    @objc dynamic var shawGoWifiAppInstalled: Bool = false
+
+    override init() {
+        super.init()
+    }
+}
+
+func makeButton(withText text: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(text, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    button.backgroundColor = .systemBlue
+    button.layer.cornerRadius = 8
+    return button
+}
+
+func makeVerticalStackView() -> UIStackView {
+    let stack = UIStackView()
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.axis = .vertical
+    stack.spacing = 8.0
+
+    return stack
+}
+```
+
+## Service
+
 This example shows how you can observe register to observe a value on an object (`hasWifi`) and then be notified when it changes.
 
 ```swift
