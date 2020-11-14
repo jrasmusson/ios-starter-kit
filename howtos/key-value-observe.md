@@ -1,4 +1,8 @@
-# How to key value observe
+# Key-Value Observering (KVO)
+
+[KVO](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html#//apple_ref/doc/uid/TP40008195-CH16-SW1) is a mechanism that enables an oject to be notified directly when a property of another object changes. Important factor in chhesiveness of an application. it is a mode of communciation between objects in applications designed in conformance with MVC.
+
+Can use it to synchronize the state of model objects with objects in the view and controller layers. Typically, controller objects observe model objects, and views observe controller or model objects.
 
 ## Simple buttons
 
@@ -100,69 +104,6 @@ func makeVerticalStackView() -> UIStackView {
 }
 ```
 
-## Service
-
-This example shows how you can observe register to observe a value on an object (`hasWifi`) and then be notified when it changes.
-
-```swift
-//
-//  ViewController.swift
-//  SwiftKVO
-//
-//  Created by Jonathan Rasmusson on 2018-11-08.
-//  Copyright © 2018 Jonathan Rasmusson. All rights reserved.
-//
-
-import UIKit
-
-class Repository: NSObject {
-
-    let service = Service()
-
-    // 1 Make hasWifi observable
-    @objc dynamic var hasWifi = false
-
-    func load() {
-        service.fetchHasWifi { (hasWifi, error) in
-            // 4 Change value
-            self.hasWifi = hasWifi ?? false
-        }
-    }
-}
-
-struct Service {
-
-    func fetchHasWifi(completion: @escaping (Bool?, Error?) -> ()) {
-        let hasWifi = true
-        completion(hasWifi, nil)
-    }
-
-}
-
-class ViewController: UIViewController {
-
-    @objc let repository = Repository()
-
-    var observation: Any?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // 2 Register to observe
-        observation = repository.observe(\.hasWifi, options: [.initial, .new]) {
-            // 5 Get updated
-            [unowned self] object, change in
-            let boolVal = change.newValue
-            print("hasWifi: \(String(describing: boolVal))")
-        }
-
-        // 3 Refresh
-        repository.load()
-    }
-
-}
-```
-
 ## How does it work - Key-Value Coding
 
 KVO works because of something built into Cocoa called Key-Value Coding. KVC is the ability to set a property on an object via it's string based key and associted value.
@@ -210,11 +151,7 @@ And everytime you added a new column you would need to update this code. Whereas
 }
 ```
 
-## When should you use?
-
-KVO is handy for observing model changes. My buddy Dan best describes it like this.
-
-> I was observing specific model changes (they are events) here, and not user and other UI events. I tend to use responder chain for user events that happen, where if you use observers on model NSObjects you don't have to write your own eventing code in your model, as it's baked in via KVO, you just listen for changes.
+Main difference between Objective-C and Swift is Swift has a more type safe way of doing KVC - it uses KeyPath. Which representings the attribute String as a type safe object in Swift.
 
 ### Links that help
 
