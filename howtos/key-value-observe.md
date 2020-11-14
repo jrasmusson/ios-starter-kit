@@ -4,6 +4,23 @@
 
 Can use it to synchronize the state of model objects with objects in the view and controller layers. Typically, controller objects observe model objects, and views observe controller or model objects.
 
+## Implementing KVO
+
+To implement make sure the object you want to observe extends `NSObject`.
+
+```swift
+class ViewModel: NSObject {
+
+```
+
+The property you want to observe is `dynamic` and available to the `@objc` runtime.
+
+```swift
+@objc dynamic var shawGoWifiAppInstalled: Bool = false
+```
+
+
+
 ## Simple buttons
 
 ![](images/simple-kvo.gif)!
@@ -18,15 +35,28 @@ Can use it to synchronize the state of model objects with objects in the view an
 
 import UIKit
 
+// 1 Extend NSObject
+class ViewModel: NSObject {
+
+    // 2 Make a property observable
+    @objc dynamic var isAppInstalled: Bool = false
+
+    override init() {
+        super.init()
+    }
+}
+
 class ViewController: UIViewController {
 
-    let useWifiButton = makeButton(withText: "Use Wifi")
-    let downloadWifiButton = makeButton(withText: "Download Wifi")
+    let useWifiButton = makeButton(withText: "Use App")
+    let downloadWifiButton = makeButton(withText: "Download App")
     let toggleButton = makeButton(withText: "Toggle")
 
     let stackView = makeVerticalStackView()
 
     var viewModel = ViewModel()
+    
+    // 3 Track the observation
     var observation: Any?
 
     override func viewDidLoad() {
@@ -35,13 +65,13 @@ class ViewController: UIViewController {
         setup()
         layout()
 
-        // 2 Observe it
-        observation = viewModel.observe(\.shawGoWifiAppInstalled, options: [.initial, .new], changeHandler: shawGoWifiAppInstalledDidChange(viewModel:observedChange:))
+        // 4 Observe it
+        observation = viewModel.observe(\.isAppInstalled, options: [.initial, .new], changeHandler: appInstalledDidChange(viewModel:observedChange:))
     }
 
-    // 3 Update when changed
-    func shawGoWifiAppInstalledDidChange(viewModel: ViewModel, observedChange: NSKeyValueObservedChange<Bool>) {
-        if viewModel.shawGoWifiAppInstalled {
+    // 5 Update when changed
+    func appInstalledDidChange(viewModel: ViewModel, observedChange: NSKeyValueObservedChange<Bool>) {
+        if viewModel.isAppInstalled {
             useWifiButton.backgroundColor = .systemBlue
             downloadWifiButton.backgroundColor = .systemGray3
         } else {
@@ -69,17 +99,7 @@ class ViewController: UIViewController {
     }
 
     @objc func togglePressed() {
-        viewModel.shawGoWifiAppInstalled = !viewModel.shawGoWifiAppInstalled
-    }
-}
-
-class ViewModel: NSObject {
-
-    // 1 Make a property observable
-    @objc dynamic var shawGoWifiAppInstalled: Bool = false
-
-    override init() {
-        super.init()
+        viewModel.isAppInstalled = !viewModel.isAppInstalled
     }
 }
 
