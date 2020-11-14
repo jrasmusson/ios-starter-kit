@@ -144,7 +144,7 @@ func makeVerticalStackView() -> UIStackView {
 
 ## How does it work - Key-Value Coding
 
-KVO works because of something built into Cocoa called Key-Value Coding. KVC is the ability to set a property on an object via it's string based key and associted value.
+Under the hood KVO uses KVC to make all the accessing of properties and attributes happen. We don't do string comparision in Swift because in Swift we have a more type safe compiler checking Key Path mechanism which lets us leverage KVC in a more type safe way.
 
 ```swift
 class Child: NSObject {
@@ -162,32 +162,44 @@ child.setValue("Jonathan", forKey: "name")
 child.name
 ```
 
-This was primarily used in Cocoa on Mac for simplifying `UITableView` processing. Because `UITableView` references it's columns via `identifier`, if a datasource was not Key-Value compliant you code would look something like this:
+## Use case for KVO
+
+A nice use case for this is if when you don't know whether someone has an app installed on their phone and you want to update a view depending upon whether they do. Same code as above, just with a notification that fires when the app loads checking to see if the app is installed.
 
 ```swift
-- (id)tableView:(NSTableView *)tableview objectValueForTableColumn:(id)column row:(NSInteger)row
-{
-    id result = nil;
-    Person *person = [self.people objectAtIndex:row];
- 
-    if ([[column identifier] isEqualToString:@"name"]) {
-        result = [person name];
-    } else if ([[column identifier] isEqualToString:@"age"]) {
-        result = @([person age]);  // Wrap age, a scalar, as an NSNumber
-    } else if ([[column identifier] isEqualToString:@"favoriteColor"]) {
-        result = [person favoriteColor];
-    } // And so on...
- 
-```
+class ViewModel: NSObject {
 
-And everytime you added a new column you would need to update this code. Whereas a Key-Coding compliant datasource simplifies the code to this:
+     @objc dynamic var shazamInstalled: Bool = false
+     var observers: [Any] = []
 
-```swift
-- (id)tableView:(NSTableView *)tableview objectValueForTableColumn:(id)column row:(NSInteger)row
-{
-    return [[self.people objectAtIndex:row] valueForKey:[column identifier]];
+     override init() {
+         super.init()
+         shazamInstalled = ShazamUtils.hasShazam()
+
+         let notificationObserver = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] (_) in
+             self?.shazamInstalled = ShazamUtils.hasShazam()
+         }
+
+         observers.append(notificationObserver)
+     }
+}
+
+
+import Foundation
+
+struct ShazamUtils {
+
+ public static let shawGoWifiURL = URL(string: "shazam://")!
+ public static func hasShazam() -> Bool {
+     return UIApplication.shared.canOpenURL(ShazamUtils.shawGoWifiURL)
+ }
+
 }
 ```
+
+
+
+
 
 Main difference between Objective-C and Swift is Swift has a more type safe way of doing KVC - it uses KeyPath. Which representings the attribute String as a type safe object in Swift.
 
