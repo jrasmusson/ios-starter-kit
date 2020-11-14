@@ -19,7 +19,25 @@ The property you want to observe is `dynamic` and available to the `@objc` runti
 @objc dynamic var shawGoWifiAppInstalled: Bool = false
 ```
 
+Keep track of the observation in the observer class.
 
+```swift
+var observation: Any?
+```
+
+Observe it like this.
+
+```swift
+observation = viewModel.observe(\.isAppInstalled, options: [.initial, .new], changeHandler: appInstalledDidChange(viewModel:observedChange:))
+```
+
+And then react to the change.
+
+```swift
+func appInstalledDidChange(viewModel: ViewModel, observedChange: NSKeyValueObservedChange<Bool>) {
+
+}
+```
 
 ## Simple buttons
 
