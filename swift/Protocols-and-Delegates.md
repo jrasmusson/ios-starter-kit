@@ -86,7 +86,7 @@ class UITableView : UIScrollView, NSCoding, UIDataSourceTranslating {
 
 Which every way you go, remember to make your protocol reference `weak` in your delegate class. This will avoid any cyclomatic references and retains cycles in your code.
 
-## Class-only weak var
+## Class-only weak var and retain cycles
 
 If you are defining a protcol that needs to work with a class, you need to mark your protocol `AnyObject` and make the reference a `weak var`.
 
@@ -100,13 +100,13 @@ struct WeatherService {
 }
 ```
 
-Even if you container is a `struct` using value semantics, it will still retain a strong reference to a `class` via the var. So if you push and pop this class repeatedly in a view controller, it will leak.
+Even if you container is a `struct` using value semantics, it will still retain a strong reference to a `class` via the var. So if you push and pop this class repeatedly in a view controller, creating a new instance of `ViewController2` every time, it will leak and retain an instance of `WeatherService` even after it has been dismissed.
 
 That doesn't mean you can't use protocol-delegate purely between two structs and not require the `weak var` - you can.
 
 But if your protocol is going to touch any class, it needs the `weak var` - else it has the potential to leak.
 
-This demo project shows how view controller two can leak if repeatedly pushed and popped and a `weak var` on the container struct is not used.
+This demo project shows how `ViewController2` can leak if repeatedly pushed and popped and a `weak var` on the container struct is not used.
 
 ![](images/weak-var-leak.png)
 
