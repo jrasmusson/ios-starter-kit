@@ -35,19 +35,20 @@ Drag into project (not Asset).
 import UIKit
 import Lottie
 
-// Note: All graphiucs are included in json animation file
+// Note: All graphics are included in json animation file
+//.      Also the file name matters. You must use the same json file name when loading.
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let animationView = LOTAnimationView(name: "servishero_loading")
+        let animationView = AnimationView(name: "39784-check-mark")
 
         animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
         animationView.center = self.view.center
         animationView.contentMode = .scaleAspectFill
-        animationView.loopAnimation = true
+        animationView.loopMode = .loop
         animationView.animationSpeed = 0.5
 
         view.addSubview(animationView)
