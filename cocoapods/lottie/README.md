@@ -36,7 +36,7 @@ import UIKit
 import Lottie
 
 // Note: All graphics are included in json animation file
-//.      Also the file name matters. You must use the same json file name when loading.
+//       Also the file name matters. You must use the same json file name when loading.
 
 class ViewController: UIViewController {
 
