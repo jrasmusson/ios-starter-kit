@@ -604,7 +604,16 @@ This examples shows how the labels in a `UIStackView` can stretch to fill availa
 
 ```
 
+## How to set background color on a stackView
 
+Say you have inherited from stackView and you want to set the background color.
+
+```swift
+let background = UIView(frame: .zero)
+background.backgroundColor = UIColor.Rebrand.white()
+background.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+insertSubview(background, at: 0)
+```
 
 ### Links that help
 
