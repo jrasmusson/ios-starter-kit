@@ -232,8 +232,54 @@ The view gets layed out according to however that _ViewController_ gets presente
 
 If it is embedded as a subsubview somewhere else it will view whatever space it is given.
 
+## How to add a linear gradient view to the background of every view controller
+
+```swift
+public extension UIViewController {
+func insertGradientBackground() {
+        let background = LinearGradientView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.insertSubview(background, at: 0)
+
+        NSLayoutConstraint.activate(background.makeEdgeConstraints(equalToAnchorsOf: view))
+    }
+}
+
+open class LinearGradientView: UIView {
+
+    @objc let leftColor: UIColor = UIColor.Rebrand.quinary_accent()
+    @objc let rightColor: UIColor = UIColor.Rebrand.primary()
+    @objc let gradientLayer = CAGradientLayer()
+
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        gradientLayer.colors = [leftColor.cgColor, rightColor.cgColor]
+        gradientLayer.transform = CATransform3DMakeRotation(CGFloat.pi / 2, 0, 0, 1)
+        layer.addSublayer(gradientLayer)
+    }
+
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+
+        if gradientLayer.frame != bounds {
+            gradientLayer.frame = bounds
+        }
+    }
+}
+```
+
 ### Links that help
 
 - [Push & Pop](https://medium.com/@felicity.johnson.mail/pushing-popping-dismissing-viewcontrollers-a30e98731df5)
-- [Use your load](https://useyourloaf.com/blog/presenting-view-controllers/)
+- [Use your loaf](https://useyourloaf.com/blog/presenting-view-controllers/)
 - [Sundell How to add child viewController](https://www.swiftbysundell.com/articles/using-child-view-controllers-as-plugins-in-swift/)
