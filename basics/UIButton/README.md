@@ -354,3 +354,100 @@ termsTextView.isOpaque = false
 viewController.planDetailsButton.sendActions(for: .touchUpInside) // .primaryActionTriggered
 ```
 
+## How to make a custom button
+
+```swift
+import Foundation
+import UIKit
+
+public class BrandedButton: UIButton {
+
+    public enum Style {
+        case primary
+        case primaryReversed
+        case secondary
+        case secondaryReversed
+    }
+
+    public var style: Style {
+        didSet {
+            styleButton()
+        }
+    }
+
+    public init(text: String = "", style: Style = .primary) {
+        self.style = style
+
+        super.init(frame: .zero)
+
+        translatesAutoresizingMaskIntoConstraints = false
+        setTitle(text, for: .normal)
+        styleButton()
+
+        heightAnchor.constraint(equalToConstant: 8 * 6.0).isActive = true
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func styleButton() {
+        titleLabel?.font = // some font
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.5
+
+        switch style {
+        case .primary:
+            layer.borderWidth = 0.0
+            layer.borderColor = UIColor.clear.cgColor
+            setTitleColor(.systemBlue, for: .normal)
+            backgroundColor = systemWhite
+        case .primaryReversed:
+            layer.borderWidth = 0.0
+            layer.borderColor = UIColor.clear.cgColor
+            setTitleColor(.systemRed, for: .normal)
+            backgroundColor = .white
+        case .secondary:
+            layer.borderWidth = 2.0
+            layer.borderColor = .clear
+            setTitleColor(.systemOrange, for: .normal)
+            backgroundColor = .systemWhite
+        case .secondaryReversed:
+            layer.borderWidth = 2.0
+            layer.borderColor = .clear
+            setTitleColor(.systemWhite, for: .normal)
+            backgroundColor = .clear
+        }
+
+        layer.cornerRadius = 8 * 3.0
+    }
+}
+
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+@available(iOS 13, *)
+struct BrandedButtonPreview: PreviewProvider {
+
+    static var previews: some View {
+        Group {
+            UIViewPreview {
+                BrandedButton(text: "Primary", style: .primary)
+            }
+            UIViewPreview {
+                BrandedButton(text: "Primary Reversed", style: .primaryReversed)
+            }
+            UIViewPreview {
+                BrandedButton(text: "Secondary Secondary", style: .secondary)
+            }
+            UIViewPreview {
+                BrandedButton(text: "Secondary Reversed", style: .secondaryReversed)
+            }
+        }
+        .previewLayout(.fixed(width: 320.0, height: 200))
+        .padding(10)
+    }
+}
+#endif
+```
