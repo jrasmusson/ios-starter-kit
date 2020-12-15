@@ -65,6 +65,7 @@ A starter kit for those interested in iOS programming
 * [UIScrollView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/UIScrollView.md)
 * [UINavigationController](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/UINavigationController)
 * [NSUserDefaults](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSUserDefaults/NSUserDefaults.md)
+* [NSCoder](basics/NSCoder/NSCoder.md)
 * [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/README.md)
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
