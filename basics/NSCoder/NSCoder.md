@@ -7,7 +7,7 @@ A way of encoding custom objects to be stored on disk. Same tech used for JSON e
 ```swift
 import UIKit
 
-struct Item: Encodable & Decodable {
+struct Item: Codable {
     let name: String
 }
 
