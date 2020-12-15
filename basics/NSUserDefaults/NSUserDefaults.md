@@ -80,6 +80,8 @@ class ViewController: UIViewController {
 }
 ```
 
+![](defaults-on-disk.png)
+
 
 ### Links that help
 * [Apple Docs](https://developer.apple.com/documentation/foundation/nsuserdefaults)
