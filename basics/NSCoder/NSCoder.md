@@ -7,26 +7,29 @@ A way of encoding custom objects to be stored on disk. Same tech used for JSON e
 ```swift
 import UIKit
 
-struct Item: Encodable {
+struct Item: Encodable & Decodable {
     let name: String
 }
 
 class ViewController: UIViewController {
 
-    var items = [Item(name: "Kevin"), Item(name: "Sam")]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        let items = [Item(name: "Kevin"), Item(name: "Sam")]
         
-        // Create your own plist file entry to store your encodable objects
-        let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+        // Create your own plist file entry. Stored in the documents dir.
+        // .../Documents/Items.plist
+        guard let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist") else { return }
         print(dataFilePath)
         
-        // Encode them as a plist
+        // Encode
         let encoder = PropertyListEncoder()
         let data = try? encoder.encode(items)
-        try? data?.write(to: dataFilePath!)
-    }
+        try? data?.write(to: dataFilePath)
+        
+        // Decode
+        guard let data2 = try? Data(contentsOf: dataFilePath) else { return }
+        let decoder = PropertyListDecoder()
+        let newItems = try? decoder.decode([Item].self, from: data2)
+        print(newItems)
 }
 ```
 
