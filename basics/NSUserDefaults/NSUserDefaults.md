@@ -72,6 +72,8 @@ class ViewController: UIViewController {
         let myOtherDictionary = defaults.dictionary(forKey: "Dictionary")
         
         // NSUserDefauls are stored in plist files that you can see here
+        // .../Library/Preferences/com.rsc.app.plist
+
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
 
