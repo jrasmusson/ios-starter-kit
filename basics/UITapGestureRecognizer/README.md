@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "myUIImageViewTapped:")
+        let singleTap = UITapGestureRecognizer(target: self, action: "myUIImageViewTapped:")
         self.myUIImageView.addGestureRecognizer(singleTap)
     }
 
