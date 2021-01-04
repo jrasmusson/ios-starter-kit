@@ -126,6 +126,7 @@ A starter kit for those interested in iOS programming
 * [How to load JSON test file](testing/how-to-load-json-test.md)
 
 ## Animations
+* [Core Animation](animations/CoreAnimation/README.md)
 * [ButtonSlider](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ButtonSlider/READEME.md)
 * [Basic Animation](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/BasicAnimation/BasicAnimation.md)
 * [Chained Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/ChainedAnimations/ChainedAnimations.md)
