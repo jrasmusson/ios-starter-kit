@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
 
     func myUIImageViewTapped(recognizer: UITapGestureRecognizer) {
-        if(recognizer.state == UIGestureRecognizerState.Ended){
+        if(recognizer.state == UIGestureRecognizer.State.ended){
             println("myUIImageView has been tapped by the user.")
         }
     }
