@@ -2,7 +2,7 @@
 
 `UIPageViewController` consists of a main content page, followed by a series of `UIViewController`s you stick inside it.
 
-![demo](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/images/demo.gif)
+![demo](basics/UIPageViewController/images/demo.gif)
 
 ```swift
 @UIApplicationMain
