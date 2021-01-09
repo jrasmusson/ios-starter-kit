@@ -2,7 +2,7 @@
 
 `UIPageViewController` consists of a main content page, followed by a series of `UIViewController`s you stick inside it.
 
-![demo](basics/UIPageViewController/images/demo.gif)
+![demo](images/demo.gif)
 
 ```swift
 @UIApplicationMain
