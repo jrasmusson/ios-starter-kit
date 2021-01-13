@@ -1,5 +1,21 @@
 # Working with Nibs
 
+## Loading Nib into View Controller
+
+Simplest thing you can do is create a nib and then associated it with a View Controller.
+
+- Create the nib (same name as view controller).
+- Set it's File's Owner to the `ViewController`.
+- Point the File's Owner `view` to the nib view
+
+![](images/a.png)
+
+![](images/b.png)
+
+![](images/c.png)
+
+![](images/d.png)
+
 ## Nib loading into View Controller
 
 Create a nib `View`.
