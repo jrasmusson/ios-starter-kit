@@ -45,27 +45,81 @@ Reference the nib from the parent nib view loading it via the `Bundle` and layou
 
 ![](images/11a.png)
 
-## How to make a nib IBDesignable
+## Nib loading IBDesignable
 
-To make a control `@IBDesignable` you need to add a plain view first, then associated it with the nib you want to display (marked up as @IBDesignable).
+To style and load a nib like any other iOS control:
 
-### Make `IBDesignable` & `IBInspectable`
+Create your new nib
 
-Make nib you want to display `@IBDesignable` and `IBInspectable`
+- Create nib
+- Create nib view
+- Associate nib with view
 
-![](images/13a.png)
+Add it to your parent nib as a view
 
-Drag out a new view into the nib.
+- Add a plain `View` control to the parent
+- Associate the plan `View` to your newly create nib view
 
-![](images/14a.png)
+### Create your new nib
 
-Associated the new view with the designable class. Xcode will update.
+Create a plain old nib.
 
-![](images/15c.png)
+![](images/aa.png)
 
-And you will now see attribute in inspector pane.
+Create the view backing the nib. Make it `IBDesignable` and give it an intrinsic content size to simplify Auto Layout constraints.
 
-![](images/16.png)
+![](images/bb.png)
+
+Associate the view with the nib.
+
+![](images/cc.png)
+
+Your nib is now good to go.
+
+### Add it your your parent
+
+To add your newly created nib to your parent, drag out a plain old `View` onto your parent nib canvas. Give it some constraints (but don't worry about size).
+
+![](images/dd.png)
+
+Then associate this view with the newly created nib view created above.
+
+![](images/ee.png)
+
+This will automatically detect that it is `@IBDesignable`, use it's intrinsic content size, and layout it out.
+
+![](images/ee.png)
+
+![](images/ff.png)
+
+## @IBInspectable
+
+Whatever you set in Interface Builder overrides what you set in code. So when we start our app with my color set to default, the view uses the value set it code and colors the box red.
+
+```swift
+import UIKit
+
+@IBDesignable
+class RedView: UIView {
+    
+    @IBInspectable var myColor: UIColor = .systemRed
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backgroundColor = myColor
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+}
+```
+
+But when we set the color in IB, it overrides this and uses the IB value.
+
+![](images/gg.png)
+
+![](images/hh.png)
 
 ## Apple Documentation notes
 
