@@ -16,47 +16,12 @@ Simplest thing you can do is create a nib and then associated it with a View Con
 
 ![](images/d.png)
 
-## Nib loading into View Controller
+## Loading a Nib into a Nib
 
-Create a nib `View`.
+Two ways you can go about this:
 
-Optionally turn off Safe Area Layout Guide
-
-![](images/1.png)
-
-Make size Freeform.
-
-![](images/2.png)
-
-Draw and layout controls.
-
-![](images/3.png)
-
-Create a backing View with the same name as the nib (i.e. LoginView).
-
-![](images/3a.png)
-
-Associated the view with the nib.
-
-![](images/4.png)
-
-Add the `IBOutlets` by getting both the view and the nib on screen at the same time and control dragging `IBOutlets` from the nib to the view (make them strong references).
-
-![](images/5.png)
-
-Set the File’s owner to be the View Controller.
-
-![](images/5a.png)
-
-Register the nib with the View Controllers' `view`.
-
-- Click File’s Owner. 
-- In the right-hand sidebar, click on the last tab--the one that looks like a circle with an arrow in it
-You should see "outlets" with "view" under it. Drag the circle next to it over to the "view" icon on the left bar (bottom one, looks like a white square with a thick gray outline.
-
-![](images/6.png)
-
-View Controllers know how to load and run associated nibs. So no `Bundle` loading required here.
+1. Load the nib manually.
+2. Make it `IBDesignable`.
 
 ## Nib loading manually
 
