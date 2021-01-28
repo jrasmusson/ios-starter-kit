@@ -31,6 +31,13 @@ class ViewController: UIViewController {
 
 ![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/images/alert-with-textfield.png)
 
+## How to programmatically dismiss
+
+```swift
+if let _ = presentedViewController as? UIAlertController {
+    dismiss(animated: true, completion: nil)
+}
+```
 
 ### Links that help
 * [Apple docs](https://developer.apple.com/documentation/uikit/uialertcontroller)
