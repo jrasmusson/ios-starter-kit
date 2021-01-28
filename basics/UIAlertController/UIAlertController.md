@@ -9,10 +9,10 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showNotificationAlert()
+        showAlert()
     }
 
-    func showNotificationAlert() {
+    func showAlert() {
         let alert = UIAlertController(title: "Notifications Disabled",
                                       message: "For the best chat experience needs notification",
                                       preferredStyle: .alert)
