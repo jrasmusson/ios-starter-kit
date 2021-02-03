@@ -42,7 +42,7 @@ A starter kit for those interested in iOS programming
 * [Result](https://github.com/jrasmusson/ios-starter-kit/blob/master/swift/Result.md)
 
 ## Basics
-* [Radio Button](basics/)
+* [Radio Button](basics/RadioButton/README.md)
 * [Nibs](basics/Nibs/README.md)
 * [Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Animation/README.md)
 * [UIViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/README.md)
