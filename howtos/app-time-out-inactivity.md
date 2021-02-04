@@ -54,3 +54,16 @@ extension NSNotification.Name {
     static let appTimedOut = NSNotification.Name("AppTimedOut")
 }
 ```
+
+**main.swift**
+
+```swift
+import UIKit
+
+UIApplicationMain(
+    CommandLine.argc,
+    CommandLine.unsafeArgv,
+    NSStringFromClass(ATBApplication.self),
+    NSStringFromClass(AppDelegate.self)
+)
+```
