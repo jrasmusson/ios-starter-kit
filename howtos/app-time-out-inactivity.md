@@ -63,7 +63,7 @@ import UIKit
 UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,
-    NSStringFromClass(ATBApplication.self),
+    NSStringFromClass(MyApplication.self),
     NSStringFromClass(AppDelegate.self)
 )
 ```
