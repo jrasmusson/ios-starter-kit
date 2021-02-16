@@ -35,3 +35,24 @@ let testObserver = TestObserver()
 XCTestObservationCenter.shared.addTestObserver(testObserver)
 UserTests.defaultTestSuite.run()
 ```
+
+## How to test a UITableView
+
+```swift
+class Component: UIView {  
+    var tableView: UITableView!
+```
+
+```swift
+let minimumIndexPath = IndexPath(row: 2, section: 0)
+
+func testShouldPopulateMinimumPay() throws {
+    // When
+    model = makeAdditionalValues(minimumPay: 30)
+    component.model = model
+    
+    // Then
+    let cell = component.tableView.cellForRow(at: minimumIndexPath) as! QuickPaymentCell
+    XCTAssertEqual(cell.amountLabel.text, "$30.00")
+}
+```
