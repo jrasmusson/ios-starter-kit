@@ -2,84 +2,103 @@
 
 ## Programmatically
 
-![New class](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/images/simple.png)
-
-**ChannelCell.swift**
+**CustomCell.swift**
 
 ```swift
 import UIKit
 
-class ChannelCell: UITableViewCell {
+class CustomCell: UITableViewCell {
 
-    var channel: Channel? {
+    let titleLabel = UILabel()
+    
+    var game: String? {
         didSet {
-            guard let channel = channel else { return }
-            nameLabel.text = channel.name
+            guard let game = game else { return }
+            titleLabel.text = game
         }
     }
-
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.text = "Name"
-
-        return label
-    }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
         layout()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    func layout() {
-        addSubview(nameLabel)
+extension CustomCell {
 
-        nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    func setup() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func layout() {
+        addSubview(titleLabel)
 
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+        ])
+    }
 }
 ```
 
 **ViewController.swift**
 
 ```swift
-struct Channel {
-    let imageName: String
-    let name: String
-    let price: String
-}
-
-let channel1 = Channel(imageName: "crave", name: "Crave", price: "8")
-
-var channels = [channel1]
+import UIKit
 
 class ViewController: UIViewController {
 
+let games = [
+                "Pacman",
+                "Space Invaders",
+                "Space Patrol",
+    ]
+    
     let cellId = "cellId"
 
-    func setup() {
-        tableView.register(ChannelCell.self, forCellReuseIdentifier: cellId)
+    var tableView = UITableView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
     }
 
-// MARK:  - UITableView DataSource
+    func setupViews() {
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.register(CustomCell.self, forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView()
+
+        view = tableView
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+
+}
 
 extension ViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ChannelCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomCell
 
-        let channel = channels[indexPath.row]
-        cell.channel = channel
-        cell.accessoryType = UITableViewCell.AccessoryType.none
+        cell.game = games[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
     }
 }
 ```
