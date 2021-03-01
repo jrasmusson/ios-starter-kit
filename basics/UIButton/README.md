@@ -39,7 +39,7 @@ func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UI
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
         button.backgroundColor = .systemBlue
-        button.contentEdgeInsets = UIEdgeInsets.init(top: 8, left: 16, bottom: 8, right: 16)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         
         return button
     }()
