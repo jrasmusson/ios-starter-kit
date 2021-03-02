@@ -858,3 +858,4 @@ extension ViewController: UITableViewDataSource {
 ### Links that help
 * [Apple UITableView docs](https://developer.apple.com/documentation/uikit/uitableview)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/tables)
+* [Great article on how to calculate TableViewCellHeight](https://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights)
