@@ -1,57 +1,44 @@
 # UITextField
 
-# Basics
+# Basic
 
 ```swift
 //
-//  ViewController.swift
-//  BuzzableTraditional
-//
-//  Created by Jonathan Rasmusson (Contractor) on 2020-01-21.
-//  Copyright © 2020 Jonathan Rasmusson. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
-    let cityTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = UIFont.preferredFont(forTextStyle: .body)
-        textField.textAlignment = .center
-        textField.backgroundColor = .systemFill
-
-        return textField
-    }()
-
+    
+    let textField = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDelegates()
-        setupViews()
-    }
-
-    func setupDelegates() {
-        cityTextField.delegate = self
-    }
-
-    func setupViews() {
-        view.backgroundColor = .white
-        view.addSubview(cityTextField)
-
-        cityTextField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 3).isActive = true
-        cityTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cityTextField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3).isActive = true
-        view.trailingAnchor.constraint(equalToSystemSpacingAfter: cityTextField.trailingAnchor, multiplier: 3).isActive = true
-        cityTextField.heightAnchor.constraint(equalToConstant: 32).isActive = true
-    }
-
-    // MARK: - Textfield
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true) // gives up keyboard on touch
+        style()
+        layout()
     }
 }
+
+extension ViewController {
+    
+    func style() {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Select an account"
+        textField.backgroundColor = .systemFill
+        textField.delegate = self
+    }
+    
+    func layout() {
+        view.addSubview(textField)
+        
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 3),
+            textField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 3),
+            textField.heightAnchor.constraint(equalToConstant: 32)
+        ])
+    }
+}
+
+// MARK: - UITextFieldDelegate
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
