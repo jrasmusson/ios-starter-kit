@@ -344,19 +344,7 @@ extension HistoryViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let section = indexPath.section
         
-        // limit of x3
-        var text: String
-        switch section {
-        case 0:
-            text = vm.sections[0].transactions[indexPath.row].amount
-        case 1:
-            text = vm.sections[1].transactions[indexPath.row].amount
-        case 2:
-            text = vm.sections[2].transactions[indexPath.row].amount
-        default:
-            text = ""
-        }
-
+        let text = vm.sections[section].transactions[indexPath.row].body
         cell.textLabel?.text = text
         
         return cell
@@ -364,32 +352,12 @@ extension HistoryViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let vm = viewModel else { return 0 }
-    
-        switch section {
-        case 0:
-            return vm.sections[0].transactions.count
-        case 1:
-            return vm.sections[1].transactions.count
-        case 2:
-            return vm.sections[2].transactions.count
-        default:
-            return 0
-        }
+        return vm.sections[section].transactions.count    
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let vm = viewModel else { return nil }
-        
-        switch section {
-        case 0:
-            return vm.sections[0].title
-        case 1:
-            return vm.sections[1].title
-        case 2:
-            return vm.sections[2].title
-        default:
-            return nil
-        }
+        return vm.sections[section].title
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
