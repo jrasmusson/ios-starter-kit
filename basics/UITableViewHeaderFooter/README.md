@@ -270,6 +270,9 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
 }
 ```
 
+## Same thing with nibs
+
+
 ### Links that help
 - [NSHipter](https://nshipster.com/uitableviewheaderfooterview/)
 - [How to set the height](https://medium.com/poka-techblog/uitableview-auto-sizing-header-footer-views-with-autolayout-d4a9dd0729e)
