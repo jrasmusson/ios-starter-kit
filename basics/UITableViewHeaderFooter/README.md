@@ -272,6 +272,162 @@ final class SectionHeaderView: UITableViewHeaderFooterView {
 
 ## Same thing with nibs
 
+Get rid of storyboards. Setup AppDelegate like you always do manually loading a hard coded `ViewController`.
+
+The add a new xib file for `ViewController` called `ViewController.xib`.
+
+Set File's Owner.
+
+![](images/10.png)
+
+Then drag outlet's view to xib's view.
+
+![](images/11.png)
+
+At this point your xib and view controller are connected and hooked up.
+
+Drag out a table view into the nib. Pin it to the edges. And drag it as an outlet property into your view controller.
+
+![](images/11a.png)
+
+### Design your section header
+
+Create a new nib and class called `SectionHeaderView` and set your subclass as the “Custom Class” for both File’s Owner and the top-level view.
+
+![](images/12.png)
+
+```swift
+import UIKit
+
+final class SectionHeaderView: UITableViewHeaderFooterView {
+    static let reuseIdentifier: String = String(describing: self)
+
+    static var nib: UINib {
+        return UINib(nibName: String(describing: self), bundle: nil)
+    }
+    
+}
+```
+
+![](images/13.png)
+
+![](images/14.png)
+
+When you drag your outlet's in be sure to make them... not `File Owner`. If you don't you will get key code runtime errors.
+
+![](images/15.png)
+
+![](images/16.png)
+
+Taking care not to disrupt the output of the `tableView`, you can now copy in the following code and leverage your nib header view.
+
+```swift
+import UIKit
+
+struct Game: Codable {
+    let title: String
+}
+
+struct YearSection {
+    let title: String
+    let transactions: [Game]
+}
+
+class ViewController: UIViewController {
+
+    let cellId = "cellId"
+    var sections: [YearSection]?
+
+    @IBOutlet var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        data()
+        setup()
+    }
+
+    func data() {
+        let g1 = Game(title: "Space Invaders")
+
+        let g2 = Game(title: "Lunar Lander")
+        let g22 = Game(title: "Asteroids")
+        
+        let g3 = Game(title: "Tempest")
+        let g33 = Game(title: "Donkey Kong")
+        let g333 = Game(title: "Frogger")
+
+        let section1 = YearSection(title: "1978", transactions: [g1])
+        let section2 = YearSection(title: "1979", transactions: [g2, g22])
+        let section3 = YearSection(title: "1981", transactions: [g3, g33, g333])
+
+        sections = [section1, section2, section3]
+    }
+
+    func setup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        navigationItem.title = "History"
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(SectionHeaderView.nib, forHeaderFooterViewReuseIdentifier:SectionHeaderView.reuseIdentifier)
+    }
+}
+
+// MARK: UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let sections = sections else { return UITableViewCell() }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let section = indexPath.section
+
+        let text = sections[section].transactions[indexPath.row].title
+        cell.textLabel?.text = text
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let sections = sections else { return 0 }
+        return sections[section].transactions.count
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let sections = sections else { return 0 }
+        return sections.count
+    }
+}
+
+// MARK: UITableViewDataSource
+
+extension ViewController: UITableViewDelegate {
+
+    // Complex - comment out above func if you want custom
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderView.reuseIdentifier)
+                as? SectionHeaderView
+        else {
+            return nil
+        }
+
+        guard let sections = sections else { return nil }
+        view.yearLabel.text = sections[section].title
+
+        return view
+    }
+    
+    // To make height variable implement these two methods
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+}
+```
 
 ### Links that help
 - [NSHipter](https://nshipster.com/uitableviewheaderfooterview/)
