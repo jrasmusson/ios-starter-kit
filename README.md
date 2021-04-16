@@ -61,6 +61,7 @@ A starter kit for those interested in iOS programming
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
+* [UITableViewHeaderFooter](basics/UITableViewHeaderFooter/README.md)
 * [UIAlertController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/UIAlertController.md)
 * [UIProgressView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIProgressView/README.md)
 * [UISegmentedControl](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISegmentedControl/README.md)
