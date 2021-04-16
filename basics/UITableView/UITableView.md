@@ -344,7 +344,7 @@ extension HistoryViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let section = indexPath.section
         
-        let text = vm.sections[section].transactions[indexPath.row].body
+        let text = vm.sections[section].transactions[indexPath.row].amount
         cell.textLabel?.text = text
         
         return cell
