@@ -429,6 +429,67 @@ extension ViewController: UITableViewDelegate {
 }
 ```
 
+### Design your cell
+
+Repeat the same process above for your `UITableViewCell` for nib.
+
+**FailedTransactionCell.swift**
+
+```swift
+import UIKit
+
+final class FailedTransactionCell: UITableViewCell {
+    static let reuseIdentifier: String = String(describing: self)
+
+    static var nib: UINib {
+        return UINib(nibName: String(describing: self), bundle: nil)
+    }
+
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bodyLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        commonInit()
+    }
+
+    private func commonInit() {
+        titleLabel.textColor = .systemGray
+        bodyLabel.textColor = .systemGray
+    }
+}
+```
+
+Then register and load like this:
+
+```swift
+tableView.register(FailedTransactionCell.nib, forCellReuseIdentifier: FailedTransactionCell.reuseIdentifier)
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let sections = sections else { return UITableViewCell() }
+
+    let cell = tableView.dequeueReusableCell(withIdentifier: FailedTransactionCell.reuseIdentifier, for: indexPath) as! FailedTransactionCell
+
+    let section = indexPath.section
+
+    let text = sections[section].transactions[indexPath.row].title
+    cell.titleLabel.text = text
+
+    return cell
+}
+```
+
+And set your row height like this.
+
+```swift
+func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 96
+}
+```
+
+![](images/18.png)
+
+
 ### Links that help
 - [NSHipter](https://nshipster.com/uitableviewheaderfooterview/)
 - [How to set the height](https://medium.com/poka-techblog/uitableview-auto-sizing-header-footer-views-with-autolayout-d4a9dd0729e)
