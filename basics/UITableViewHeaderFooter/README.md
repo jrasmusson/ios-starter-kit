@@ -433,6 +433,12 @@ extension ViewController: UITableViewDelegate {
 
 Repeat the same process above for your `UITableViewCell` for nib.
 
+**Note: When setting color or subviews, do everything on the `contentView` of the cell.**
+
+```swift
+contentView.backgroundColor = .systemOrange
+```
+
 **FailedTransactionCell.swift**
 
 ```swift
