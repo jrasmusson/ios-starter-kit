@@ -1,5 +1,12 @@
 # UIImageView
 
+## How to tint
+
+```swift
+chevronImageView.image = UIImage(named: "chevron")?.withRenderingMode(.alwaysTemplate)
+chevronImageView.tintColor = .systemOrange
+```
+
 ## How to round corner and draw circle around image
 
 ```swift
