@@ -560,6 +560,24 @@ extension AFError {
 }
 ```
 
+## Enums and versions
+
+Say you have a backend service where the type is represented as an enum, and you want to future proof it for when new types come later. Create an `Unknown` versions and set that as the enum type if you can't decode it from the JSON.
+
+```swift
+enum AccountSubType: String, Codable {
+    case Chequing
+    case Saving
+    case Unknown
+}
+
+extension AccountSubType {
+    init(from decoder: Decoder) throws {
+        self = try Self(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? Self.Unknown
+    }
+}
+```
+
 ## Is there anything enums can’t do?
 
 Yes. Enums don’t support stored properties.
