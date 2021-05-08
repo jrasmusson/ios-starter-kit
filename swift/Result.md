@@ -86,3 +86,4 @@ guard error == nil else {
 ### Links that help
 
 - [Void Success Result](https://stackoverflow.com/questions/44067192/how-to-handle-void-success-case-with-result-lib-success-failure)
+- [Paul Hudson Result example](https://www.hackingwithswift.com/books/ios-swiftui/understanding-swifts-result-type)
