@@ -1,7 +1,9 @@
 # SFSymbols
 
 ```swift
-Image(systemName: "chevron.left").imageScale(.small)
-Image(systemName: "chevron.left").imageScale(.medium)
-Image(systemName: "chevron.left").imageScale(.large)
+let configuration = UIImage.SymbolConfiguration(scale: .large)
+let symbolImage = UIImage(systemName: "square.and.pencil", withConfiguration: configuration)
+
+imageView.image = symbolImage
 ```
+
