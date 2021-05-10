@@ -1,6 +1,5 @@
 # UITextField
 
-# Basic
 
 ```swift
 //
@@ -51,6 +50,33 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 ```
+
+## Border Style
+
+```swift
+textField.borderStyle = .none
+```
+
+![](images/1.png)
+
+
+```swift
+textField.borderStyle = .line
+```
+
+![](images/2.png)
+
+```swift
+textField.borderStyle = .bezel
+```
+
+![](images/3.png)
+
+```swift
+textField.borderStyle = .roundedRect
+```
+
+![](images/4.png)
 
 # More
 
