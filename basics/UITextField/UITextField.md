@@ -53,6 +53,8 @@ extension ViewController: UITextFieldDelegate {
 
 ## Delegate
 
+Example delegate callback for a search textfield.
+
 ```swift
 // MARK: - UITextFieldDelegate
 
@@ -98,6 +100,12 @@ Detect each keypress using the following callback.
         print(newText)
         return true
     }
+```
+
+## Hide password
+
+```swift
+textField.isSecureTextEntry = true
 ```
 
 ## Border Style
