@@ -1,5 +1,10 @@
 # UIStackView
 
+## Specific spacing between elements
+
+```swift
+stackView.setCustomSpacing(32.0, after: repeatTextField)
+```
 
 ## Add padding to your stackview
 
