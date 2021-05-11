@@ -89,7 +89,7 @@ extension WeatherViewController: UITextFieldDelegate {
 
 ## Detecting keypresses
 
-`UITextField` delegates aren't really made for detecting keypresses. You can by using a method like this.
+Detect each keypress using the following callback.
 
 ```swift
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -99,11 +99,6 @@ extension WeatherViewController: UITextFieldDelegate {
         return true
     }
 ```
-
-But `UITextField` is a `UIControl` and responds best to `addTarget:action` for control events. Like this.
-
-
-Another alternative is to use `UITextView` control which does have a `textViewDidChange` callback you can plug into
 
 ## Border Style
 
