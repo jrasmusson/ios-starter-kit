@@ -495,8 +495,28 @@ func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
 
 ![](images/18.png)
 
+## How to set the table view footer height
+
+This is the trick. Reset the footer view after autolayout and reset the frame.
+
+```swift
+override func viewDidLayoutSubviews() {
+  super.viewDidLayoutSubviews()
+  guard let footerView = self.tableView.tableFooterView else {
+    return
+  }
+  let width = self.tableView.bounds.size.width
+  let size = footerView.systemLayoutSizeFitting(CGSize(width: width, height: UIView.layoutFittingCompressedSize.height))
+  if footerView.frame.size.height != size.height {
+    footerView.frame.size.height = size.height
+    self.tableView.tableFooterView = footerView
+  }
+}
+```
+
 
 ### Links that help
 - [NSHipter](https://nshipster.com/uitableviewheaderfooterview/)
 - [How to set the height](https://medium.com/poka-techblog/uitableview-auto-sizing-header-footer-views-with-autolayout-d4a9dd0729e)
 - [Great article on how to calculate TableViewCellHeight](https://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights)
+- [How to set table header footer height](https://betterprogramming.pub/dynamic-height-uitableview-footer-e99e8c04484a)
