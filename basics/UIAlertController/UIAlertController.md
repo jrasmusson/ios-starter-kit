@@ -39,6 +39,16 @@ if let _ = presentedViewController as? UIAlertController {
 }
 ```
 
+## Number of buttons
+
+- One or two buttons will be placed side-by-side.
+
+![](images/2buttons.png)
+
+- Three buttons or more it will want to stack.
+
+![](images/3buttons.png)
+
 ### Links that help
 * [Apple docs](https://developer.apple.com/documentation/uikit/uialertcontroller)
 * [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/views/alerts)
