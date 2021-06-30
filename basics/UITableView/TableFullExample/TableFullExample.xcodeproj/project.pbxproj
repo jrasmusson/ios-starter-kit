@@ -12,6 +12,9 @@
 		31F9A3C0268D11E600ACA4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F9A3BF268D11E600ACA4DD /* Assets.xcassets */; };
 		31F9A3C3268D11E600ACA4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31F9A3C1268D11E600ACA4DD /* LaunchScreen.storyboard */; };
 		31F9A3D0268D12B600ACA4DD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F9A3CF268D12B600ACA4DD /* ViewController.xib */; };
+		31F9A3D3268D197500ACA4DD /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F9A3D2268D197500ACA4DD /* ReusableView.swift */; };
+		31F9A3D6268D1A0200ACA4DD /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F9A3D5268D1A0200ACA4DD /* TableHeaderView.swift */; };
+		31F9A3D9268D1A8D00ACA4DD /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F9A3D8268D1A8D00ACA4DD /* TableHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		31F9A3C2268D11E600ACA4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31F9A3C4268D11E600ACA4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31F9A3CF268D12B600ACA4DD /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		31F9A3D2268D197500ACA4DD /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		31F9A3D5268D1A0200ACA4DD /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		31F9A3D8268D1A8D00ACA4DD /* TableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				31F9A3B5268D11E400ACA4DD /* TableFullExample */,
+				31F9A3CD268D121B00ACA4DD /* Files */,
 				31F9A3B4268D11E400ACA4DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,9 +61,10 @@
 		31F9A3B5268D11E400ACA4DD /* TableFullExample */ = {
 			isa = PBXGroup;
 			children = (
-				31F9A3CD268D121B00ACA4DD /* Files */,
+				31F9A3B6268D11E400ACA4DD /* AppDelegate.swift */,
 				31F9A3BA268D11E400ACA4DD /* ViewController.swift */,
 				31F9A3CF268D12B600ACA4DD /* ViewController.xib */,
+				31F9A3DB268D1A9800ACA4DD /* TableHeader */,
 			);
 			path = TableFullExample;
 			sourceTree = "<group>";
@@ -64,12 +72,22 @@
 		31F9A3CD268D121B00ACA4DD /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				31F9A3D2268D197500ACA4DD /* ReusableView.swift */,
 				31F9A3BF268D11E600ACA4DD /* Assets.xcassets */,
 				31F9A3C1268D11E600ACA4DD /* LaunchScreen.storyboard */,
 				31F9A3C4268D11E600ACA4DD /* Info.plist */,
-				31F9A3B6268D11E400ACA4DD /* AppDelegate.swift */,
 			);
 			name = Files;
+			path = TableFullExample;
+			sourceTree = "<group>";
+		};
+		31F9A3DB268D1A9800ACA4DD /* TableHeader */ = {
+			isa = PBXGroup;
+			children = (
+				31F9A3D8268D1A8D00ACA4DD /* TableHeaderView.xib */,
+				31F9A3D5268D1A0200ACA4DD /* TableHeaderView.swift */,
+			);
+			name = TableHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F9A3D9268D1A8D00ACA4DD /* TableHeaderView.xib in Resources */,
 				31F9A3C3268D11E600ACA4DD /* LaunchScreen.storyboard in Resources */,
 				31F9A3D0268D12B600ACA4DD /* ViewController.xib in Resources */,
 				31F9A3C0268D11E600ACA4DD /* Assets.xcassets in Resources */,
@@ -142,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F9A3D6268D1A0200ACA4DD /* TableHeaderView.swift in Sources */,
+				31F9A3D3268D197500ACA4DD /* ReusableView.swift in Sources */,
 				31F9A3BB268D11E400ACA4DD /* ViewController.swift in Sources */,
 				31F9A3B7268D11E400ACA4DD /* AppDelegate.swift in Sources */,
 			);
