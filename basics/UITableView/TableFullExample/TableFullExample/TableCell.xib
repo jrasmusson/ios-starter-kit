@@ -15,23 +15,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fieldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-sb-2wA">
-                    <rect key="frame" x="16" y="16" width="74" height="84"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="16" y="16" width="67" height="84"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="YD4-bB-WTL">
-                    <rect key="frame" x="268.5" y="16" width="121.5" height="84"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YD4-bB-WTL">
+                    <rect key="frame" x="293.5" y="8" width="96.5" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="primaryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bi-7p-zRL">
-                            <rect key="frame" x="22" y="0.0" width="99.5" height="63.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="17.5" y="0.0" width="79" height="80"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secondaryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdD-00-svO">
-                            <rect key="frame" x="0.0" y="63.5" width="121.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="84" width="96.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -41,8 +41,8 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="YD4-bB-WTL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="2cG-cT-GO5"/>
-                <constraint firstAttribute="bottom" secondItem="YD4-bB-WTL" secondAttribute="bottom" constant="16" id="Ds4-KS-peM"/>
+                <constraint firstItem="YD4-bB-WTL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="2cG-cT-GO5"/>
+                <constraint firstAttribute="bottom" secondItem="YD4-bB-WTL" secondAttribute="bottom" constant="8" id="Ds4-KS-peM"/>
                 <constraint firstItem="YD4-bB-WTL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qYv-sb-2wA" secondAttribute="trailing" constant="16" id="Q2L-y7-QRv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qYv-sb-2wA" secondAttribute="bottom" constant="16" id="XYV-f5-WFG"/>
                 <constraint firstItem="qYv-sb-2wA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="bid-sm-a6I"/>
