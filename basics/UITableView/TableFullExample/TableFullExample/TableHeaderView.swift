@@ -25,7 +25,7 @@ class TableHeaderView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 160)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 80)
     }
 
     private func commonInit() {
@@ -50,3 +50,21 @@ class TableHeaderView: UIView {
         amountLabel.text = amount
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct TableHeaderView_Preview: PreviewProvider {
+    static var previews: some View {
+        Group {
+            UIViewPreview {
+                let headerView = TableHeaderView()
+                headerView.configure(with: "$100")
+                return headerView
+            }
+        }.previewLayout(.sizeThatFits)
+        .padding(10)
+    }
+}
+#endif

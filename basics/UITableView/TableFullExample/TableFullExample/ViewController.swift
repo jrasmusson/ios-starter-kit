@@ -45,6 +45,10 @@ class ViewController: UIViewController {
 
         self.transfer = transfer
     }
+}
+
+// MARK: - Setup
+extension ViewController {
 
     private func setup() {
         tableView.dataSource = self
@@ -57,7 +61,7 @@ class ViewController: UIViewController {
         tableView.sectionHeaderHeight = 0
         tableView.sectionFooterHeight = 0
 
-//        setupTableHeader()
+        setupTableHeader()
 //        setupTableFooter()
 //        fetchData()
     }
@@ -82,7 +86,6 @@ class ViewController: UIViewController {
 
         tableView.tableHeaderView = header
     }
-
 }
 
 // MARK: - UITableViewDataSource
