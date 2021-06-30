@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="rkp-GV-Cdf">
-                    <rect key="frame" x="0.0" y="0.0" width="406" height="216"/>
+                    <rect key="frame" x="16" y="16" width="374" height="184"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIr-3a-f3a">
-                            <rect key="frame" x="0.0" y="0.0" width="33" height="169.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="33" height="137.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw5-X8-e6F">
-                            <rect key="frame" x="0.0" y="195.5" width="60" height="20.5"/>
+                            <rect key="frame" x="0.0" y="163.5" width="60" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -41,10 +41,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rkp-GV-Cdf" secondAttribute="trailing" id="WVh-cJ-296"/>
-                <constraint firstItem="rkp-GV-Cdf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d1T-Hf-xb7"/>
-                <constraint firstItem="rkp-GV-Cdf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qvi-5V-tEO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rkp-GV-Cdf" secondAttribute="bottom" id="xiW-P5-OR2"/>
+                <constraint firstItem="rkp-GV-Cdf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="9CH-lx-tzy"/>
+                <constraint firstAttribute="trailing" secondItem="rkp-GV-Cdf" secondAttribute="trailing" constant="16" id="BxX-xf-auD"/>
+                <constraint firstAttribute="bottom" secondItem="rkp-GV-Cdf" secondAttribute="bottom" constant="16" id="hcT-dT-Ve6"/>
+                <constraint firstItem="rkp-GV-Cdf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="mxc-QN-8kf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="134.78260869565219" y="-74.330357142857139"/>

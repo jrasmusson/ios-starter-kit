@@ -25,7 +25,7 @@ class TableHeaderView: UIView {
     }
 
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 80)
+        return CGSize(width: UIView.noIntrinsicMetric, height: 40)
     }
 
     private func commonInit() {
@@ -43,7 +43,8 @@ class TableHeaderView: UIView {
     }
 
     private func setup() {
-        titleLabel.text = "Transfer"
+        titleLabel.text = "Header View"
+        contentView.backgroundColor = .systemRed
     }
 
     func configure(with amount: String) {
