@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     var transfer: Transfer? {
         didSet {
             setupTableHeader()
-//            setupTableFooter()
-//            populateTable()
+            populateTable()
+            //            setupTableFooter()
             tableView.reloadData()
         }
     }
@@ -59,7 +59,7 @@ extension ViewController {
         tableView.rowHeight = 64
         tableView.backgroundColor = .white
 
-//        tableView.register(ETransferDetailsReceivedTableCell.self)
+        tableView.register(TableCell.self)
 
         // Need to set to 0 because using grouped tableview style
         tableView.sectionHeaderHeight = 0
@@ -90,6 +90,20 @@ extension ViewController {
 
         tableView.tableHeaderView = header
     }
+
+    // This is where we setup our row types
+    private func populateTable() {
+        guard let details = transfer else { return }
+        var rows: [TableSection.RowType] = []
+
+        rows.append(.fromAccount(details.fromAccount))
+        rows.append(.depositAccount(details.depositAccount))
+        rows.append(.receivedDate(details.receivedDate))
+
+        // Currently only one section, so always handle after switch
+        self.sections = [TableSection(title: "", rows: rows)]
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -103,11 +117,10 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: ETransferDetailsReceivedTableCell = tableView.dequeueResuableCell(for: indexPath)
-//        let rowType = self.sections[indexPath.section].rows[indexPath.row]
-//        cell.configure(rowType: rowType)
-//        return cell
-        return UITableViewCell()
+        let cell: TableCell = tableView.dequeueResuableCell(for: indexPath)
+        let rowType = self.sections[indexPath.section].rows[indexPath.row]
+        cell.configure(rowType: rowType)
+        return cell
     }
 }
 
