@@ -41,7 +41,11 @@ class ViewController: UIViewController {
 
         // Load data now that we've displayed
         let message = "Thanks for the lawn maintenance."
-        let transfer = Transfer(amount: "$100", receivedDate: Date(), requestedFrom: "Sam Flynn", depositAccount: "Chequing", message: message)
+        let transfer = Transfer(amount: "$100",
+                                receivedDate: Date(),
+                                fromAccount: AccountModel(name: "Kevin Flynn", number: "111111", emailAddress: "kevin@thegrid.com"),
+                                depositAccount: AccountModel(name: "Sam Flynn", number: "222222", emailAddress: "sam@encom.com"),
+                                message: message)
 
         self.transfer = transfer
     }
@@ -113,8 +117,8 @@ extension ViewController {
     struct TableSection {
 
         enum RowType {
-            case fromAccount(String)
-            case depositAccount(String)
+            case fromAccount(AccountModel)
+            case depositAccount(AccountModel)
             case receivedDate(Date)
 
             var fieldLabel: String {
@@ -134,7 +138,13 @@ extension ViewController {
 struct Transfer {
     let amount: String
     let receivedDate: Date
-    let requestedFrom: String
-    let depositAccount: String
+    let fromAccount: AccountModel
+    let depositAccount: AccountModel
     let message: String
+}
+
+struct AccountModel {
+    let name: String
+    let number: String
+    let emailAddress: String?
 }
