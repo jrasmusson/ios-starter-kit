@@ -816,6 +816,11 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
+## Header Footer Example
+
+This example shows how to arrange header and footer.
+
+![](images/1.png)
 
 ## Other things you can change
 
