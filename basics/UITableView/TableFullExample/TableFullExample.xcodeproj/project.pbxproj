@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319A391A268D41FA00010E6E /* TableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319A3919268D41FA00010E6E /* TableFooterView.xib */; };
+		319A391D268D420900010E6E /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319A391C268D420900010E6E /* TableFooterView.swift */; };
 		31F9A3B7268D11E400ACA4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F9A3B6268D11E400ACA4DD /* AppDelegate.swift */; };
 		31F9A3BB268D11E400ACA4DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F9A3BA268D11E400ACA4DD /* ViewController.swift */; };
 		31F9A3C0268D11E600ACA4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F9A3BF268D11E600ACA4DD /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		319A3919268D41FA00010E6E /* TableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableFooterView.xib; sourceTree = "<group>"; };
+		319A391C268D420900010E6E /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
 		31F9A3B3268D11E400ACA4DD /* TableFullExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableFullExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F9A3B6268D11E400ACA4DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31F9A3BA268D11E400ACA4DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		319A3918268D417600010E6E /* TableFooter */ = {
+			isa = PBXGroup;
+			children = (
+				319A3919268D41FA00010E6E /* TableFooterView.xib */,
+				319A391C268D420900010E6E /* TableFooterView.swift */,
+			);
+			name = TableFooter;
+			sourceTree = "<group>";
+		};
 		31F9A3AA268D11E400ACA4DD = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +85,7 @@
 				31F9A3CF268D12B600ACA4DD /* ViewController.xib */,
 				31F9A3DB268D1A9800ACA4DD /* TableHeader */,
 				31F9A3E2268D273100ACA4DD /* TableCell */,
+				319A3918268D417600010E6E /* TableFooter */,
 			);
 			path = TableFullExample;
 			sourceTree = "<group>";
@@ -168,6 +182,7 @@
 				31F9A3C3268D11E600ACA4DD /* LaunchScreen.storyboard in Resources */,
 				31F9A3D0268D12B600ACA4DD /* ViewController.xib in Resources */,
 				31F9A3C0268D11E600ACA4DD /* Assets.xcassets in Resources */,
+				319A391A268D41FA00010E6E /* TableFooterView.xib in Resources */,
 				31F9A3E8268D277F00ACA4DD /* TableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F9A3E4268D274400ACA4DD /* TableCell.swift in Sources */,
+				319A391D268D420900010E6E /* TableFooterView.swift in Sources */,
 				31F9A3D6268D1A0200ACA4DD /* TableHeaderView.swift in Sources */,
 				31F9A3D3268D197500ACA4DD /* ReusableView.swift in Sources */,
 				31F9A3E0268D265600ACA4DD /* PreviewUtil.swift in Sources */,

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         didSet {
             setupTableHeader()
             populateTable()
-            //            setupTableFooter()
+            setupTableFooter()
             tableView.reloadData()
         }
     }
@@ -36,10 +36,26 @@ class ViewController: UIViewController {
         setup()
     }
 
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//        guard let footerView = self.tableView.tableFooterView else { return }
+//
+//        // Neccesary for the footer to resize itself propertly
+//        let width = self.tableView.bounds.size.width
+//        let height = UIView.layoutFittingCompressedSize.height
+//        let size = footerView.systemLayoutSizeFitting(CGSize(width: width, height: height))
+//
+//        if footerView.frame.size.height != size.height {
+//            footerView.frame.size.height = size.height
+//            tableView.tableFooterView = footerView
+//        }
+//    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Load data now that we've displayed
+        // Load fake data now that we've displayed
         let message = "Thanks for the lawn maintenance."
         let transfer = Transfer(amount: "$100",
                                 receivedDate: Date(),
@@ -66,7 +82,7 @@ extension ViewController {
         tableView.sectionFooterHeight = 0
 
         setupTableHeader()
-//        setupTableFooter()
+        setupTableFooter()
 //        fetchData()
     }
 
@@ -102,6 +118,27 @@ extension ViewController {
 
         // Currently only one section, so always handle after switch
         self.sections = [TableSection(title: "", rows: rows)]
+    }
+
+    private func setupTableFooter() {
+        // Don't try to set up footer if no details
+        guard let details = transfer else { return }
+
+        let footer = TableFooterView(frame: .zero)
+
+        // Set frame size before populate view to have initial size
+        var size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        footer.frame.size = size
+
+        footer.configure(with: details)
+
+        // Recalculate footer size after populated with content
+        size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        footer.frame.size = size
+
+        tableView.tableFooterView = footer
     }
 
 }
