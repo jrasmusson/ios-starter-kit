@@ -11,7 +11,7 @@ class TableFooterView: UIView {
 
     @IBOutlet var contentView: UIView!
 
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +42,7 @@ class TableFooterView: UIView {
     }
 
     func configure(with details: Transfer) {
-        descriptionLabel.layoutIfNeeded()
+        messageLabel.text = details.message
+        messageLabel.layoutIfNeeded()
     }
 }

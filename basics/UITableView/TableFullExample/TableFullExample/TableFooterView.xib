@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableFooterView" customModule="TableFullExample" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="m14-vz-EzO"/>
-                <outlet property="descriptionLabel" destination="bj2-2j-6tt" id="ZAx-8m-kWD"/>
+                <outlet property="messageLabel" destination="mvd-WH-g5x" id="8tv-Pd-tx8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
