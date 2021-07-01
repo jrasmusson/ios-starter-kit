@@ -16,31 +16,37 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="74"/>
+            <rect key="frame" x="0.0" y="0.0" width="370" height="260"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-pa-0bN">
-                    <rect key="frame" x="160.5" y="16" width="49" height="42"/>
-                    <state key="normal" title="Submit"/>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-2j-6tt">
-                    <rect key="frame" x="16" y="16" width="91" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kK9-OV-vda">
+                    <rect key="frame" x="16" y="16" width="338" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-2j-6tt">
+                            <rect key="frame" x="0.0" y="0.0" width="91" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvd-WH-g5x">
+                            <rect key="frame" x="0.0" y="28.5" width="69" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="bj2-2j-6tt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="010-Ve-Ghc"/>
-                <constraint firstItem="nHW-pa-0bN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="8iP-E1-ZaV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nHW-pa-0bN" secondAttribute="bottom" priority="900" constant="16" id="FKo-cs-8uS"/>
-                <constraint firstItem="nHW-pa-0bN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qdf-z8-sU6"/>
-                <constraint firstItem="bj2-2j-6tt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="j1b-90-LqE"/>
+                <constraint firstItem="kK9-OV-vda" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="BG5-pW-W8d"/>
+                <constraint firstItem="kK9-OV-vda" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KFb-aj-m1b"/>
+                <constraint firstAttribute="trailing" secondItem="kK9-OV-vda" secondAttribute="trailing" priority="900" constant="16" id="TbN-fa-gEZ"/>
+                <constraint firstAttribute="bottom" secondItem="kK9-OV-vda" secondAttribute="bottom" priority="900" constant="195" id="aVJ-zh-nbC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-362.31884057971018" y="-121.875"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="-59.598214285714285"/>
         </view>
     </objects>
     <resources>
