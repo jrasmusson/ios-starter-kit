@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         setup()
     }
 
+    // Not sure when this is required. But I needed it once to resize a footer that didn't work.
 //    override func viewDidLayoutSubviews() {
 //        super.viewDidLayoutSubviews()
 //
@@ -55,8 +56,10 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Load fake data now that we've displayed
-        let message = "Thanks for the lawn maintenance."
+//        let message = "Thanks for the lawn maintenance." // short
+        let message = """
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        """
         let transfer = Transfer(amount: "$100",
                                 receivedDate: Date(),
                                 fromAccount: AccountModel(name: "Kevin Flynn", number: "111111", emailAddress: "kevin@thegrid.com"),

@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kK9-OV-vda">
-                    <rect key="frame" x="16" y="16" width="338" height="49"/>
+                    <rect key="frame" x="16" y="16" width="338" height="228"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-2j-6tt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Footer View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-2j-6tt">
                             <rect key="frame" x="0.0" y="0.0" width="91" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvd-WH-g5x">
-                            <rect key="frame" x="0.0" y="28.5" width="69" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvd-WH-g5x">
+                            <rect key="frame" x="0.0" y="28.5" width="69" height="199.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                 <constraint firstItem="kK9-OV-vda" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="BG5-pW-W8d"/>
                 <constraint firstItem="kK9-OV-vda" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KFb-aj-m1b"/>
                 <constraint firstAttribute="trailing" secondItem="kK9-OV-vda" secondAttribute="trailing" priority="900" constant="16" id="TbN-fa-gEZ"/>
-                <constraint firstAttribute="bottom" secondItem="kK9-OV-vda" secondAttribute="bottom" priority="900" constant="195" id="aVJ-zh-nbC"/>
+                <constraint firstAttribute="bottom" secondItem="kK9-OV-vda" secondAttribute="bottom" priority="900" constant="16" id="aVJ-zh-nbC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-362.31884057971018" y="-59.598214285714285"/>
