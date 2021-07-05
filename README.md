@@ -108,6 +108,7 @@ A starter kit for those interested in iOS programming
 * [CHCR Content Hugging and Compression Resistance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Compression-Resistance.md)
 * [Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Responder-Chain.md)
 * [Performance](https://github.com/jrasmusson/ios-starter-kit/blob/master/advanced/Performance.md)
+* [DispatchGroup](advanced/DispatchGroup.md)
 
 ## Autolayout
 * [Cheat Sheat](https://github.com/jrasmusson/ios-starter-kit/blob/master/autolayout/CheatSheet.md)
