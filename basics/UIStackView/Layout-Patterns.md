@@ -6,6 +6,10 @@ One of the challenges of the stack view is it always wants to stretch the last e
 
 ![](images/1.png)
 
+Also be sure to adjust CHCR so bottom space stretch while subviews in stack hug.
+
+![](images/3.png)
+
 ## Every element needs a height
 
 The other thing to realize about stack views is that every view needs a height. If you can set that explicitly, things become a lot easier.
