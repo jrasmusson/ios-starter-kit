@@ -19,11 +19,41 @@ class ViewController: UIViewController {
    @IBAction func send(_ sender: UIButton) {
     DispatchQueue.global(qos: .default).async {
         // wait the duplication check result
-        self.duplicationCheckGroup.wait()
+        self.duplicationCheckGroup.wait() // wait
         DispatchQueue.main.async {
-            if !self.hasDuplicatePayment {                self.postRequest()
+            if !self.hasDuplicatePayment {                
+               self.postRequest()
             }
         }
     }
 }
 ```
+
+## Notify
+
+Another nice trick is to notify another part of the code when a network call completes.
+
+Here we don't present the view controller until the fetch function completes.
+
+```swift
+    private func handleLoginError(...) {
+
+        let group = DispatchGroup()
+        group.enter() // enter
+        DispatchQueue.main.async {
+            fetchAccountHolderName { model, error in
+                group.leave() // leave
+            }
+        }
+
+
+        switch error {
+        case .start:
+            group.notify(queue: .main) { // notify
+                let welcomeVC = WelcomeViewController()
+                ...
+            }
+```
+
+
+
