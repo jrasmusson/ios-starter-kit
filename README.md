@@ -146,6 +146,7 @@ A starter kit for those interested in iOS programming
 * [Useful links](https://github.com/jrasmusson/ios-starter-kit/blob/master/animations/Links.md)
 
 ## How tos
+* [How to load JSON from bundle](howtos/load-json-from-project.md)
 * [How to app time inactivity](howtos/app-time-out-inactivity.md)
 * [Add SwiftUI Preview](howtos/add-uikit-preview-swiftui.md)
 * [Generic How Tos](https://github.com/jrasmusson/ios-starter-kit/blob/master/howtos/aaHow-To.md)
