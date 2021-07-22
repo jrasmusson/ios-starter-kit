@@ -154,6 +154,29 @@ override func viewDidAppear(_ animated: Bool) {
 
 > Note: This may not work in `viewDidLoad()` as view will not have been totally sized and rendered.
 
+## StackView in ScrollView
+
+[StackOverflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
+
+- Need to pin stack to inside of scroll.
+- Each subview will need an explicit height
+- Constrain width or height to enbable scrolling (width for vertical scroll)
+
+```swift
+NSLayoutConstraint.activate([            
+    scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
+    scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+    scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+    scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
+    rootStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+    rootStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+    rootStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+    rootStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+
+    rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+])
+```
 
 ### Links that help
 
