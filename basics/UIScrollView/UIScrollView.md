@@ -1,5 +1,6 @@
 # UIScrollView
 
+
 `UIScrollView`s aren't that bad so long as you remember that there are two sets of constraints:
 
 1. The outer constraints between the `UIScrollView` and the outside world.
@@ -7,88 +8,6 @@
 
 That and the fact the `UIScrollView` requires your content to have an intrinsic size. If you are purely using elements that already have an intrinsic size already set (`UILabel` and `UIImageView` you don't need to do anything. But if not you have to give your views a height or something else the layout won't work.
 
-Here is a simple [example](https://blog.alltheflow.com/scrollable-uistackview) that places a `UIStackView` along with some labels inside a `UIScrollView`.
-
-```swift
-//
-//  ViewController.swift
-//  ScrollableStackView
-//
-//  Created by Jonathan Rasmusson Work Pro on 2018-08-04.
-//  Copyright © 2018 Rasmusson Software Consulting. All rights reserved.
-//
-
-import UIKit
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Scroll view, vertical
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(scrollView)
-
-        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-
-        // 2. Content is a stack view
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.spacing = 0
-        stackView.distribution = .fill
-        scrollView.addSubview(stackView)
-
-        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-
-        // Add arranged subviews:
-        for i in 0...20 {
-            // A simple green view.
-            let greenView = UIView()
-            greenView.backgroundColor = .green
-            stackView.addArrangedSubview(greenView)
-            greenView.translatesAutoresizingMaskIntoConstraints = false
-            // Doesn't have intrinsic content size, so we have to provide the height at least
-            greenView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-            greenView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-
-            // Label (has instrinsic content size)
-            let label = UILabel()
-            label.backgroundColor = .orange
-            label.text = "I'm label \(i)."
-            label.textAlignment = .center
-            stackView.addArrangedSubview(label)
-        }
-
-        // get rid of gap at top
-        scrollView.contentInsetAdjustmentBehavior = .never
-    }
-
-}
-``` 
-
-![TableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIScrollView/images/demo.gif)
-
-Note: If you don't know the intrinsic size of a view in the `UIStackView` you need to set it yourself. One quick way to make it the height of the screen is as follows
-
-```swift
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-
-        let chatView = ChatView()
-        chatView.heightAnchor.constraint(equalToConstant: screenHeight).isActive = true
-        stackView.addArrangedSubview(chatView)
-```
 
 ## The trick to understanding ScrollViews
 
@@ -159,8 +78,10 @@ override func viewDidAppear(_ animated: Bool) {
 [StackOverflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
 
 - Need to pin stack to inside of scroll.
+- Pin the scroll to the edges of the main view
 - Each subview will need an explicit height
-- Constrain width or height to enbable scrolling (width for vertical scroll)
+- Constrain width or height to enbable scrolling by setting the width of the scroll view to the width of the parent view
+- Bonus tip - if label too wide shorten text to ensure stackview fits on page
 
 ```swift
 NSLayoutConstraint.activate([            
@@ -177,6 +98,62 @@ NSLayoutConstraint.activate([
     rootStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 ])
 ```
+
+## Vertical Scroll Stack View Example
+
+Elements to embed.
+
+![](images/1.png)
+
+- Shorten label so all text fits on screen.
+
+![](images/3.png)
+
+- Select all elements and embed in stack view
+
+![](images/4.png)
+
+- Select all elements and embed in scroll view
+
+![](images/5.png)
+
+- Pin the stack view to the inside of the scroll view
+
+![](images/6.png)
+
+- Ensure stack view constraint is pinned to `Scroll View`.
+
+![](images/7.png)
+
+- Then pin the scroll view to the safe area of the parent view
+
+![](images/9.png)
+
+At this point everything should resolve no problem.
+
+![](images/10.png)
+
+- Next make the stack view and the scroll view the same width.
+
+![](images/11.png)
+
+- Then make the scroll view width the same as the parent view width. This constrains the scroll view vertically and makes it scrollable.
+
+![](images/13.png)
+
+At this point everything should be aligned and constrained.
+
+![](images/15.png)
+
+### Hugging and compression
+
+Make your labels hug by bumping up to `251`.
+
+![](images/16.png)
+
+Make your images stretch by lowering to `250`.
+
+![](images/17.png)
 
 ### Links that help
 
