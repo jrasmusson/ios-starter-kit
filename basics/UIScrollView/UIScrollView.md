@@ -101,6 +101,18 @@ NSLayoutConstraint.activate([
 
 ## Vertical Scroll Stack View Example
 
+Steps
+
+- ensure all elements fit on screen
+- embed in stack view
+- embed in scroll view
+- pin stack view to inside of scroll view
+- pin scroll view to parent view
+- stack view width = scroll view width
+- scroll view width = view width
+
+### Walkthrough example
+
 Elements to embed.
 
 ![](images/1.png)
@@ -113,9 +125,9 @@ Elements to embed.
 
 ![](images/4.png)
 
-- Select all elements and embed in scroll view
+- Select stack view and embed in scrollview
 
-![](images/5.png)
+![](images/4b.png)
 
 - Pin the stack view to the inside of the scroll view
 
@@ -129,21 +141,28 @@ Elements to embed.
 
 ![](images/9.png)
 
-At this point everything should resolve no problem.
+At this point everything should resolve.
 
 ![](images/10.png)
 
 - Next make the stack view and the scroll view the same width.
 
-![](images/11.png)
+![](images/11a.png)
+
+![](images/11b.png)
+
 
 - Then make the scroll view width the same as the parent view width. This constrains the scroll view vertically and makes it scrollable.
 
-![](images/13.png)
+![](images/11c.png)
+
+![](images/11b.png)
 
 At this point everything should be aligned and constrained.
 
 ![](images/15.png)
+
+Add back any long text you shortened in the beginning.
 
 ### Hugging and compression
 
@@ -154,6 +173,8 @@ Make your labels hug by bumping up to `251`.
 Make your images stretch by lowering to `250`.
 
 ![](images/17.png)
+
+![](images/demo.gif)
 
 ### Links that help
 
