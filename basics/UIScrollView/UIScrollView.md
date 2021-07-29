@@ -111,7 +111,7 @@ Steps
 - stack view width = scroll view width
 - scroll view width = view width
 
-### Walkthrough example
+### Embed a stack view within a scroll view
 
 Elements to embed.
 
@@ -141,16 +141,13 @@ Elements to embed.
 
 ![](images/9.png)
 
-At this point everything should resolve.
+### Widths
+
+- Set the width of the stack view to the width of UIScrollView's superview, not UIScrollView itself.
 
 ![](images/10.png)
 
-- Next make the stack view and the scroll view the same width.
-
-![](images/11a.png)
-
 ![](images/11b.png)
-
 
 - Then make the scroll view width the same as the parent view width. This constrains the scroll view vertically and makes it scrollable.
 
@@ -158,11 +155,10 @@ At this point everything should resolve.
 
 ![](images/11b.png)
 
-At this point everything should be aligned and constrained.
 
-![](images/15.png)
+- Add back any long text you shortened in the beginning.
 
-Add back any long text you shortened in the beginning.
+![](images/18.png)
 
 ### Hugging and compression
 
