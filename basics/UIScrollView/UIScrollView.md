@@ -20,9 +20,22 @@ Scroll views work well when you:
 
 ![](images/1.png)
 
-- Embed it in a scroll view
-- Pin the scroll view to the `Safe Area` of the parent view
-- Pin the `Content View` to the `Content Layout Guide` of the scroll view
+- Embed it in a scroll view.
+- Pin the scroll view to the `Safe Area` of the parent view.
+- And then drag the scroll view out to the safe area edges of the view.
+
+![](images/2.png)
+
+- Stretch the `Content View` to the edges of the scroll view.
+
+![](images/3.png)
+
+- Pin the `Content View` to the `Content Layout Guide` of the scroll view.
+- Don't use the attribute tool in the bottom.
+- Instead drag each one one-at-a-time like this.
+
+![](images/4.png)
+
 - Set the width of the `Content View` = width of the parent view of the scroll view (not the scroll view itself)
 
 
