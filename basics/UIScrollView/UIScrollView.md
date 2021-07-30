@@ -50,7 +50,21 @@ Scroll views work well when you:
 
 ### Adding a label
 
+- Add a label to the view and place it in the upper-right-hand corner.
 
+![](images/9.png)
+
+- Now simply pin the edges of the label to the edges of your inner `Content View`.
+- Make the label multiline.
+
+![](images/10.png)
+
+- At this point the ambiguity will be removed, and you are free to add as much text as you like to the label. 
+- It will now scroll.
+
+![](images/11.png)
+
+- You can now build any UI with scroll views you like.
 
 ### Links that help
 
