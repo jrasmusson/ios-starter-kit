@@ -36,7 +36,20 @@ Scroll views work well when you:
 
 ![](images/4.png)
 
+![](images/5.png)
+
 - Set the width of the `Content View` = width of the parent view of the scroll view (not the scroll view itself)
+
+![](images/6.png)
+
+![](images/7.png)
+
+- At this point your embedded view is good to go. We still have an ambiguity error because there is nothing inside our view.
+
+![](images/8.png)
+
+### Adding a label
+
 
 
 ### Links that help
