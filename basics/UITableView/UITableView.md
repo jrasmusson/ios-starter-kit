@@ -1,5 +1,44 @@
 # UITableView
 
+## Simple 1
+
+```swift
+import UIKit
+
+struct HintData: Codable {
+    var title: String
+    var id: String
+}
+
+class ViewController: UIViewController {
+    
+    var data: [HintData] = [HintData(title: "This is a hint!", id: "1")]
+    var tableView = UITableView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        view = tableView
+    }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = data[indexPath.row].title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+}
+```
+
+## Simple 2
+
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic.png" width="400"/>
 
 ```swift
