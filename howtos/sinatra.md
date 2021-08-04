@@ -57,4 +57,4 @@ heroku open
 - https://devcenter.heroku.com/articles/rack
 - https://devcenter.heroku.com/articles/getting-started-with-rails6
 - https://devblast.com/b/return-json-in-sinatra
-
+- [Tutorial](https://www.devdungeon.com/content/ruby-sinatra-tutorial#toc-24)
