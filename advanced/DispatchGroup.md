@@ -1,5 +1,7 @@
 # DispatchGroup
 
+## Wait
+
 A way of grouping network calls so they occur as a group, and also signally other parts not to proceed until the group completes.
 
 For example, say we want to check that duplicate payments don't exist before a user clicks send. DispatchGroup would help us here like this.
@@ -36,24 +38,26 @@ Another nice trick is to notify another part of the code when a network call com
 Here we don't present the view controller until the fetch function completes.
 
 ```swift
-    private func handleLoginError(...) {
+private func handleLoginError(...) {
 
-        let group = DispatchGroup()
-        group.enter() // enter
-        DispatchQueue.main.async {
-            fetchAccountHolderName { model, error in
-                group.leave() // leave
-            }
+    let group = DispatchGroup()
+    group.enter() // enter
+    DispatchQueue.main.async {
+        fetchAccountHolderName { model, error in
+            group.leave() // leave
         }
+    }
 
 
-        switch error {
-        case .start:
-            group.notify(queue: .main) { // notify
-                let welcomeVC = WelcomeViewController()
-                ...
-            }
+    switch error {
+    case .start:
+        group.notify(queue: .main) { // notify
+            let welcomeVC = WelcomeViewController()
+            ...
+        }
 ```
 
+### Links that help
 
-
+- [Simple example](https://riptutorial.com/ios/example/28278/dispatch-group)
+- [Good video](https://www.youtube.com/watch?v=OanfpW0H_ok&ab_channel=maxcodes)
