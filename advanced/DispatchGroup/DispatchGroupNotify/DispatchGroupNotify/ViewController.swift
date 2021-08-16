@@ -30,13 +30,13 @@ class ViewController: UIViewController {
         
         group.notify(queue: .main) {
             print("Complete")
-            self.tableView.reloadData() // all at once
+            self.tableView.reloadData()
         }
     }
     
     func fetchGame(_ id: String) {
-        print("Enter")
-        group.enter() // enter
+        print("foo - Enter")
+        group.enter()
         
         let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/game/\(id)")!
         URLSession.shared.dataTask(with: url) { (data, res, err) in
@@ -44,11 +44,13 @@ class ViewController: UIViewController {
             do {
                 let game = try JSONDecoder().decode(Game.self, from: data)
                 self.games.append(game)
-                print("Leave")
-                self.group.leave() // leave
+                print("foo - Leave")
+                self.group.leave()
+                
 //                DispatchQueue.main.async {
 //                    self.tableView.reloadData() // incremental
 //                }
+                
             } catch let err {
                 print(err)
             }
