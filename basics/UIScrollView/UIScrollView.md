@@ -80,6 +80,11 @@ The reason you may want to add a spacer view is for alignment within the stack v
 
 ![](images/13.png)
 
+### Other tricks
+
+- Stack Views are magical. Adding stack views to stack views can sometimes resolve ambiguity and enable you to use `>=` for height constraints.
+
+
 ### Links that help
 
 * [Manually Scrolling](https://jayeshkawli.ghost.io/manually-scrolling-uiscrollview-ios-swift/)
