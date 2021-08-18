@@ -2,7 +2,7 @@
 
 ## Spacer view at bottom
 
-One of the challenges of the stack view is it always wants to stretch the last element. To fix that, give it an empty spacer view (no contraints) and let them resize itself to whatever need be.
+One of the challenges of the stack view is it always wants to stretch the last element. To fix that, give it an empty spacer view (no contraints except for leading and trailing) and let them resize itself to whatever need be.
 
 ![](images/1.png)
 

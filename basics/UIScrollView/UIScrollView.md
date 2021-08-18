@@ -66,6 +66,25 @@ Scroll views work well when you:
 
 - You can now build any UI with scroll views you like.
 
+## View with a Stack View
+
+The trick with stack views is to give every view within the stack view an explicit height. And then pin the stack view to the edges of the content view.
+
+![](images/12.png)
+
+### Do I need a spacer view?
+
+Not really. The stack view will scroll fine so long as every component inside has an explicit height (greater than won't work here).
+
+The reason you may want to add a spacer view is for alignment within the stack view. If leading alignment doesn't give you want you want, add a custom view, give it some leading and trailing space, and then align your internal stack view elements to that.
+
+![](images/13.png)
+
+### Other tricks
+
+- Stack Views are magical. Adding stack views to stack views can sometimes resolve ambiguity and enable you to use `>=` for height constraints.
+
+
 ### Links that help
 
 * [Manually Scrolling](https://jayeshkawli.ghost.io/manually-scrolling-uiscrollview-ios-swift/)
