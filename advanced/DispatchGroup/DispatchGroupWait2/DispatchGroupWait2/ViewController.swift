@@ -14,7 +14,7 @@ struct Profile: Codable {
 
 struct Entitlement: Codable {
     let id: String
-    let entitlement: String
+    let access: String
 }
 
 struct Preference: Codable {
@@ -34,10 +34,73 @@ class ViewController: UIViewController {
     }
 }
 
+
+// MARK: DispatchGroup
+extension ViewController {
+    private func fetchData() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        fetchProfile { optionalProfile in
+            guard let profile = optionalProfile else { return }
+            self.profileLabel.text = profile.name
+            group.leave()
+        }
+
+        group.enter()
+        fetchEntitlement { optionalEntitlement in
+            guard let entitlement = optionalEntitlement else { return }
+            self.entitlementLabel.text = entitlement.access
+            group.leave()
+        }
+
+        group.enter()
+        fetchPreference { optionalEntitlement in
+            guard let entitlement = optionalEntitlement else { return }
+            self.preferenceLabel.text = entitlement.vehicle
+            group.leave()
+        }
+
+        group.notify(queue: .main) {
+            self.loginButton.isEnabled = true
+        }
+    }
+}
+
 // MARK: Networking
 extension ViewController {
     
-    func fetchProfile(_ completion: @escaping (Preference?) -> Void) {
+    func fetchProfile(_ completion: @escaping (Profile?) -> Void) {
+        let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/profile/1")!
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            guard err == nil, let data = data else { return }
+            do {
+                let profile = try JSONDecoder().decode(Profile.self, from: data)
+                DispatchQueue.main.async {
+                    completion(profile)
+                }
+            } catch let err {
+                print(err)
+            }
+        }.resume()
+    }
+
+    func fetchEntitlement(_ completion: @escaping (Entitlement?) -> Void) {
+        let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/entitlement/1")!
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            guard err == nil, let data = data else { return }
+            do {
+                let entitlement = try JSONDecoder().decode(Entitlement.self, from: data)
+                DispatchQueue.main.async {
+                    completion(entitlement)
+                }
+            } catch let err {
+                print(err)
+            }
+        }.resume()
+    }
+
+    func fetchPreference(_ completion: @escaping (Preference?) -> Void) {
         let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/preference/1")!
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             guard err == nil, let data = data else { return }
@@ -51,23 +114,6 @@ extension ViewController {
             }
         }.resume()
     }
-    
-    private func fetchData() {
-        let group = DispatchGroup()
-        
-        group.enter()
-        fetchProfile { maybePreference in
-            guard let preference = maybePreference else { return }
-            self.preferenceLabel.text = preference.vehicle
-            group.leave()
-        }
-        
-        group.notify(queue: .main) {
-            self.loginButton.isEnabled = true
-        }
-    }
-    
-
 }
 
 // MARK: Actions
