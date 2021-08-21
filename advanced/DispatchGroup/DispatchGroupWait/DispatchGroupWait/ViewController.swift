@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     }
     
     var hasDuplicatePayment = false
+    
     var group = DispatchGroup()
     
     @IBAction func send(_ sender: Any) {
