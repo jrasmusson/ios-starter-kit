@@ -27,8 +27,14 @@ class ViewController: UIViewController {
             self.group.leave()
         }
         
-        DispatchQueue.global(qos: .default).async { // off main thread
+        // Because we don't want to block the main UI thread
+        // We put our synchronous wait on a low priority non-UI
+        // backgroun thread.
+        DispatchQueue.global(qos: .default).async {
             self.group.wait() // synchronous wait
+            
+            // When we are ready to update the UI, we can put
+            // ourselves back onto the main thread.
             DispatchQueue.main.async {
                 self.showAlert(self.hasDuplicatePayment) // on main thread
             }
@@ -55,7 +61,7 @@ class ViewController: UIViewController {
 // MARK: Networking
 extension ViewController {
     func fetchCheckDuplicate(_ completion: @escaping (Bool) -> Void) {
-        let url = URL(string: "https://reqres.in/api/users?delay=3")!
+        let url = URL(string: "https://reqres.in/api/users?delay=3")! // 3 sec
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             DispatchQueue.main.async {
                 let hasDuplicate = true
@@ -66,7 +72,6 @@ extension ViewController {
 }
 
 // MARK: Misc
-
 extension ViewController {
     private func startTimer() {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
