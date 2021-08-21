@@ -2,71 +2,80 @@
 //  ViewController.swift
 //  DispatchGroupWait
 //
-//  Created by jrasmusson on 2021-08-16.
+//  Created by jrasmusson on 2021-08-21.
 //
 
 import UIKit
 
-struct Game: Codable {
-    var id: String
-    var name: String
-}
-
 class ViewController: UIViewController {
-    var games: [Game] = []
-    var tableView = UITableView()
-    let group = DispatchGroup()
+    
+    @IBOutlet var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        view = tableView
-        
-        fetchGame("1")
-        fetchGame("2")
-        fetchGame("3")
-        
-        // Notify me when all these are done
-        group.notify(queue: .main) {
-            print("Complete")
-            self.tableView.reloadData()
-        }
+        startTimer()
     }
     
-    func fetchGame(_ id: String) {
-        print("foo - Enter")
+    var hasDuplicatePayment = false
+    var group = DispatchGroup()
+    
+    @IBAction func send(_ sender: Any) {
         group.enter()
         
-        let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/game/\(id)")!
+        fetchCheckDuplicate() { hasDuplicate in
+            self.hasDuplicatePayment = hasDuplicate
+            self.group.leave()
+        }
+        
+        DispatchQueue.global(qos: .default).async { // off main thread
+            self.group.wait() // synchronous wait
+            DispatchQueue.main.async {
+                self.showAlert(self.hasDuplicatePayment) // on main thread
+            }
+        }
+    }
+        
+    func showAlert(_ hasDuplicatePayment: Bool) {
+        let message: String
+        if self.hasDuplicatePayment {
+            message = "Duplicate payment detected"
+        } else {
+            message = "Money sent"
+        }
+
+        let alert = UIAlertController(title: "Send Money Transfer",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: Networking
+extension ViewController {
+    func fetchCheckDuplicate(_ completion: @escaping (Bool) -> Void) {
+        let url = URL(string: "https://reqres.in/api/users?delay=3")!
         URLSession.shared.dataTask(with: url) { (data, res, err) in
-            guard err == nil, let data = data else { return }
-            do {
-                let game = try JSONDecoder().decode(Game.self, from: data)
-                self.games.append(game)
-                print("foo - Leave")
-                self.group.leave()
-                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData() // incremental
-//                }
-                
-            } catch let err {
-                print(err)
+            DispatchQueue.main.async {
+                let hasDuplicate = true
+                completion(hasDuplicate)
             }
         }.resume()
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = games[indexPath.row].name
-        return cell
+// MARK: Misc
+
+extension ViewController {
+    private func startTimer() {
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateClock), userInfo: nil, repeats: true)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+    @objc func updateClock() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .long
+        timerLabel.text = "\(dateFormatter.string(from: Date()))"
     }
 }
+
