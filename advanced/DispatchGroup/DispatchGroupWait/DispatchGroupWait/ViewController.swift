@@ -65,7 +65,7 @@ extension ViewController {
         let url = URL(string: "https://reqres.in/api/users?delay=3")! // 3 sec
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             DispatchQueue.main.async {
-                let hasDuplicate = true
+                let hasDuplicate = false
                 completion(hasDuplicate)
             }
         }.resume()

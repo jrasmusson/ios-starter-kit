@@ -42,27 +42,34 @@ extension ViewController {
         let group = DispatchGroup()
         
         group.enter()
+        print("Enter")
         fetchProfile { optionalProfile in
             guard let profile = optionalProfile else { return }
             self.profileLabel.text = profile.name
             group.leave()
+            print("Leave")
         }
 
         group.enter()
+        print("Enter")
         fetchEntitlement { optionalEntitlement in
             guard let entitlement = optionalEntitlement else { return }
             self.entitlementLabel.text = entitlement.access
             group.leave()
+            print("Leave")
         }
 
         group.enter()
+        print("Enter")
         fetchPreference { optionalEntitlement in
             guard let entitlement = optionalEntitlement else { return }
             self.preferenceLabel.text = entitlement.vehicle
             group.leave()
+            print("Leave")
         }
 
         group.notify(queue: .main) {
+            print("Notify")
             self.loginButton.isEnabled = true
         }
     }
