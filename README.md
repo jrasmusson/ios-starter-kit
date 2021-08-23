@@ -60,10 +60,6 @@ A starter kit for those interested in iOS programming
 * [UIImage](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImage/README.md)
 * [UIImagePicker](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIImagePicker/README.md)
 * [UITextField](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/UITextField.md)
-* [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
-* [UITableView Full Header Footer In Section](basics/UITableViewHeaderFooterInSection/READEME.md)
-* [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
-* [UITableViewHeaderFooter](basics/UITableViewHeaderFooter/README.md)
 * [UIAlertController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIAlertController/UIAlertController.md)
 * [UIProgressView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIProgressView/README.md)
 * [UISegmentedControl](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISegmentedControl/README.md)
@@ -94,6 +90,14 @@ A starter kit for those interested in iOS programming
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
 * [Higher Order Functions](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/HigherOrderFunctions/README.md)
+
+### UITableView
+
+* [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
+* [UITableView Full Header Footer In Section](basics/UITableViewHeaderFooterInSection/README.md)
+* [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
+* [UITableViewHeaderFooter](basics/UITableViewHeaderFooter/README.md)
+
 
 ## SpriteKit
 * [Basics](https://github.com/jrasmusson/ios-starter-kit/blob/master/spritekit/README.md)
