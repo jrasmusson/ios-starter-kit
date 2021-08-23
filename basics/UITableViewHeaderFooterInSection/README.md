@@ -1,4 +1,6 @@
-# UITableView Header and Footer
+# UITableView Header and Footer In Section
+
+How to set the header and footer in a section.
 
 ## Simple
 
