@@ -1,106 +1,148 @@
-# Header Footer Example
+# Header Footer Example Nib
+
+
+## Create the Table View
+
+Create a new nib/view and drag a `UITableView` onto it pinned to all the edges. Drag an outlet called `tableView` into the view controller and set your data up.
 
 ![](images/1.png)
 
 **ViewController**
 
 ```swift
+//
+//  ViewController.swift
+//  FullPowerTableView
+//
+//  Created by jrasmusson on 2021-08-22.
+//
+
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-
-    private var sections: [TableSection] = []
-
-    var transfer: Transfer? {
-        didSet {
-            setupTableHeader()
-            populateTable()
-            setupTableFooter()
-            tableView.reloadData()
-        }
-    }
-
-    override init(nibName nibNameOrNil: String? = nil, bundle nibBundleOrNil: Bundle? = nil) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    let games = [
+        "Pacman",
+        "Space Invaders",
+        "Space Patrol",
+    ]
+    
+    @IBOutlet var tableView: UITableView!
+    
+    let cellId = "cellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Transaction Details"
         setup()
     }
 
-    // Not sure when this is required. But I needed it once to resize a footer that didn't work.
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        guard let footerView = self.tableView.tableFooterView else { return }
-//
-//        // Neccesary for the footer to resize itself propertly
-//        let width = self.tableView.bounds.size.width
-//        let height = UIView.layoutFittingCompressedSize.height
-//        let size = footerView.systemLayoutSizeFitting(CGSize(width: width, height: height))
-//
-//        if footerView.frame.size.height != size.height {
-//            footerView.frame.size.height = size.height
-//            tableView.tableFooterView = footerView
-//        }
-//    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-//        let message = "Thanks for the lawn maintenance." // short
-        let message = """
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        """
-        let transfer = Transfer(amount: "$100",
-                                receivedDate: Date(),
-                                fromAccount: AccountModel(name: "Kevin Flynn", number: "111111", emailAddress: "kevin@thegrid.com"),
-                                depositAccount: AccountModel(name: "Sam Flynn", number: "222222", emailAddress: "sam@encom.com"),
-                                message: message)
-
-        self.transfer = transfer
-    }
 }
 
 // MARK: - Setup
 extension ViewController {
-
-    private func setup() {
+    func setup() {
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 64
-        tableView.backgroundColor = .white
 
-        tableView.register(TableCell.self)
-
-        // Need to set to 0 because using grouped tableview style
-        tableView.sectionHeaderHeight = 0
-        tableView.sectionFooterHeight = 0
-
-        setupTableHeader()
-        setupTableFooter()
-//        fetchData()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.tableFooterView = UIView() // hide empty rows
     }
 
-    private func setupTableHeader() {
-        // Don't try to set up header if no details
-        guard let details = transfer else { return }
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
 
-        let header = TableHeaderView(frame: .zero)
+}
+
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+
+        cell.textLabel?.text = games[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+}
+```
+
+## Add the table view header
+
+Create a new header view and nib. Drag the `View` from the nib into the file and call it `contentView` pinning it to the edges of the view.
+
+![](images/2.png)
+
+**HeaderView**
+
+```swift
+import Foundation
+import UIKit
+
+class HeaderView: UIView {
+    
+    @IBOutlet var contentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 104)
+    }
+
+    private func commonInit() {
+        let bundle = Bundle(for: HeaderView.self)
+        bundle.loadNibNamed("HeaderView", owner: self, options: nil)
+        addSubview(contentView)
+
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+    }
+}
+```
+
+The add it to the view controller like so.
+
+**ViewController**
+
+```swift
+// MARK: - Setup
+extension ViewController {
+    func setup() {
+        setupTableView()
+        setupTableViewHeader()
+    }
+    
+    ...
+        
+    private func setupTableViewHeader() {
+        let header = HeaderView(frame: .zero)
 
         // Set frame size before populate view to have initial size
         var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = UIScreen.main.bounds.width
         header.frame.size = size
-
-        header.configure(with: details.amount)
 
         // Recalculate header size after populated with content
         size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
@@ -109,273 +151,147 @@ extension ViewController {
 
         tableView.tableHeaderView = header
     }
+}
+```
 
-    // This is where we setup our row types
-    private func populateTable() {
-        guard let details = transfer else { return }
-        var rows: [TableSection.RowType] = []
+The above code seems strange at first, but if you don't recalculate the header size after populating with content the header view won't show.
 
-        rows.append(.fromAccount(details.fromAccount))
-        rows.append(.depositAccount(details.depositAccount))
-        rows.append(.receivedDate(details.receivedDate))
+## Add sections
 
-        // Currently only one section, so always handle after switch
-        self.sections = [TableSection(title: "", rows: rows)]
+To add sections to our table view, we are going to need a data model. 
+
+```swift
+enum TransactionType: String {
+    case pending = "Pending"
+    case posted = "Posted"
+}
+
+struct Transaction {
+    let firstName: String
+    let lastName: String
+    let amount: String
+    let type: TransactionType
+}
+
+struct TransactionSection {
+    let title: String
+    let transactions: [Transaction]
+}
+
+struct TransactionViewModel {
+    let sections: [TransactionSection]
+}
+```
+
+Then to sync with with our table, we need to update our data source methods like this.
+
+**ViewController**
+
+```swift
+class ViewController: UIViewController {
+            
+    var viewModel: TransactionViewModel?
+
+    override func viewDidLoad() {
+    	 ...
+        fetchData()
     }
+}
 
-    private func setupTableFooter() {
-        // Don't try to set up footer if no details
-        guard let details = transfer else { return }
+// MARK: - Networking
+extension ViewController {
+    private func fetchData() {
+        let tx1 = Transaction(firstName: "Kevin", lastName: "Flynn", amount: "$100", type: .pending)
+        let tx2 = Transaction(firstName: "Allan", lastName: "Bradley", amount: "$200", type: .pending)
+        let tx3 = Transaction(firstName: "Ed", lastName: "Dillinger", amount: "$300", type: .pending)
 
-        let footer = TableFooterView(frame: .zero)
+        let tx4 = Transaction(firstName: "Sam", lastName: "Flynn", amount: "$100", type: .pending)
+        let tx5 = Transaction(firstName: "Quorra", lastName: "Iso", amount: "$200", type: .pending)
+        let tx6 = Transaction(firstName: "Castor", lastName: "Barkeep", amount: "$300", type: .pending)
+        let tx7 = Transaction(firstName: "CLU", lastName: "MCU", amount: "$400", type: .pending)
+        
+        let section1 = TransactionSection(title: "Pending transfers", transactions: [tx1, tx2, tx3])
+        let section2 = TransactionSection(title: "Posted transfers", transactions: [tx4, tx5, tx6, tx7])
 
-        // Set frame size before populate view to have initial size
-        var size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        size.width = UIScreen.main.bounds.width
-        footer.frame.size = size
-
-        footer.configure(with: details)
-
-        // Recalculate footer size after populated with content
-        size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        size.width = UIScreen.main.bounds.width
-        footer.frame.size = size
-
-        tableView.tableFooterView = footer
+        viewModel = TransactionViewModel(sections: [section1, section2])
     }
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
 
 }
 
 // MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].rows.count
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TableCell = tableView.dequeueResuableCell(for: indexPath)
-        let rowType = self.sections[indexPath.section].rows[indexPath.row]
-        cell.configure(rowType: rowType)
+        guard let vm = viewModel else { return UITableViewCell() }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let section = indexPath.section
+        
+        let text = vm.sections[section].transactions[indexPath.row].amount
+        cell.textLabel?.text = text
+        
         return cell
     }
-}
-
-// MARK: - TableSection
-extension ViewController {
-
-    struct TableSection {
-
-        enum RowType {
-            case fromAccount(AccountModel)
-            case depositAccount(AccountModel)
-            case receivedDate(Date)
-
-            var fieldLabel: String {
-                switch self {
-                case .fromAccount(_): return "From"
-                case .depositAccount(_): return "Deposit account"
-                case .receivedDate(_): return "Date received"
-                }
-            }
-        }
-
-        let title: String
-        let rows: [RowType]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let vm = viewModel else { return 0 }
+        return vm.sections[section].transactions.count
     }
-}
-
-struct Transfer {
-    let amount: String
-    let receivedDate: Date
-    let fromAccount: AccountModel
-    let depositAccount: AccountModel
-    let message: String
-}
-
-struct AccountModel {
-    let name: String
-    let number: String
-    let emailAddress: String?
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let vm = viewModel else { return nil }
+        return vm.sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let sections = viewModel?.sections else { return 0 }
+        return sections.count
+    }
 }
 ```
 
-![](images/2.png)
+### Section header simple
 
-**TableViewHeader**
+You can add a section header easily by using the default title like so.
+
+```swift
+func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    guard let vm = viewModel else { return nil }
+    return vm.sections[section].title
+}
+```
+
+### Section header complex
+
+Or you can supply your own complex header view programmatically or as a nib.
 
 ![](images/3.png)
 
-```swift
-//
-//  TableHeaderView.swift
-//  TableFullExample
-//
-//  Created by Rasmusson, Jonathan on 2021-06-30.
-//
+Couple things to note with the nib:
 
-import UIKit
-
-class TableHeaderView: UIView {
-
-    @IBOutlet var contentView: UIView!
-
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 40)
-    }
-
-    private func commonInit() {
-        let bundle = Bundle(for: TableHeaderView.self)
-        bundle.loadNibNamed("TableHeaderView", owner: self, options: nil)
-        addSubview(contentView)
-
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-
-        setup()
-    }
-
-    private func setup() {
-        titleLabel.text = "Header View"
-        contentView.backgroundColor = .systemRed
-    }
-
-    func configure(with amount: String) {
-        amountLabel.text = amount
-    }
-}
-```
-
-**TableCell**
+1. This custom class is set on the `View` instead of the `File's Owner`.
+2. You need to manually check the `Inherit Module From Target` option.
 
 ![](images/4.png)
 
-```swift
-//
-//  TableCell.swift
-//  TableFullExample
-//
-//  Created by Rasmusson, Jonathan on 2021-06-30.
-//
+Not sure why this is. Will try setting directly on the nib later and see what happens.
 
-import UIKit
-
-class TableCell: UITableViewCell {
-
-    @IBOutlet weak var fieldLabel: UILabel!
-    @IBOutlet weak var primaryLabel: UILabel!
-    @IBOutlet weak var secondaryLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        selectionStyle = .none
-        secondaryLabel.isHidden = true
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        secondaryLabel.isHidden = true
-    }
-}
-
-extension TableCell {
-    typealias RowType = ViewController.TableSection.RowType
-
-    func configure(rowType: RowType) {
-        fieldLabel.text = rowType.fieldLabel
-
-        switch rowType {
-        case .fromAccount(let fromAccount):
-            primaryLabel.text = fromAccount.name
-            if let emailAddress = fromAccount.emailAddress {
-                secondaryLabel.text = emailAddress
-                secondaryLabel.isHidden = false
-            }
-        case .depositAccount(let depositAccount):
-            primaryLabel.text = depositAccount.name
-            secondaryLabel.text = "(\(depositAccount.number))"
-            secondaryLabel.isHidden = false
-        case .receivedDate(let date):
-            primaryLabel.text = "\(date)"
-        }
-    }
-}
-```
-
-**TableViewFooter**
-
-![](images/5.png)
-
-```swift
-import UIKit
-
-class TableFooterView: UIView {
-
-    @IBOutlet var contentView: UIView!
-
-    @IBOutlet weak var messageLabel: UILabel!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 80)
-    }
-
-    private func commonInit() {
-        let bundle = Bundle(for: TableFooterView.self)
-        bundle.loadNibNamed("TableFooterView", owner: self, options: nil)
-        addSubview(contentView)
-
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-
-        contentView.backgroundColor = .systemGray5
-    }
-
-    func configure(with details: Transfer) {
-        messageLabel.text = details.message
-        messageLabel.layoutIfNeeded()
-    }
-}
-```
+Also, I am making use of a convenience class for the loading of nibs.
 
 **ReusableView**
 
 ```swift
 import UIKit
 
-protocol ReusableView: class {}
-protocol NibLoadableView: class {}
+protocol ReusableView: AnyObject {}
+protocol NibLoadableView: AnyObject {}
 
 extension ReusableView {
     static var reuseID: String { return "\(self)" }
@@ -415,3 +331,43 @@ extension UITableView {
     }
 }
 ```
+
+I don't like it, because I don't yet fully understand it. But I will try repeating this steps and see if I can get it all to work without its use. Until then I will make use.
+
+And then finally, this is how we add it to the view controller.
+
+**ViewController**
+
+```swift
+private func setupTableView() {
+    tableView.registerHeaderFooter(SectionHeaderView.self)
+}
+
+...
+
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+
+// Comment this out...    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        guard let vm = viewModel else { return nil }
+//        return vm.sections[section].title
+//    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView: SectionHeaderView = tableView.dequeueResuableHeaderFooter()
+        headerView.titleLabel.text = "Pending eller Post"
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70 // the same height constraint used in our `SectionHeaderView`
+    }
+}
+```
+
+The same process can be repeated for the footer.
+
+### Links that help
+
+- [Table Header View Storyboard](https://programmingwithswift.com/how-to-add-header-footer-view-in-uitableview-in-storyboard/)
