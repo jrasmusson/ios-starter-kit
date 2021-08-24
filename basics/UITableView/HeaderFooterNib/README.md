@@ -54,7 +54,9 @@ extension ViewController {
 
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -70,10 +72,6 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
     }
 }
 ```
