@@ -284,7 +284,7 @@ Should now have this.
 
 ### Section header simple
 
-Currently we are providing a simple section header title like this.
+You can either use the default section header that comes with the `UITableView`.
 
 ```swift
 // MARK: - UITableViewDataSource
@@ -299,9 +299,9 @@ extension ViewController: UITableViewDataSource {
 
 ### Section header complex
 
-But you can supply your own more complex header view programmatically or as a nib.
+Or you can create your own nib and register just like we did with the header before.
 
-![](images/3.png)
+![](images/3a.png)
 
 **SectionHeaderView**
 
@@ -309,86 +309,57 @@ But you can supply your own more complex header view programmatically or as a ni
 import Foundation
 import UIKit
 
-final class SectionHeaderView: UITableViewHeaderFooterView {
-        
-    static let reuseIdentifier = "SectionHeaderView"
+class SectionHeaderView: UIView {
     
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        // configure here if values need to be dynamic or override
+    @IBOutlet var contentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 104)
+    }
+
+    private func commonInit() {
+        let bundle = Bundle(for: HeaderView.self)
+        bundle.loadNibNamed("SectionHeaderView", owner: self, options: nil)
+        addSubview(contentView)
+
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
     }
 }
 ```
 
-Couple things to note with the nib:
-
-1. This custom class is set on the `View` instead of the `File's Owner`.
-2. Ensure the the `Inherit Module From Target` option is checked.
-
-![](images/4.png)
-
-Why set customer class this way and not like a regular nib? Not sure. This way just works.
-
-Also, I am making use of a convenience class for the loading of nibs.
-
-**ReusableView**
-
-```swift
-import UIKit
-
-protocol ReusableView: AnyObject {}
-protocol NibLoadableView: AnyObject {}
-
-extension ReusableView {
-    static var reuseID: String { return "\(self)" }
-}
-
-extension NibLoadableView {
-    static var nibName: String { return "\(self)" }
-}
-
-extension UITableViewCell: ReusableView, NibLoadableView {}
-extension UICollectionViewCell: ReusableView, NibLoadableView {}
-extension UITableViewHeaderFooterView: ReusableView, NibLoadableView {}
-
-extension UITableView {
-    func dequeueResuableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: T.reuseID, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseID)")
-        }
-        return cell
-    }
-
-    func dequeueResuableHeaderFooter<T: UITableViewHeaderFooterView>() -> T {
-        guard let headerFooter = dequeueReusableHeaderFooterView(withIdentifier: T.reuseID) as? T else {
-            fatalError("Could not dequeue header footer view with identifier: \(T.reuseID)")
-        }
-        return headerFooter
-    }
-
-    func register<T: ReusableView & NibLoadableView>(_: T.Type) {
-        let nib = UINib(nibName: T.nibName, bundle: nil)
-        register(nib, forCellReuseIdentifier: T.reuseID)
-    }
-
-    func registerHeaderFooter<T: ReusableView & NibLoadableView>(_: T.Type) {
-        let nib = UINib(nibName: T.nibName, bundle: nil)
-        register(nib, forHeaderFooterViewReuseIdentifier: T.reuseID)
-    }
-}
-```
-
-I don't like it, because I don't yet fully understand it. But I will try repeating this steps and see if I can get it all to work without its use. Until then I will make use.
-
-And then finally, this is how we add it to the view controller.
+And then register and replace the default one like this.
 
 **ViewController**
 
 ```swift
-private func setupTableView() {
-    tableView.registerHeaderFooter(SectionHeaderView.self)
+class ViewController: UIViewController {
+    ...
+    let sectionHeaderId = "sectionHeaderId"
 }
 
+// MARK: - Setup
+extension ViewController {
+
+    private func setupTableView() {
+		 ...        
+        let nib = UINib(nibName: "SectionHeaderView", bundle: nil)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: sectionHeaderId)
+    }
+}
 ...
 
 // MARK: - UITableViewDataSource
@@ -406,21 +377,17 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70 // the same height constraint used in our `SectionHeaderView`
+        return 70 // whatever height you like
     }
 }
 ```
 
-![](images/4a.png)
+![](images/3b.png)
 
 
 #### Background colors not respected
 
 You may notice that setting the background color in your nib doesn't get rendered at run time. To fix this you can add a subview and set your color on it.
-
-
-
-
 
 The same process can be repeated for the footer.
 
