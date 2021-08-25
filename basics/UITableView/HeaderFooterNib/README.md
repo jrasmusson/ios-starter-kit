@@ -51,6 +51,7 @@ extension ViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.tableFooterView = UIView() // hide empty rows
     }
+}
 
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
@@ -76,11 +77,23 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
+![](images/1b.png)
+
 ## Add the table view header
 
-Create a new header view and nib. Drag the `View` from the nib into the file and call it `contentView` pinning it to the edges of the view.
+Create a new header view and nib. 
+
+![](images/2b.png)
+
+Drag the `View` from the nib into the file and call it `contentView`.
+
+![](images/2c.png)
+
+Then if you wanted to do something fancy you could.
 
 ![](images/2.png)
+
+Pin your content view to the edges like this.
 
 **HeaderView**
 
@@ -120,7 +133,7 @@ class HeaderView: UIView {
 }
 ```
 
-The add it to the view controller like so.
+Then add it to the view controller like so.
 
 **ViewController**
 
@@ -152,11 +165,13 @@ extension ViewController {
 }
 ```
 
-The above code seems strange at first, but if you don't recalculate the header size after populating with content the header view won't show.
+Yes you need to calculate the header size x2. Strange but this is how it works.
+
+![](images/2d.png)
 
 ## Add sections
 
-To add sections to our table view, we are going to need a data model. 
+To add sections to our table view, we are going to need some kind of data model. 
 
 ```swift
 enum TransactionType: String {
