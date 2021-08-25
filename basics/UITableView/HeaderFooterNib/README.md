@@ -299,18 +299,35 @@ extension ViewController: UITableViewDataSource {
 
 ### Section header complex
 
-Or you can supply your own complex header view programmatically or as a nib.
+But you can supply your own more complex header view programmatically or as a nib.
 
 ![](images/3.png)
+
+**SectionHeaderView**
+
+```swift
+import Foundation
+import UIKit
+
+final class SectionHeaderView: UITableViewHeaderFooterView {
+        
+    static let reuseIdentifier = "SectionHeaderView"
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        // configure here if values need to be dynamic or override
+    }
+}
+```
 
 Couple things to note with the nib:
 
 1. This custom class is set on the `View` instead of the `File's Owner`.
-2. You need to manually check the `Inherit Module From Target` option.
+2. Ensure the the `Inherit Module From Target` option is checked.
 
 ![](images/4.png)
 
-Not sure why this is. Will try setting directly on the nib later and see what happens.
+Why set customer class this way and not like a regular nib? Not sure. This way just works.
 
 Also, I am making use of a convenience class for the loading of nibs.
 
@@ -385,7 +402,6 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView: SectionHeaderView = tableView.dequeueResuableHeaderFooter()
-        headerView.titleLabel.text = "Pending eller Post"
         return headerView
     }
     
@@ -394,6 +410,17 @@ extension ViewController: UITableViewDataSource {
     }
 }
 ```
+
+![](images/4a.png)
+
+
+#### Background colors not respected
+
+You may notice that setting the background color in your nib doesn't get rendered at run time. To fix this you can add a subview and set your color on it.
+
+
+
+
 
 The same process can be repeated for the footer.
 
