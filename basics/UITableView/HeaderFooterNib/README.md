@@ -173,6 +173,8 @@ Yes you need to calculate the header size x2. Strange but this is how it works.
 
 To add sections to our table view, we are going to need some kind of data model. 
 
+![](images/section-data-model.png)
+
 ```swift
 enum TransactionType: String {
     case pending = "Pending"
@@ -218,10 +220,10 @@ extension ViewController {
         let tx2 = Transaction(firstName: "Allan", lastName: "Bradley", amount: "$200", type: .pending)
         let tx3 = Transaction(firstName: "Ed", lastName: "Dillinger", amount: "$300", type: .pending)
 
-        let tx4 = Transaction(firstName: "Sam", lastName: "Flynn", amount: "$100", type: .pending)
-        let tx5 = Transaction(firstName: "Quorra", lastName: "Iso", amount: "$200", type: .pending)
-        let tx6 = Transaction(firstName: "Castor", lastName: "Barkeep", amount: "$300", type: .pending)
-        let tx7 = Transaction(firstName: "CLU", lastName: "MCU", amount: "$400", type: .pending)
+        let tx4 = Transaction(firstName: "Sam", lastName: "Flynn", amount: "$400", type: .pending)
+        let tx5 = Transaction(firstName: "Quorra", lastName: "Iso", amount: "$500", type: .pending)
+        let tx6 = Transaction(firstName: "Castor", lastName: "Barkeep", amount: "$600", type: .pending)
+        let tx7 = Transaction(firstName: "CLU", lastName: "MCU", amount: "$700", type: .pending)
         
         let section1 = TransactionSection(title: "Pending transfers", transactions: [tx1, tx2, tx3])
         let section2 = TransactionSection(title: "Posted transfers", transactions: [tx4, tx5, tx6, tx7])
@@ -232,7 +234,9 @@ extension ViewController {
 
 // MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -270,14 +274,26 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
+To make it so your sections headers don't stack as you scroll make the style grouped.
+
+![](images/2e.png)
+
+Should now have this.
+
+![](images/2f.png)
+
 ### Section header simple
 
-You can add a section header easily by using the default title like so.
+Currently we are providing a simple section header title like this.
 
 ```swift
-func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    guard let vm = viewModel else { return nil }
-    return vm.sections[section].title
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    ...
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let vm = viewModel else { return nil }
+        return vm.sections[section].title
+    }
 }
 ```
 
