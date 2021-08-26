@@ -385,11 +385,62 @@ extension ViewController: UITableViewDataSource {
 ![](images/3b.png)
 
 
-#### Background colors not respected
+### How to size your header and sections
 
-You may notice that setting the background color in your nib doesn't get rendered at run time. To fix this you can add a subview and set your color on it.
+When it comes to sizing, the frame of the nib is actually used. So size your nib to the frame size you want.
 
-The same process can be repeated for the footer.
+![](images/4a.png)
+
+And then embed your controls in a view in the nib setting the height you want for the view as a constraint.
+
+![](images/4b.png)
+
+Pin the new embedded view to the edges of the nib.
+
+![](images/4c.png)
+
+There should be no ambiguity.
+
+![](images/4d.png)
+
+Now add your explicit height constraint.
+
+![](images/4e.png)
+
+![](images/4f.png)
+
+This section header will now have a hard wired height. If you run the app now...it still may not come out sized correctly, because you need to specifiy the section height explicitly in the view controller.
+
+```swift
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 56 // Should match what we set in the nib
+    }
+}
+```
+
+![](images/4g.png)
+
+Note: The `heightForHeaderInSection` setting will override the height constraint in the nib. So if you set it to something really small.
+
+```swift
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20 // This overrides the nib
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let sections = viewModel?.sections else { return 0 }
+        return sections.count
+    }
+}
+```
+
+It will override the nib.
+
+![](images/4h.png)
 
 ### Links that help
 
