@@ -442,6 +442,25 @@ It will override the nib.
 
 ![](images/4h.png)
 
+### Gap between section and header
+
+If you notice a gap between your section header and main header
+
+![](images/5a.png)
+
+try changing the `Style` of your table from `Plain` to `Grouped`.
+
+![](images/5b.png)
+
+That should hopefully get rid of the gap. 
+
+![](images/5c.png)
+
+
+## Create Custom Cells
+
+
+
 ### Links that help
 
 - [Table Header View Storyboard](https://programmingwithswift.com/how-to-add-header-footer-view-in-uitableview-in-storyboard/)
