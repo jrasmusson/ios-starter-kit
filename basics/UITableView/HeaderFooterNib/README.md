@@ -21,21 +21,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var tableView: UITableView!
+
     let games = [
         "Pacman",
         "Space Invaders",
         "Space Patrol",
     ]
-    
-    @IBOutlet var tableView: UITableView!
-    
+        
     let cellId = "cellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
-
 }
 
 // MARK: - Setup
@@ -81,7 +80,7 @@ extension ViewController: UITableViewDataSource {
 
 ## Add the table view header
 
-Create a new header view and nib. 
+Create a new header view and nib and assign the `File's Owner` like a plain old nib. 
 
 ![](images/2b.png)
 
@@ -115,6 +114,7 @@ class HeaderView: UIView {
         commonInit()
     }
 
+    // important! 
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 104)
     }
@@ -168,6 +168,20 @@ extension ViewController {
 Yes you need to calculate the header size x2. Strange but this is how it works.
 
 ![](images/2d.png)
+
+### Trouble shooting
+
+If your header overlaps your table like so
+
+![](images/2dd.png)
+
+its because you forget to set an intrinsic content size in your `HeaderView`.
+
+```swift
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 104)
+    }
+```
 
 ## Add sections
 
@@ -395,7 +409,7 @@ And then embed your controls in a view in the nib setting the height you want fo
 
 ![](images/4b.png)
 
-Pin the new embedded view to the edges of the nib.
+Pin the new embedded view to the edges of the nib (**important!** do not pin to `safeArea`).
 
 ![](images/4c.png)
 
@@ -442,6 +456,23 @@ It will override the nib.
 
 ![](images/4h.png)
 
+Using this technique you can create custom headers and custom section headers.
+
+![](images/4i.png)
+
+To get the layout above:
+
+- embed both labels inside a `View`
+- embed those within a `StackView` 
+- set the heights of each view explicitly (i.e. 50 and 30)
+- pin the stack view to the edges
+- make the stackview with `fill` for alignment and distribution
+- resize the nib frame to match the height (i.e. 80)
+
+![](images/4j.png)
+
+![](images/4k.png)
+
 ### Gap between section and header
 
 If you notice a gap between your section header and main header
@@ -458,6 +489,8 @@ That should hopefully get rid of the gap.
 
 
 ## Create Custom Cells
+
+
 
 
 
