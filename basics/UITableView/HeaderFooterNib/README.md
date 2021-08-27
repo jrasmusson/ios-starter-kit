@@ -171,6 +171,8 @@ Yes you need to calculate the header size x2. Strange but this is how it works.
 
 ### Trouble shooting
 
+#### Overlapping header
+
 If your header overlaps your table like so
 
 ![](images/2dd.png)
@@ -182,6 +184,14 @@ its because you forget to set an intrinsic content size in your `HeaderView`.
         return CGSize(width: UIView.noIntrinsicMetric, height: 104)
     }
 ```
+
+#### IB Outlets can't be created
+
+Restart Xcode.
+
+#### Assist editor not coming up
+
+Restart Xcode.
 
 ## Add sections
 
@@ -234,10 +244,10 @@ extension ViewController {
         let tx2 = Transaction(firstName: "Allan", lastName: "Bradley", amount: "$200", type: .pending)
         let tx3 = Transaction(firstName: "Ed", lastName: "Dillinger", amount: "$300", type: .pending)
 
-        let tx4 = Transaction(firstName: "Sam", lastName: "Flynn", amount: "$400", type: .pending)
-        let tx5 = Transaction(firstName: "Quorra", lastName: "Iso", amount: "$500", type: .pending)
-        let tx6 = Transaction(firstName: "Castor", lastName: "Barkeep", amount: "$600", type: .pending)
-        let tx7 = Transaction(firstName: "CLU", lastName: "MCU", amount: "$700", type: .pending)
+        let tx4 = Transaction(firstName: "Sam", lastName: "Flynn", amount: "$400", type: .posted)
+        let tx5 = Transaction(firstName: "Quorra", lastName: "Iso", amount: "$500", type: .posted)
+        let tx6 = Transaction(firstName: "Castor", lastName: "Barkeep", amount: "$600", type: .posted)
+        let tx7 = Transaction(firstName: "CLU", lastName: "MCU", amount: "$700", type: .posted)
         
         let section1 = TransactionSection(title: "Pending transfers", transactions: [tx1, tx2, tx3])
         let section2 = TransactionSection(title: "Posted transfers", transactions: [tx4, tx5, tx6, tx7])
@@ -525,8 +535,127 @@ That should hopefully get rid of the gap.
 
 ## Create Custom Cells
 
+Create a nib. Set it is as a `Custom Class` (not the `File's Owner`).
 
+**PendingCell**
 
+```swift
+import Foundation
+import UIKit
+
+class PendingCell: UITableViewCell {
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var amountLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+```
+
+![](images/6a.png)
+
+![](images/6b.png)
+
+Register and use in view controller as follows.
+
+**ViewController**
+
+```swift
+    private func setupTableView() {
+        ...
+        tableView.register(PendingCell.self) // using ReusableView extensions
+    }
+    
+    // MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let vm = viewModel else { return UITableViewCell() }
+        
+        let cell: PendingCell = tableView.dequeueResuableCell(for: indexPath)
+        let section = indexPath.section
+        
+        let transaction = vm.sections[section].transactions[indexPath.row]
+        let fullName = "\(transaction.firstName) \(transaction.lastName)"
+        let amount = transaction.amount
+        
+        cell.nameLabel.text = fullName
+        cell.amountLabel.text = amount
+        
+        return cell
+    }
+}
+```
+
+![](images/6c.png)
+
+### Different types
+
+Sometimes you want cells to be of a different type.
+
+![](images/7a.png)
+
+**PostedCell**
+
+```swift
+import Foundation
+import UIKit
+
+class PostedCell: UITableViewCell {
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var amountLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+```
+
+**ViewController**
+
+```swift
+private func setupTableView() {
+    ...
+    tableView.tableFooterView = UIView() // hide empty rows
+}
+```
+
+You can then swap between them based on an `enum` of some type.
+
+**ViewController**
+
+```swift
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let vm = viewModel else { return UITableViewCell() }
+
+        let section = indexPath.section
+        let transaction = vm.sections[section].transactions[indexPath.row]
+        let fullName = "\(transaction.firstName) \(transaction.lastName)"
+        let amount = transaction.amount
+
+        switch transaction.type {
+        case .pending:
+            let cell: PendingCell = tableView.dequeueResuableCell(for: indexPath)
+            cell.nameLabel.text = fullName
+            cell.amountLabel.text = amount
+            
+            return cell
+        case .posted:
+            let cell: PostedCell = tableView.dequeueResuableCell(for: indexPath)
+            cell.nameLabel.text = fullName
+            cell.amountLabel.text = amount
+            
+            return cell
+        }
+    }
+}
+```
+
+![](images/7b.png)
 
 
 ### Links that help
