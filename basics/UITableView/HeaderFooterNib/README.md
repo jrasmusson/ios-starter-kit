@@ -355,27 +355,11 @@ class SectionHeaderView: UIView {
 }
 ```
 
-And then register and replace the default one like this.
+And then replace the default one like this.
 
 **ViewController**
 
 ```swift
-class ViewController: UIViewController {
-    ...
-    let sectionHeaderId = "sectionHeaderId"
-}
-
-// MARK: - Setup
-extension ViewController {
-
-    private func setupTableView() {
-		 ...        
-        let nib = UINib(nibName: "SectionHeaderView", bundle: nil)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: sectionHeaderId)
-    }
-}
-...
-
 // MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
 
@@ -386,12 +370,12 @@ extension ViewController: UITableViewDataSource {
 //    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView: SectionHeaderView = tableView.dequeueResuableHeaderFooter()
+        let headerView: SectionHeader = SectionHeader()
         return headerView
     }
-    
+        
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70 // whatever height you like
+        return 70 // should match the height of our nib
     }
 }
 ```
