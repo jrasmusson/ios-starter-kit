@@ -342,7 +342,7 @@ class SectionHeaderView: UIView {
     }
 
     private func commonInit() {
-        let bundle = Bundle(for: HeaderView.self)
+        let bundle = Bundle(for: SectionHeaderView.self)
         bundle.loadNibNamed("SectionHeaderView", owner: self, options: nil)
         addSubview(contentView)
 
