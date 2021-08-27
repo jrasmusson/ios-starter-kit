@@ -532,6 +532,26 @@ That should hopefully get rid of the gap.
 
 ![](images/5c.png)
 
+This gap here at the bottom of the table is actually an empty table footer.
+
+<img src="images/5d.png" width="400">
+
+To get rid of it add the following to the table delegate extension.
+
+```swift
+extension ViewController : UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+}
+```
+
 
 ## Create Custom Cells
 
