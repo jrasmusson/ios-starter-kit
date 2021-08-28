@@ -431,7 +431,7 @@ extension ViewController: UITableViewDataSource {
 //    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView: SectionHeader = SectionHeader()
+        let headerView = SectionHeaderView()
         return headerView
     }
         
@@ -443,43 +443,13 @@ extension ViewController: UITableViewDataSource {
 
 ![](images/3b.png)
 
+You'll notice when you scroll that the section header floats as you scroll up to it. If you don't want that, change the type of 
 
-### How to size your header and sections
+![](images/3c.png)
 
-When it comes to sizing, the frame of the nib is actually used. So size your nib to the frame size you want.
+This will add a footer to the bottom. But it will also ensure your section header no longer floats.
 
-![](images/4a.png)
-
-And then embed your controls in a view in the nib setting the height you want for the view as a constraint.
-
-![](images/4b.png)
-
-Pin the new embedded view to the edges of the nib (**important!** do not pin to `safeArea`).
-
-![](images/4c.png)
-
-There should be no ambiguity.
-
-![](images/4d.png)
-
-Now add your explicit height constraint.
-
-![](images/4e.png)
-
-![](images/4f.png)
-
-This section header will now have a hard wired height. If you run the app now...it still may not come out sized correctly, because you need to specifiy the section height explicitly in the view controller.
-
-```swift
-// MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 56 // Should match what we set in the nib
-    }
-}
-```
-
-![](images/4g.png)
+![](images/3d.png)
 
 Note: The `heightForHeaderInSection` setting will override the height constraint in the nib. So if you set it to something really small.
 
@@ -499,11 +469,11 @@ extension ViewController: UITableViewDataSource {
 
 It will override the nib.
 
-![](images/4h.png)
+![](images/3e.png)
 
 Using this technique you can create custom headers and custom section headers.
 
-![](images/4i.png)
+![](images/3f.png)
 
 To get the layout above:
 
@@ -514,33 +484,17 @@ To get the layout above:
 - make the stackview with `fill` for alignment and distribution
 - resize the nib frame to match the height (i.e. 80)
 
-![](images/4j.png)
+![](images/3g.png)
 
-![](images/4k.png)
+![](images/3h.png)
 
-### Gap between section and header
+### Hiding the footer
 
-If you notice a gap between your section header and main header
-
-![](images/5a.png)
-
-try changing the `Style` of your table from `Plain` to `Grouped`.
-
-![](images/5b.png)
-
-That should hopefully get rid of the gap. 
-
-![](images/5c.png)
-
-This gap here at the bottom of the table is actually an empty table footer.
-
-<img src="images/5d.png" width="400">
-
-To get rid of it add the following to the table delegate extension.
+We aren't going to do this, but if you want to hide the footer add the following 
 
 ```swift
+// Hide footer
 extension ViewController : UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNormalMagnitude
     }
@@ -548,9 +502,22 @@ extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-
 }
 ```
+
+![](images/3i.png)
+
+## Create a footer
+
+Add a footer is the same as adding a header. Create a nib plain old nib and set its `File's Owner`.
+
+Create an outlet for its `contentView`.
+
+Then add it to your view controller like this.
+
+
+
+
 
 
 ## Create Custom Cells
@@ -676,6 +643,8 @@ extension ViewController: UITableViewDataSource {
 ```
 
 ![](images/7b.png)
+
+
 
 
 ### Links that help
