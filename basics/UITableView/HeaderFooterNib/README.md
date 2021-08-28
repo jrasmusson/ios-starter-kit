@@ -1,5 +1,6 @@
 # Header Footer Example Nib
 
+![](images/7b.png) 
 
 ## Create the Table View
 
@@ -323,56 +324,7 @@ extension ViewController: UITableViewDataSource {
 
 ### Section header complex
 
-This is where I introduce a class to help with the loading of nibs.
 
-**ReuseableView**
-
-```swift
-import UIKit
-
-protocol ReusableView: AnyObject {}
-protocol NibLoadableView: AnyObject {}
-
-extension ReusableView {
-    static var reuseID: String { return "\(self)" }
-}
-
-extension NibLoadableView {
-    static var nibName: String { return "\(self)" }
-}
-
-extension UITableViewCell: ReusableView, NibLoadableView {}
-extension UICollectionViewCell: ReusableView, NibLoadableView {}
-extension UITableViewHeaderFooterView: ReusableView, NibLoadableView {}
-
-extension UITableView {
-    func dequeueResuableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: T.reuseID, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseID)")
-        }
-        return cell
-    }
-
-    func dequeueResuableHeaderFooter<T: UITableViewHeaderFooterView>() -> T {
-        guard let headerFooter = dequeueReusableHeaderFooterView(withIdentifier: T.reuseID) as? T else {
-            fatalError("Could not dequeue header footer view with identifier: \(T.reuseID)")
-        }
-        return headerFooter
-    }
-
-    func register<T: ReusableView & NibLoadableView>(_: T.Type) {
-        let nib = UINib(nibName: T.nibName, bundle: nil)
-        register(nib, forCellReuseIdentifier: T.reuseID)
-    }
-
-    func registerHeaderFooter<T: ReusableView & NibLoadableView>(_: T.Type) {
-        let nib = UINib(nibName: T.nibName, bundle: nil)
-        register(nib, forHeaderFooterViewReuseIdentifier: T.reuseID)
-    }
-}
-```
-
-This class uses the `UIView` and `nib` name to register itself as reusable views, and then sets up these convenience routines for dequeuing when used in a table. We will use this later.
 
 So here we can create a custom section header by creating a nib as a `UIView`.
 
@@ -579,13 +531,85 @@ extension ViewController: UITableViewDataSource {
 
 ## Add a footer
 
-Same as header. Only footer.
+Same as header. Only footer. Create nib, set `File's Owner` add outlet for `contentView`.
 
+![](images/5a.png)
+
+**FooterView**
+
+```swift
+import Foundation
+import UIKit
+
+class FooterView: UIView {
+    
+    @IBOutlet var contentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    // important!
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 104)
+    }
+    
+    private func commonInit() {
+        let bundle = Bundle(for: FooterView.self)
+        bundle.loadNibNamed("FooterView", owner: self, options: nil)
+        addSubview(contentView)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+    }
+}
+```
+
+Then add to view controller.
+
+**ViewController**
+
+```swift
+// MARK: - Setup
+extension ViewController {
+    func setup() {
+        ....
+        setupTableViewFooter()
+    }
+    
+    private func setupTableViewFooter() {
+        let footer = FooterView(frame: .zero)
+        
+        // Set frame size before populate view to have initial size
+        var size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        footer.frame.size = size
+        
+        // Recalculate header size after populated with content
+        size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        footer.frame.size = size
+        
+        tableView.tableFooterView = footer
+    }
+}
+```
+
+![](images/5b.png)
 
 
 ## Create Custom Cells
 
-Create a nib. Set it is as a `Custom Class` (not the `File's Owner`).
+Bit different here. Create a nib. Set it is as a `Custom Class` (not the `File's Owner`).
 
 **PendingCell**
 
@@ -608,7 +632,58 @@ class PendingCell: UITableViewCell {
 
 ![](images/6b.png)
 
-Register and use in view controller as follows.
+This is where I introduce a class to help with the loading of nibs.
+
+**ReuseableView**
+
+```swift
+import UIKit
+
+protocol ReusableView: AnyObject {}
+protocol NibLoadableView: AnyObject {}
+
+extension ReusableView {
+    static var reuseID: String { return "\(self)" }
+}
+
+extension NibLoadableView {
+    static var nibName: String { return "\(self)" }
+}
+
+extension UITableViewCell: ReusableView, NibLoadableView {}
+extension UICollectionViewCell: ReusableView, NibLoadableView {}
+extension UITableViewHeaderFooterView: ReusableView, NibLoadableView {}
+
+extension UITableView {
+    func dequeueResuableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseID, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseID)")
+        }
+        return cell
+    }
+
+    func dequeueResuableHeaderFooter<T: UITableViewHeaderFooterView>() -> T {
+        guard let headerFooter = dequeueReusableHeaderFooterView(withIdentifier: T.reuseID) as? T else {
+            fatalError("Could not dequeue header footer view with identifier: \(T.reuseID)")
+        }
+        return headerFooter
+    }
+
+    func register<T: ReusableView & NibLoadableView>(_: T.Type) {
+        let nib = UINib(nibName: T.nibName, bundle: nil)
+        register(nib, forCellReuseIdentifier: T.reuseID)
+    }
+
+    func registerHeaderFooter<T: ReusableView & NibLoadableView>(_: T.Type) {
+        let nib = UINib(nibName: T.nibName, bundle: nil)
+        register(nib, forHeaderFooterViewReuseIdentifier: T.reuseID)
+    }
+}
+```
+
+This class uses the `UIView` and `nib` name to register itself as reusable views, and then sets up these convenience routines for dequeuing when used in a table. We will use this later.
+
+We can use this now to conveniently register and our cell in our view controller as follows.
 
 **ViewController**
 
@@ -640,9 +715,18 @@ extension ViewController: UITableViewDataSource {
 
 ![](images/6c.png)
 
-### Different types
+### Dynamic cell row
 
-Sometimes you want cells to be of a different type.
+Sometimes you may want your cell rows to change. Like say on a `TransactionType`.
+
+```swift
+enum TransactionType: String {
+    case pending = "Pending"
+    case posted = "Posted"
+}
+```
+
+You can create a new cell type just like we did before
 
 ![](images/7a.png)
 
@@ -663,16 +747,18 @@ class PostedCell: UITableViewCell {
 }
 ```
 
+Register it.
+
 **ViewController**
 
 ```swift
-private func setupTableView() {
-    ...
-    tableView.tableFooterView = UIView() // hide empty rows
-}
+    private func setupTableView() {        
+        ...
+        tableView.register(PostedCell.self)
+    }
 ```
 
-You can then swap between them based on an `enum` of some type.
+You can then swap cells based on the transaction type.
 
 **ViewController**
 
@@ -705,7 +791,12 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
-![](images/7b.png)
+![](images/7b.png) 
+
+## Build anything
+
+Using these techniques you can build just about anything. All in a nice scrollable view.
+
 
 
 
