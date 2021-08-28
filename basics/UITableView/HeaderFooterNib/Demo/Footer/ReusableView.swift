@@ -1,14 +1,14 @@
 //
 //  ReusableView.swift
-//  TableFullExample
+//  Footer
 //
-//  Created by Rasmusson, Jonathan on 2021-06-30.
+//  Created by jrasmusson on 2021-08-28.
 //
 
 import UIKit
 
-protocol ReusableView: class {}
-protocol NibLoadableView: class {}
+protocol ReusableView: AnyObject {}
+protocol NibLoadableView: AnyObject {}
 
 extension ReusableView {
     static var reuseID: String { return "\(self)" }
@@ -47,4 +47,3 @@ extension UITableView {
         register(nib, forHeaderFooterViewReuseIdentifier: T.reuseID)
     }
 }
-

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostedCell" customModule="Footer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="74"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-Lf-TjM">
+                    <rect key="frame" x="16" y="26.5" width="54" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbI-Wm-VCd">
+                    <rect key="frame" x="78" y="26.5" width="45" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNC-fY-DbM">
+                    <rect key="frame" x="282" y="26.5" width="60" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="JNC-fY-DbM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="30Q-qP-aUh"/>
+                <constraint firstItem="LbI-Wm-VCd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5ar-bi-Ro9"/>
+                <constraint firstItem="LbI-Wm-VCd" firstAttribute="leading" secondItem="JUv-Lf-TjM" secondAttribute="trailing" constant="8" id="Juv-Ef-5ia"/>
+                <constraint firstAttribute="trailing" secondItem="JNC-fY-DbM" secondAttribute="trailing" constant="16" id="Ovo-OE-BKB"/>
+                <constraint firstItem="JUv-Lf-TjM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UG7-lC-Vy7"/>
+                <constraint firstItem="JUv-Lf-TjM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ngj-nE-WOU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="amountLabel" destination="JNC-fY-DbM" id="ore-2I-Idb"/>
+                <outlet property="nameLabel" destination="LbI-Wm-VCd" id="n98-oo-itu"/>
+            </connections>
+            <point key="canvasLocation" x="-66.666666666666671" y="-153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
