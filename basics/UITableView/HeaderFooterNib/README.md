@@ -78,7 +78,7 @@ extension ViewController: UITableViewDataSource {
 
 ![](images/1b.png)
 
-## Add the table view header
+## Add a header
 
 Create a new header view and nib and assign the `File's Owner` like a plain old nib. 
 
@@ -443,13 +443,6 @@ extension ViewController: UITableViewDataSource {
 
 ![](images/3b.png)
 
-You'll notice when you scroll that the section header floats as you scroll up to it. If you don't want that, change the type of 
-
-![](images/3c.png)
-
-This will add a footer to the bottom. But it will also ensure your section header no longer floats.
-
-![](images/3d.png)
 
 Note: The `heightForHeaderInSection` setting will override the height constraint in the nib. So if you set it to something really small.
 
@@ -471,6 +464,38 @@ It will override the nib.
 
 ![](images/3e.png)
 
+### Floating section header
+
+You'll notice when you scroll that the section header floats as you scroll up to it. If you don't want that, change the table `style` to `Grouped`.
+
+![](images/3c.png)
+
+This will get rid of the scrolling, but it will also make visible the section footer.
+
+![](images/3d.png)
+
+To hide the footers add these (we will replace them with real footers shortly).
+
+```swift
+// Hide footer
+extension ViewController : UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+}
+```
+
+![](images/3i.png)
+
+
+### More complex section headers
+
 Using this technique you can create custom headers and custom section headers.
 
 ![](images/3f.png)
@@ -488,35 +513,73 @@ To get the layout above:
 
 ![](images/3h.png)
 
-### Hiding the footer
 
-We aren't going to do this, but if you want to hide the footer add the following 
+## Add a section footer
+
+To add a footer, like we did before with header, create a plain old nib and set its `File's Owner` as well as create an outlet for its `contentView`.
+
+![](images/4a.png)
+
+**FooterView**
 
 ```swift
-// Hide footer
-extension ViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
+import Foundation
+import UIKit
 
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
+class SectionFooterView: UIView {
+    
+    @IBOutlet var contentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 104)
+    }
+    
+    private func commonInit() {
+        let bundle = Bundle(for: SectionFooterView.self)
+        bundle.loadNibNamed("SectionFooterView", owner: self, options: nil)
+        addSubview(contentView)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
     }
 }
 ```
 
-![](images/3i.png)
+Then return the footer view and set the height just like we did before with the header only in the footer delegate section.
 
-## Create a footer
+**ViewController**
 
-Add a footer is the same as adding a header. Create a nib plain old nib and set its `File's Owner`.
+```swift
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    ...    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = SectionFooterView()
+        return footerView
+    }
 
-Create an outlet for its `contentView`.
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
+}
+```
 
-Then add it to your view controller like this.
+## Add a footer
 
-
-
+Same as header. Only footer.
 
 
 
