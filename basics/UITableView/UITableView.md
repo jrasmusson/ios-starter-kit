@@ -1,25 +1,25 @@
 # UITableView
 
-## Simple 1
+## Simple
 
 ```swift
 import UIKit
 
-struct HintData: Codable {
-    var title: String
-    var id: String
-}
-
 class ViewController: UIViewController {
-    
-    var data: [HintData] = [HintData(title: "This is a hint!", id: "1")]
+
+    let games = [
+        "Pacman",
+        "Space Invaders",
+        "Space Patrol",
+    ]
+
     var tableView = UITableView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         view = tableView
     }
 }
@@ -27,17 +27,17 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = data[indexPath.row].title
+        cell.textLabel?.text = games[indexPath.row]
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return games.count
     }
 }
 ```
 
-## Simple 2
+## Simple with dequeue cell
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/images/basic.png" width="400"/>
 
