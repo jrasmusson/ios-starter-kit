@@ -1,5 +1,15 @@
 # How dispatch main queue
 
+## With delay
+
+```swift
+DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(delay)) {
+	// delayed main thread
+}
+```
+
+## Getting on the main thread
+
 We always want to be rendering and updating components on the main UI thread. That includes all UITable reloads() and calculations from delegates.
 
 One way to do that that always happens, is when you call a long lived asynchronous operation, make sure you put the competion block your return back on the main thread.
