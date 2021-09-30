@@ -21,13 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 ```swift
-//
-//  ViewController.swift
-//  SimpleOnboardingDemo
-//
-//  Created by jrasmusson on 2021-01-08.
-//
-
 import UIKit
 
 /*
@@ -39,6 +32,7 @@ class ViewController: UIPageViewController {
     var pages = [UIViewController]()
     let pageControl = UIPageControl()
     let initialPage = 0
+    var previousIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,10 +85,20 @@ extension ViewController {
 
 extension ViewController {
     
-    // How we change page when pageControl tapped.
-    // Note - Can only skip ahead on page at a time.
+    // How we change page when pageControl tapped. Can only skip ahead one page at a time.
     @objc func pageControlTapped(_ sender: UIPageControl) {
-        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
+        let newIndex = sender.currentPage
+                
+        // compare with previous to set direction
+        let direction: UIPageViewController.NavigationDirection
+        if previousIndex < newIndex {
+            direction = .forward
+        } else {
+            direction = .reverse
+        }
+        setViewControllers([pages[sender.currentPage]], direction: direction, animated: true, completion: nil)
+        
+        previousIndex = newIndex
     }
 }
 
@@ -103,8 +107,8 @@ extension ViewController {
 extension ViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+        previousIndex = currentIndex
         
         if currentIndex == 0 {
             return pages.last               // wrap to last
@@ -114,8 +118,8 @@ extension ViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+        previousIndex = currentIndex
 
         if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]  // go next
@@ -163,7 +167,7 @@ class ViewController3: UIViewController {
 }
 ```
 
-## . TransitionStyle
+## TransitionStyle
 
 There are two types of transitions files. `.pageCurl` was you saw at the top. The other is `.scroll`.
 
