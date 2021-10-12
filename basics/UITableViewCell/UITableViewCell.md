@@ -36,7 +36,8 @@ extension CustomCell {
     }
     
     func layout() {
-        addSubview(titleLabel)
+        // don't disable translatesAutoresizingMaskIntoConstraints on the cell itself
+        contentView.addSubview(titleLabel) // important!
 
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
