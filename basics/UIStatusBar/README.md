@@ -92,6 +92,10 @@ extension UIView {
 
 ![](images/1.png)
 
+## Links that help
+
+- [StackOverflow](https://stackoverflow.com/questions/57134259/how-to-resolve-keywindow-was-deprecated-in-ios-13-0/57899013)
+
 ## Misc
 
 ```swift
