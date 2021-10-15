@@ -2,12 +2,35 @@
 
 ## Xcode 13
 
+### AppDelegate
+
 ![](images/1.png)
 ![](images/2.png)
 ![](images/3.png)
 ![](images/4.png)
 ![](images/5.png)
 ![](images/6.png)
+
+### SceneDelegate
+
+- Delete `Main.storyboard`
+- Update SceneDelegate
+
+**SceneDelegate**
+
+```swift
+func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    guard let _ = (scene as? UIWindowScene) else { return }
+    
+    let vc = ViewController()
+    window?.rootViewController = vc
+}
+```
+
+- Delete `Info.plist` entries
+
+
+
 ## Xcode 12
 
 ```swift
