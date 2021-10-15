@@ -14,22 +14,27 @@
 ### SceneDelegate
 
 - Delete `Main.storyboard`
+- Update `Info.plist`
+
+![](images/7.png)
+
+![](images/8.png)
+
+
 - Update SceneDelegate
 
 **SceneDelegate**
 
 ```swift
 func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-    guard let _ = (scene as? UIWindowScene) else { return }
+    guard let windowScene = (scene as? UIWindowScene) else { return }
     
-    let vc = ViewController()
-    window?.rootViewController = vc
+    window = UIWindow(windowScene: windowScene)
+    window?.makeKeyAndVisible()
+    window?.backgroundColor = .systemOrange
+    window?.rootViewController = ViewController()
 }
 ```
-
-- Delete `Info.plist` entries
-
-
 
 ## Xcode 12
 
