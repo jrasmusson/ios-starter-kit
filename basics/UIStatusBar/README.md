@@ -51,6 +51,47 @@ navigationController.view.addSubview(statusBarBackgroundView)
 
 ![](images/0.png)
 
+## SceneDelegate
+
+```swift
+import UIKit
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .systemOrange
+        
+        let vc = ViewController()
+        let statusBarBackgroundView = UIView.makeStatusBarBackgroundView()
+        vc.view.addSubview(statusBarBackgroundView)
+        
+        window?.rootViewController = vc
+    }
+}
+
+extension UIView {
+    static func makeStatusBarBackgroundView() -> UIView {
+        let statusBarManager = UIApplication.shared.keyWindow?.windowScene?.statusBarManager
+        let statusBarFrame = statusBarManager?.statusBarFrame
+        let statusBarSize = (statusBarFrame?.size)!
+        let frame = CGRect(origin: .zero, size: statusBarSize)
+        
+        let statusBackgroundView = UIView(frame: frame)
+        statusBackgroundView.backgroundColor = .systemPurple
+        statusBackgroundView.layer.zPosition = 100
+        return statusBackgroundView
+    }
+}
+```
+
+![](images/1.png)
+
 ## Misc
 
 ```swift
