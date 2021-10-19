@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         
         let vc = ViewController()
-        let statusBarBackgroundView = UIView.makeStatusBarBackgroundView()
-        vc.view.addSubview(statusBarBackgroundView)
+        vc.setStatusBar()
         
         window?.rootViewController = vc
         
@@ -27,27 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension UIView {
-    static func makeStatusBarBackgroundView() -> UIView {
-        let statusBarSize = UIApplication.shared.statusBarFrame.size // deprecated
+extension UIViewController {
+    func setStatusBar() {
+        let statusBarSize = UIApplication.shared.statusBarFrame.size // deprecated but OK
         let frame = CGRect(origin: .zero, size: statusBarSize)
-        let statusBackgroundView = UIView(frame: frame)
-        statusBackgroundView.backgroundColor = .systemPurple
-        statusBackgroundView.layer.zPosition = 100
-        return statusBackgroundView
+        let statusbarView = UIView(frame: frame)
+
+        statusbarView.backgroundColor = .systemTeal
+        view.addSubview(statusbarView)
     }
 }
 ```
-
-### Navigation Controller
-
-Same view only embedded in the navigationController.
-
-```swift
-let navigationController = UINavigationController(rootViewController: ViewController())
-let statusBarBackgroundView = UIView.makeStatusBarBackgroundView()
-navigationController.view.addSubview(statusBarBackgroundView)
-```        
 
 ![](images/0.png)
 
