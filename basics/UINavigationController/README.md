@@ -138,6 +138,7 @@ UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foreg
 
 UINavigationBar.appearance().isTranslucent = false
 UINavigationBar.appearance().barTintColor = .lightRed
+UINavigationBar.appearance().backgroundColor = .systemTeal
 UINavigationBar.appearance().prefersLargeTitles = true
 UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 ```
