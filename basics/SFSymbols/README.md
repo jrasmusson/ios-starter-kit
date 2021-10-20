@@ -12,7 +12,6 @@ imageView.image = symbolImage
 ## How to change color
 
 ```swift
-chevonImageView.translatesAutoresizingMaskIntoConstraints = false
 let chevronImage = UIImage(systemName: "chevron.right")!.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
 chevonImageView.image = chevronImage
 ```
