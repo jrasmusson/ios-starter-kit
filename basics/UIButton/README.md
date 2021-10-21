@@ -3,11 +3,11 @@
 ## New UIButton
 
 ```swift
-let signInButton = UIButton(type: .system)
-signInButton.translatesAutoresizingMaskIntoConstraints = false
-signInButton.configuration = .filled()
-signInButton.setTitle("Sign In", for: [])
-signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+let button = UIButton(type: .system)
+button.translatesAutoresizingMaskIntoConstraints = false
+button.configuration = .filled()
+button.setTitle("Sign In", for: [])
+button.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
 
 @objc func signInTapped(sender: UIButton) {
 }
