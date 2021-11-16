@@ -108,6 +108,33 @@ Detect each keypress using the following callback.
 textField.isSecureTextEntry = true
 ```
 
+## Hide password with toggle image
+
+![](images/5.png)
+
+```swift
+import Foundation
+import UIKit
+
+let passwordToggleButton = UIButton(type: .custom)
+
+extension UITextField {
+    
+    func enablePasswordToggle(){
+        passwordToggleButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        passwordToggleButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
+        passwordToggleButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        rightView = passwordToggleButton
+        rightViewMode = .always
+    }
+    
+    @objc func togglePasswordView(_ sender: Any) {
+        isSecureTextEntry.toggle()
+        passwordToggleButton.isSelected.toggle()
+    }
+}
+```
+
 ## Border Style
 
 ```swift
