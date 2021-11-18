@@ -98,6 +98,7 @@ A starter kit for those interested in iOS programming
 * [UITableView Full Header Footer In Section](basics/UITableViewHeaderFooterInSection/README.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
 * [UITableViewHeaderFooterNib](basics/UITableView/HeaderFooterNib/README.md)
+* [UITableViewCellsAndTypes](basics/UITableView/UITableCellsAndTypes.md)
 
 
 ## SpriteKit
