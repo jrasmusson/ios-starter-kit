@@ -1,6 +1,6 @@
 # How to Sinatra
 
-How to create sinatra app push to heroku
+## How to create sinatra app push to heroku
 
 ```
 mkdir sinatra
@@ -58,6 +58,7 @@ git init
 git add .
 git commit -m "init"
 
+heroku login
 heroku create
 git push heroku master
 heroku ps:scale web=1
@@ -67,6 +68,22 @@ heroku open
 
 `https://fierce-retreat-36855.herokuapp.com/`
 
+## How to add a new end point
+
+Goto sinatra repo dir.
+
+Make changes
+
+- Update rb files
+- Add to config.ru
+
+To push
+
+```
+> heroku login
+> git push heroku main
+> https://git.heroku.com/fierce-retreat-36855
+```
 ### Links that help
 
 - http://sinatrarb.com/intro.html
