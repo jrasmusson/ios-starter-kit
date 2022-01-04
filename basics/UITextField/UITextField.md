@@ -69,6 +69,7 @@ extension WeatherViewController: UITextFieldDelegate {
         return true
     }
     
+    // When return is pressed
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
             return true
