@@ -1,12 +1,17 @@
 # UITextField
 
+## Delegates
+
+![](images/6.png)
+
+Here are all the different delegates that come with `UITextField`.
 
 ```swift
-//
+
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     let textField = UITextField()
     
     override func viewDidLoad() {
@@ -17,41 +22,102 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    
-    func style() {
+    private func style() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Select an account"
-        textField.backgroundColor = .systemFill
+        textField.placeholder = "New password"
+        textField.backgroundColor = .systemGray6
         textField.delegate = self
     }
     
-    func layout() {
+    private func layout() {
         view.addSubview(textField)
         
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 3),
-            textField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 3),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 3),
-            textField.heightAnchor.constraint(equalToConstant: 32)
+            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: textField.trailingAnchor, multiplier: 2)
         ])
     }
 }
 
 // MARK: - UITextFieldDelegate
-
 extension ViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true;
+    
+    // return NO to disallow editing.
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // became first responder
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    // return YES to allow editing to stop and to resign first responder status.
+    // return NO to disallow the editing session to end
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
     }
 
+    // if implemented, called in place of textFieldDidEndEditing: ?
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Check textfield")
+    }
+
+    // detect - keypress
+    // return NO to not change text
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let textFieldText = textField.text ?? ""
+        let newText = (textFieldText as NSString).replacingCharacters(in: range, with: string)
+        print("text: \(textFieldText) newText: \(newText)")
+        
+        return true
+    }
+    
+    // called when 'clear' button pressed. return NO to ignore (no notifications)
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true) // resign first responder
+        return true
     }
 }
 ```
 
-## Delegate
+## Text when return pressed
+
+```swift
+// called when 'return' key pressed. return NO to ignore.
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.endEditing(true) // resign first responder
+    print("Text from return: \(textField.text)")
+    return true
+}
+```
+
+## Detecting keypresses
+
+Detect each keypress using the following callback.
+
+```swift
+// detect - keypress
+// return NO to not change text
+func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let textFieldText = textField.text ?? ""
+    let newText = (textFieldText as NSString).replacingCharacters(in: range, with: string)
+    print("text: \(textFieldText) newText: \(newText)")
+    
+    return true
+}
+```
+
+Note: First key press is not yet added to the word.
+
+![](images/7.png)
+
+## Weather Search Delegate
 
 Example delegate callback for a search textfield.
 
@@ -80,27 +146,12 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if let city = searchTextField.text {
             weatherService.fetchWeather(cityName: city)
         }
-        
         searchTextField.text = ""
     }
 }
-```
-
-## Detecting keypresses
-
-Detect each keypress using the following callback.
-
-```swift
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let textFieldText = textField.text ?? ""
-        let newText = (textFieldText as NSString).replacingCharacters(in: range, with: string)
-        print(newText)
-        return true
-    }
 ```
 
 ## Hide password
@@ -163,54 +214,16 @@ textField.borderStyle = .roundedRect
 
 ![](images/4.png)
 
-# More
-
-`UITextField` it a basic `UIKit` control for entering text. When the user taps, a keyboard appears. Too dismiss the keyboard, call `resignFirstResponder` directly on the `UITextField`.
-
-![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextField/images/dismissing-keyboard.gif)
-
-```swift
-//
-//  ViewController.swift
-//  UITextField
-//
-//  Created by Jonathan Rasmusson Work Pro on 2018-07-21.
-//  Copyright © 2018 Rasmusson Software Consulting. All rights reserved.
-//
-
-import UIKit
-
-class ViewController: UIViewController {
-
-    @IBOutlet var textField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // dismiss keyboard via tap gesture
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        view.addGestureRecognizer(tapGesture)
-    }
-
-    @objc func viewTapped() {
-        view.endEditing(true)
-    }
-    
-    // or by giving up first responder
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        textField.resignFirstResponder()
-    }
-    
-    // Note: `view.endEditing(true)` scans entire view until if finds first responder to resign
-    //       `textField.resignFirstResponder()` is a more direct call to the textfield itself
-}
-```
-
 ## endEditting vs resignFirstResponder
+
+There are two ways to give up first responder:
+
+- `textField.resignFirstResponder`
+- `textField.endEditting`
 
 Another way to dismiss the keyboard is to call `endEditting` on a `UIView` containing a `UITextField`. Which is better?
 
-resignFirstResponder() is good when you know which text field has the keyboard. It’s direct. It’s efficient. Use it when you have the `UITextField` causing the keyboard to appear and you want to give it up.
+`resignFirstResponder()` is good when you know which text field has the keyboard. It’s direct. It’s efficient. Use it when you have the `UITextField` causing the keyboard to appear and you want to give it up.
 
 `endEditing` is actually a method on the `UIView`. Use this when you don’t know who caused the keyboard to appear or you don’t have reference to the `UITextField` currenty in focus. It searches all the subviews in the view hierarchy until it finds the one holding the first responder status and then asks it to give it up. Not as efficient. But it works too (just more broadly).
 
