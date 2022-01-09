@@ -120,7 +120,7 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 }
 ```
 
-Note2: First key press is not yet added to the word.
+Note: First key press is not yet added to the word.
 
 ![](images/10.png)
 
