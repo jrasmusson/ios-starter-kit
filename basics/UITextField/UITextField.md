@@ -7,13 +7,12 @@
 Here are all the different delegates that come with `UITextField`.
 
 ```swift
-
 import UIKit
 
 class ViewController: UIViewController {
 
     let textField = UITextField()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -27,11 +26,14 @@ extension ViewController {
         textField.placeholder = "New password"
         textField.backgroundColor = .systemGray6
         textField.delegate = self
+
+        // extra interaction
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
-    
+
     private func layout() {
         view.addSubview(textField)
-        
+
         NSLayoutConstraint.activate([
             textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             textField.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
@@ -42,17 +44,16 @@ extension ViewController {
 
 // MARK: - UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
-    
+
     // return NO to disallow editing.
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
-    
+
     // became first responder
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
     }
-    
+
     // return YES to allow editing to stop and to resign first responder status.
     // return NO to disallow the editing session to end
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -66,22 +67,28 @@ extension ViewController: UITextFieldDelegate {
     // detect - keypress
     // return NO to not change text
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let textFieldText = textField.text ?? ""
-        let newText = (textFieldText as NSString).replacingCharacters(in: range, with: string)
-        print("text: \(textFieldText) newText: \(newText)")
-        
+        let word = textField.text ?? ""
+        let char = string
+        print("Default - shouldChangeCharactersIn: \(word) \(char)")
         return true
     }
-    
+
     // called when 'clear' button pressed. return NO to ignore (no notifications)
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
-    
+
     // called when 'return' key pressed. return NO to ignore.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true) // resign first responder
         return true
+    }
+}
+
+// MARK: - Extra Actions
+extension ViewController {
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        print("Extra - textFieldEditingChanged: \(sender.text)")
     }
 }
 ```
@@ -116,6 +123,22 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 Note: First key press is not yet added to the word.
 
 ![](images/7.png)
+
+To get the full word changed, including the keypress, add a custom action on the `textField` and get the full word in the action.
+
+```swift
+// extra interaction
+textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+
+// MARK: - Extra Actions
+extension ViewController {
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        print("Extra - textFieldEditingChanged: \(sender.text)")
+    }
+}
+```
+
+![](images/8.png)
 
 ## Weather Search Delegate
 
