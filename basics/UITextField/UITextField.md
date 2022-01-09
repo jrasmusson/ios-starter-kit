@@ -122,7 +122,7 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 
 Note: First key press is not yet added to the word.
 
-![](images/7.png)
+![](images/9.png)
 
 To get the full word changed, including the keypress, add a custom action on the `textField` and get the full word in the action.
 
