@@ -348,7 +348,7 @@ class ViewController: UIViewController {
     }
 
     @objc func dismissKeyboard(gesture: UIGestureRecognizer) {
-        textField?.resignFirstResponder()
+        view.endEditing(true) // resign first responder
     }
 }
 ```
