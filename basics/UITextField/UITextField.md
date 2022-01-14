@@ -321,8 +321,8 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
 
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(gesture:))))
     }
@@ -331,20 +331,24 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func adjustForKeyboard(notification: Notification) {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo,
+            let keyboardEnd = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let currentTextField = UIResponder.currentFirst() as? UITextField {
 
-        let userInfo = notification.userInfo!
-
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        let keyboardHeight = keyboardViewEndFrame.height
-
-        if notification.name == Notification.Name.UIKeyboardWillHide {
-            heightConstraint.constant = defaultHeight
-        } else {
-            heightConstraint.constant = defaultHeight + keyboardHeight
+            // check if the top of the keyboard is above the bottom of the currently focused textbox
+            let keyboardTopY = keyboardEnd.cgRectValue.origin.y
+            let textboxAbsPosition = self.view.convert(currentTextField.frame, from: currentTextField.superview)
+            let textboxBottomY = textboxAbsPosition.origin.y + textboxAbsPosition.size.height
+            // if so, move the origin of the current frame off the top of the screen by some amount to show the currently focused textbox at the center of the part of the view not occupied by the keyboard
+            if textboxBottomY > keyboardTopY {
+                self.view.frame.origin.y = (textboxAbsPosition.origin.y - keyboardTopY / 2) * -1
+            }
         }
+    }
 
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
     }
 
     @objc func dismissKeyboard(gesture: UIGestureRecognizer) {
