@@ -30,6 +30,223 @@ func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UI
 }
 ```
 
+# Button types
+
+```swift
+let custom = UIButton(type: .custom)
+let system = UIButton(type: .system)
+let detailDisclosure = UIButton(type: .detailDisclosure)
+let infoLight = UIButton(type: .infoLight)
+let infoDark = UIButton(type: .infoDark)
+let contactAdd = UIButton(type: .contactAdd)
+let close = UIButton(type: .close)
+
+custom.setTitle("Custom", for: .normal)
+system.setTitle("System", for: .normal)
+detailDisclosure.setTitle("Detail Disclosure", for: .normal)
+infoLight.setTitle("Info Light", for: .normal)
+infoDark.setTitle("Info Dark", for: .normal)
+contactAdd.setTitle("Contact Add", for: .normal)
+close.setTitle("Close", for: .normal)
+```
+
+![](images/0.png)
+
+> Note: Custom doesn't handle dark mode
+
+## Styles
+
+```swift
+let plain = UIButton(type: .system)
+let gray = UIButton(type: .system)
+let tinted = UIButton(type: .system)
+let filled = UIButton(type: .system)
+
+plain.configuration = .plain()
+gray.configuration = .gray()
+tinted.configuration = .tinted()
+filled.configuration = .filled()
+
+```
+
+![](images/1.png)
+
+## Customizing
+
+### Titles and subtitles
+
+```swift
+var config = UIButton.Configuration.filled()
+config.title = "Start"
+config.subtitle = "Both Engines"
+```
+
+![](images/2.png)
+
+### Title alignment and padding
+
+```swift
+config.titleAlignment = .center
+config.titlePadding = 4.0
+```
+
+![](images/3.png)
+
+### Base foreground and background
+
+The button may change these base colors when in different states (for example when highlighted).
+
+```swift
+config.baseBackgroundColor = .green
+config.baseForegroundColor = .black
+```
+
+![](images/4.png)
+
+### Background configuration
+
+For greater control of the background, `UIButton` supports the `UIBackgroundConfiguration` introduced in iOS 14 for table and collection view cells.
+
+```swift
+config.background.backgroundColor = .systemYellow
+config.background.strokeColor = .systemRed
+config.background.strokeWidth = 4.0
+```
+
+![](images/5.png)
+
+> Remember: This isn't the cell. These are buttons appearing in cells.
+
+### Corner style
+
+The default corner style is `dynamic` which adjust the corner radius for the dynamic type size. You can also choose `fixed`, `small`, `medium`, `large` and `capsule`.
+
+`config.cornerStyle = .capsule`
+
+![](images/6.png)
+
+### Image placement
+
+When you add a foreground image to the button you can control the padding to the title, the placement (top, trailing, bottom, leading) and the symbol configuration.
+
+```swift
+config.image = UIImage(systemName: "car",
+  withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+config.imagePlacement = .trailing
+config.imagePadding = 8.0
+```
+
+![](images/7.png)
+
+### Activity indicator
+
+```swift
+config.showsActivityIndicator = true
+```
+
+![](images/8.png)
+
+### Button size
+
+You can request a preferred size for the button. Interface Builder hides this in the size inspector.
+
+```swift
+config.buttonSize = .large
+```
+
+![](images/9.png)
+
+### Content inserts
+
+The content insets give you padding between the bounds of the button and the content (title and image).
+
+```swift
+config.contentInsets = NSDirectionalEdgeInsets(top: 10,
+  leading: 20, bottom: 10, trailing: 20)
+```
+
+![](images/10.png)
+
+
+### Attributed strings
+
+```swift
+func makeSpotifyButton(withText title: String) -> UIButton {
+    let button = UIButton(type: .system)
+    button.translatesAutoresizingMaskIntoConstraints = false
+    
+    var config = UIButton.Configuration.filled()
+    config.baseBackgroundColor = .spotifyGreen
+    config.cornerStyle = .capsule
+    config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: buttonHeight, bottom: 10, trailing: buttonHeight)
+    button.configuration = config
+    
+    let attributedText = NSMutableAttributedString(string: title, attributes: [
+        NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.kern: 1
+        ])
+
+    button.setAttributedTitle(attributedText, for: .normal) // Note how not button.setTitle()
+    
+    return button
+}
+```
+
+![](images/11.png)
+
+### Configuration update handler
+
+To change the appearance of the button in response to a change in state register a configuration update handler. For example, to switch between a filled and outline image when the button is in a highlighted state.
+
+```swift
+button.configurationUpdateHandler = { button in
+  var config = button.configuration
+  config?.image = button.isHighlighted ?
+    UIImage(systemName: "car.fill") :
+    UIImage(systemName: "car")
+  button.configuration = config
+}
+```
+
+![](images/12.png)
+
+To extend the example, suppose I have a property on my button holding the range of my car that I want to show in the button subtitle
+
+```swift
+class RangeButton: UIButton {
+   var range = Measurement(value: 100,
+                                 unit: UnitLength.miles)
+   lazy var formatter = MeasurementFormatter()
+}
+```
+
+Adding the subtitle to my configuration update handler.
+
+```swift
+button.configurationUpdateHandler = { [unowned self] button in
+  var config = button.configuration
+  ...            
+  config?.subtitle = self.formatter.string(from: self.range) // here
+  button.configuration = config
+}
+```
+
+Then we call `setNeedsUpdateConfiguration` on the button in the `didSet` property observer to update the subtitle whenever the range changes:
+
+```swift
+var range = Measurement(value: 100,
+  unit: UnitLength.miles) {
+  didSet {
+    button.setNeedsUpdateConfiguration()
+  }
+}
+```
+
+[Use your loaf](https://useyourloaf.com/blog/button-configuration-in-ios-15/)
+
+# Old
+
 ## How to make a button with rounded corners
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/images/button-label.png"/>
