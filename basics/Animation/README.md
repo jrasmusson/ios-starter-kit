@@ -108,6 +108,33 @@ func layout() {
 }
 ```
 
+If you want to chain or stagger the animation you can also do it like this:
+
+```swift
+private func toggleHiddenElements() {
+    let duration1 = 0.4
+    let duration2 = 0.2
+
+    let animatables = [bullet6Label, bullet7Label, bullet8Label, bullet9Label]
+    _ = animatables.map { $0?.alpha = 0 }
+
+    let animatation1 = UIViewPropertyAnimator(duration: duration1, curve: .easeInOut) { [self] in
+        _ = animatables.map { $0?.isHidden = !showAll }
+    }
+
+    animatation1.addCompletion { position in
+        if position == .end {
+            let animatation2 = UIViewPropertyAnimator(duration: duration2, curve: .easeInOut) {
+                _ = animatables.map { $0?.alpha = 1 }
+            }
+            animatation2.startAnimation()
+        }
+    }
+    animatation1.startAnimation()
+}
+```
+
+
 
 ## Animating the alpha
 
