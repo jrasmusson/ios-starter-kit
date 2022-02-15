@@ -98,4 +98,5 @@ func setupViews() {
 ```
 
 ### Links that help
-* [How to get rid of extra padding](https://medium.com/@lawrey/swift-4-align-textview-with-uilabel-66dbc97c91c9)
+- [How to get rid of extra padding](https://medium.com/@lawrey/swift-4-align-textview-with-uilabel-66dbc97c91c9)
+- [Creating hyperlinks YouTube](https://www.youtube.com/watch?v=cxFi4rO11uk&t=600s) 
