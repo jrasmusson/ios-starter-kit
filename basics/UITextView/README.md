@@ -54,6 +54,15 @@ Discussion
 - Text fields are good for this because of that link detector
 - Need to save the font before the attributed text is assigned so you can assign back
 
+## How to layout a UITextField naturally
+
+By default, `UITextField` is scrollable and of a fixed height. Meaning if your text is too long, you won't see it on the screen.
+
+You can fix that by disabling the scroll ability. When you do the `UITextField` will lay itself out naturally at its natural height.
+
+![](images/2.png)
+
+![](images/3.png)
 
  
 ## How to left justify multiline text
