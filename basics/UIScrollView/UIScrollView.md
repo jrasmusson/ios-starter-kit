@@ -1,70 +1,40 @@
-# UIScrollView
+# How to layout a scrollable view
 
+Add a view. Make it orange.
 
-`UIScrollView`s aren't that bad so long as you remember that there are two sets of constraints:
+![](images/20.png)
 
-1. The outer constraints between the `UIScrollView` and the outside world.
-2. And the inner constraints between the inner content and the insides of the `UIScrollView` itself.
+Embed it in a scroll view. Rename it `ContentView`.
 
-## View with a label
+![](images/21.png)
 
-Scroll views work well when you:
+Pin the scroll view to the safe areas of the parent.
 
-- Add a view
-- Pin it to the edges of the scroll view
-- Set the views width equal to the parent of the scroll view width
+![](images/22.png)
 
-### Setting up the view
+![](images/23.png)
 
-- Add a view, set it's background to orange, and rename it `Content View`.
+Drag the scroll view out to the edges so it is flush.
 
-![](images/1.png)
+![](images/24.png)
 
-- Embed it in a scroll view.
-- Pin the scroll view to the `Safe Area` of the parent view.
-- And then drag the scroll view out to the safe area edges of the view.
+Drag the `ContentView` to the edges of the scroll view so it is flush.
 
-![](images/2.png)
+![](images/25.png)
 
-- Stretch the `Content View` to the edges of the scroll view.
+Now add:
 
-![](images/3.png)
+- top, leading, trailing, bottom
+- width and height
 
-- Pin the `Content View` to the `Content Layout Guide` of the scroll view.
-- Don't use the attribute tool in the bottom.
-- Instead drag each one one-at-a-time like this.
+From the `ContentView` to the scroll view by either dragging from one view to the other, or using the attribute anchor near the bottom.
 
-![](images/4.png)
+![](images/26.png)
 
-![](images/5.png)
+Everything should be flush and perfectly laid out. If it isn't check your constraints and ensure that no extra added spaces or multipliers were added by IB there.
 
-- Set the width of the `Content View` = width of the parent view of the scroll view (not the scroll view itself)
+At this point your are done 🎉. Feel free to do your layout in your content view.
 
-![](images/6.png)
-
-![](images/7.png)
-
-- At this point your embedded view is good to go. We still have an ambiguity error because there is nothing inside our view.
-
-![](images/8.png)
-
-### Adding a label
-
-- Add a label to the view and place it in the upper-right-hand corner.
-
-![](images/9.png)
-
-- Now simply pin the edges of the label to the edges of your inner `Content View`.
-- Make the label multiline.
-
-![](images/10.png)
-
-- At this point the ambiguity will be removed, and you are free to add as much text as you like to the label. 
-- It will now scroll.
-
-![](images/11.png)
-
-- You can now build any UI with scroll views you like.
 
 ## View with a Stack View
 
