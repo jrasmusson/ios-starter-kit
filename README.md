@@ -70,6 +70,7 @@ A starter kit for those interested in iOS programming
 * [NSCoder](basics/NSCoder/NSCoder.md)
 * [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/README.md)
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
+* [UITextView](basics/UITextView/README.md)
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 * [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
 * [UIModal](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/README.md)
