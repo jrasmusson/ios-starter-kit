@@ -1,5 +1,61 @@
 # UITextView
 
+## How to create tappable hyper link
+
+![](images/1.png)
+
+![](images/0.png)
+
+- Add a `UITextField`
+- Under `Data Detectors` select:
+ -  Editable - `false`
+ -  Selectable - `true`
+ -  Link - `true`
+
+**ViewController**
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var textView: UITextView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+
+    private func setup() {
+        let path = "https://agilewarrior.wordpress.com/cheat-sheets/git/"
+        let text = textView.text ?? ""
+        let font = textView.font
+        let attributedString = NSAttributedString.makeHyperlink(for: path, in: text, as: "here")
+        textView.attributedText = attributedString
+        textView.font = font
+    }
+
+}
+
+extension NSAttributedString {
+
+    static func makeHyperlink(for path: String, in string: String, as substring: String) -> NSAttributedString {
+        let nsString = NSString(string: string)
+        let substringRange = nsString.range(of: substring)
+        let attributedString = NSMutableAttributedString(string: string)
+        attributedString.addAttribute(.link, value: path, range: substringRange)
+        return attributedString
+    }
+}
+```
+
+Discussion
+
+- Text fields are good for this because of that link detector
+- Need to save the font before the attributed text is assigned so you can assign back
+
+
+ 
 ## How to left justify multiline text
 
 ![Dismiss keyboard](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITextView/images/multiline.png)
