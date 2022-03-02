@@ -101,6 +101,25 @@ extension ViewController: UITableViewDataSource {
 tableView.tableFooterView = UIView() // hide empty rows
 ```
 
+### Hide section footer
+
+```swift
+tableView.sectionFooterHeight = 0.0
+```
+
+### Hide first section but not others
+
+```swift
+func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard section > 0 else { return nil }
+    return SectionHeader()
+}
+
+func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return section == 0 ? CGFloat.leastNonzeroMagnitude : 34
+}
+```
+
 ### Make cell separators span full screen width
 
 ```swift
