@@ -70,6 +70,7 @@ A starter kit for those interested in iOS programming
 * [NSCoder](basics/NSCoder/NSCoder.md)
 * [UICollectionView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UICollectionView/README.md)
 * [UIPageViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIPageViewController/README.md)
+* [UITextView](basics/UITextView/README.md)
 * [UIButton](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIButton/README.md)
 * [UISwitch](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UISwitch/README.md)
 * [UIModal](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIModal/README.md)
@@ -97,7 +98,6 @@ A starter kit for those interested in iOS programming
 * [UITableView](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableView/UITableView.md)
 * [UITableView Full Header Footer In Section](basics/UITableViewHeaderFooterInSection/README.md)
 * [UITableViewCell](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UITableViewCell/UITableViewCell.md)
-* [UITableViewHeaderFooterNib](basics/UITableView/HeaderFooterNib/README.md)
 * [UITableViewCellsAndTypes](basics/UITableView/UITableCellsAndTypes.md)
 
 

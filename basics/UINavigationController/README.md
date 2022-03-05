@@ -254,6 +254,25 @@ Note: These need to be set as a group, else the last attribute set will override
 
 ## Custom BarButton Items
 
+So there are back bar button items were you can set the text of the back button with the back chevron like this:
+
+```swift
+navigationItem.backBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: nil, action: nil)
+```
+
+But if you don't the chevron, you can override by placing a left bar button item in its place:
+
+```swift
+navigationItem.hidesBackButton = true
+let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeTapped))
+closeButton.tintColor = .systemBlue
+navigationItem.leftBarButtonItem = closeButton
+```
+
+![](images/0.png)
+
+Do this in the view controller that is getting loaded.
+
 We can add `UIBarButtonItem`s to our navigation bar.
 
 ```swift

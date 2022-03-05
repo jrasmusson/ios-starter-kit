@@ -92,7 +92,7 @@ extension ViewController: UITableViewDelegate {
 
 ### Getting rid of floating headers
 
-If you don't want the headers to group and float as you scroll up try changing the styling.
+If you don't want the headers to group and float as you scroll up try changing the styling to `Grouped`.
 
 ![](images/3.png)
 
