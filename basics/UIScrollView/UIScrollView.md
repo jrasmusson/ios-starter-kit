@@ -35,6 +35,55 @@ Everything should be flush and perfectly laid out. If it isn't check your constr
 
 At this point your are done 🎉. Feel free to do your layout in your content view.
 
+## Alterative way
+
+Drag out a scroll view.
+
+![](images/30.png)
+
+Resize to view controller edges.
+
+![](images/31.png)
+
+Pin scroll view to parent edges (safe area).
+
+![](images/32.png)
+
+![](images/33.png)
+
+![](images/34.png)
+
+Add a content view.
+
+![](images/35.png)
+
+Drag it out to the edges. Rename `ContentView`.
+
+![](images/36.png)
+
+Pin the edges of the content view to scroll view.
+
+![](images/37.png)
+
+![](images/38.png)
+
+![](images/39.png)
+
+Will see red. Next we need to set equal height and width between `Scroll View` and `ContentView`.
+
+![](images/40.png)
+
+![](images/41.png)
+
+![](images/42.png)
+
+Next modify the height contraints so it is not always constant.
+
+![](images/43.png)
+
+![](images/44.png)
+
+🎉 At this point your scroll view and content view should be good to go.
 
 ## View with a Stack View
 
