@@ -92,6 +92,7 @@ A starter kit for those interested in iOS programming
 * [NSAttributedString](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/NSAttributedString/README.md)
 * [ContextMenus](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/ContextMenu/README.md)
 * [Higher Order Functions](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/HigherOrderFunctions/README.md)
+* [PDFs](basics/)
 
 ### UITableView
 
