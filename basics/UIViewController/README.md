@@ -1,5 +1,118 @@
 # UIViewController
 
+## Present
+
+Default is modal:
+
+```swift
+@objc func nextTapped(sender: UIButton) {
+    let vc = ViewController2()
+    vc.modalPresentationStyle = .automatic // default
+    vc.modalTransitionStyle = .coverVertical // default
+    present(vc, animated: true, completion: nil)
+}
+```
+
+![](images/0.gif)
+
+## modalPresentationStyle
+
+Here are the various presentation styles:
+
+```swift
+public enum UIModalPresentationStyle : Int {  
+    case fullScreen = 0
+
+    @available(iOS 3.2, *)
+    case pageSheet = 1
+
+    @available(iOS 3.2, *)
+    case formSheet = 2
+
+    @available(iOS 3.2, *)
+    case currentContext = 3
+
+    @available(iOS 7.0, *)
+    case custom = 4
+
+    @available(iOS 8.0, *)
+    case overFullScreen = 5
+
+    @available(iOS 8.0, *)
+    case overCurrentContext = 6
+
+    @available(iOS 8.0, *)
+    case popover = 7
+
+    @available(iOS 7.0, *)
+    case none = -1
+
+    @available(iOS 13.0, *)
+    case automatic = -2
+}
+```
+
+### automatic, pageSheet, formSheet, popover
+
+These look the same as the now defaul modal view.
+
+```swift
+@objc func nextTapped(sender: UIButton) {
+    let vc = ViewController2()
+    vc.modalPresentationStyle = .pageSheet
+    vc.modalTransitionStyle = .coverVertical // default
+    present(vc, animated: true, completion: nil)
+}
+```
+
+![](images/1.gif)
+
+### currentContext, overFullScreen, overCurrentContext
+
+These are full screen take overs.
+
+```swift
+@objc func nextTapped(sender: UIButton) {
+    let vc = ViewController2()
+    vc.modalPresentationStyle = .currentContext
+    vc.modalTransitionStyle = .coverVertical // default
+    present(vc, animated: true, completion: nil)
+}
+```
+
+![](images/2.gif)
+
+
+## modalTransitionStyle
+
+```swift
+public enum UIModalTransitionStyle : Int {    
+    case coverVertical = 0
+    case flipHorizontal = 1
+    case crossDissolve = 2
+    
+    @available(iOS 3.2, *)
+    case partialCurl = 3
+}
+```
+
+### flipHorizontal
+
+![](images/3.gif)
+
+### crossDissolve
+
+![](images/4.gif)
+
+### partialCurl
+
+```swift
+vc.modalPresentationStyle = .fullScreen // required
+vc.modalTransitionStyle = .partialCurl
+```
+
+![](images/5.gif)
+
 ## How to present modally 
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/images/modal.png" alt="drawing" width="400"/>
