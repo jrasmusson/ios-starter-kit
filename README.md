@@ -48,6 +48,7 @@ A starter kit for those interested in iOS programming
 * [Nibs](basics/Nibs/README.md)
 * [Animations](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Animation/README.md)
 * [UIViewController](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIViewController/README.md)
+* [UISheetPresentationController](basics/UISheetPresentationController/README.md)
 * [DynamicFont](https://github.com/jrasmusson/ios-starter-kit/tree/master/basics/DynamicFont)
 * [Color](https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/Color/README.md)
 * [CoreGraphics](basics/CoreGraphics/README.md)
