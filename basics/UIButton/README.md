@@ -38,8 +38,6 @@ let configuration = UIImage.SymbolConfiguration(pointSize: 100, weight: .bold, s
 let image = UIImage(systemName: "play.circle.fill", withConfiguration: configuration)
 playPauseButton.setImage(image, for: .normal)
 playPauseButton.backgroundColor = .systemOrange
-playPauseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-playPauseButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
 playPauseButton.addTarget(self, action: #selector(didTapPauseOrPlay), for: .primaryActionTriggered)
 ```
 
