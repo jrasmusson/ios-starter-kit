@@ -30,6 +30,21 @@ func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UI
 }
 ```
 
+## Symbol Button Large
+
+```swift
+playPauseButton.translatesAutoresizingMaskIntoConstraints = false
+let configuration = UIImage.SymbolConfiguration(pointSize: 100, weight: .bold, scale: .large)
+let image = UIImage(systemName: "play.circle.fill", withConfiguration: configuration)
+playPauseButton.setImage(image, for: .normal)
+playPauseButton.backgroundColor = .systemOrange
+playPauseButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+playPauseButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+playPauseButton.addTarget(self, action: #selector(didTapPauseOrPlay), for: .primaryActionTriggered)
+```
+
+![](images/13.png)
+
 # Button types
 
 ```swift
