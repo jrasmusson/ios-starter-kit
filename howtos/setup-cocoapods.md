@@ -14,6 +14,14 @@ Close project.
 Reopen with workspace file.
 Use.
 
+## Update
+
+```bash
+> pos install --repo-update
+```
+
+## Command line search
+
 How to search for pod from command line (better than web)
 
 ```bash
