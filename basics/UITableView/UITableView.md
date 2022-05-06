@@ -576,7 +576,54 @@ extension ViewController: UITableViewDataSource {
 }
 ```
 
+## Cell Animation
 
+You can animate the appearance of a cell by making it fade in:
+
+```swift
+func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    cell.alpha = 0
+    UIView.animate(withDuration: 0.75) {
+        cell.alpha = 1.0
+    }
+}
+```
+
+### Pulse animation
+
+![](images/pulse.gif)
+
+Or you can make it pulse on a tap:
+
+```swift
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.cellForRow(at: indexPath)?.showAnimationPulse {
+        // weak self
+    }
+}
+
+extension UITableViewCell {
+    func showAnimationPulse(_ completionBlock: @escaping () -> Void) {
+        isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: { [weak self] in
+            self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+        }) {  (done) in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            }) { [weak self] (_) in
+                self?.isUserInteractionEnabled = true
+                completionBlock()
+            }
+        }
+    }
+}
+```
 
 ## Other things you can change
 
