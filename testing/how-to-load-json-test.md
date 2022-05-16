@@ -58,4 +58,4 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 ```
 
-- (Link)[https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation]
+- [Link](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation)
