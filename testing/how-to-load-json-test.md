@@ -30,10 +30,65 @@ func testCanParseWeatherViaJSONFile() throws {
 
 ## How to load JSON from file
 
+**landmarkData.json**
+
+```
+[
+    {
+        "name": "Turtle Rock",
+        "category": "Rivers",
+        "city": "Twentynine Palms",
+        "state": "California",
+        "id": 1001,
+        "isFeatured": true,
+        "isFavorite": true,
+        "park": "Joshua Tree National Park",
+        "coordinates": {
+            "longitude": -116.166868,
+            "latitude": 34.011286
+        },
+]
+```
+
+**Landmark**
+
+```swift
+import Foundation
+import SwiftUI
+import MapKit
+
+struct Landmark: Hashable, Codable {
+    var id: Int
+    var name: String
+    var park: String
+    var state: String
+    var description: String
+
+    private var imageName: String
+    var image: Image {
+        Image(imageName)
+    }
+
+    private var coordinates: Coordinates
+    var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude)
+    }
+
+    struct Coordinates: Hashable, Codable {
+        var latitude: Double
+        var longitude: Double
+    }
+}
+```
+
 **ModelData**
 
 ```swift
 import Foundation
+
+var landmarks: [Landmark] = load("landmarkData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
