@@ -54,6 +54,24 @@ extension ViewController: UITableViewDragDelegate {
 }
 ```
 
+## Haptic Feedback
+
+You can give a nice soft haptic feedback for when the user initiates a drag like this:
+
+```swift
+extension ViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        // Haptic feedback
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+
+        let dragItem = UIDragItem(itemProvider: NSItemProvider())
+        dragItem.localObject = games[indexPath.row]
+        return [ dragItem ]
+    }
+}
+```
+
 ### Links that help
 
 - [How can I use Drag and Drop to reorder a UITableView](https://stackoverflow.com/questions/60270449/how-can-i-use-drag-and-drop-to-reorder-a-uitableview)
