@@ -280,6 +280,169 @@ iOS lets you choose from a vareity of keyboards when accepting user input. Simpl
 //        case emailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
 ```
 
+## Adding images
+
+### Raw image
+
+You can add a image natively to the `UITextField` like this:
+
+![](images/11.png)
+
+**SearchBarView**
+
+```swift
+extension SearchBarView {
+
+    func style() {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect // round
+        textField.placeholder = "Search for anything..."
+        textField.enableSearchButton()
+        textField.enablePasswordToggle()
+    }
+```
+
+
+**UITextField+Ext**
+
+```swift
+import Foundation
+import UIKit
+
+let passwordToggleButton = UIButton(type: .custom)
+let searchToggleButton = UIButton(type: .custom)
+
+extension UITextField {
+
+    func enableSearchButton(){
+        searchToggleButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        leftView = searchToggleButton
+        leftViewMode = .always
+    }
+
+    func enablePasswordToggle(){
+        passwordToggleButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        passwordToggleButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
+        passwordToggleButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        rightView = passwordToggleButton
+        rightViewMode = .always
+    }
+
+    @objc func togglePasswordView(_ sender: Any) {
+        isSecureTextEntry.toggle()
+        passwordToggleButton.isSelected.toggle()
+    }
+}
+```
+
+This works but the spacing is kind of off.
+
+### Image with spacing
+
+To get the image exactly where you want it, embed it in another `UIView` and add that to the `UITextField`:
+
+![](images/12.png)
+
+```swift
+func addSearchImage() {
+    let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
+    let image = UIImage(systemName: "magnifyingglass")
+    imageView.image = image
+    imageView.contentMode = .scaleAspectFit
+    imageView.backgroundColor = UIColor.red
+
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+    view.addSubview(imageView)
+    view.backgroundColor = .green
+    leftViewMode = .always
+    leftView = view
+}
+```
+
+### Image outside TextField
+
+Best option is to probably not even add an image to the text field and instead just keep it separate and add as part of stack view:
+
+![](images/13.png)
+
+**SearchVBarView**
+
+```swift
+//
+//  SearchBarView.swift
+//  Kijiji
+//
+//  Created by jrasmusson on 2022-05-28.
+//
+
+import Foundation
+import UIKit
+
+class SearchBarView: UIView {
+
+    let stackView = UIStackView()
+    let imageView = UIImageView()
+    let textField = UITextField()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        style()
+        layout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: 50)
+    }
+}
+
+extension SearchBarView {
+
+    func style() {
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .systemGreen
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.backgroundColor = .systemBackground
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "magnifyingglass")
+        imageView.backgroundColor = .systemOrange
+
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Search for anything..."
+
+        layer.cornerRadius = 5
+        clipsToBounds = true
+    }
+
+    func layout() {
+        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(textField)
+
+        addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1)
+        ])
+    }
+}
+```
+
+
+
+
+
 ## How to adjust view when keyboard present
 
 When the keyboard appears, you may need to adjust your current view layout  to prevent certain elements from being obstructed.
