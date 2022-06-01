@@ -337,6 +337,18 @@ extension UITextField {
 
 This works but the spacing is kind of off.
 
+If you want to place precisely do like this:
+
+```swift
+searchFilterTextFiled.backgroundColor = .searchFieldBackground
+searchFilterTextFiled.leftViewMode = .always
+let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 28, height: 36))
+let imageView = UIImageView(image: UIImage(named: "search"))
+imageView.frame = CGRect(origin: CGPoint(x: 28.0 - imageView.frame.size.width, y: (36.0 - imageView.frame.size.height) / 2.0), size: imageView.frame.size)
+leftView.addSubview(imageView)
+searchFilterTextFiled.leftView = leftView
+```
+
 ### Image with spacing
 
 To get the image exactly where you want it, embed it in another `UIView` and add that to the `UITextField`:
