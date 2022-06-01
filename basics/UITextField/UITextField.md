@@ -140,6 +140,15 @@ extension ViewController {
 
 ![](images/8.png)
 
+## Styling placeholder text
+
+```swift
+searchFilterTextFiled.attributedPlaceholder = NSAttributedString(string: "Search", attributes: [
+    .foregroundColor: UIColor.reBankGrey,
+    .font: UIFont.systemFont(ofSize: 17)
+])
+```
+
 ## Weather Search Delegate
 
 Example delegate callback for a search textfield.
