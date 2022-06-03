@@ -1,5 +1,15 @@
 # Unit Testing
 
+## Using protocols to make code more testable
+
+```swift
+// MARK: - Unit test specific properties and methods
+extension SomeViewController {
+    var dateOfBirthErrorString: String {
+        return dateOfBirthComponent.errorMessage
+    }
+```
+
 ## Playground
 
 ```swift
