@@ -1,5 +1,21 @@
 # Dates
 
+## Make date
+
+```swift
+func makeDate(day: Int, month: Int, year: Int) -> Date {
+       let userCalendar = Calendar.current
+
+       var components = DateComponents()
+       components.year = year
+       components.month = month
+       components.day = day
+
+       return userCalendar.date(from: components)!
+   }
+```
+
+## Formatters
 ```swift
 import UIKit
 
