@@ -1,5 +1,11 @@
 # How to setup / install cocopods
 
+## Update
+
+```bash
+> pod install --repo-update
+```
+
 ## Setup
 
 ```bash
@@ -14,11 +20,6 @@ Close project.
 Reopen with workspace file.
 Use.
 
-## Update
-
-```bash
-> pos install --repo-update
-```
 
 ## Command line search
 
