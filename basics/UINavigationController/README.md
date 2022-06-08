@@ -1,5 +1,13 @@
 # UINavigationController
 
+## Setting back button text
+
+```swift
+let vc = ViewConttoller()
+navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+navigationController?.pushViewController(vc, animated: true)
+```
+
 ## How to hide the navigation bar on swipe
 
 ```swift
