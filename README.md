@@ -141,6 +141,7 @@ A starter kit for those interested in iOS programming
 * [How to test ViewControllers](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/viewControllers.md)
 * [How to test Responder Chain](https://github.com/jrasmusson/ios-starter-kit/blob/master/testing/how-to-test-responder-chain.md)
 * [How to load JSON test file](testing/how-to-load-json-test.md)
+* [XCUITest](testing/XCUITest/README.md)
 
 ## Animations
 * [Core Animation](animations/CoreAnimation/README.md)
