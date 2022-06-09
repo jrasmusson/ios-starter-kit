@@ -59,3 +59,50 @@ extension LoginView {
 
 ## Page Object Model
 
+**LoginScreen**
+
+```swift
+import Foundation
+import XCTest
+
+class LoginScreen {
+
+    let app: XCUIApplication
+    let usernameTextField: XCUIElement
+    let passwordTextField: XCUIElement
+    let signInButton: XCUIElement
+
+    init(app: XCUIApplication) {
+        self.app = app
+        usernameTextField = app.textFields["Username"]
+        passwordTextField = app.secureTextFields["Password"]
+        signInButton = app.buttons["Sign In"]
+    }
+
+    func login(username: String, password: String) {
+        usernameTextField.tap()
+        usernameTextField.typeText(username)
+        passwordTextField.tap()
+        passwordTextField.typeText(password)
+        signInButton.tap()
+    }
+}
+```
+
+**Test**
+
+```swift
+import XCTest
+
+class UITestUITests: XCTestCase {
+    func testWithScreen() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let loginScreen = LoginScreen(app: app)
+        loginScreen.login(username: "mockusername", password: "mockpassword")
+    }
+}
+```
+
+![](images/demo1.gif)
