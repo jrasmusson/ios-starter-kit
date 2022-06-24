@@ -15,6 +15,13 @@ extension Date {
         dateFormatter.dateFormat = "MMM d, yyyy"
         return dateFormatter.string(from: self)
     }
+    
+    func cutTimestamp() -> Date {
+        let dateFormatter = Date.rebankDateFormatter
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let str = dateFormatter.string(from: self)
+        return Date.fromString(str, dateFormat: "yyyy-MM-dd")!
+    }
 }
 ```
 
