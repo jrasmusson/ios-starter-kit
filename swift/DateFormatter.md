@@ -28,15 +28,15 @@ var dateFormatted: String {
 
 ```swift
 func makeDate(day: Int, month: Int, year: Int) -> Date {
-       let userCalendar = Calendar.current
+   let userCalendar = Calendar.current
 
-       var components = DateComponents()
-       components.year = year
-       components.month = month
-       components.day = day
+   var components = DateComponents()
+   components.year = year
+   components.month = month
+   components.day = day
 
-       return userCalendar.date(from: components)!
-   }
+   return userCalendar.date(from: components)!
+}
 ```
 
 ## Formatters
