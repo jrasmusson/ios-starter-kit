@@ -18,6 +18,12 @@ extension Date {
 }
 ```
 
+```swift
+var dateFormatted: String {
+    return date.monthDayYearString
+}
+```
+
 ## Make date
 
 ```swift
