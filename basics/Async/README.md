@@ -35,11 +35,12 @@ Because list and download could take a long time, making them both asynchronous 
 > 
 > The Task.sleep(until:clock:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(until:clock:) to simulate waiting for a network operation:
 
-> ```swift
-> func listPhotos(inGallery name: String) async throws -> [String]  {
+```swift
+func listPhotos(inGallery name: String) async throws -> [String]  {
     try await Task.sleep(until: .now + .seconds(2), clock: .continuous)
     return ["IMG001", "IMG99", "IMG0404"]
 }
+```
 
 ## Calling Asynchronous Functions in Parallel
 
