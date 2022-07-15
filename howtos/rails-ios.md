@@ -19,6 +19,15 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+## Curl commands
+
+```
+curl -X GET http://localhost:3000/posts
+curl -X POST -d "post[title]=222" http://localhost:3000/posts
+curl -X DELETE http://localhost:3000/posts/5
+curl -X PUT -d "post[title]=888" http://localhost:3000/posts/8
+```
+
 ## iOS
 
 ## Enable localhost calls
