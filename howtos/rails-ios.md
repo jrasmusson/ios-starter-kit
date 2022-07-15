@@ -4,13 +4,10 @@
 ## Rails
 
 ```swift
-rails new app
-cd app
-rails g scaffold Device status:string
-rake db:migrate
-
-// when ready to export
-git checkout-index -a -f --prefix=/Users/jrasmusson/Downloads/temp/
+> rails new posts
+> rails g scaffold Post title:string
+> rake db:migrate
+> rails server
 ```
 
 ## Turn off CSRF verification
