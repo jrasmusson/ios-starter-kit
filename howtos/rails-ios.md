@@ -1,5 +1,6 @@
 # How to Rails iOS
 
+-[Getting started](https://guides.rubyonrails.org/getting_started.html)
 
 ## Rails
 
