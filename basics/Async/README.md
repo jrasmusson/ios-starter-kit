@@ -1,8 +1,8 @@
 # Defining Asynchronous Functions
 
-Asynchronous functions are special kinds of functions that can be suspected while partway through execution.
+Asynchronous functions are special kinds of functions that can be suspended partway through execution.
 
-Normall functions run to completion, throw an error, or never return. Asychronous functions still do one of those things, but can be paused in the middle while waiting for something.
+Normal functions run to completion, throw an error, or never return. Asychronous functions still do one of those things, but can be paused in the middle while waiting for something.
 
 To indicate function is asynchronous, you write the `async` keyword in its declaration after its parameters, similar to how you use `throws`. If function returns, you write `async` before return arrow.
 
@@ -29,14 +29,14 @@ let photo = await downloadPhoto(named: name)
 show(photo)
 ```
 
-Because list and download could take a long time, making them both asynchronousby writing `async` before the return arrow lets the rest of the app's code keep running while this code waits for the picture to be ready.
+Because list and download could take a long time, making them both asynchronous by writing `async` before the return arrow lets the rest of the app's code keep running while this code waits for the picture to be ready.
 
 > NOTE
 > 
 > The Task.sleep(until:clock:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(until:clock:) to simulate waiting for a network operation:
 
-> ```swift
-> func listPhotos(inGallery name: String) async throws -> [String]  {
+```swift
+func listPhotos(inGallery name: String) async throws -> [String]  {
     try await Task.sleep(until: .now + .seconds(2), clock: .continuous)
     return ["IMG001", "IMG99", "IMG0404"]
 }
@@ -57,7 +57,7 @@ let photos = [firstPhoto, secondPhoto, thirdPhoto]
 show(photos)
 ```
 
-This approach has an important drawback: Although the download is asynchronous and lets other work happen whil it progresses, only on call runs at a time. Each photo downloads completely before the next one starts.
+This approach has an important drawback: Although the download is asynchronous and lets other work happen while it progresses, only one call runs at a time. Each photo downloads completely before the next one starts.
 
 However, there's no need to wait for these operations to complete - each photo can download independently, or even as the same time.
 
