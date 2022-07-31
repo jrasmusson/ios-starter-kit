@@ -232,4 +232,4 @@ override func fetchActivationStatus(completion: @escaping (ActivateStatus?, Erro
 
 * [Big Nerd Ranch Mocking](https://www.bignerdranch.com/blog/mocking-with-protocols-in-swift/)
 * [Testing Tips & Tricks - WWDC 2018](https://developer.apple.com/videos/play/wwdc2018/417/?time=761)
-
+* [Swifter - Mini Http Webserver for mocking unit tests](https://github.com/httpswift/swifter)
