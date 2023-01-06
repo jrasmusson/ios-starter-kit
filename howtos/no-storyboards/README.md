@@ -39,6 +39,8 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 ## Xcode 12
 
 ```swift
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -52,6 +54,8 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
 Or with navigation controller
 
 ```swift
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
