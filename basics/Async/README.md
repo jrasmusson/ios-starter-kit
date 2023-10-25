@@ -76,7 +76,7 @@ show(photos)
 
 A *task* is a unit of work that can be run aysnchronously as part of your program. All asynchronous code runs as part of some task. The `async-let` syntax described previously creates a child task for you. You can also create a task group and add child tasks to that group, which gives you more control over priority and cancellation, and lets you create a dynamic number of tasks.
 
-Tasks are arranges in a hierarchy. Each task in a tack group has the same parent task, and each tack can have hild tasks. Because of the xplicit relationship between tasks and task groups, this approach is called *structured concurrency*. Although you take on some of the responsibility for correctivess, the explicit parent -child relationships between taskss lets Swift handle some behaviors like propograting cancellation for you, and lets Swift detect some errors at complile time.
+Tasks are arranges in a hierarchy. Each task in a task group has the same parent task, and each task can have hild tasks. Because of the xplicit relationship between tasks and task groups, this approach is called *structured concurrency*. Although you take on some of the responsibility for correctivess, the explicit parent -child relationships between taskss lets Swift handle some behaviors like propograting cancellation for you, and lets Swift detect some errors at complile time.
 
 ```swift
 await withTaskGroup(of: Data.self) { taskGroup in
