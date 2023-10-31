@@ -132,7 +132,7 @@ let incrementByTen = makeIncrementer(forIncrement: 10)
 incrementByTen()
 incrementByTen()
 incrementByTen()
-// returns a value of 39
+// returns a value of 30
 ```
 
 And by calling it three times it would return a value of 30.
