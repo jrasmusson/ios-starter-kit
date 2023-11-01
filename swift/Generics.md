@@ -25,29 +25,26 @@ struct Service {
         }
     }
     
-        func handle<T: Codable>(response: DataResponse<Data>, completion: @escaping (T?, Error?) -> ()) {
+    func handle<T: Codable>(response: DataResponse<Data>, completion: @escaping (T?, Error?) -> ()) {
         switch response.result {
-        case .success:
+            case .success:
+                guard let jsonData = response.result.value else {
+                    completion(nil, ServiceError.noData)
+                    return
+                }
 
-            guard let jsonData = response.result.value else {
-                completion(nil, ServiceError.noData)
-                return
-            }
+                let decoder = JSONDecoder()
+                do {
+                    let tweets = try decoder.decode(T.self, from: jsonData)
+                    completion(tweets, nil)
+                } catch {
+                    completion(nil, ServiceError.parsingJSON)
+                }
 
-            let decoder = JSONDecoder()
-            do {
-                let tweets = try decoder.decode(T.self, from: jsonData)
-                completion(tweets, nil)
-            } catch {
-                completion(nil, ServiceError.parsingJSON)
-            }
-
-        case .failure(let error):
-            completion(nil, error)
+            case .failure(let error):
+                completion(nil, error)
         }
-    }
-    
-    
+    }    
 }
 ```
 
