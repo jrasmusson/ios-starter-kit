@@ -103,7 +103,7 @@ The mechanics here are to create a new temp variable first, and then assign it t
 ```swift
 var array: [String]?
     
-if let temp = someOptional
+if let temp = someOptional {
     array = temp
 }
 ```
