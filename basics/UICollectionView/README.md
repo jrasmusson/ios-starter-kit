@@ -219,7 +219,7 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
-        if kind == "UICollectionElementKindSectionHeader" {
+        if kind == UICollectionView.elementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCell.identifier, for: indexPath)
             header.backgroundColor = .yellow
             return header
