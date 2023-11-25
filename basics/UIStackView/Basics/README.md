@@ -352,10 +352,10 @@ But what we are missing is the hugging and compression necessary to tell autolay
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/chart.png" alt="drawing" width="600"/>
 
-    Usually in this situation we want the label to hold it's intrinsic width, 
-    and have the text field expand. 
-    So we **increase** the `UILabel` horizontal and vertical **hugging**,
-    while **decreasing** the `UITextField` hugging and horizontal resistance.
+Usually in this situation we want the label to hold it's intrinsic width, 
+and have the text field expand. 
+So we **increase** the `UILabel` horizontal and vertical **hugging**,
+while **decreasing** the `UITextField` hugging and horizontal resistance.
 
 <img src="https://github.com/jrasmusson/ios-starter-kit/blob/master/basics/UIStackView/Basics/images/hugging-added.png" alt="drawing" width="400"/>
 
@@ -443,7 +443,7 @@ class ViewController: UIViewController {
             nameRowsStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             nameRowsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             nameRowsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            ])
+        ])
 
     }
 
@@ -497,15 +497,15 @@ In this case you can get your images to align by changing you stack view alignme
 
 ```swift
 func makeNameStackView() -> UIStackView {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        stack.alignment = .center // gets them aligned
-        stack.spacing = 8.0
+    let stack = UIStackView()
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    stack.axis = .horizontal
+    stack.distribution = .fill
+    stack.alignment = .center // gets them aligned
+    stack.spacing = 8.0
 
-        return stack
-    }
+    return stack
+}
 ```
 
 And then making the images themselves `scaleAspectFit`
