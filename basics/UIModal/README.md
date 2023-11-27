@@ -6,7 +6,7 @@ There are two primary modes of displaying `UIViewController`s in modal form alon
 - `modalTransitionStyle`
 
 ```swift
-public enum t : Int {
+public enum UIModalPresentationStyle : Int {
     case fullScreen
     case pageSheet
     case formSheet
