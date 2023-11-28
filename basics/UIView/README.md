@@ -84,7 +84,7 @@ class ViewController: UIViewController {
 
 ### Sticking it in a stackView
 
-When you stick it in a `UIStackView` you may need to adjust the CHCR (i.e. make it hug) else it will will the stackView depending on what settings you use in your stackView (i.e. distribution/alignment = fill).
+When you stick it in a `UIStackView` you may need to adjust the CHCR (i.e. make it hug) else it will fill the stackView depending on what settings you use in your stackView (i.e. distribution/alignment = fill).
 
 For example if we setup our stackView to take up the entire view, and default it to fill, the view inside it will expand to the full view accordingly.
 
