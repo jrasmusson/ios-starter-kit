@@ -169,7 +169,7 @@ config.buttonSize = .large
 
 ![](images/9.png)
 
-### Content inserts
+### Content insets
 
 The content insets give you padding between the bounds of the button and the content (title and image).
 
