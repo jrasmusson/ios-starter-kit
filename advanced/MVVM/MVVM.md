@@ -1,6 +1,6 @@
 # MVVM
 
-MVVM is a variation of MVC where we pull presentation and business logic out of of `ViewController` and stick it in something called a `ViewModel`
+MVVM is a variation of MVC where we pull presentation and business logic out of `ViewController` and stick it in something called a `ViewModel`
 
 MVVC
 
