@@ -91,7 +91,7 @@ class ChatNotifierSpec: QuickSpec {
                     let chatNotifier = ChatNotifier(notificationPermissionPromptStatus: NotificationPermissionPromptStatus.notShown,
                                                     notShownHandler: showScreen,
                                                     shownAndDeniedHandler: showAlert)
-                    chatNotifier.call()
+                    chatNotifier.notify()
                 }
 
                 it("should show screen") {
